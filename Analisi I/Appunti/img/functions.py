@@ -1,418 +1,139 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.ticker import MultipleLocator, AutoMinorLocator
-from fractions import Fraction
+import cmath
 
+# Configurazione generale dei plot
+plt.style.use('default')
 
-def setup_axes(xtick=1, ytick=1):
-    ax = plt.gca()
-    # assi a croce
-    ax.spines['left'].set_position('zero')
-    ax.spines['bottom'].set_position('zero')
-    ax.spines['right'].set_color('none')
-    ax.spines['top'].set_color('none')
-    ax.xaxis.set_ticks_position('bottom')
-    ax.yaxis.set_ticks_position('left')
-
-    # locator major e minor
-    ax.xaxis.set_major_locator(MultipleLocator(xtick))
-    ax.yaxis.set_major_locator(MultipleLocator(ytick))
-    ax.xaxis.set_minor_locator(AutoMinorLocator(2))
-    ax.yaxis.set_minor_locator(AutoMinorLocator(2))
-
-    # griglia
-    ax.grid(which='major', linestyle='-', linewidth=0.7, color='lightgray')
-    ax.grid(which='minor', linestyle=':', linewidth=0.4, color='lightgray')
-
-    # rimuovere lo 0 da entrambi gli assi
-    xt = ax.get_xticks()
-    yt = ax.get_yticks()
-    new_xt_labels = ["" if abs(t)<1e-12 else f"{int(t) if float(t).is_integer() else t:.2g}" for t in xt]
-    new_yt_labels = ["" if abs(t)<1e-12 else f"{int(t) if float(t).is_integer() else t:.2g}" for t in yt]
-    ax.set_xticks(xt)
-    ax.set_xticklabels(new_xt_labels)
-    ax.set_yticks(yt)
-    ax.set_yticklabels(new_yt_labels)
-
-    ax.margins(0.05)
-
-def setup_axes(xtick=np.pi/2, ytick=0.5, xlabels_as_pi=True):
-    plt.axhline(0, color="black", linewidth=0.8)
-    plt.axvline(0, color="black", linewidth=0.8)
-    plt.grid(True, linestyle="--", linewidth=0.5)
-    
-    if xlabels_as_pi:
-        # Genera tick multipli di π
-        ticks = np.arange(-2*np.pi, 2.5*np.pi, xtick)
-        labels = []
-        for t in ticks:
-            if np.isclose(t, 0):
-                labels.append(r"$0$")
-            elif np.isclose(t, np.pi):
-                labels.append(r"$\pi$")
-            elif np.isclose(t, -np.pi):
-                labels.append(r"$-\pi$")
-            else:
-                frac = Fraction(t/np.pi).limit_denominator(8)
-                num, den = frac.numerator, frac.denominator
-                if num == 1 and den == 1:
-                    labels.append(r"$\pi$")
-                elif den == 1:
-                    labels.append(r"$%d\pi$" % num)
-                else:
-                    labels.append(r"$\frac{%d\pi}{%d}$" % (num, den))
-        plt.xticks(ticks, labels)
-    else:
-        plt.xticks(np.arange(plt.xlim()[0], plt.xlim()[1]+xtick, xtick))
-    
-    plt.yticks(np.arange(plt.ylim()[0], plt.ylim()[1]+ytick, ytick))
-
-# ---------------- Funzioni ---------------- #
-
-def funzione_interpolata():
-    plt.figure(figsize=(6,4))
-    Xp = np.array([1,3,6]); Yp = np.array([3,1,5])
-    coeff = np.polyfit(Xp, Yp, 2); poly = np.poly1d(coeff)
-    x = np.linspace(1,6,300)
-    plt.plot(x, poly(x))
-    plt.scatter(Xp, Yp, color="red", zorder=5)
-    plt.xlim(0,7); plt.ylim(0,6)
-    setup_axes(xtick=1, ytick=1)
-    plt.savefig("grafico.png")
-    plt.show()
-
-def funzione_invertibile():
-    plt.figure(figsize=(6,4))
-    f = lambda t: np.exp(t/3)
-    t = np.linspace(-1,6,400)
-    plt.plot(t, f(t), label="f(x)")
-    plt.plot(f(t), t, label="f⁻¹(x)")
-    m = max(f(t))
-    plt.plot([0, m], [0, m], 'k--', alpha=0.6)
-    plt.xlim(-2,7); plt.ylim(-1,8)
-    setup_axes(xtick=1, ytick=1)
-    plt.legend()
-    plt.savefig("funzione_inversa.png")
-    plt.show()
-
-def funzione_pari():
-    plt.figure(figsize=(6,4))
-    x = np.linspace(-6,6,400)
-    plt.plot(x, x**2)
-    plt.xlim(-6,6); plt.ylim(-1,40)
-    setup_axes(xtick=1, ytick=5)
-    plt.savefig("funzione_pari.png")
-    plt.show()
-
-def funzione_dispari():
-    plt.figure(figsize=(6,4))
-    x = np.linspace(-6,6,400)
-    plt.plot(x, x**3)
-    plt.xlim(-6,6); plt.ylim(-220,220)
-    setup_axes(xtick=1, ytick=50)
-    plt.savefig("funzione_dispari.png")
-    plt.show()
-
-def funzione_gradino():
-    plt.figure(figsize=(6,4))
-    x = np.linspace(-6,6,400)
-    y = np.sign(np.sin(x))
-    plt.step(x, y, where="mid")
-    plt.xlim(-6,6); plt.ylim(-1.5,1.5)
-    setup_axes(xtick=1, ytick=0.5)
-    plt.savefig("funzione_periodica.png")
-    plt.show()
-
-def funzione_due_massimi():
-    plt.figure(figsize=(6,4))
-    x = np.linspace(-3,3,400)
-    f = -x**4 + 5*x**2 - 4
-    plt.plot(x, f, label="f(x)")
-    
-    # massimi locali
-    x_M1 = -np.sqrt(5/2)
-    x_M2 = np.sqrt(5/2)
-    y_M1 = -x_M1**4 + 5*x_M1**2 - 4
-    y_M2 = -x_M2**4 + 5*x_M2**2 - 4
-    plt.scatter([x_M1, x_M2], [y_M1, y_M2], color="red", zorder=5)
-    plt.text(x_M1, y_M1+0.5, "$x_{M1}$", ha="center", color="red")
-    plt.text(x_M2, y_M2+0.5, "$x_{M2}$", ha="center", color="red")
-    
-    plt.xlim(-3,3); plt.ylim(-2,6)
-    setup_axes(xtick=0.5, ytick=1)
-    plt.savefig("massimi_della_funzione.png")
-    plt.show()
-
-def potenza_pari():
-    plt.figure(figsize=(6,4))
-    x = np.linspace(-6,6,400)
-    plt.plot(x, x**4)
-    plt.xlim(-6,6); plt.ylim(-1,1300)
-    setup_axes(xtick=1, ytick=200)
-    plt.savefig("esponente_pari.png")
-    plt.show()
-    
-def potenza_pari_ristretta():
-    plt.figure(figsize=(6,4))
-    x = np.linspace(0, 6, 400)
-    plt.plot(x, x**4)
-    plt.xlim(0, 6)
-    plt.ylim(0, 1300)
-    setup_axes(xtick=1, ytick=200)
-    plt.savefig("esponente_pari_ristretta.png")
-    plt.show()
-
-def potenza_dispari():
-    plt.figure(figsize=(6,4))
-    x = np.linspace(-6,6,400)
-    plt.plot(x, x**3)
-    plt.xlim(-6,6); plt.ylim(-220,220)
-    setup_axes(xtick=1, ytick=50)
-    plt.savefig("esponente_dispari.png")
-    plt.show()
-
-def potenza_neg_pari():
-    plt.figure(figsize=(6,4))
-    x1 = np.linspace(-6,-0.2,300)
-    x2 = np.linspace(0.2,6,300)
-    plt.plot(x1, 1/x1**2)
-    plt.plot(x2, 1/x2**2)
-    plt.xlim(-6,6); plt.ylim(0,10)
-    setup_axes(xtick=1, ytick=1)
-    plt.savefig("esponente_neg_pari.png")
-    plt.show()
-
-def potenza_neg_dispari():
-    plt.figure(figsize=(6,4))
-    x1 = np.linspace(-6,-0.2,300)
-    x2 = np.linspace(0.2,6,300)
-    plt.plot(x1, 1/x1**3)
-    plt.plot(x2, 1/x2**3)
-    plt.xlim(-6,6); plt.ylim(-10,10)
-    setup_axes(xtick=1, ytick=2)
-    plt.savefig("esponente_neg_dispari.png")
-    plt.show()
-
-def potenza_restritta():
-    plt.figure(figsize=(6,4))
-    x = np.linspace(0,6,400)
-    plt.plot(x, x**0.5, label="x^(1/2)")
-    plt.plot(x, x**2, label="x^2")
-    plt.plot(x, x**3, label="x^3")
-    plt.xlim(0,6); plt.ylim(0,225)
-    setup_axes(xtick=1, ytick=25)
-    plt.legend()
-    plt.savefig("restrizione_potenza.png")
-    plt.show()
-
-def radice_pari():
-    plt.figure(figsize=(6,4))
-    x_pos = np.linspace(0, 6, 400)
-    plt.plot(x_pos, np.sqrt(x_pos), label="√x (n=2)")
-    plt.plot(x_pos, x_pos**(1/4), label="⁴√x (n=4)")
-    plt.xlim(0, 6)
-    plt.ylim(0, 3)
-    setup_axes(xtick=1, ytick=0.5)
-    plt.legend()
-    plt.savefig("radice_pari.png")
-    plt.show()
-
-def radice_dispari():
-    plt.figure(figsize=(6,4))
-    x = np.linspace(-6, 6, 400)
-    plt.plot(x, np.cbrt(x), label="∛x (n=3)")
-    plt.plot(x, np.sign(x) * np.abs(x)**(1/5), label="⁵√x (n=5)")
-    plt.xlim(-6, 6)
-    plt.ylim(-2, 3)
-    setup_axes(xtick=1, ytick=0.5)
-    plt.legend()
-    plt.savefig("radice_dispari.png")
-    plt.show()
-
-def valore_assoluto():
-    plt.figure(figsize=(6,4))
-    x = np.linspace(-6,6,400)
-    plt.plot(x, np.abs(x))
-    plt.xlim(-6,6); plt.ylim(-1,7)
-    setup_axes(xtick=1, ytick=1)
-    plt.savefig("funzione_valore_assoluto.png")
-    plt.show()
-
-def lineari():
-    x = np.linspace(-6, 6, 400)
-    plt.figure(figsize=(7,5))
-    plt.plot(x, 0*x, color='blue', linestyle='--', linewidth=2, label='a=0 (retta orizzontale)')
-    plt.plot(x, 1*x, color='green', linestyle='-', linewidth=2, label='a>0 (pendenza positiva)')
-    plt.plot(x, -1*x, color='red', linestyle='-.', linewidth=2, label='a<0 (pendenza negativa)')
-    plt.xlim(-6,6); plt.ylim(-6,6)
-    setup_axes(xtick=1, ytick=1)
-    plt.legend(loc='upper left')
-    plt.savefig("lineari_combinato.png")
-    plt.show()
-def monotone_crescenti():
-    x = np.linspace(-6, 6, 400)
-    plt.figure(figsize=(7,5))
-
-    # Monotona crescente (con tratti costanti)
-    y_monotona = np.piecewise(x, [x<-2, (x>=-2) & (x<2), x>=2], [0, 1, 2])
-    plt.plot(x, y_monotona, color='green', linestyle='-', linewidth=2, label='Monotona crescente')
-
-    # Strettamente crescente (sempre in salita)
-    y_stretto = 0.5*x + 1
-    plt.plot(x, y_stretto, color='blue', linestyle='--', linewidth=2, label='Strettamente crescente')
-
-    plt.xlim(-6,6); plt.ylim(-1,4)
-    setup_axes(xtick=1, ytick=1)
-    plt.legend()
-    plt.savefig("monotone_crescenti.png")
-    plt.show()
-
-def monotone_decrescenti():
-    x = np.linspace(-6, 6, 400)
-    plt.figure(figsize=(7,5))
-
-    # Monotona decrescente (con tratti costanti)
-    y_monotona = np.piecewise(x, [x<-2, (x>=-2) & (x<2), x>=2], [2, 1, 0])
-    plt.plot(x, y_monotona, color='red', linestyle='-', linewidth=2, label='Monotona decrescente')
-
-    # Strettamente decrescente (sempre in discesa)
-    y_stretto = -0.5*x + 1
-    plt.plot(x, y_stretto, color='orange', linestyle='--', linewidth=2, label='Strettamente decrescente')
-
-    plt.xlim(-6,6); plt.ylim(-1,3)
-    setup_axes(xtick=1, ytick=1)
-    plt.legend()
-    plt.savefig("monotone_decrescenti.png")
-    plt.show()
-
-def esponenziale():
-    plt.figure(figsize=(6,4))
+# 1. Funzioni Iperboliche (Lezione 12)
+def plot_funzioni_iperboliche():
     x = np.linspace(-3, 3, 400)
-    
-    a1 = 2     # base > 1
-    a2 = 0.5   # base tra 0 e 1
+    sinh_x = np.sinh(x)
+    cosh_x = np.cosh(x)
 
-    plt.plot(x, a1**x, label=r"$a>1$", color="tab:blue")
-    plt.plot(x, a2**x, label=r"$0<a<1$", color="tab:orange")
-    
-    plt.xlim(-3, 3)
-    plt.ylim(0, 8)
-    setup_axes(xtick=1, ytick=1)
+    # Nota: ax è un array di due oggetti Axes: ax e ax[2]
+    fig, ax = plt.subplots(1, 2, figsize=(12, 5))
+    fig.suptitle('Funzioni Iperboliche (Lezione 12)')
 
-    plt.legend(loc="upper left")
-    plt.savefig("esponenziale.png", dpi=300)
+    # --- Primo Subplot: Seno Iperbolico (ax) ---
+    ax.plot(x, sinh_x, label='sinh(x)', color='red')
+    ax.plot(x, (np.exp(x) - np.exp(-x)) / 2, '--', color='blue', alpha=0.5, label='(e^x - e^{-x}) / 2')
+    ax.axhline(0, color='black', linewidth=0.5)
+    ax.axvline(0, color='black', linewidth=0.5)
+    ax.set_title('Seno Iperbolico (sinh x)')
+    ax.set_ylim(-10, 10)
+    ax.legend()
+
+    # --- Secondo Subplot: Coseno Iperbolico (ax[2]) ---
+    ax[2].plot(x, cosh_x, label='cosh(x)', color='red')
+    ax[2].plot(x, (np.exp(x) + np.exp(-x)) / 2, '--', color='blue', alpha=0.5, label='(e^x + e^{-x}) / 2')
+    ax[2].axhline(0, color='black', linewidth=0.5)
+    ax[2].axvline(0, color='black', linewidth=0.5)
+    ax[2].set_title('Coseno Iperbolico (cosh x)')
+    ax[2].set_ylim(0, 10)
+    ax[2].legend()
+
+    plt.tight_layout(rect=[0, 0.03, 1, 0.95])
     plt.show()
 
-def logaritmica():
-    plt.figure(figsize=(6,4))
-    x = np.linspace(0.01, 8, 400)  # dominio positivo per il logaritmo
-    
-    a1 = 2     # base > 1
-    a2 = 0.5   # base tra 0 e 1
+# 2. Trasformazione: Valore Assoluto (Lezione 12/Cap. 3)
+def plot_valore_assoluto():
+    x = np.linspace(-5, 5, 400)
+    y = np.abs(x)
 
-    plt.plot(x, np.log(x)/np.log(a1), label=r"$a>1$", color="tab:blue")
-    plt.plot(x, np.log(x)/np.log(a2), label=r"$0<a<1$", color="tab:orange")
-
-    plt.xlim(0, 8)
-    plt.ylim(-4, 4)
-    setup_axes(xtick=1, ytick=1)
-
-    plt.legend(loc="upper right")
-    plt.title("Funzione logaritmica $y = \\log_a(x)$")
-    plt.savefig("logaritmica.png", dpi=300)
+    plt.figure(figsize=(6, 5))
+    plt.plot(x, y, label='f(x) = |x|', color='blue')
+    plt.axhline(0, color='black', linewidth=0.5)
+    plt.axvline(0, color='black', linewidth=0.5)
+    plt.title('Funzione Valore Assoluto |x|')
+    plt.grid(True, linestyle='--', alpha=0.6)
+    plt.legend()
     plt.show()
 
+# 3. Funzione Potenza (n pari e n dispari) (Cap. 3, cf.)
+def plot_potenze():
+    x = np.linspace(-2, 2, 400)
 
-def potenze_reali():
-    plt.figure(figsize=(6,4))
-    x = np.linspace(0.1, 5, 400)  # evitare x=0 per alpha < 0
+    fig, ax = plt.subplots(1, 2, figsize=(10, 5))
+    fig.suptitle('Funzioni Potenza $f(x) = x^n$')
 
-    # Tre esponenti rappresentativi
-    alphas = [-1, 0.5, 2]
-    labels = [r"$\alpha<1$", r"$0<\alpha<1$", r"$\alpha>1$"]
+    # n Dispari (es. n=3)
+    ax.plot(x, x**3, label='$x^3$', color='darkgreen')
+    ax.axhline(0, color='black', linewidth=0.5)
+    ax.axvline(0, color='black', linewidth=0.5)
+    ax.set_title('Potenza Dispari (n=3)')
+    ax.legend()
+    ax.set_ylim(-8, 8)
+    ax.set_xlim(-2, 2)
 
-    for a, label in zip(alphas, labels):
-        plt.plot(x, x**a, label=label, linewidth=2)
+    # n Pari (es. n=4)
+    ax[2].plot(x, x**4, label='$x^4$', color='darkred')
+    ax[2].axhline(0, color='black', linewidth=0.5)
+    ax[2].axvline(0, color='black', linewidth=0.5)
+    ax[2].set_title('Potenza Pari (n=4)')
+    ax[2].legend()
+    ax[2].set_ylim(0, 8)
+    ax[2].set_xlim(-2, 2)
 
-    plt.xlim(0, 5)
-    plt.ylim(0, 10)
-    setup_axes(xtick=0.5, ytick=1)
-    plt.legend(title=r"$y = x^\alpha$")
-    plt.savefig("potenze_reali.png")
+    plt.tight_layout(rect=[0, 0.03, 1, 0.95])
     plt.show()
 
-def seno():
-    plt.figure(figsize=(6,4))
-    x = np.linspace(-2*np.pi, 2*np.pi, 800)
-    plt.plot(x, np.sin(x), label=r"$\sin x$")
-    plt.xlim(-2*np.pi, 2*np.pi)
-    plt.ylim(-1.2, 1.2)
-    setup_axes()
-  
-    plt.savefig("seno.png")
-    plt.show()
-def coseno():
-    plt.figure(figsize=(6,4))
-    x = np.linspace(-2*np.pi, 2*np.pi, 800)
-    plt.plot(x, np.cos(x), label=r"$\cos x$", color="orange")
-    plt.xlim(-2*np.pi, 2*np.pi)
-    plt.ylim(-1.2, 1.2)
-    setup_axes()
- 
-    plt.savefig("coseno.png")
-    plt.show()
-def tangente():
-    plt.figure(figsize=(6,4))
-    x = np.linspace(-np.pi/2+0.05, np.pi/2-0.05, 400)
-    plt.plot(x, np.tan(x), label=r"$\tan x$", color="green")
-    plt.xlim(-np.pi/2, np.pi/2)
-    plt.ylim(-6, 6)
-    setup_axes(xtick=np.pi/4)
-  
-    plt.savefig("tangente.png")
-    plt.show()
-def cotangente():
-    plt.figure(figsize=(6,4))
-    x = np.linspace(0.05, np.pi-0.05, 400)
-    plt.plot(x, 1/np.tan(x), label=r"$\cot x$", color="red")
-    plt.xlim(0, np.pi)
-    plt.ylim(-6, 6)
-    setup_axes(xtick=np.pi/4)
+# 4. Piano di Gauss e Modulo (Lezione 13)
+def plot_piano_gauss():
+    z = complex(3, 4)
+    rho = abs(z)
 
-    plt.savefig("cotangente.png")
+    # Se usiamo plt.figure senza subplot, ax non è un array
+    fig, ax = plt.subplots(figsize=(6, 6))
+
+    # Assi cartesiani
+    ax.axhline(0, color='black', linewidth=0.8)
+    ax.axvline(0, color='black', linewidth=0.8)
+
+    # Punto z
+    ax.plot(z.real, z.imag, 'ro', label=f'z = {z.real} + {z.imag}i')
+
+    # Vettore e Modulo
+    ax.plot([0, z.real], [0, z.imag], 'b--', label=f'Modulo |z| = {rho:.2f}')
+
+    # Triangolo rettangolo per la forma trigonometrica
+    ax.plot([z.real, z.real], [0, z.imag], 'k:', alpha=0.6)
+    ax.plot([0, z.real], [z.imag, z.imag], 'k:', alpha=0.6)
+
+    ax.set_xlabel('Reale (a)')
+    ax.set_ylabel('Immaginario (b)')
+    ax.set_title('Piano di Gauss (Forma Trigonometrica)')
+    ax.grid(True, linestyle='--', alpha=0.5)
+    ax.set_xlim(-1, 5)
+    ax.set_ylim(-1, 5)
+    ax.set_aspect('equal', adjustable='box')
+    ax.legend()
     plt.show()
 
-def arcoseno():
-    plt.figure(figsize=(6,4))
-    x = np.linspace(-1, 1, 400)
-    plt.plot(x, np.arcsin(x), label=r"$\arcsin x$")
-    plt.xlim(-1, 1)
-    plt.ylim(-np.pi/2, np.pi/2)
-    setup_axes(xtick=0.5, ytick=np.pi/4, xlabels_as_pi=False)
+# 5. Successione Decrescente (Esempio 1/n) (Lezione 15)
+def plot_successione_decrescente():
+    n = np.arange(1, 15)
+    a_n = 1 / n
 
-    plt.savefig("arcoseno.png")
+    fig, ax = plt.subplots(figsize=(8, 5))
+
+    # Grafico della successione: 'bo' indica punti blu, '--' linea tratteggiata
+    ax.plot(n, a_n, 'bo', linestyle='--', markerfacecolor='blue', label='$a_n = 1/n$')
+
+    # Limite (inf = 0)
+    ax.axhline(0, color='red', linestyle='-', linewidth=1.5, label='Limite L = inf A = 0')
+
+    ax.set_xlabel('Indice n')
+    ax.set_ylabel('Valore $a_n$')
+    ax.set_title('Successione Decrescente (Teorema di Regolarità)')
+    ax.grid(True, linestyle='--', alpha=0.6)
+    ax.legend()
     plt.show()
-def arcocoseno():
-    plt.figure(figsize=(6,4))
-    x = np.linspace(-1, 1, 400)
-    plt.xlim(-1, 1)
-    plt.ylim(0, np.pi)
-    setup_axes(xtick=0.5, ytick=np.pi/4, xlabels_as_pi=False)
 
-    plt.savefig("arcocoseno.png")
-    plt.show()
-
-
-
-
-
-
-
-# ---------------- Esecuzione ---------------- #
-seno()
-coseno()
-tangente()
-cotangente()
-arcocoseno()
-arcoseno()
-
+# Esecuzione dei plot
+if __name__ == '__main__':
+    plot_funzioni_iperboliche()
+    plot_valore_assoluto()
+    plot_potenze()
+    plot_piano_gauss()
+    plot_successione_decrescente()
