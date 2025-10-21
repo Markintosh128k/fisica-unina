@@ -764,3 +764,94 @@ Per definire le funzioni inverse, è necessario restringere il dominio delle fun
     \label{fig:arcotangente}
 \end{figure}
 \FloatBarrier
+
+\subsection{Funzioni Iperboliche}
+Definiamo il Seno Iperbolico ($\sinh x$) e il Coseno Iperbolico ($\cosh x$):
+
+\begin{itemize}
+    \item \textbf{Seno Iperbolico ($\sinh x$)} (Dispari):
+    \[ \sinh x = \frac{e^x - e^{-x}}{2} \]
+    Dominio: $\mathbb{R} \to \mathbb{R}$ [2].
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.45\textwidth]{img/grafico_senh.png} % Placeholder per grafico e^x, e^-x e sinh x
+        \caption{Grafico di $\sinh x$ (come differenza tra $e^x/2$ e $-e^{-x}/2$). Cfr. [2]}
+    \end{figure}
+
+    \item \textbf{Coseno Iperbolico ($\cosh x$)} (Pari):
+    \[ \cosh x = \frac{e^x + e^{-x}}{2} \]
+    Dominio: $\mathbb{R} \to [1, +\infty[$.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.45\textwidth]{img/grafico_cosh.png} % Placeholder per grafico e^x, e^-x e cosh x
+        \caption{Grafico di $\cosh x$ (come somma di $e^x/2$ e $e^{-x}/2$). Cfr. [2]}
+    \end{figure}
+\end{itemize}
+Le funzioni iperboliche sono connesse all'iperbole $x^2 - y^2 = 1$. L'inversa del seno iperbolico è $\operatorname{sett}\sinh x: \mathbb{R} \to \mathbb{R}$. L'inversa del coseno iperbolico è $\operatorname{sett}\cosh x: [1, +\infty[ \to [0, +\infty[$.
+
+
+  Usiamo la stessa notazione delle funzioni trigonometriche perché $sinh$ e $cosh$ sono rispettivamente l'ascissa e l'ordinata di un punto $P$ che si sta muovendo su un ramo di iperbole.
+
+\subsection{Trasformazioni del Grafico di Funzioni}
+Le trasformazioni includono traslazioni verticali ($f(x) \pm K$), traslazioni orizzontali ($f(x \pm K)$), dilatazioni/contrazioni, e ribaltamenti.
+
+\begin{itemize}
+\item Traslazione verticale: $f_1(x) = f(x) \pm K$.
+  \begin{figure}[H] % Usato [H] da float per forzare la posizione
+    \centering
+    % SOSTITUIRE 'img/traslazione_verticale.png' con il percorso del tuo file
+    \includegraphics[width=0.45\textwidth]{img/traslazione_verticale.png}
+    \caption{Traslazione verticale: $f(x)$ (grigio) e $f(x)+K$ (rosso).}
+  \end{figure}
+
+\item Traslazione orizzontale: $f_2(x) = f(x \pm K)$.
+    \begin{figure}[H]
+    \centering
+    % SOSTITUIRE 'img/traslazione_orizzontale.png' con il percorso del tuo file
+    \includegraphics[width=0.45\textwidth]{img/traslazione_orizzontale.png}
+    \caption{Traslazione orizzontale: $f(x)$ (grigio) e $f(x+K)$ (rosso).}
+  \end{figure}
+
+\item Dilatazione/Contrazione: $f_3(x) = K f(x)$ o $f(K x)$.
+    \begin{figure}[H]
+    \centering
+    % NOTA: Questa immagine contiene due subplot (K f(x) e f(K x))
+    % SOSTITUIRE 'img/dilatazione_contrazione.png' con il percorso del tuo file
+    \includegraphics[width=0.9\textwidth]{img/dilatazione.png}
+    \caption{Sinistra: Dilatazione verticale ($K f(x)$). Destra: Contrazione orizzontale ($f(K x)$).}
+  \end{figure}
+
+\item Ribaltamento rispetto all'asse $x$: $f_4(x) = -f(x)$.
+    \begin{figure}[H]
+    \centering
+    % SOSTITUIRE 'img/ribaltamento_x.png' con il percorso del tuo file
+    \includegraphics[width=0.45\textwidth]{img/ribaltamento_x.png}
+    \caption{Ribaltamento asse x: $f(x)$ (grigio) e $-f(x)$ (rosso).}
+  \end{figure}
+
+\item Ribaltamento rispetto all'asse $y$: $f_5(x) = f(-x)$ (simmetria di specie).
+    \begin{figure}[H]
+    \centering
+    % SOSTITUIRE 'img/ribaltamento_y.png' con il percorso del tuo file
+    \includegraphics[width=0.45\textwidth]{img/ribaltamento_y.png}
+    \caption{Ribaltamento asse y: $f(x)$ (grigio) e $f(-x)$ (rosso).}
+  \end{figure}
+
+\item Valore assoluto esterno: $f_6(x) = |f(x)|$.
+    \begin{figure}[H]
+    \centering
+    % SOSTITUIRE 'img/valore_assoluto_esterno.png' con il percorso del tuo file
+    \includegraphics[width=0.45\textwidth]{img/valore_assoluto_esterno.png}
+    \caption{Valore assoluto esterno: $f(x)$ (grigio) e $|f(x)|$ (rosso).}
+  \end{figure}
+
+\item Valore assoluto interno: $f_7(x) = f(|x|)$.
+    \begin{figure}[H]
+    \centering
+    % SOSTITUIRE 'img/valore_assoluto_interno.png' con il percorso del tuo file
+    \includegraphics[width=0.45\textwidth]{img/valore_assoluto_interno.png}
+    \caption{Valore assoluto interno: $f(x)$ (parti tratteggiate) e $f(|x|)$ (rosso).}
+  \end{figure}
+\end{itemize}
