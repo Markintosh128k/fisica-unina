@@ -460,3 +460,375 @@ a_n \to 0 \quad \iff \quad |a_n| \to 0.
 
 
 % DA TERMINARE (? sul quaderno)
+
+
+
+% Algebra dei Limiti
+
+\section{Algebra dei Limiti}\label{algebra-de-limiti}
+
+\subsection{Limiti Fondamentali}
+
+\[
+\lim_{n \to +\infty} n^{\alpha} = 
+\begin{cases}
++\infty \quad \alpha>0\\ 
+1 \quad \alpha=0\\ 
+0 \quad \alpha<0
+\end{cases}
+\]
+
+\[
+\lim_{n \to +\infty} a^n = 
+\begin{cases}
++\infty & a>1\\ 
+1 & a=1\\ 
+0 & |a|<1\\ 
+\text{non esiste} & a \le -1
+\end{cases}
+\]
+
+\[
+\lim_{n \to +\infty} \log_a n = 
+\begin{cases}
++\infty \quad a>1\\
+-\infty \quad 0<a<1
+\end{cases}
+\]
+
+Vogliamo sostituire \(a_n\) ad \(n\) per generalizzare.
+
+\subsection{Proprietà (Limiti Finiti)}\label{proprietuxe0}
+
+Siano \(a_n\) e \(b_n\) due successioni \textbf{convergenti} tali che:  
+\[a_n \to a \in \mathbb{R}, \quad b_n \to b \in \mathbb{R}\]
+
+Allora valgono le seguenti proprietà:
+\subsubsection{1. Somma e differenza}
+\[
+\lim_{n \to +\infty} (a_n \pm b_n) = a \pm b
+\]
+Dimostrazione: si utilizza la \textbf{disuguaglianza triangolare}.
+
+\pf{
+\begin{align}
+ & |(a_{n}+b_{n})-(a+b)| = |(a_{n}-a)+(b_{n}-b)|\\
+ & |(a_{n}-a)+(b_{n}-b)| \leq |a_{n}-a| + |b_{n}-b|
+ \\
+ & \text{Per ipotesi: } |a_{n}-a| < \frac{\epsilon}{2} \; \forall n>\nu_{1}, \quad |b_{n}-b| < \frac{\epsilon}{2} \;
+ \forall n>\nu_{2} \\
+ & \text{Sia } \nu = \max{\nu_{1},\nu_{2}}, \text{ Allora } \forall n>\nu \\
+ & |(a_{n}+b_{n})-(a+b)| \leq |a_{n}-a|
+ + |b_{n}-b| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon \\
+ & \text{QUINDI: } \\
+ & \forall \epsilon > 0, \;
+ \exists \nu : |(a_{n}+b_{n})-(a+b)| < \epsilon \forall n> \nu
+\end{align}
+}
+
+\subsubsection{2. Prodotto}\label{prodotto}
+\[
+   \lim_{n \to +\infty} (a_n \cdot b_n) = a \cdot b
+\]
+
+\subsubsection{3. Rapporto}\label{rapporto}
+\[
+   \lim_{n \to +\infty} \frac{a_n}{b_n} = \frac{a}{b}
+\]
+a patto che \(b_n \neq 0\) e \(b \neq 0\).
+
+\subsubsection{4. Potenza}\label{potenza}
+\[
+   \lim_{n \to +\infty} (a_n)^{b_n} = a^{b}
+\]
+con \(a_n > 0\) (e quindi \(a > 0\)).\\
+Tuttavia, \textbf{questa non è una condizione necessaria}: in alcuni
+casi il limite può esistere anche se \(a \le 0\).
+
+\subsubsection{Esempi}\label{esempi}
+
+\ex{
+\[\lim_{ n \to +\infty } \frac{n}{n+1}=\lim_{ n \to +\infty } \frac{n+1-1}{n+1}=\frac{n+1}{n+1} -\frac{1}{n+1}=\lim_{ n \to +\infty } 1 - \lim_{ n \to +\infty } \frac{1}{n+1} = 1- 0 = 1\]
+}
+
+\ex{
+\[\lim_{ n \to +\infty } \frac{(-1)^n + \sqrt{n}}{n} = \lim_{ n \to +\infty } \frac{(-1)^n}{n} + \lim_{ n \to +\infty } \frac{\sqrt{n}}{n} = 0 + 0 = 0\]
+}
+
+\ex{
+\[\lim_{n \to +\infty} \frac{n^2 + 3n - 1}{2n - 3} = \lim_{n \to +\infty} \frac{n^2\left(1 + \frac{3}{n} - \frac{1}{n^2}\right)}{n\left(2 - \frac{3}{n}\right)} = \lim_{n \to +\infty} \frac{n\left(1 + \frac{3}{n} - \frac{1}{n^2}\right)}{2 - \frac{3}{n}} = +\infty\]
+}
+
+\subsection{Algebra dei limiti in \texorpdfstring{$\overline{\mathbb{R}}$}{R esteso}}\label{algebra-dei-limiti-versione-2}
+
+\subsubsection{Somma e differenza}
+
+Siano \(a_n\) e \(b_n\) due successioni tali che:
+\[a_n \to a \in \overline{\mathbb{R}}, \quad b_n \to b \in \overline{\mathbb{R}}\]
+Allora: \[
+\lim_{n \to +\infty} (a_n \pm b_n) = a \pm b \;(\text{Fatta eccezione del caso}\;
+\infty-\infty)
+\] e dove si sottintende che: 
+\begin{align}
+& +\infty \pm b = +\infty \\
+& -\infty \pm b = -\infty\\
+& +\infty + +\infty = +\infty\\
+& -\infty - \infty = -\infty
+\end{align}
+
+\paragraph{Esempi}\label{esempi-1}
+
+\ex{
+\[
+\lim_{ n \to \infty } 2^n + n = +\infty
+\] oppure \[
+\lim_{ n \to \infty } 2^n +\frac{1}{n} = +\infty
+\]
+}
+
+\ex{
+\(a_{n}=n^2\) e \(b_{n}=n\)
+\[\lim_{ n \to \infty } n^2 -n = n^2(1-\frac{1}{n})=\lim_{ n \to \infty } n^2 \cdot \lim_{ n \to \infty } (1-0) = +\infty\]
+
+\(a_{n}=n+1\) e \(b_{n}=n\) \[\lim_{ n \to \infty } a_{n}-b_{n}=1\]
+}
+
+\subsubsection{Prodotto}
+
+Siano \(a_n\) e \(b_n\) due successioni tali che:
+\[a_n \to a \in \overline{\mathbb{R}}, \quad b_n \to b \in 
+\overline{\mathbb{R}}\]
+Allora: \[\lim_{ n \to \infty } a_{n}b_{n}=ab\] Fatta eccezione il caso
+\(+\infty \cdot 0\) dove si sottintende \(\pm \infty \cdot a = \infty\)
+con la regola dei segni e \(\pm\infty \cdot \pm\infty = \infty\) (con la
+regola dei segni).
+
+
+\prop{
+Se \(a_n\) è limitata inferiormente e
+\(b_n \to +\infty\) Allora \[\lim_{ n \to \infty } a_{n}b_{n}=+\infty\]
+
+\paragraph{Esempio}
+\(a_{n}=n\to +\infty\) e
+\(b_{n} =\frac{{(-1)^n}}{n}\to 0\)
+\[a_{n}b_{n} = (-1)^n =\text{Indeterminata}\]
+}
+
+\prop{
+Sia \(a_{n}\) limitata e \(b_n\) infinitesima.
+Allora \[\lim_{ n \to \infty } a_{n}b_{n}=0\]
+}
+\pf{
+Sia \(a_n\) \textbf{limitata}.  
+Ciò implica che:
+\[
+\exists M > 0 \; : \; |a_n| \leq M \quad \forall n \in \mathbb{N}
+\]
+Sia inoltre \(b_n \to 0\), cioè:
+\[
+\forall \varepsilon_0 > 0 \;
+\exists \nu > 0 \; : \; |b_n| < \varepsilon_0 \quad \forall n > \nu
+\]
+Vogliamo mostrare che \(a_n b_n \to 0\), ovvero:
+\[
+\forall \varepsilon > 0 \;
+\exists \nu_1 > 0 \; : \; |a_n b_n| < \varepsilon \quad \forall n > \nu_1
+\]
+Sia \(\varepsilon > 0\). Scegliamo \(\varepsilon_0 = \frac{\varepsilon}{M}\). Dalla definizione di \(b_n \to 0\), esiste \(\nu\) tale che \(|b_n| < \varepsilon_0\) per \(n > \nu\).
+Scegliendo \(\nu_1 = \nu\), abbiamo:
+\[
+|a_n b_n| = |a_n| \cdot |b_n| < M \cdot \varepsilon_0 = M \cdot \left(\frac{\varepsilon}{M}\right) = \varepsilon \quad \forall n > \nu_1
+\]
+Quindi \(a_n b_n \to 0\).
+}
+
+\subsection{Forme indeterminate}\label{forme-indeterminate}
+\begin{itemize}
+\item
+  \(\infty-\infty\)
+\item
+  \(\infty \cdot 0\)
+\end{itemize}
+
+\subsection{Esempi finali}\label{esempi-finali}
+
+\ex{
+\[\lim_{n \to \infty} \frac{n^2 + \sqrt{n} - 2(-1)^n + \arctan(n)}{n^3 - 1 + n^2 \cos(n) - n \sin(n)} = 0\]
+}
+
+\ex{
+\[\lim_{n \to \infty} \frac{n^2 - 3\sqrt{n} + (-1)^n - 2 n^2 \arctan(n)}{\sqrt{n} - 3n + n^2} = 1-\pi\]
+}
+
+\ex{
+\[\lim_{n \to \infty} \left( \arctan(-n) + \frac{3 \sqrt{n} \sin(n)}{\sqrt[3]{n^2 + 1}} + \frac{\pi n + (-1)^n}{n+1} \right) =\]
+\[=\lim_{n \to \infty} \arctan(-n) + \lim_{n \to \infty} \frac{3 \sqrt{n} \sin(n)}{\sqrt[3]{n^2 + 1}} + \lim_{n \to \infty} \frac{\pi n + (-1)^n}{n+1}=\]
+\[= 
+ -\frac{\pi}{2} + 0 + \pi = \frac{\pi}{2}\]
+}
+
+% --- Inizio contenuti da "Algebra dei Limiti in R.md" ---
+
+\subsection{Quoziente (in \texorpdfstring{$\overline{\mathbb R}$}{R esteso})}
+
+\prop{
+Sia \(b_n \to \pm \infty\) allora \(\boxed{\frac{1}{b_n} \to 0}\)
+}
+\pf{
+Supponiamo che \(b_n \to +\infty \implies\)
+\[\forall M > 0 \;
+\exists \nu > 0 : \boxed{b_n > M \; \forall n > \nu}\]
+Per dimostrare la proposizione devo dimostrare che:
+\[\forall \epsilon > 0 \;
+\exists \nu' > 0 : \frac{1}{|b_n|}<\epsilon \; \forall n > \nu' \]
+Scegliendo \(M = 1/\epsilon\), dall'ipotesi \(\exists \nu\) tale che \(\forall n > \nu\)
+\[ b_n > M = \frac{1}{\epsilon} \]
+Essendo \(b_n\) e \(\epsilon\) positivi (definitivamente),
+\[ 0 < \frac{1}{b_n} < \epsilon \]
+Quindi \(\left|\frac{1}{b_n}\right| < \epsilon\) scegliendo \(\nu' = \nu\).
+Quindi \(\frac{1}{\infty} = 0\) (IMPORTANTE!!!)
+}
+
+\prop{
+Sia \(b_{n}\to 0\)
+}
+\pf{
+Se
+\(b_{n}\to 0 \implies \forall \epsilon > 0 \; \exists \nu > 0 :|b_{n}|<\epsilon \quad \forall n>\nu\)
+\[\forall M > 0 \;
+\exists \nu'>0 : \begin{cases}
+\frac{1}{b_{n}}>M \forall n>\nu' \quad \left( \frac{1}{b_n}\to +\infty \right)\\
+\frac{1}{b_{n}}<-M \forall n>\nu' \quad \left( \frac{1}{b_n}\to -\infty \right)
+\end{cases}\] Non posso dire qual è il caso.
+}
+
+\prop{
+Sia \(b_{n}\to 0\) e definitivamente
+\textbf{positiva} \(\implies \frac{1}{b_{n}}\to +\infty\)
+
+Sia \(b_{n}\to 0\) e definitivamente \textbf{negativa}
+\(\implies \frac{1}{b_{n}}\to -\infty\)
+
+Se \(b_{n}\to 0\) e definitivamente positiva:
+\[\exists \nu_{1}:b_{n}>0 \;\forall n > \nu_{1}\] 
+In sintesi: \[b_{n}\to 0^+\]
+}
+
+\rmkb{
+\subsubsection*{Convenzioni sul Quoziente}
+\begin{align}
+ & \frac{1}{\infty}=0\\
+ & \frac{1}{0^+}=+\infty \\
+ & \frac{1}{0^-}=-\infty
+\end{align}
+}
+
+\prop{
+Siano
+\(a_{n}\to a \in \overline{\mathbb{R}}, b_{n}\to b \in \overline{\mathbb{R}}\)
+
+Allora: \[\frac{a_{n}}{b_{n}}=\frac{a}{b}\] secondo le convenzioni
+adottate ad eccezzione dei casi \(\frac{\infty}{\infty}\)
+}
+
+\subsection{Nuova forma indeterminata}
+Da \(0 \cdot \infty\):
+\begin{itemize}
+\item \(\frac{\infty}{\infty}\)
+\item \(\frac{0}{0}\)
+\end{itemize}
+
+\subsection{Esponenziale}
+
+\prop{
+Sia \(a>1\) e sia
+\(a_n \to l \in \overline{\mathbb R}\)
+
+Allora: \[
+\lim_{n \to +\infty} a^{a_n} = 
+\begin{cases}
+a^l &l \in \mathbb{R}\\
++\infty &l=+\infty\\
+0 &l=-\infty
+\end{cases}
+\]
+}
+
+\rmkb{
+\subsubsection*{Convenzioni su Esponenziali e Logaritmi}
+\paragraph{Caso \(a>1\):}
+\begin{align}
+    a^{+\infty} = + \infty \quad & \quad a^{-\infty} = 0 \\
+    \log_a (+\infty) = +\infty \quad & \quad \log_a (0^+) = -\infty
+\end{align}
+\paragraph{Caso \(0<a<1\):}
+\begin{align}
+    a^{+\infty} = 0 \quad & \quad a^{-\infty} = +\infty \\
+    \log_a (+\infty) = -\infty \quad & \quad \log_a (0^+) = +\infty
+\end{align}
+}
+
+\subsection{Forma generale degli esponenziali}
+\[
+{a_n}^{b_n} = e^{b_n \log {a_n}} \quad \text{ se } a_n > 0
+\]
+
+\prop{
+\[
+{a_n}^{b_n} \to
+\begin{cases}
+a^b \text{ se } a \in ] 0, +\infty [ \text{ e } 
+b \in \mathbb{R}\\
+\uparrow \text{TRANNE F.I. : } (e^{b \log a} \text{ con } b \log a = 0 \cdot \infty)
+\end{cases}
+\]
+}
+
+\subsection{Nuove F.I.}
+\begin{itemize}
+\item
+  \(\infty^0\)
+\end{itemize}
+
+\ex{
+\[e^{\log a_{n}}=e^{0 \cdot \infty} = a_{n}^{b_{n}}=+\infty^0\]
+}
+
+\prop{
+Se \(a_n>0\) e \(a>0\) allora
+\(a_{n}^{b_{n}} \to a^b\) con le convenzioni adottate tranne:
+\[\infty^0 \qquad 1^\infty \qquad 0^0\]
+}
+
+\rmkb{
+\subsubsection*{Riepilogo: Algebra Estesa dei Limiti (\(\overline{\mathbb{R}}\))}
+\paragraph{Rapporti}
+\begin{align}
+& \frac{1}{\infty}=0 \\
+& \frac{1}{0^+}=+\infty \\
+& \frac{1}{0^-}=-\infty
+\end{align}
+
+\paragraph{Esponenziali}
+Caso \(a>1\): 
+\begin{align}
+& a^{+\infty} = + \infty \\
+& a^{-\infty} = 0
+\end{align}
+Caso \(0<a<1\): 
+\begin{align}
+& a^{+\infty} = 0 \\
+& a^{-\infty} = +\infty
+\end{align}
+
+\paragraph{Logaritmi}
+Caso \(a>1\): \[
+\log_a (+\infty) = +\infty
+\] Caso \(0<a<1\): \[
+\log_a (+\infty) = -\infty
+\]
+}
+
+
+
+
