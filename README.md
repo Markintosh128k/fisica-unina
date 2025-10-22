@@ -7,7 +7,7 @@ Questo repository contiene appunti, eserciziari e materiale didattico per il cor
 Il materiale è organizzato per materia:
 
 * **/Analisi I**:
-    * `Appunti`: Note del corso in formato LaTeX e PDF.
+    * `Appunti`: Note del corso in formato LaTeX e [PDF](https://raw.githubusercontent.com/Markintosh128k/fisica-unina/main/Analisi%20I/Appunti/analisi_1.pdf).
     * `Eserciziari`: Raccolte di esercizi (es. Marcellini-Sbordone, Alvino-Trombetti).
     * `Libri`: Testi di riferimento consigliati.
 
@@ -25,3 +25,5 @@ Per compilare i file `.tex` (ad esempio `Analisi I/Appunti/analisi_1.tex`):
 ### Template
 
 Nella root del repository è presente un file `template.tex` che può essere utilizzato come base per creare nuovi documenti mantenendo lo stesso stile e formattazione degli appunti.
+
+
