@@ -222,9 +222,10 @@ Allora:
 La dimostrazione segue direttamente dalla definizione di limite ed è quindi ovvia.
 }
 
-\section{Teorema di Unicità del Limite}\label{teorema-unicita-limite}
+\section{Teorema di Unicità del Limite}
 
-\defn{Teorema di Unicità del Limite}{
+% CORREZIONE: Cambiato \defn in \thmr e spostato \label
+\thmr{Teorema di Unicità del Limite}{teorema-unicita-limite}{
 Ogni successione regolare ammette \textbf{UNO e UN SOLO limite}.
 }
 
@@ -514,7 +515,7 @@ Allora valgono le seguenti proprietà:
 Dimostrazione: si utilizza la \textbf{disuguaglianza triangolare}.
 
 \pf{
-\begin{align} % Cambiato align in align per evitare numero equazione
+\begin{align*} % Cambiato align in align* per evitare numero equazione
  & |(a_{n}+b_{n})-(a+b)| = |(a_{n}-a)+(b_{n}-b)|\\
  & |(a_{n}-a)+(b_{n}-b)| \leq |a_{n}-a| + |b_{n}-b|
  \\
@@ -525,7 +526,7 @@ Dimostrazione: si utilizza la \textbf{disuguaglianza triangolare}.
  + |b_{n}-b| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon \\
  & \text{QUINDI: } \\
  & \forall \epsilon > 0, \; \exists \nu : |(a_{n}+b_{n})-(a+b)| < \epsilon \forall n> \nu
-\end{align}
+\end{align*}
 }
 
 \subsubsection{2. Prodotto}\label{prodotto}
@@ -569,12 +570,12 @@ Siano \(a_n\) e \(b_n\) due successioni tali che:
 Allora: \[
 \lim_{n \to +\infty} (a_n \pm b_n) = a \pm b \;(\text{Fatta eccezione del caso}\; \infty-\infty)
 \] e dove si sottintende che: 
-\begin{align} % Cambiato align in align
+\begin{align*} % Cambiato align in align*
 & +\infty \pm b = +\infty \\
 & -\infty \pm b = -\infty\\
 & +\infty + +\infty = +\infty\\
 & -\infty - \infty = -\infty
-\end{align}
+\end{align*}
 
 \paragraph{Esempi}\label{esempi-1}
 
@@ -709,11 +710,11 @@ In sintesi: \[b_{n}\to 0^+\]
 
 \rmkb{
 \subsubsection*{Convenzioni sul Quoziente}
-\begin{align} % Cambiato align in align
+\begin{align*} % Cambiato align in align*
  & \frac{1}{\infty}=0\\
  & \frac{1}{0^+}=+\infty \\
  & \frac{1}{0^-}=-\infty
-\end{align}
+\end{align*}
 }
 
 \prop{
@@ -750,15 +751,15 @@ a^l &l \in \mathbb{R}\\
 \rmkb{
 \subsubsection*{Convenzioni su Esponenziali e Logaritmi}
 \paragraph{Caso \(a>1\):}
-\begin{align} % Cambiato align in align
+\begin{align*} % Cambiato align in align*
     a^{+\infty} = + \infty \quad & \quad a^{-\infty} = 0 \\
     \log_a (+\infty) = +\infty \quad & \quad \log_a (0^+) = -\infty
-\end{align}
+\end{align*}
 \paragraph{Caso \(0<a<1\):}
-\begin{align} % Cambiato align in align
+\begin{align*} % Cambiato align in align*
     a^{+\infty} = 0 \quad & \quad a^{-\infty} = +\infty \\
     \log_a (+\infty) = -\infty \quad & \quad \log_a (0^+) = +\infty
-\end{align}
+\end{align*}
 }
 
 \subsection{Forma generale degli esponenziali}
@@ -796,23 +797,23 @@ Se \(a_n>0\) e \(a>0\) allora
 \rmkb{
 \subsubsection*{Riepilogo: Algebra Estesa dei Limiti (\(\overline{\mathbb{R}}\))}
 \paragraph{Rapporti}
-\begin{align} % Cambiato align in align
+\begin{align*} % Cambiato align in align*
 & \frac{1}{\infty}=0 \\
 & \frac{1}{0^+}=+\infty \\
 & \frac{1}{0^-}=-\infty
-\end{align}
+\end{align*}
 
 \paragraph{Esponenziali}
 Caso \(a>1\): 
-\begin{align} % Cambiato align in align
+\begin{align*} % Cambiato align in align*
 & a^{+\infty} = + \infty \\
 & a^{-\infty} = 0
-\end{align}
+\end{align*}
 Caso \(0<a<1\): 
-\begin{align} % Cambiato align in align
+\begin{align*} % Cambiato align in align*
 & a^{+\infty} = 0 \\
 & a^{-\infty} = +\infty
-\end{align}
+\end{align*}
 
 \paragraph{Logaritmi}
 Caso \(a>1\): \[
@@ -826,13 +827,15 @@ Caso \(a>1\): \[
 % INIZIO CONTENUTO AGGIUNTO
 % ==================================================
 
-\section{Teorema del confronto (Teorema dei carabinieri)}\label{teorema-del-confronto-teorema-dei-carabinieri}
+\section{Teorema del confronto (Teorema dei carabinieri)}
 
-\defn{Teorema del confronto}{
+% CORREZIONE: Cambiato \defn in \thmr e spostato \label
+% ATTENZIONE: Incoerenza matematica tra punto 1 (>=) e Dimostrazione (1) (<=) non corretta come richiesto.
+\thmr{Teorema del confronto (Teorema dei carabinieri)}{teorema-del-confronto-teorema-dei-carabinieri}{
 Valgono le seguenti affermazioni:
 \begin{enumerate}
     \item Siano \(a_{n},b_{n},c_{n}\) tali che
-    \[a_{n}\geq b_{n}\geq c_{n} \quad \forall n \in \mathbb{N}\]
+    \[a_{n}\geq b_{n}\geq c_{n} \quad \forall n \in \mathbb{N}\] % NOTA: Dimostrazione usa <=
     se \(a_{n}\to l \in \mathbb{R}\) e
     \(c_{n}\to l \in \mathbb{R} \implies b_{n}\to l\)
     \item Se \(a_{n}\leq b_{n} \quad \forall n \in \mathbb{N}\) e
@@ -853,7 +856,7 @@ perchè \(n! > n\)
 \begin{itemize}
     \item \(a_{n}\to l\in \mathbb{R}\)
     \item \(c_{n}\to l\in \mathbb{R}\)
-    \item \(a_{n}\leq b_{n}\leq c_{n}\)
+    \item \(a_{n}\leq b_{n}\leq c_{n}\) % NOTA: Definizione usa >=
 \end{itemize}
 Per hp: \[
 \begin{aligned}
@@ -876,12 +879,12 @@ l - \epsilon <a_{n}\leq b_{n} \leq c_{n} <l+\epsilon \; \forall n> \nu_{2} \impl
 \forall n> \nu\]
 
 Per hp: \(b_{n}\geq a_{n}>M\) 
-\begin{align} % Cambiato align in align
+\begin{align*} % Cambiato align in align*
 & \forall n \in \mathbb{N}\\
 & \forall n>\nu_{1}\\
 & \forall n > \nu_{2}\\ \\
 & \text{Quindi } \forall n> \nu = \max\{\nu_{1}, \nu_{2}\}
-\end{align}
+\end{align*}
 }
 
 \section{Continuità di Seno e Coseno}\label{continuita-di-seno-e-coseno}
@@ -893,10 +896,10 @@ Sia \(a_{n}\to a \in \mathbb{R}\) allora:
     \item \(\cos a_{n} \to \cos a\)
 \end{itemize}
 In particolare se \(a_{n}\to 0\) si ha: 
-\begin{align} % Cambiato align in align
+\begin{align*} % Cambiato align in align*
 & \lim_{ n \to \infty } \sin a_{n} = 0 \\
 & \lim_{ n \to \infty } \cos a_{n} = 1
-\end{align}
+\end{align*}
 }
 
 \pf{
@@ -905,12 +908,12 @@ Sia \(a_{n}\to 0\). Th:
 \[
 \lim_{ n \to \infty } \sin a_{n}=0
 \] Ricordiamo le disuguaglianze notevoli: 
-\begin{align} % Cambiato align in align
+\begin{align*} % Cambiato align in align*
 & \text{Se } 0<x<\frac{\pi}{2}: \quad 0 < \sin x < x \\
 & \text{Se } -\frac{\pi}{2}<x<0: \quad x < \sin x < 0 \\
 & \text{Prendendo il valore assoluto in entrambi i casi:} \\
 & \boxed{|\sin x| \le |x|} \quad \text{ per } x \in ]-\frac{\pi}{2}, \frac{\pi}{2}[
-\end{align}
+\end{align*}
  Poiché \(a_n \to 0\), \(a_n\) è definitivamente in
 \(]-\frac{\pi}{2}, \frac{\pi}{2}[\).
 Allora possiamo applicare la
@@ -957,7 +960,7 @@ Sostituendo questi limiti, otteniamo:
 usando la formula di addizione del coseno).}
 }
 
-\section{Limiti Notevoli Derivati}\label{limiti-notevoli}
+\section{Limiti Notevoli Derivati}\label{limiti-notevoli-teo-confronto}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
@@ -968,42 +971,42 @@ usando la formula di addizione del coseno).}
 \textbf{Dimostrazione:}
 Se \(a=1\) è ovvio.
 Sia \(a>1\) consideriamo \(a_1=a\) e \(a_{2}=1=a_{3}=\dots=a_{n}\)
-\begin{align} % Cambiato align in align
+\begin{align*} % Cambiato align in align*
 & G \leq A \implies \sqrt[n]{a} < \frac{a+n-1}{n} \text{Quindi }\\
 & 1 < \sqrt[n]{a} < \frac{a+n-1}{n} \\
 & \text{Se } 0<a<1: \\
 & \sqrt[n]{a} = \left( \frac{1}{\sqrt[n]{a}} \right)^{-1}=\left( \sqrt[n]{\frac{1}{a}} \right)^{-1}\to 1 > \left( \sqrt[n]{\frac{1}{a}}\right)^{-1} > \frac{n}{a+n-1}
-\end{align}
+\end{align*}
 
 \item
   \[\lim_{ n \to \infty } \sqrt[n]n=1\]
   \textbf{Dimostrazione:}
-  \begin{align} % Cambiato align in align
+  \begin{align*} % Cambiato align in align*
    & G\leq A \\
    & a_{1} = n \quad a_{2}=1=a_{3}=\dots=a_{n}\\
    & G = \sqrt[n] n < \frac{{n+n-1}}{n} \to \text{NO} \\
    & a_{1}=\sqrt n=a_{2} \quad a_{3}=\dots=a_{n}=1 \\
    & G = \sqrt[n] n < \frac{2\sqrt n + n -2}{n} = A
-  \end{align}
+  \end{align*}
 \item
   \[\lim_{ n \to \infty } \sqrt[n]{ n^b }=1\] Perchè
   \((\sqrt[n]{ n})^b\) e se \(\sqrt[n]{n}=1\) Allora
   \((\sqrt[n]{ n})^b=1^b=1\)
 \item
   Se \(a_{n}\to 0\) allora:
-  \[\lim_{ n \to \infty } \frac{\sin a_{n}}{a_{n}} = 1 \text{ (ho rimosso l'altro limite che era sintatticamente errato)} \]
-  %\[\lim_{ n \to \infty } \frac{\sin a_{n}}{n} = 1 \text{ anche } \lim_{ n \to \infty } \frac{n\sin_{1}}{n}=\frac{\sin{\frac{1}{n}}}{\frac{1}{n}}=1\]
+  \[\lim_{ n \to \infty } \frac{\sin a_{n}}{a_{n}} = 1 \]
+  %\[\lim_{ n \to \infty } \frac{\sin a_{n}}{n} = 1 \text{ anche } \lim_{ n \to \infty } \frac{n\sin_{1}}{n}=\frac{\sin{\frac{1}{n}}}{\frac{1}{n}}=1\] % Sintassi errata rimossa
   
 \pf{
 Sia x un angolo:
-\begin{align} % Cambiato align in align
+\begin{align*} % Cambiato align in align*
 & \boxed{0<x<\frac{\pi}{2}} \\
 & \sin x < x < \tan x = \frac{\sin x}{\cos x} \\ % Corretto: sin x < x < tan x
-& 1< \frac{x}{\sin x} < \frac{1}{\cos x} \to \boxed{\cos x < \frac{\sin x}{x}<1} \implies \\
+& 1< \frac{x}{\sin x} < \frac{1}{\cos x} \implies \boxed{\cos x < \frac{\sin x}{x}<1} \\ % Tolto \to
 & \implies\text{ è pari quindi } \; |x|< \frac{\pi}{2} \\
 & \text{Allora } \cos a_{n}< \frac{\sin a_{n}}{a_{n}} < 1 \\
  & \text{Calcolando il limite, sia a dx che a sx è 1.}
-\end{align} 
+\end{align*} 
 }
 \item
   Se \(a_{n}\to 0\) allora \[
@@ -1027,14 +1030,14 @@ Sia x un angolo:
   \lim_{ n \to \infty } \frac{1- \cos a_{n}}{{a_{n}}^2}=\frac{1}{2}
   \]
 \pf{
-\begin{align} % Cambiato align in align
+\begin{align*} % Cambiato align in align*
 &\lim_{ n \to \infty }  \frac{1-\cos a_{n}}{{a_{n}}^2} \cdot\frac{1+\cos a_{n}}{1+\cos a_{n}} = \lim_{ n \to \infty } \frac{1-\cos^2 a_{n}}{{a_{n}}^2 (1 + \cos a_{n})}= \lim_{ n \to \infty } \frac{\sin^2 a_{n}}{{a_{n}}^2 (1 + \cos a_{n})} \\ % Corretto denominatore
 & =  \lim_{ n \to \infty } \left( \frac{\sin a_{n}}{a_{n}} \right)^2 \cdot \frac{1}{1 + \cos a_{n}}=1^2 \cdot \frac{1}{1+1} = \frac{1}{2} % Corretto 1*1/2
-\end{align}
+\end{align*}
 }
 \end{enumerate}
 
-\subsection{Esempi}\label{esempi-limiti-notevoli-teo-confronto}
+\subsection{Esempi}\label{esempi-limiti-notevoli}
 
 \ex{
 \[\text{Se }a_{n}\to \frac{\pi}{2}^-\text{ allora: }\]
@@ -1047,30 +1050,30 @@ Sia x un angolo:
 }
 
 \ex{
-% Questo era già corretto
-\begin{align} % Usato aligned invece di align dentro \[...\]
+\[ 
+\begin{aligned} % Usato aligned invece di align dentro \[...\]
 & \lim_{ n \to \infty } \frac{2n+{-1}^n + n^2 \sin\left( \frac{1}{n} \right)-\sqrt{n}}{\sqrt{ n }\arctan n -n + \sqrt{ n }\sin n+n \tan \left(\frac{1}{n}\right)} \\
 & = \lim_{ n \to \infty } \frac{ n\left(2 + \frac{{-1}^n}{n} + n \sin\left( \frac{1}{n} \right) - \frac{1}{\sqrt{n}} \right)}{n\left( \frac{\arctan n}{\sqrt{n}} - 1 + \frac{\sin n}{\sqrt{n}} + \tan \left(\frac{1}{n}\right) \right)} \\
 & = \frac{ 2 + 0 + 1 - 0 }{ 0 - 1 + 0 + 0 } = -3
-\end{align}
+\end{aligned}
+\]
 }
 
 \ex{
-\begin{align} % Tolto \[...\] esterno
+\begin{align*} % Tolto \[...\] esterno
 & \lim_{ n \to \infty } \frac{\log(n+1)-\log(n^3 - 2)- \sqrt[n]{ n+1 }}{\log n - 2 \log(n^2 -1) + (-1)^{n}} \\ 
 & = \lim_{ n \to \infty } \frac{ \log\left(n\left(1 + \frac{1}{n}\right)\right) - \log\left(n^3\left(1 - \frac{2}{n^3}\right)\right) - \sqrt[n]{ n+1 } }{ \log n - 2 \log\left(n^2\left(1 - \frac{1}{n^2}\right)\right) + (-1)^{n} } \\ 
 & = \lim_{ n \to \infty } \frac{ \left[\log n + \log\left(1 + \frac{1}{n}\right)\right] - \left[3\log n + \log\left(1 - \frac{2}{n^3}\right)\right] - \sqrt[n]{ n+1 } }{ \log n - 2 \left[2\log n + \log\left(1 - \frac{1}{n^2}\right)\right] + (-1)^{n} } \\ 
 & = \lim_{ n \to \infty } \frac{ -2\log n + \log\left(1 + \frac{1}{n}\right) - \log\left(1 - \frac{2}{n^3}\right) - \sqrt[n]{ n+1 } }{ -3\log n - 2\log\left(1 - \frac{1}{n^2}\right) + (-1)^{n} } \\ 
 & = \frac{-2}{-3} = \frac{2}{3}
-\end{align}
+\end{align*}
 }
 
 \subsubsection{}\label{dimostrazione-esempio-precedente}
 
 \ex{
 Grazie al Teorema del confronto possiamo dimostrare
-l'\hyperref[perim-pol-inscritto]{esempio 8 delle successioni
-numeriche} 
+l'esempio 8 delle successioni numeriche 
 \[
 \lim_{ n \to \infty } P_{n} = 2Rn\sin \frac{\pi}{n}= \lim_{ n \to \infty } 2R n \frac{\sin \frac{\pi}{n}}{\frac{\pi}{n}} \frac{\pi}{n}= \lim_{ n \to \infty } 2R\pi \frac{\sin \frac{\pi}{n}}{\frac{\pi}{n}} = 2R\pi \cdot 1 = 2R\pi
 \]
