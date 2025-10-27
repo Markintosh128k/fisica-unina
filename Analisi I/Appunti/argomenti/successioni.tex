@@ -9,39 +9,39 @@ Si utilizza la seguente notazione: $f(n)=a_{n}\to$ Termine generale della succes
 Una successione si indica o con il suo termine generale $a_{n}$ oppure $\{a_{n}\}_{n\in \N}$.
 }
 
-\ex{Esempio 1: $\quad a_{n}=\frac{1}{n}$}
+\ex{1: $\quad a_{n}=\frac{1}{n}$}
 \[
 a_{n}=\frac{1}{n} \quad \text{allora} \quad1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4},\dots, \frac{1}{n}
 \]
 
-\ex{Esempio 2: $\quad a_{n}=(-1)^n$}
+\ex{2: $\quad a_{n}=(-1)^n$}
 \[
 a_{n}=(-1)^n \to -1,1,-1,1,\dots
 \]
 
-\ex{Esempio 3: $\quad a_n =n$}
+\ex{3: $\quad a_n =n$}
 \[
 a_n =n \to 1,2,3,\dots
 \]
 
-\ex{Esempio 4: $\quad a_{n}=\frac{(-1)^n}{n}$}
+\ex{4: $\quad a_{n}=\frac{(-1)^n}{n}$}
 \[
 a_{n}=\frac{(-1)^n}{n}=-1, \frac{1}{2}, -\frac{1}{3}, \frac{1}{4}, -\frac{1}{5}
 \]
 
-\ex{Esempio 5: $\quad a_{n}=-n^2$}
+\ex{5: $\quad a_{n}=-n^2$}
 \[
 a_{n}=-n^2=-1,-4,-9,-16
 \]
 
-\ex{Esempio 6: $\quad a_{n}=\arctan n$}
+\ex{6: $\quad a_{n}=\arctan n$}
 
-\ex{Esempio 7: $\quad a_{n}=2^n$}
+\ex{7: $\quad a_{n}=2^n$}
 \[
 a_{n}=2^n=1,2,4,8,16,32,64,\dots
 \]
 
-\ex{Esempio 8: Formula per il perimetro di un poligono inscritto}
+\ex{8: Formula per il perimetro di un poligono inscritto}\label{perim-pol-inscritto}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{img/n_gon_in_circle.png}%
@@ -64,11 +64,11 @@ a_{n}=2^n=1,2,4,8,16,32,64,\dots
     \caption{Rappresentazione grafica del limite di una successione.}
 \end{figure}
 
-\defn{Definizione Limite di una successione numerica (Convergenza)}{
+\defn{Limite di una successione numerica (Convergenza)}{
 Assegnata una successione di termine generale $a_{n}$, diremo che $a_{n}$ tende ad $l\in \R$ o che $a_{n}$ converge ad $l\in \R$ se:
 \[\forall\epsilon>0\exists \nu>0 :l-\epsilon<a_{n}<l+\epsilon \;\forall n>\nu\]
 equivale a dire che:
-\[\forall\epsilon>0 \exists \nu>0:|a_{n}-l|<\epsilon \; \forall n > \nu\]
+\[\forall\epsilon>0 \exists \nu>0:|a_{n}-l|<\epsilon \;\forall n > \nu\]
 e scriveremo:
 \[\boxed{\lim_{ n \to \infty } a_{n}=l}\]
 (Posso omettere $+\infty$ nel limite).
@@ -89,7 +89,7 @@ $[x]=$ parte intera (funzione floor())
 \newpage
 \subsection{Esempi di Limiti di successioni}\label{esempi-limiti-di-successioni}
 
-\ex{Esempio 1 — Limite della successione $a_n = \frac{1}{n}$}
+\ex{1 — Limite della successione $a_n = \frac{1}{n}$}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{img/successione_1-su-n.png}
@@ -109,7 +109,8 @@ Devo dimostrare che:
 \]
 Nel nostro caso $l = 0$ e $a_n = \frac{1}{n}$, quindi la condizione diventa:
 \[\boxed{-\epsilon < \frac{1}{n} < \epsilon}\]
-Poiché $\frac{1}{n} > 0$ per ogni $n$, la disuguaglianza di sinistra è sempre vera. \par
+Poiché $\frac{1}{n} > 0$ per ogni $n$, la disuguaglianza di sinistra è sempre vera.
+\par
 Rimane quindi da imporre:
 \[
 \frac{1}{n} < \epsilon
@@ -126,7 +127,8 @@ Allora, per ogni $n > \nu$, risulta verificata la disuguaglianza \par
 \[
 -\epsilon < \frac{1}{n} < \epsilon
 \]
-per ogni $\epsilon > 0$. \par
+per ogni $\epsilon > 0$.
+\par
 Quindi:
 \[
 \boxed{\lim_{n} \frac{1}{n} = 0}
@@ -144,7 +146,7 @@ Se $a_{n}$ tende ad $l \in \R$ scriviamo anche che: $a_{n}\to l\in \R$
 (Non completa tutti i casi):
 }
 
-\ex{Esempio 3: $a_n = n$}
+\ex{3: $a_n = n$}
 \[a_n = n\]
 \begin{figure}[H]
     \centering
@@ -167,7 +169,7 @@ e scriveremo che:
 
 \subsection{Successioni regolari o irregolari}\label{successioni-regolari-o-irregolari}
 
-\ex{Esempio 2 - Successione oscillante $a_n = (-1)^n$}
+\ex{2 - Successione oscillante $a_n = (-1)^n$}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{img/succ_osc_1_-1.png}
@@ -194,21 +196,20 @@ Sia $a_n$ una successione numerica:
 
 \section{Definizione di Intorno}
 
-\defn{Definizione Intorno}{
+\defn{Intorno}{
 Sia $l \in \R$. Si chiama \textbf{intorno di $l$} qualsiasi intervallo aperto di $\R$ contenente $l$.
 \textbf{Esempio:} l'intervallo aperto $]1,\frac{5}{2}[$ è un intorno di $2$.
 
 Un \textbf{intorno di $+\infty$} è, per definizione, una semiretta dx aperta:
 \textbf{Esempio:} $]2,+\infty[$.
-
 Analogamente, un \textbf{intorno di $-\infty$} è una semiretta sx aperta:
 \textbf{Esempio:} $]-\infty, 2[$.
-
 Gli intorni si possono indicare anche come $I(l)$, $I(+\infty)$, $I(-\infty)$.
 }
 
 \prop{
-Sia $a_n$ una successione numerica. Allora:
+Sia $a_n$ una successione numerica.
+Allora:
 \[
 \lim_{n \to \infty} a_n = l \in \overline{\R}
 \quad \iff \quad
@@ -217,7 +218,7 @@ Sia $a_n$ una successione numerica. Allora:
 }
 
 
-\pf{Dimostrazione:
+\pf{
 La dimostrazione segue direttamente dalla definizione di limite ed è quindi ovvia.
 }
 
@@ -227,7 +228,7 @@ La dimostrazione segue direttamente dalla definizione di limite ed è quindi ovv
 Ogni successione regolare ammette \textbf{UNO e UN SOLO limite}.
 }
 
-\pf{Dimostrazione Teorema di Unicità del Limite}{
+\pf{
 Si procede per assurdo: \par
 Supponiamo che:
 \begin{itemize}
@@ -235,7 +236,6 @@ Supponiamo che:
     \item $a_n \to l_2 \in \overline{\R}$
 \end{itemize}
 con $l_1 \neq l_2$.
-
 Essendo $\R$ un campo ordinato, supponiamo senza perdita di generalità che $l_1 < l_2$.
 \begin{figure}[H]
     \centering
@@ -244,7 +244,6 @@ Essendo $\R$ un campo ordinato, supponiamo senza perdita di generalità che $l_1
 \end{figure}
 
 Poiché $l_1 < l_2$, esiste $a \in \R$ tale che $l_1 < a < l_2$.
-
 Consideriamo gli intorni disgiunti:
 \[I(l_1) = ]-\infty, a[, \quad I(l_2) = ]a, +\infty[\]
 L'intersezione tra questi due intorni è ovviamente vuota:
@@ -265,7 +264,7 @@ Quindi la nostra ipotesi iniziale era falsa e il limite, se esiste, è \textbf{u
 
 \section{Proprietà delle successioni numeriche}
 
-\defn{Definizione Successione Limitata}{
+\defn{Successione Limitata}{
 Sia assegnata una successione $a_n$ diremo che è:
 \begin{itemize}
     \item \textbf{superiormente limitata} se:
@@ -280,7 +279,7 @@ In quest'ultimo caso:
 
 \rmkb{Osservazione:
 Una successione Limitata non per forza converge!!
-\ex{Esempio: $(-1)^n$}
+\ex{$(-1)^n$}
 $(-1)^n$ è limitata ma oscillante.
 }
 
@@ -294,7 +293,7 @@ Sia $a_n$ una successione \textbf{convergente}, allora $a_n$ è \textbf{limitata
 }
 
 
-\pf{Dimostrazione 1}{
+\pf{
 Poichè $a_n \to l \in \R$ per ipotesi, allora $\forall \epsilon > 0 \exists \nu > 0$ tale che:
 \[\boxed{l-\epsilon < a_n < l + \epsilon \qquad \forall n > \nu}\]
 Sia $\epsilon = 1 \implies \exists \nu > 0:$
@@ -314,14 +313,15 @@ Allora:
 Se $a_n \to +\infty$, allora la successione $a_n$ è \textbf{inferiormente limitata}.
 }
 
-\pf{Dimostrazione 2}{
+\pf{
 Per hp $a_n \to +\infty$ quindi:
 \[\forall M>0 \; \exists \nu > 0 : a_n > M \; \forall n > \nu\]
 Considero :
 \[
 E = \{a_1, a_2, a_3, \dots , a_{\lfloor\nu\rfloor}, M \}
 \]
-Sia $A = \min E$. Allora per costruzione:
+Sia $A = \min E$.
+Allora per costruzione:
 \[a_n \geq A \; \forall n \in \N\]
 Ovvero è inferiormente limitata.
 }
@@ -346,7 +346,7 @@ Diremo che una successione $a_n$ è:
 \end{itemize}
 }
 
-\ex{Esempi di Monotonia}{
+\ex{
 \begin{itemize}
     \item $\frac{1}{n}\;\searrow_{S}$
     \item $n\;\nearrow_{S}$
@@ -373,7 +373,7 @@ Sia $a_n$ una successione monotona. Allora:
 \]
 }
 
-\ex{Esempi di applicazione}{
+\ex{
 \begin{enumerate}
     \item $a_n = \arctan n$ \par
     $a_n \nearrow$, quindi
@@ -397,7 +397,7 @@ Sia $a_n$ una successione monotona. Allora:
 La dimostrazione si basa sulle proprietà di sup e inf e sull'assioma di completezza di $\R$.
 }
 
-\pf{Dimostrazione Teorema di Regolarità (Caso $a_{n} \nearrow$)}{
+\pf{
 Per ipotesi $\boxed{a_{n}\leq a_{n+1}}\;\forall n$ e dobbiamo dimostrare che detto $l=\sup_{n} a_{n}$ allora $\lim_{n \to \infty} a_{n}=l$.
 \par
 DUE CASI:
@@ -407,8 +407,10 @@ DUE CASI:
     \[
     \boxed{\forall \epsilon >0 \exists \nu : l-\epsilon < a_{n} <l+\epsilon \quad \forall n > \nu }
     \]
-    Sia $\epsilon$ fissato. Per la proprietà dell'estremo superiore, si ha che $\exists \nu \in \N$ tale che $l-\epsilon < a_{\nu}$.
-    Poiché $a_n$ è crescente, per ogni $n > \nu$ si ha $a_n \geq a_\nu$. Inoltre, $l$ è l'estremo superiore, quindi $a_n \leq l$.
+    Sia $\epsilon$ fissato.
+    Per la proprietà dell'estremo superiore, si ha che $\exists \nu \in \N$ tale che $l-\epsilon < a_{\nu}$.
+    Poiché $a_n$ è crescente, per ogni $n > \nu$ si ha $a_n \geq a_\nu$.
+    Inoltre, $l$ è l'estremo superiore, quindi $a_n \leq l$.
     Quindi, per $\forall n > \nu$:
     \[
     l-\epsilon < a_{\nu} \leq a_{n} \leq l < l+\epsilon \quad (\text{tesi})
@@ -448,7 +450,7 @@ Se $a_n$ è una successione \textbf{convergente} e $a_n \to l$, allora vale:
 }
 
 
-\pf{Dimostrazione Valore Assoluto}{
+\pf{
 Si usa la disuguaglianza triangolare inversa: $|a-b|\geq ||a|-|b||$.
 \[||a_{n}|-|l||< |a_{n} -l |<\epsilon \quad \forall n > \nu\]
 }
@@ -499,8 +501,7 @@ a_n \to 0 \quad \iff \quad |a_n| \to 0.
 \]
 
 Vogliamo sostituire \(a_n\) ad \(n\) per generalizzare.
-
-\subsection{Proprietà (Limiti Finiti)}\label{proprietuxe0}
+\subsection{Proprietà (Limiti Finiti)}\label{proprieta-limiti-finiti}
 
 Siano \(a_n\) e \(b_n\) due successioni \textbf{convergenti} tali che:  
 \[a_n \to a \in \mathbb{R}, \quad b_n \to b \in \mathbb{R}\]
@@ -513,7 +514,7 @@ Allora valgono le seguenti proprietà:
 Dimostrazione: si utilizza la \textbf{disuguaglianza triangolare}.
 
 \pf{
-\begin{align}
+\begin{align} % Cambiato align in align per evitare numero equazione
  & |(a_{n}+b_{n})-(a+b)| = |(a_{n}-a)+(b_{n}-b)|\\
  & |(a_{n}-a)+(b_{n}-b)| \leq |a_{n}-a| + |b_{n}-b|
  \\
@@ -523,8 +524,7 @@ Dimostrazione: si utilizza la \textbf{disuguaglianza triangolare}.
  & |(a_{n}+b_{n})-(a+b)| \leq |a_{n}-a|
  + |b_{n}-b| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon \\
  & \text{QUINDI: } \\
- & \forall \epsilon > 0, \;
- \exists \nu : |(a_{n}+b_{n})-(a+b)| < \epsilon \forall n> \nu
+ & \forall \epsilon > 0, \; \exists \nu : |(a_{n}+b_{n})-(a+b)| < \epsilon \forall n> \nu
 \end{align}
 }
 
@@ -546,7 +546,6 @@ a patto che \(b_n \neq 0\) e \(b \neq 0\).
 con \(a_n > 0\) (e quindi \(a > 0\)).\\
 Tuttavia, \textbf{questa non è una condizione necessaria}: in alcuni
 casi il limite può esistere anche se \(a \le 0\).
-
 \subsubsection{Esempi}\label{esempi}
 
 \ex{
@@ -568,10 +567,9 @@ casi il limite può esistere anche se \(a \le 0\).
 Siano \(a_n\) e \(b_n\) due successioni tali che:
 \[a_n \to a \in \overline{\mathbb{R}}, \quad b_n \to b \in \overline{\mathbb{R}}\]
 Allora: \[
-\lim_{n \to +\infty} (a_n \pm b_n) = a \pm b \;(\text{Fatta eccezione del caso}\;
-\infty-\infty)
+\lim_{n \to +\infty} (a_n \pm b_n) = a \pm b \;(\text{Fatta eccezione del caso}\; \infty-\infty)
 \] e dove si sottintende che: 
-\begin{align}
+\begin{align} % Cambiato align in align
 & +\infty \pm b = +\infty \\
 & -\infty \pm b = -\infty\\
 & +\infty + +\infty = +\infty\\
@@ -598,14 +596,11 @@ Allora: \[
 \subsubsection{Prodotto}
 
 Siano \(a_n\) e \(b_n\) due successioni tali che:
-\[a_n \to a \in \overline{\mathbb{R}}, \quad b_n \to b \in 
-\overline{\mathbb{R}}\]
+\[a_n \to a \in \overline{\mathbb{R}}, \quad b_n \to b \in \overline{\mathbb{R}}\]
 Allora: \[\lim_{ n \to \infty } a_{n}b_{n}=ab\] Fatta eccezione il caso
 \(+\infty \cdot 0\) dove si sottintende \(\pm \infty \cdot a = \infty\)
 con la regola dei segni e \(\pm\infty \cdot \pm\infty = \infty\) (con la
 regola dei segni).
-
-
 \prop{
 Se \(a_n\) è limitata inferiormente e
 \(b_n \to +\infty\) Allora \[\lim_{ n \to \infty } a_{n}b_{n}=+\infty\]
@@ -628,15 +623,14 @@ Ciò implica che:
 \]
 Sia inoltre \(b_n \to 0\), cioè:
 \[
-\forall \varepsilon_0 > 0 \;
-\exists \nu > 0 \; : \; |b_n| < \varepsilon_0 \quad \forall n > \nu
+\forall \varepsilon_0 > 0 \; \exists \nu > 0 \; : \; |b_n| < \varepsilon_0 \quad \forall n > \nu
 \]
 Vogliamo mostrare che \(a_n b_n \to 0\), ovvero:
 \[
-\forall \varepsilon > 0 \;
-\exists \nu_1 > 0 \; : \; |a_n b_n| < \varepsilon \quad \forall n > \nu_1
+\forall \varepsilon > 0 \; \exists \nu_1 > 0 \; : \; |a_n b_n| < \varepsilon \quad \forall n > \nu_1
 \]
-Sia \(\varepsilon > 0\). Scegliamo \(\varepsilon_0 = \frac{\varepsilon}{M}\). Dalla definizione di \(b_n \to 0\), esiste \(\nu\) tale che \(|b_n| < \varepsilon_0\) per \(n > \nu\).
+Sia \(\varepsilon > 0\).
+Scegliamo \(\varepsilon_0 = \frac{\varepsilon}{M}\). Dalla definizione di \(b_n \to 0\), esiste \(\nu\) tale che \(|b_n| < \varepsilon_0\) per \(n > \nu\).
 Scegliendo \(\nu_1 = \nu\), abbiamo:
 \[
 |a_n b_n| = |a_n| \cdot |b_n| < M \cdot \varepsilon_0 = M \cdot \left(\frac{\varepsilon}{M}\right) = \varepsilon \quad \forall n > \nu_1
@@ -678,11 +672,9 @@ Sia \(b_n \to \pm \infty\) allora \(\boxed{\frac{1}{b_n} \to 0}\)
 }
 \pf{
 Supponiamo che \(b_n \to +\infty \implies\)
-\[\forall M > 0 \;
-\exists \nu > 0 : \boxed{b_n > M \; \forall n > \nu}\]
+\[\forall M > 0 \; \exists \nu > 0 : \boxed{b_n > M \; \forall n > \nu}\]
 Per dimostrare la proposizione devo dimostrare che:
-\[\forall \epsilon > 0 \;
-\exists \nu' > 0 : \frac{1}{|b_n|}<\epsilon \; \forall n > \nu' \]
+\[\forall \epsilon > 0 \; \exists \nu' > 0 : \frac{1}{|b_n|}<\epsilon \; \forall n > \nu' \]
 Scegliendo \(M = 1/\epsilon\), dall'ipotesi \(\exists \nu\) tale che \(\forall n > \nu\)
 \[ b_n > M = \frac{1}{\epsilon} \]
 Essendo \(b_n\) e \(\epsilon\) positivi (definitivamente),
@@ -697,8 +689,7 @@ Sia \(b_{n}\to 0\)
 \pf{
 Se
 \(b_{n}\to 0 \implies \forall \epsilon > 0 \; \exists \nu > 0 :|b_{n}|<\epsilon \quad \forall n>\nu\)
-\[\forall M > 0 \;
-\exists \nu'>0 : \begin{cases}
+\[\forall M > 0 \; \exists \nu'>0 : \begin{cases}
 \frac{1}{b_{n}}>M \forall n>\nu' \quad \left( \frac{1}{b_n}\to +\infty \right)\\
 \frac{1}{b_{n}}<-M \forall n>\nu' \quad \left( \frac{1}{b_n}\to -\infty \right)
 \end{cases}\] Non posso dire qual è il caso.
@@ -718,7 +709,7 @@ In sintesi: \[b_{n}\to 0^+\]
 
 \rmkb{
 \subsubsection*{Convenzioni sul Quoziente}
-\begin{align}
+\begin{align} % Cambiato align in align
  & \frac{1}{\infty}=0\\
  & \frac{1}{0^+}=+\infty \\
  & \frac{1}{0^-}=-\infty
@@ -759,12 +750,12 @@ a^l &l \in \mathbb{R}\\
 \rmkb{
 \subsubsection*{Convenzioni su Esponenziali e Logaritmi}
 \paragraph{Caso \(a>1\):}
-\begin{align}
+\begin{align} % Cambiato align in align
     a^{+\infty} = + \infty \quad & \quad a^{-\infty} = 0 \\
     \log_a (+\infty) = +\infty \quad & \quad \log_a (0^+) = -\infty
 \end{align}
 \paragraph{Caso \(0<a<1\):}
-\begin{align}
+\begin{align} % Cambiato align in align
     a^{+\infty} = 0 \quad & \quad a^{-\infty} = +\infty \\
     \log_a (+\infty) = -\infty \quad & \quad \log_a (0^+) = +\infty
 \end{align}
@@ -805,7 +796,7 @@ Se \(a_n>0\) e \(a>0\) allora
 \rmkb{
 \subsubsection*{Riepilogo: Algebra Estesa dei Limiti (\(\overline{\mathbb{R}}\))}
 \paragraph{Rapporti}
-\begin{align}
+\begin{align} % Cambiato align in align
 & \frac{1}{\infty}=0 \\
 & \frac{1}{0^+}=+\infty \\
 & \frac{1}{0^-}=-\infty
@@ -813,12 +804,12 @@ Se \(a_n>0\) e \(a>0\) allora
 
 \paragraph{Esponenziali}
 Caso \(a>1\): 
-\begin{align}
+\begin{align} % Cambiato align in align
 & a^{+\infty} = + \infty \\
 & a^{-\infty} = 0
 \end{align}
 Caso \(0<a<1\): 
-\begin{align}
+\begin{align} % Cambiato align in align
 & a^{+\infty} = 0 \\
 & a^{-\infty} = +\infty
 \end{align}
@@ -831,6 +822,256 @@ Caso \(a>1\): \[
 \]
 }
 
+% ==================================================
+% INIZIO CONTENUTO AGGIUNTO
+% ==================================================
 
+\section{Teorema del confronto (Teorema dei carabinieri)}\label{teorema-del-confronto-teorema-dei-carabinieri}
 
+\defn{Teorema del confronto}{
+Valgono le seguenti affermazioni:
+\begin{enumerate}
+    \item Siano \(a_{n},b_{n},c_{n}\) tali che
+    \[a_{n}\geq b_{n}\geq c_{n} \quad \forall n \in \mathbb{N}\]
+    se \(a_{n}\to l \in \mathbb{R}\) e
+    \(c_{n}\to l \in \mathbb{R} \implies b_{n}\to l\)
+    \item Se \(a_{n}\leq b_{n} \quad \forall n \in \mathbb{N}\) e
+    \(a_{n}\to +\infty\) allora \(b_{n}\to +\infty\)
+    \item Se \(a_{n}\leq b_{n} \quad \forall n \in \mathbb{N}\) e
+    \(b_{n}\to -\infty\) allora \(a_{n}\to -\infty\)
+\end{enumerate}
+}
 
+\ex{
+Posso calcolare:
+\[\lim_{ n } n! = +\infty \]
+perchè \(n! > n\)
+}
+
+\pf{
+\textbf{(1)} Hp:
+\begin{itemize}
+    \item \(a_{n}\to l\in \mathbb{R}\)
+    \item \(c_{n}\to l\in \mathbb{R}\)
+    \item \(a_{n}\leq b_{n}\leq c_{n}\)
+\end{itemize}
+Per hp: \[
+\begin{aligned}
+& a_{n}\to l \in \mathbb{R} \implies \forall \epsilon > 0 \exists \nu_{1}>0: l- \epsilon <a_{n}<l+\epsilon \forall n> \nu_{1} \\
+& c_{n}\to l \in \mathbb{R} \implies \forall \epsilon > 0 \exists \nu_{2}>0: l- \epsilon <c_{n}<l+\epsilon \forall n> \nu_{2} \\
+& \forall n> \nu_{1} \;
+l - \epsilon <a_{n}\leq b_{n} \leq c_{n} <l+\epsilon \; \forall n> \nu_{2} \implies \\
+& l-\epsilon < b_{n} <l +\epsilon \;
+\forall n > \nu = \max\{\nu_{1}, \nu_{2}\} \\
+\end{aligned}
+\]
+}
+
+\pf{
+\textbf{(2)} Per hp: \(a_{n}\to +\infty\)
+\[\forall M > 0 \exists \nu_{1}>0 : a_{n}> M \;
+\forall n>\nu_{1}\] Th:
+\(b_{n}\to +\infty\) ovvero:
+\[\forall M > 0 \exists \nu>0 : b_{n}> M \;
+\forall n> \nu\]
+
+Per hp: \(b_{n}\geq a_{n}>M\) 
+\begin{align} % Cambiato align in align
+& \forall n \in \mathbb{N}\\
+& \forall n>\nu_{1}\\
+& \forall n > \nu_{2}\\ \\
+& \text{Quindi } \forall n> \nu = \max\{\nu_{1}, \nu_{2}\}
+\end{align}
+}
+
+\section{Continuità di Seno e Coseno}\label{continuita-di-seno-e-coseno}
+
+\prop{
+Sia \(a_{n}\to a \in \mathbb{R}\) allora:
+\begin{itemize}
+    \item \(\sin a_{n} \to \sin a\)
+    \item \(\cos a_{n} \to \cos a\)
+\end{itemize}
+In particolare se \(a_{n}\to 0\) si ha: 
+\begin{align} % Cambiato align in align
+& \lim_{ n \to \infty } \sin a_{n} = 0 \\
+& \lim_{ n \to \infty } \cos a_{n} = 1
+\end{align}
+}
+
+\pf{
+\textbf{(Continuità del Seno in 0)} \par
+Sia \(a_{n}\to 0\). Th:
+\[
+\lim_{ n \to \infty } \sin a_{n}=0
+\] Ricordiamo le disuguaglianze notevoli: 
+\begin{align} % Cambiato align in align
+& \text{Se } 0<x<\frac{\pi}{2}: \quad 0 < \sin x < x \\
+& \text{Se } -\frac{\pi}{2}<x<0: \quad x < \sin x < 0 \\
+& \text{Prendendo il valore assoluto in entrambi i casi:} \\
+& \boxed{|\sin x| \le |x|} \quad \text{ per } x \in ]-\frac{\pi}{2}, \frac{\pi}{2}[
+\end{align}
+ Poiché \(a_n \to 0\), \(a_n\) è definitivamente in
+\(]-\frac{\pi}{2}, \frac{\pi}{2}[\).
+Allora possiamo applicare la
+disuguaglianza e vale definitivamente: \(0 \le |\sin a_n | \le |a_n |\)
+
+Dato che (per ipotesi) \(\lim_{n \to \infty} |a_n| = 0\) e
+\(\lim_{n \to \infty} 0 = 0\), per il Teorema del Confronto
+(Carabinieri) anche la successione centrale converge a 0:
+\[\lim_{n \to \infty} |\sin a_n| = 0\]
+Questo implica
+\(\lim_{n \to \infty} \sin a_n = 0\).
+}
+
+\pf{
+\textbf{(Continuità del Seno in \(a \in \mathbb{R}\))} \par
+Vogliamo dimostrare che se \(a_n \to a\), allora:
+\[\lim_{n \to \infty} \sin a_n = \sin a\]
+
+Definiamo una nuova successione \(b_n = a_n - a\).
+Poiché \(a_n \to a\),
+allora \(b_n \to 0\).
+
+Riscriviamo \(a_n = b_n + a\) e usiamo la formula di addizione del seno:
+\[\sin a_n = \sin(b_n + a) = \sin(b_n)\cos(a) + \cos(b_n)\sin(a)\]
+
+Calcoliamo il limite di entrambi i membri (notando che \(\sin a\) e
+\(\cos a\) sono costanti):
+\[\lim_{n \to \infty} \sin a_n = \lim_{n \to \infty} \left( \sin(b_n)\cos(a) + \cos(b_n)\sin(a) \right)\]
+
+Per l'algebra dei limiti:
+\[\lim_{n \to \infty} \sin a_n = \left(\lim_{n \to \infty} \sin(b_n)\right) \cdot \cos(a) + \left(\lim_{n \to \infty} \cos(b_n)\right) \cdot \sin(a)\]
+
+Poiché \(b_n \to 0\), usiamo i risultati già dimostrati per la
+continuità in 0:
+\begin{enumerate}
+    \item \(\lim_{n \to \infty} \sin(b_n) = 0\)
+    \item \(\lim_{n \to \infty} \cos(b_n) = 1\)
+\end{enumerate}
+
+Sostituendo questi limiti, otteniamo:
+\[\lim_{n \to \infty} \sin a_n = (0) \cdot \cos(a) + (1) \cdot \sin(a) = \sin a\]
+
+\emph{(Nota: La dimostrazione per \(\cos a_n \to \cos a\) è analoga,
+usando la formula di addizione del coseno).}
+}
+
+\section{Limiti Notevoli Derivati}\label{limiti-notevoli}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+%\tightlist % Rimosso comando non definito
+\item
+  Sia \(a>0\) allora:
+\[\lim_{ n \to \infty } \sqrt[n]{ a }=1 \]
+\textbf{Dimostrazione:}
+Se \(a=1\) è ovvio.
+Sia \(a>1\) consideriamo \(a_1=a\) e \(a_{2}=1=a_{3}=\dots=,=a_{n}\)
+\begin{align} % Cambiato align in align
+& G \leq A \implies \sqrt[n]{a} < \frac{a+n-1}{n} \text{Quindi }\\
+& 1 < \sqrt[n]{a} < \frac{a+n-1}{n} \\
+& \text{Se } 0<a<1: \\
+& \sqrt[n]{a} = \left( \frac{1}{\sqrt[n]{a}} \right)^{-1}=\left( \sqrt[n]{\frac{1}{a}} \right)^{-1}\to 1 > \left( \sqrt[n]{\frac{1}{a}}\right)^{-1} > \frac{n}{a+n-1}
+\end{align}
+
+\item
+  \[\lim_{ n \to \infty } \sqrt[n]n=1\]
+  \textbf{Dimostrazione:}
+  \begin{align} % Cambiato align in align
+   & G\leq A \\
+   & a_{1} = n \quad a_{2}=1=a_{3}=\dots=a_{n}\\
+   & G = \sqrt[n] n < \frac{{n+n-1}}{n} \to \text{NO} \\
+   & a_{1}=\sqrt n=a_{2} \quad a_{3}=\dots=a_{n}=1 \\
+   & G = \sqrt[n] n < \frac{2\sqrt n + n -2}{n} = A
+  \end{align}
+\item
+  \[\lim_{ n \to \infty } \sqrt[n]{ n^b }=1\] Perchè
+  \((\sqrt[n]{ n})^b\) e se \(\sqrt[n]{n}=1\) Allora
+  \((\sqrt[n]{ n})^b=1^b=1\)
+\item
+  Se \(a_{n}\to 0\) allora:
+  \[\lim_{ n \to \infty } \frac{\sin a_{n}}{a_{n}} = 1 \text{ (ho rimosso l'altro limite che era sintatticamente errato)} \]
+  %\[\lim_{ n \to \infty } \frac{\sin a_{n}}{n} = 1 \text{ anche } \lim_{ n \to \infty } \frac{n\sin_{1}}{n}=\frac{\sin{\frac{1}{n}}}{\frac{1}{n}}=1\]
+  
+\pf{
+Sia x un angolo:
+\begin{align} % Cambiato align in align
+& \boxed{0<x<\frac{\pi}{2}} \\
+& \sin x < x < \tan x = \frac{\sin x}{\cos x} \\ % Corretto: sin x < x < tan x
+& 1< \frac{x}{\sin x} < \frac{1}{\cos x} \to \boxed{\cos x < \frac{\sin x}{x}<1} \implies \\
+& \implies\text{ è pari quindi } \; |x|< \frac{\pi}{2} \\
+& \text{Allora } \cos a_{n}< \frac{\sin a_{n}}{a_{n}} < 1 \\
+ & \text{Calcolando il limite, sia a dx che a sx è 1.}
+\end{align} 
+}
+\item
+  Se \(a_{n}\to 0\) allora \[
+  \lim_{ n \to \infty } \frac{\tan a_{n}}{a_{n}}=1
+  \]
+\pf{
+\[ % Tolto > iniziale
+ \lim_{ n \to \infty } \frac{\sin a_{n}}{\cos a_{n}} \cdot \frac{1}{a_{n}} = \lim_{ n \to \infty } \frac{\sin a_{n}}{a_{n}} \cdot \frac{1}{\cos a_{n}} = 1 \cdot 1 = 1
+\]
+}
+\item
+  Se \(a_{n}\to 0\) allora \[
+  \lim_{ n \to \infty } \frac{1 - \cos a_{n}}{a_{n}} = 0
+  \]
+\pf{
+(Usa dimostrazione del 7)
+\[\lim_{ n \to \infty } \frac{1 - \cos a_{n}}{a_{n}} \cdot \frac{a_{n}}{a_{n}}=\lim_{ n \to \infty } \frac{1 - \cos a_{n}}{{a_{n}}^2} \cdot a_{n}= \frac{1}{2} \cdot 0 = 0\]
+}
+\item
+  Se \(a_{n}\to 0\) allora \[
+  \lim_{ n \to \infty } \frac{1- \cos a_{n}}{{a_{n}}^2}=\frac{1}{2}
+  \]
+\pf{
+\begin{align} % Cambiato align in align
+&\lim_{ n \to \infty }  \frac{1-\cos a_{n}}{{a_{n}}^2} \cdot\frac{1+\cos a_{n}}{1+\cos a_{n}} = \lim_{ n \to \infty } \frac{1-\cos^2 a_{n}}{{a_{n}}^2 (1 + \cos a_{n})}= \lim_{ n \to \infty } \frac{\sin^2 a_{n}}{{a_{n}}^2 (1 + \cos a_{n})} \\ % Corretto denominatore
+& =  \lim_{ n \to \infty } \left( \frac{\sin a_{n}}{a_{n}} \right)^2 \cdot \frac{1}{1 + \cos a_{n}}=1^2 \cdot \frac{1}{1+1} = \frac{1}{2} % Corretto 1*1/2
+\end{align}
+}
+\end{enumerate}
+
+\subsection{Esempi}\label{esempi-limiti-notevoli-teo-confronto}
+
+\ex{
+\[\text{Se }a_{n}\to \frac{\pi}{2}^-\text{ allora: }\]
+\[\lim_{ n \to \infty } \tan a_{n}= \frac{\sin a_{n}}{\cos a_{n}} = \frac{1}{0^+}= + \infty\]
+}
+
+\ex{
+\[\text{Se }a_{n}\to \frac{\pi}{2}\text{ allora: }\]
+\[\lim_{ n \to \infty } \tan a_{n}=\not \exists\]
+}
+
+\ex{
+% Questo era già corretto
+\begin{align} % Usato aligned invece di align dentro \[...\]
+& \lim_{ n \to \infty } \frac{2n+{-1}^n + n^2 \sin\left( \frac{1}{n} \right)-\sqrt{n}}{\sqrt{ n }\arctan n -n + \sqrt{ n }\sin n+n \tan \left(\frac{1}{n}\right)} \\
+& = \lim_{ n \to \infty } \frac{ n\left(2 + \frac{{-1}^n}{n} + n \sin\left( \frac{1}{n} \right) - \frac{1}{\sqrt{n}} \right)}{n\left( \frac{\arctan n}{\sqrt{n}} - 1 + \frac{\sin n}{\sqrt{n}} + \tan \left(\frac{1}{n}\right) \right)} \\
+& = \frac{ 2 + 0 + 1 - 0 }{ 0 - 1 + 0 + 0 } = -3
+\end{align}
+}
+
+\ex{
+\begin{align} % Tolto \[...\] esterno
+& \lim_{ n \to \infty } \frac{\log(n+1)-\log(n^3 - 2)- \sqrt[n]{ n+1 }}{\log n - 2 \log(n^2 -1) + (-1)^{n}} \\ 
+& = \lim_{ n \to \infty } \frac{ \log\left(n\left(1 + \frac{1}{n}\right)\right) - \log\left(n^3\left(1 - \frac{2}{n^3}\right)\right) - \sqrt[n]{ n+1 } }{ \log n - 2 \log\left(n^2\left(1 - \frac{1}{n^2}\right)\right) + (-1)^{n} } \\ 
+& = \lim_{ n \to \infty } \frac{ \left[\log n + \log\left(1 + \frac{1}{n}\right)\right] - \left[3\log n + \log\left(1 - \frac{2}{n^3}\right)\right] - \sqrt[n]{ n+1 } }{ \log n - 2 \left[2\log n + \log\left(1 - \frac{1}{n^2}\right)\right] + (-1)^{n} } \\ 
+& = \lim_{ n \to \infty } \frac{ -2\log n + \log\left(1 + \frac{1}{n}\right) - \log\left(1 - \frac{2}{n^3}\right) - \sqrt[n]{ n+1 } }{ -3\log n - 2\log\left(1 - \frac{1}{n^2}\right) + (-1)^{n} } \\ 
+& = \frac{-2}{-3} = \frac{2}{3}
+\end{align}
+}
+
+\subsubsection{}\label{dimostrazione-esempio-precedente}
+
+\ex{
+Grazie al Teorema del confronto possiamo dimostrare
+l'\hyperref[perim-pol-inscritto]{esempio 8 delle successioni
+numeriche} 
+\[
+\lim_{ n \to \infty } P_{n} = 2Rn\sin \frac{\pi}{n}= \lim_{ n \to \infty } 2R n \frac{\sin \frac{\pi}{n}}{\frac{\pi}{n}} \frac{\pi}{n}= \lim_{ n \to \infty } 2R\pi \frac{\sin \frac{\pi}{n}}{\frac{\pi}{n}} = 2R\pi \cdot 1 = 2R\pi
+\]
+}
