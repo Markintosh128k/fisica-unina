@@ -471,7 +471,7 @@ a_n \to 0 \quad \iff \quad |a_n| \to 0.
 
 % Algebra dei Limiti
 
-\section{Algebra dei Limiti}\label{algebra-de-limiti}
+\section{Algebra dei Limiti}\label{algebra-dei-limiti}
 
 \subsection{Limiti Fondamentali}
 
@@ -1078,3 +1078,158 @@ l'esempio 8 delle successioni numeriche
 \lim_{ n \to \infty } P_{n} = 2Rn\sin \frac{\pi}{n}= \lim_{ n \to \infty } 2R n \frac{\sin \frac{\pi}{n}}{\frac{\pi}{n}} \frac{\pi}{n}= \lim_{ n \to \infty } 2R\pi \frac{\sin \frac{\pi}{n}}{\frac{\pi}{n}} = 2R\pi \cdot 1 = 2R\pi
 \]
 }
+
+
+\section{Teorema sul numero di Nepero}\label{teorema-numero-di-nepero}
+
+
+La successione \(a_{n}=( 1+ \frac{1}{n})^n\) è convergente e si pone: \[
+\lim_{ n \to \infty } \left( 1+ \frac{1}{n}\right)^n = e
+\] e si chiama numero di nepero e: \(e\sim 2.718\dots\)
+
+Per calcolarlo, pongo 3 successioni: \(a_{n}<b_{n}<c_{n}\) con \(a_n\) e
+\(c_{n}\) rispettivamente leggermente più o meno grandi di \(e\). Più
+``stringo'', più trovo \(b_{n}\) precisamente. (Metodo di Esaustione).
+
+
+\begin{proof}
+Bisogna dimostrare che
+\(\left( 1 + \frac{1}{n} \right)^n\) è convergente: 1.
+\(a_{n} \nearrow_{S}\) 2. \(a_{n}\) è limitata
+
+Per dimostrare che è \(\nearrow_{S}\): devo dimostrare che
+\(a_{n}<a_{n+1}\) ovvero:
+\[\boxed{\left( 1+ \frac{1}{n} \right)^n < \left( 1 + \frac{1}{n+1} \right)^{n+1}}\]
+Allora: uso \textbf{\(G\leq A\)} oppure il principio di induzione + la
+diseguaglianza di Bernoulli.
+
+
+
+\begin{align*}
+& G \leq A \qquad x_{1}=1+ \frac{1}{n} = x_{2}= \dots = x_{n} \quad x_{n+1}=1\\
+& \text{Posso scrivere < stretto perchè i termini non sono tutti uguali} \\
+& G=\sqrt[n+1]{ \left( 1 + \frac{1}{n} \right)^n } < \frac{n\left( 1+\frac{1}{n}\right)+1}{n+1}=A \\
+& \sqrt[n+1]{ \left( 1 + \frac{1}{n} \right)^n } < \frac{n+1+1}{n+1} \\
+&\sqrt[n+1]{ \left( 1 + \frac{1}{n} \right)^n } < 1 + \frac{1}{n+1} \\
+&\boxed{\left( 1 + \frac{1}{n} \right)^n < \left(1 + \frac{1}{n+1}\right)^{n+1}}\\
+\end{align*}
+
+
+È definitivamente crescente. Quindi ``\(e\)'' è il
+\(\sup\) quindi \(\left( 1 +\frac{1}{n} \right)^n < e\) e il sup è un
+maggiorante.
+
+Si consideri la successione:
+\[b_{n}= \left( 1 +\frac{1}{n} \right)^{n+1}= \left( 1 +\frac{1}{n} \right)^n \left( 1 + \frac{1}{n} \right)>a_{n}\]
+Voglio dimostrare che \(b_{n}\) è decrescente, quindi il suo limite
+sarebbe il suo \(\inf\), \(\sup a_{n}=\inf b_{n}\) quindi l'elemento
+separatore \(=e\). 
+\begin{align*}
+& \textcolor{orange}{b_{1}} > \underset{(\searrow_{S})}{b_{n}} > e > \underset{(\nearrow_{S})}{a_{n}} > \textcolor{orange}{a_{1}} \\
+& b_{n}=\left(\frac{n+1}{n} \right)^{n+1} \quad \text{deve essere decrescente.} \\
+& \text{Consideriamo } c_{n}= \frac{1}{b_{(n-1)}} = \left( 1- \frac{1}{n} \right)^n. \quad \text{Dimostreremo che } c_n \nearrow_S. \\
+& \text{Verifica: } b_{(n-1)} = \left(1 + \frac{1}{n-1}\right)^{n} = \left(\frac{n-1+1}{n-1}\right)^{n} = \left(\frac{n}{n-1}\right)^{n} \\
+& \implies \frac{1}{b_{(n-1)}} = \left(\frac{n-1}{n}\right)^{n} = \left(1 - \frac{1}{n}\right)^n = c_n.
+\end{align*} 
+Se \(c_{n}\nearrow_{s}\) allora \(b_{n}\searrow_{S}\)
+Considero: 
+
+
+\begin{align*}
+& x_{1}=\left( 1 -\frac{1}{n} \right)=x_{2}=\dots=x_{n} \; , \; x_{n+1}=1 \\
+& G<A \quad \sqrt[n+1]{\left( 1- \frac{1}{n} \right)^{n}} < \frac{n\left( 1- \frac{1}{n} \right) +1}{n+1} \\
+& \sqrt[n+1]{\left( 1- \frac{1}{n} \right)^{n}} < \frac{n-1+1}{n+1} \\
+& \sqrt[n+1]{\left( 1- \frac{1}{n} \right)^{n}} < \left( 1 - \frac{1}{n+1} \right) \\
+& {\left( 1- \frac{1}{n} \right)^{n}} < \left( 1 - \frac{1}{n+1} \right)^{n+1} \implies \nearrow_{S} \\
+&\textcolor{orange}{b_{1}} > \underset{(\searrow_{S})}{b_{n}} > e > \underset{(\nearrow_{S})}{a_{n}} > \textcolor{orange}{a_{1}}
+\end{align*}
+
+
+Quindi: 
+
+
+\begin{align*}
+& \lim_{ n \to \infty } b_{n} = \lim_{ n \to \infty } a_{n}= e \\
+& \inf b_{n} = e = \sup a_{n} \\
+&\left( 1+ \frac{1}{n} \right)^{n+1} = b_{n} > \inf b_{n} = e = \sup a_{n} = \left( 1 +\frac{1}{n} \right)^n \\
+& \left( 1+ \frac{1}{n} \right)^{n+1} > e > \left( 1 +\frac{1}{n} \right)^n \quad \forall n \in \mathbb{N}
+\end{align*}
+
+Calcolo una stima (\(n\) a dx e a sx non devono essere
+necessariamente uguali):
+\[\left( 1+ \frac{1}{400} \right)^{401} > e > \left( 1 +\frac{1}{200} \right)^{200} \to 2,722>e>2,711\]
+\end{proof}
+
+
+\subsection{Limite Notevole di e}
+\prop{
+Sia \(a_{n}\to a\):
+\[\lim_{ n \to \infty } \left( 1 + \frac{1}{a_{n}} \right)^{a_{n}}=e\]
+}
+
+\begin{proof}
+Sia \(a_{n}\to +\infty\): 
+
+
+\begin{align*}
+& [a_{n}]\leq a_{n}\leq[a_{n}]+1 \\
+& \left( 1 + \frac{1}{[a_{n}]+1} \right)^{[a_{n}]} \leq \left( 1 + \frac{1}{a_{n}} \right)^{a_{n}} \leq  \left( 1 + \frac{1}{[a_{n}]} \right)^{[a_{n}]+1} \\
+& \left( 1 + \frac{1}{[a_{n}]+1} \right)^{-1} \left( 1 + \frac{1}{[a_{n}]+1} \right)^{[a_{n}]+1} \leq \left( 1 + \frac{1}{a_{n}} \right)^{a_{n}} \leq  \left( 1 + \frac{1}{[a_{n}]} \right)^{[a_{n}]}\left( 1 +\frac{1}{[a_{n}]} \right) \\
+& \text{Calcolando il limite: } \\
+& 1 \cdot e \leq \left( 1 +\frac{1}{a_{n}} \right)^{a_{n}} < e \cdot 1 
+\end{align*}
+
+
+Idem per \(-\infty\)
+\end{proof}
+
+
+\subsubsection{Limiti Derivati dal limite notevole di
+e}\label{limiti-derivati-dal-limite-notevole-di-e}
+
+Con \(a_{n}\to 0\) 
+
+\begin{itemize}
+    \item \[
+    \lim_{ n \to \infty } (1 + a_{n})^{\frac{1}{a_{n}}} = e
+    \]
+    \item \[
+    \lim_{ n \to \infty }\frac{\log (1 + a_{n})}{a_{n}}=\log(1 + a_{n})^{\frac{1}{a_{n}}}=\log e=1
+    \]
+    \item \[
+    \lim_{ n \to \infty } \frac{e^{a_{n}}-1}{a_{n}}\implies e^{a_{n}}-1=y \implies \frac{y}{\log (y+1)}=1
+    \]
+\end{itemize}
+
+
+\prop{
+\[
+\lim_{ n \to \infty } \frac{(1+a_{n})^\alpha -1}{a_{n}}=\alpha \quad \text{(Perchè?)}
+\]
+}
+
+\begin{proof}
+    \begin{align*}
+& \lim_{ n \to \infty } \frac{(1+a_{n})^\alpha -1}{a_{n}} = \lim_{ n \to \infty } \frac{e^{\log((1+a_n)^\alpha)} - 1}{a_{n}} = \lim_{ n \to \infty } \frac{e^{\alpha \log(1+a_n)} - 1}{a_{n}} \\
+& \text{Moltiplichiamo e dividiamo per } \alpha \log(1+a_n): \\ 
+& = \lim_{ n \to \infty } \left[ \frac{e^{\alpha \log(1+a_n)} - 1}{\alpha \log(1+a_n)} \right] \cdot \left[ \frac{\alpha \log(1+a_n)}{a_{n}} \right] \\ 
+& \text{Poiché } a_n \to 0, \text{ anche } \alpha \log(1+a_n) \to 0. \text{ Per i limiti notevoli:} \\ 
+& = \left( \lim_{ n \to \infty } \frac{e^{\alpha \log(1+a_n)} - 1}{\alpha \log(1+a_n)} \right) \cdot \left( \lim_{ n \to \infty } \alpha \frac{\log(1+a_n)}{a_n} \right) \\
+& = 1 \cdot (\alpha \cdot 1) = \alpha 
+    \end{align*}
+\end{proof}
+
+
+
+
+
+\begin{proof}
+\begin{align*}
+& \lim_{ n \to \infty } \frac{(1+a_{n})^\alpha -1}{a_{n}} = \lim_{ n \to \infty } \frac{e^{\log((1+a_n)^\alpha)} - 1}{a_{n}} = \lim_{ n \to \infty } \frac{e^{\alpha \log(1+a_n)} - 1}{a_{n}} \\
+& \text{Moltiplichiamo e dividiamo per } \alpha \log(1+a_n): \\ 
+& = \lim_{ n \to \infty } \left[ \frac{e^{\alpha \log(1+a_n)} - 1}{\alpha \log(1+a_n)} \right] \cdot \left[ \frac{\alpha \log(1+a_n)}{a_{n}} \right] \\ 
+& \text{Poiché } a_n \to 0, \text{ anche } \alpha \log(1+a_n) \to 0. \text{ Per i limiti notevoli:} \\ 
+& = \left( \lim_{ n \to \infty } \frac{e^{\alpha \log(1+a_n)} - 1}{\alpha \log(1+a_n)} \right) \cdot \left( \lim_{ n \to \infty } \alpha \frac{\log(1+a_n)}{a_n} \right) \\
+& = 1 \cdot (\alpha \cdot 1) = \alpha 
+\end{align*}
+\end{proof}
