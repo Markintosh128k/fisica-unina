@@ -224,7 +224,6 @@ La dimostrazione segue direttamente dalla definizione di limite ed è quindi ovv
 
 \section{Teorema di Unicità del Limite}
 
-% CORREZIONE: Cambiato \defn in \thmr e spostato \label
 \thmr{Teorema di Unicità del Limite}{teorema-unicita-limite}{
 Ogni successione regolare ammette \textbf{UNO e UN SOLO limite}.
 }
@@ -826,6 +825,62 @@ Caso \(a>1\): \[
 % ==================================================
 % INIZIO CONTENUTO AGGIUNTO
 % ==================================================
+
+\section{Teorema della permanenza del segno (t.p.s)}\label{teorema-della-permanenza-del-segno}
+
+\thmr{Teorema della permanenza del segno}{teorema-permanenza-segno}{
+Sia \(a_{n}\) regolare: \(a_{n} \to a \in \overline{\mathbb{R}}\).
+\begin{itemize}
+    \item Se \(a > 0\), allora \(a_{n}\) è definitivamente positiva:
+    \[\exists \nu > 0 : a_{n}> 0 \quad \forall n> \nu\]
+    \item Se \(a < 0\), allora \(a_{n}\) è definitivamente negativa:
+    \[\exists \nu > 0 : a_{n}< 0 \quad \forall n> \nu\]
+\end{itemize}
+}
+
+\pf{
+Dimostrazione (t.p.s). Sia \(a>0\). Allora per la definizione di limite con gli intorni si ha:
+\[\forall I(a)\exists \nu>0 : a_{n} \in I(a) \quad \forall n> \nu\]
+Scelto come intorno di \(a\) la semiretta \(]0,+\infty[\), allora si ha la tesi.
+}
+
+\prop{
+\textbf{Corollario 1} \\
+Sia \(a_{n}\) regolare e \(a_{n}\to a \in \overline{\mathbb R}\).
+\begin{itemize}
+    \item se \(a>l\) con \(l \in \mathbb{R}\) allora \(a_{n} > l\) definitivamente.
+    \item se \(a<l\) con \(l \in \mathbb{R}\) allora \(a_{n} < l\) definitivamente.
+\end{itemize}
+}
+
+\pf{
+Se prendo \(b_{n}=a_{n}-l\), questa tende a \(a-l>0\). Basta applicare il t.p.s. alla successione \(b_n\).
+}
+
+\prop{
+\textbf{Corollario 2} \\
+Siano \(a,b \in \mathbb{R}\), \(a_{n}\to a\) e \(b_n \to b\).
+\begin{itemize}
+    \item Se \(a<b\), allora \(a_{n}<b_{n}\) definitivamente.
+    \item Se \(a>b\), allora \(a_{n}>b_{n}\) definitivamente.
+\end{itemize}
+}
+
+\prop{
+\textbf{Corollario 3} \\
+Sia \(a_{n}\to a \in \overline{\mathbb{R}}\).
+Se \(a_{n}\geq 0\) definitivamente, allora \(a\geq 0\).
+(Analogamente, se \(a_{n}\leq 0\) definitivamente, allora \(a\leq 0\)).
+}
+
+\pf{
+Se per assurdo fosse \(a<0\), allora per il t.p.s. \(a_{n}<0\) definitivamente, il che è un ASSURDO.
+}
+
+\prop{
+\textbf{Corollario 4} \\
+Se \(a_{n}\to a\in \mathbb{R}\) e \(a_{n}\geq l \in \mathbb{R}\) definitivamente, allora: \(a\geq l\).
+}
 
 \section{Teorema del confronto (Teorema dei carabinieri)}
 
