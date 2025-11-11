@@ -1288,3 +1288,299 @@ Con \(a_{n}\to 0\)
 & = 1 \cdot (\alpha \cdot 1) = \alpha 
 \end{align*}
 \end{proof}
+
+
+
+\section{Confronto di infiniti con i
+rapporti}\label{confronto-di-infiniti-con-i-rapporti}
+
+Confrontiamo i vari tipi di successioni utilizzando i rapporti
+
+\subsection{Confronto tra Medie di
+Successioni}\label{confronto-tra-medie-di-successioni}
+
+\defn{Media Aritmetica di una successione}{
+Sia \(a_n\) una successione
+tale che \(a_n \ge 0\). Si definisce \textbf{successione delle medie
+aritmetiche} la successione \(A_n\) definita come: \[
+A_n = \frac{a_1 + a_2 + \dots + a_n}{n}
+\]
+}
+
+\ex{
+Se \(a_n = n\), i termini della successione sono
+\(1, 2, 3, 4, \dots\)
+\begin{itemize}
+    \item \(A_1 = \frac{a_1}{1} = \frac{1}{1} = 1\)
+    \item \(A_2 = \frac{a_1 + a_2}{2} = \frac{1 + 2}{2} = \frac{3}{2}\)
+    \item \(A_3 = \frac{a_1 + a_2 + a_3}{3} = \frac{1 + 2 + 3}{3} = \frac{6}{3} = 2\)
+\end{itemize}
+}
+
+\defn{Media Geometrica}{
+Sia \(a_n\) una successione
+tale che \(a_n \ge 0\).
+Si definisce \textbf{successione delle medie
+geometriche} la successione \(G_n\) definita come: \[
+G_n = \sqrt[n]{a_1 \cdot a_2 \cdot \dots \cdot a_n}
+\]
+}
+
+\ex{
+Se \(a_n = n\), allora: \[
+G_3 = \sqrt[3]{a_1 \cdot a_2 \cdot a_3} = \sqrt[3]{1 \cdot 2 \cdot 3} = \sqrt[3]{6}
+\]
+}
+
+\subsubsection*{Teorema di Cesaro sulle medie Arimetiche}
+
+\prop{
+Se \(a_{n}\)una successione regolare, anche \(A_{n}\) è
+regolare e risulta:
+\[\lim_{ n \to +\infty } A_{n}=\lim_{ n \to +\infty } a_{n}\]
+}
+
+\pf{
+Sia \(a_n \to l \in \mathbb{R}\).
+(Primo Caso)
+\[
+\forall\epsilon > 0 \exists \nu_1 > 0: |a_n - l| < \epsilon \quad \forall n > \nu_1
+\] (Th) Tesi: \[
+\forall\epsilon > 0 \exists \nu > 0 : |A_n - l| < \epsilon \quad \forall n > \nu
+\] Sia \(\epsilon > 0\) e sia \([\nu_1]\) che trovo per ipotesi.
+Vado a
+stimare \(|A_n - l|\): \[
+\begin{align*}
+|A_n - l| &= \left| \frac{a_1 + a_2 + \dots + a_n}{n} - l \right|
+= \left|\frac{a_{1}+a_{2}+\dots+a_{n}-nl}{n}\right| \\
+&= \left|\frac{(a_{1}-l)+(a_{2}-l)+\dots+(a_{n}-l)}{n}\right|
+\end{align*}
+\] Spezziamo la somma (per \(n > [\nu_1]\)) e usiamo la disuguaglianza
+triangolare: \[
+|A_n - l| \le \left| \frac{(a_1 - l) + \dots + (a_{[\nu_1]} - l)}{n} \right| + \left| \frac{(a_{[\nu_1]+1} - l) + \dots + (a_n - l)}{n} \right|
+\] Ora analizziamo i due addendi:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Primo Addendo}: Il numeratore
+  \(K=|a_1 - l| + \dots + |a_{[\nu_1]} - l|\) è una quantità fissa (una
+  costante), dato che \(\nu_1\) è fisso.
+  Il termine
+  \(\frac{K}{n} \to 0\) per \(n \to +\infty\).
+  Per la definizione di
+  limite, \(\exists \nu_2 > 0\) tale che: \[
+  \frac{|a_1 - l| + \dots + |a_{[\nu_1]} - l|}{n} < \epsilon \quad \forall n > \nu_2
+  \]
+\item
+  \textbf{Secondo Addendo}: Per ipotesi, \(\forall n > [\nu_1]\) si ha
+  \(|a_n - l| < \epsilon\).
+  I termini da \([\nu_1]+1\) a \(n\) sono
+  \((n-[\nu_1])\). \[
+  \frac{|a_{[\nu_1]+1} - l| + \dots + |a_n - l|}{n} < \frac{(n-[\nu_1])\epsilon}{n} \le \frac{n\epsilon}{n} = \epsilon
+  \] Questo vale \(\forall n > [\nu_1]\).
+\end{enumerate}
+
+\textbf{Conclusione}: Scelgo \(\nu = \max\{\nu_1, \nu_2\}\). Per ogni
+\(n > \nu\) valgono entrambe le maggiorazioni: \[
+|A_n - l| \le (\text{Primo Addendo}) + (\text{Secondo Addendo}) < \epsilon + \epsilon = 2\epsilon
+\] Data l'arbitrarietà di \(\epsilon\), questo dimostra la tesi.
+}
+
+\subsection{Teorema di Cesaro sulle medie
+Geometriche}\label{teorema-di-cesaro-sulle-medie-geometriche}
+
+\prop{
+Se \(a_{n}>0 \; \forall n\) e \(a_{n}\) è
+regolare, anche \(G_{n}\) è regolare e risulta:
+\[\lim_{ n \to +\infty } G_{n}=\lim_{ n \to +\infty } a_{n}\]
+}
+
+\pf{
+\begin{align*}
+& G_{n}=\sqrt[n]{a_{1}\dots  a_{n}} \\
+& \log G_{n} = \log\sqrt[n]{a_{1}\dots  a_{n}} = \frac{\log a_{1} + \log a_{2}+\dots+\log a_{n}}{n} \\
+& b_{n} = \log a_{n}\\
+& \lim_{ n \to +\infty } \log G_{n} = \lim_{ n \to +\infty } a_{n} \implies \lim_{ n \to +\infty } G_{n} = \lim_{ n \to +\infty } a_{n}
+\end{align*}
+}
+
+\ex{
+\[
+a_{n}= \begin{cases}
+1 \quad \text{se } n \text{ è dispari} \\
+2 \quad \text{se } n \text{ è pari}
+\end{cases}\quad (\text{non ha limite})\quad
+\begin{align*}
+& G_{n} = \sqrt[n]{a_{1}\dots  a_{n}} = 
+\begin{cases}
+& \sqrt[n]{2^{\frac{n-1}{2}}}\to \sqrt{2} \\
+& \sqrt[n]{2^{\frac{n}{2}}}\to \sqrt{2}
+\end{cases}
+\end{align*}\]
+}
+
+\ex{
+\[
+A_{n}=\begin{cases}
+\frac{3n-1}{2n} \text{ se } n \text{ è dispari} \\
+\frac{3}{2} \text{ se } n \text{ è pari}
+\end{cases}\to \frac{3}{2}\]
+}
+
+\subsubsection{Teorema criterio Rapporto
+Radice}\label{teorema-criterio-rapporto-radice}
+
+\prop{
+Sia \(a_{n}\) una successione
+\(a_{n}>0 \; \forall n\) Se \(\frac{a_{n+1}}{a_{n}}\) è regolare allora
+anche \(\sqrt[n]{a_{n}}\) è regolare e risulta:
+\[\lim_{ n \to +\infty } \frac{a_{n+1}}{a_{n}} = \lim_{ n \to +\infty } \sqrt[n]{a_{n}}\]
+}
+
+\ex{
+\[\lim_{ n \to +\infty } \sqrt[n]{n!}=\lim_{ n \to +\infty } \frac{n+1!}{n!} = n+1 = +\infty\]
+}
+
+\pf{
+Consideriamo
+\[a_{1}, \frac{a_{2}}{a_{1}}, \frac{a_{3}}{a_{2}}, \dots , \frac{a_{n}}{a_{n-1}}\]
+\[G_{n}=\sqrt[n]{a_{1}\cdot \frac{a_{2}}{a_{1}}\cdot \frac{a_{3}}{a_{2}}\cdot \dots ,\frac{a_{n}}{a_{n-1}}}= \sqrt[n]{a_{n}}\]
+Per Cesaro:
+\[\lim_{ n \to +\infty } G_{n}=\lim_{ n \to +\infty } \frac{a_{n}}{a_{n-1}}\]
+}
+
+\ex{
+\begin{align*} \\
+&\lim_{ n \to +\infty } \frac{\sqrt[n]{n!}}{n}=\sqrt[n]{\frac{n!}{n^n}}=\lim_{ n \to +\infty } \frac{(n+1)!}{(n+1)^{(n+1)}}\cdot \frac{n^n}{n!}= \\
+&=\frac{n!(n+1)}{(n+1)^n (n+1)} \cdot \frac{n^n}{n!}=\left(\frac{n}{(n+1)}\right)^n=\frac{1}{\left(\frac{n+1}{n}\right)^n}=\frac{1}{e}
+\end{align*}
+}
+
+\subsubsection{Teorema criterio della
+Radice}\label{teorema-criterio-della-radice}
+
+\prop{
+Criterio della radice (per le successioni) Sia \(a_n \ge 0\)
+una successione.
+Se
+\(\exists \lim_{n \to +\infty} \sqrt[n]{a_n} = l \implies\) si ha: 
+\begin{enumerate}
+    \item \(l>1 \implies a_n \text{ diverge pos} \implies \lim_{n \to +\infty} a_n = +\infty\)
+    \item \(l<1 \implies \lim_{n \to +\infty} a_n = 0 \implies a_n \text{ infinitesima}\)
+\end{enumerate}
+}
+
+\pf{
+Dimostrazione 1 (\(l>1\)) Se \(l>1\) \(a_n \to +\infty\).
+Scelto \(\epsilon \text{ t.c. } l-\epsilon > 1 \implies\)
+\(\exists \nu \text{ t.c. } \forall n > \nu \implies \sqrt[n]{a_n} > l-\epsilon > 1\).
+\(a_n > (l-\epsilon)^n \to +\infty\). per il tes. del conf diverge.
+}
+
+\pf{
+Dimostrazione 2 (\(l<1\)) Sia \(l<1\).
+Th: \(a_n \to 0\).
+Sappiamo che \(a_n \ge 0\). Scegliamo \(\epsilon\) t.c.
+\(l+\epsilon < 1\).
+\(\exists \nu \text{ t.c. } \forall n > \nu \implies \sqrt[n]{a_n} < l+\epsilon < 1\).
+Dunque \(0 \le a_n < (l+\epsilon)^n\). Per \(n \to +\infty\),
+\(\lim_{n \to +\infty} (l+\epsilon)^n = 0\).
+Dunque per i carabinieri
+\(a_n \to 0\).
+}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{Teorema criterio del
+Rapporto}\label{teorema-criterio-del-rapporto}
+
+\prop{
+Criterio del rapporto (per le succ) Sia \(a_n > 0\) una
+successione tale che
+\(\exists \lim_{n \to +\infty} \frac{a_{n+1}}{a_n} = l \implies\) 
+\begin{enumerate}
+    \item se \(l>1 \implies \lim_{n \to +\infty} a_n = +\infty\) 
+    \item se \(l<1 \implies \lim_{n \to +\infty} a_n = 0\)
+\end{enumerate}
+}
+
+\pf{
+Banale!!
+Si applica il criterio R-R.
+}
+
+\subsection{Teorema Gerarchia degli
+Infiniti}\label{teorema-gerarchia-degli-infiniti}
+
+\prop{
+Teorema: Gerarchia degli Infiniti (Siano \(a>1, b>0\))Vale
+la seguente gerarchia degli infiniti:
+\[\boxed{\log_{a}n; \; n^b; \; a^n ; \; n! ; \; n^n}\] Ovvero:
+\[\underset{(1)}{\lim_{ n \to \infty }} \frac{\log_{a}n}{n^b}=
+\underset{(2)}{\lim_{ n \to \infty } \frac{n^b}{a^n}}=
+\underset{(3)}{\lim_{ n \to \infty } \frac{a^n}{n!}}=
+\underset{(4)}{\lim_{ n \to \infty } \frac{n!}{n^n}}=0\]
+}
+
+\ex{
+\[\lim_{ n \to +\infty } \frac{2^n + n^2 -3 \sin n + \log n}{3^n + \sqrt[n]{n}-n! +n^2} = 0\]
+}
+
+La Gerarchia \textbf{NON VALE PER LE COMPOSTE}
+
+\ex{
+\[\lim_{ n \to +\infty } \frac{\log(n^3+1)-\log(n^2+2)}{3\log n}= ?\]
+}
+
+\pf{
+Dimostrazione Teorema Gerarchia degli Infiniti Dimostriamo
+nell'ordine: \((4)\to(1)\)
+\begin{itemize}
+\item
+  \((4)=0\) Utilizzo Criterio Radice
+  \[\lim_{ n \to \infty }\sqrt[n]{ \frac{n!}{n^n}}=\lim_{ n \to \infty } \frac{\sqrt[n]{n!}}{n}=\frac{1}{e}\implies l=\frac{1}{e}<1 \]
+  Allora per il criterio della
+  radice:\[\lim_{ n \to \infty }\frac{n!}{n^n}=0\]
+
+\item
+  \((3)=0\) Utilizzo Criterio Radice
+  \[\lim_{ n \to \infty } \sqrt[n]{\frac{a_{n}}{n!}}=\lim_{ n \to \infty } \frac{a}{\sqrt[n]{n!}}\to \frac{a}{+\infty}=0=l<1 \quad \text{Allora }(3)=0\]
+\item
+  \((2)=0\) Utilizzo Criterio Radice
+  \[\lim_{ n \to \infty } \frac{\sqrt[n]{n^b}}{a^n}=\lim_{ n \to \infty } \frac{\sqrt[n]{n^b}}{a}=\frac{1}{a}=l<1\implies \lim_{ n \to \infty } \frac{n^b}{a^n}=0\]
+\item
+  \((1)=0\) Sia \(b=1\)
+
+  \[\lim_{ n \to \infty } \frac{\log_{a}n}{n}=\lim_{ n \to \infty } \log_{a} (n^{\frac{1}{n}})=\log_a \left( \lim_{n\to\infty} \sqrt[n]{n} \right) = \log_a 1 = 0\]
+
+  Sia \(b>0 \;;\; a=2\) (posso dimostrarlo per \(a=2\) e poi fare il
+  cambiamento di base.)
+
+  Th.
+  \[\lim_{ n \to \infty } \frac{\log_{2}n}{n^b}=0\]
+
+  Osserviamo che per ogni \(x>0\) vale la disuguaglianza
+  \(x \geq \log_{2}x\).
+  Poniamo \(x = n^{b/2}\). Poiché \(b>0\), per \(n \ge 1\), \(x>0\).
+  Dalla disuguaglianza \(x \ge \log_2 x\) otteniamo:
+
+  \[n^{b/2} \geq \log_2(n^{b/2})\]
+
+  Ora manipoliamo la frazione di cui vogliamo il limite:
+
+  \begin{align*} 0 \leq \frac{\log_2 n}{n^b} &= \frac{\log_2 \left( (n^{b/2})^{2/b} \right) }{ (n^{b/2})^2 } = \frac{ \frac{2}{b} \log_2(n^{b/2}) }{ (n^{b/2})^2 } \\ &= \frac{2}{b} \cdot \frac{\log_2(n^{b/2})}{n^{b/2} \cdot n^{b/2}} \\ &= \frac{2}{b} \cdot \frac{1}{n^{b/2}} \cdot \left( \frac{\log_2(n^{b/2})}{n^{b/2}} \right) \end{align*}
+
+  Usando la disuguaglianza \(n^{b/2} \geq \log_2(n^{b/2})\), sappiamo
+  che \(\left( \frac{\log_2(n^{b/2})}{n^{b/2}} \right) \leq 1\).
+  Quindi possiamo maggiorare:
+
+  \[0 \leq \frac{\log_2 n}{n^b} \leq \frac{2}{b} \cdot \frac{1}{n^{b/2}} \cdot (1) = \frac{2}{b} \cdot \frac{1}{n^{b/2}}\]
+
+  Poiché \(b>0\),
+  \(\lim_{n \to \infty} \frac{2}{b} \frac{1}{n^{b/2}} = 0\).
+  Per il Teorema dei Carabinieri, si conclude:
+
+  \[\lim_{ n \to \infty } \frac{\log_{2}n}{n^b}=0\]
+\end{itemize}
+}
