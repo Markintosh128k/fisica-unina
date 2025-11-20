@@ -11,9 +11,6 @@ Il materiale è organizzato per materia:
     * `Eserciziari`: Raccolte di esercizi (es. Marcellini-Sbordone, Alvino-Trombetti).
     * `Libri`: Testi di riferimento consigliati.
 
-* **/Laboratorio di Fisica I**:
-    * Materiale ed esperienze di laboratorio.
-
 ### Compilazione
 
 Per compilare i file `.tex` (ad esempio `Analisi I/Appunti/analisi_1.tex`):
