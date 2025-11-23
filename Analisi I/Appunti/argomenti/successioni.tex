@@ -1584,3 +1584,228 @@ nell'ordine: \((4)\to(1)\)
   \[\lim_{ n \to \infty } \frac{\log_{2}n}{n^b}=0\]
 \end{itemize}
 }
+
+
+%------Successioni Estratte-------%
+
+\section{Successioni estratte}
+\label{successioni-estratte}
+
+\defn{Successione Estratta}{
+    Sia \(a_{n}\) una successione. Sia \(n_{k}\) una successione di indici in \(\mathbb{N}\) strettamente crescente. Allora la successione \(a_{n_{k}}\) si chiama \textbf{Estratta} o \textbf{Sottosuccessione di \(a_{n}\)}:
+    \[a_{n_{k}}:k \in \mathbb{N} \to a_{n_{k}}\in \mathbb{R}\]
+}
+
+\rmkb{
+    Per gli indici vale la relazione:
+    \[n_{k}\geq k\]
+}
+
+\prop{
+    Se \(a_{n}\) è una successione regolare allora ogni sua estratta tende allo stesso limite.
+}
+
+\ex{
+    Consideriamo \(a_n = (-1)^n\).
+    \[
+    (-1)^n = \begin{cases}
+    a_{2n}\to 1 \\
+    a_{2n+1}\to -1
+    \end{cases}
+    \]
+    Poiché i limiti sono diversi, \((-1)^n\) non converge.
+}
+
+\pf{
+    Supponiamo che \(a_{n}\to l \in \mathbb{R}\).
+    \[\forall \epsilon > 0, \exists \nu > 0 : |a_{n} - l| < \epsilon \quad \forall n>\nu\]
+    Sia \(n_{k}\) una successione di indici strettamente crescenti e consideriamo una estratta \(\{a_{n_{k}}\}_{k}\). Scelto \(\epsilon\) devo dimostrare che \(|a_{n_{k}} - l| <\epsilon \; \forall k > \nu\).
+    
+    Poiché \(n_{k}\geq k\), basta prendere il \(\nu\) della convergenza di \(a_{n}\).
+}
+
+\noindent\rule{0.5\linewidth}{0.5pt}
+
+\prop{
+    Se \(a_{2n}\) e \(a_{2n+1}\) hanno lo stesso limite allora \(a_{n}\) è regolare e ha come limite lo stesso limite.
+}
+
+\ex{
+    \[
+    a_{n} = \begin{cases}
+    \frac{1}{n} & \text{se } n \text{ è dispari} \\
+    {(\frac{1}{2})}^n & \text{se } n \text{ è pari} \\
+    \end{cases} \to 0
+    \]
+}
+
+\pf{
+    \[
+    \begin{align*}
+    a_{2n} &\to l \in \mathbb{R} \implies \exists \nu_{1} : |a_{2n} -l | < \epsilon \quad \forall n> \nu_{1} \\
+    a_{2n+1} &\to l \in \mathbb{R} \implies \exists \nu_{2} : |a_{2n+1} -l | < \epsilon \quad \forall n> \nu_{2} \\
+    \end{align*}
+    \]
+    Quindi:
+    \[
+    \forall \epsilon > 0 \quad \exists \nu>0 : |a_{n}-l| < \epsilon \quad \forall n > \nu \quad \text{con } \nu = \max\{ \nu_{1}, \nu_{2} \}
+    \]
+}
+
+\subsection{Teorema di Bolzano Weierstrass}
+\label{teorema-di-bolzano-weierstrass}
+
+\thm{Teorema di Bolzano Weierstrass}{
+    Sia \(a_{n}\) limitata. Allora:
+    \[\exists a_{n_{k}} \text{ convergente}\]
+}
+
+\pf{
+    Per Hp \(a_{n}\) è limitata. Quindi \(\exists A, B \in \mathbb{R}:\)
+    \[A < a_{n} < B \; \forall n \in \mathbb{N}\]
+    
+    Se considero la successione:
+    \[b_{n}= \inf_{k\geq n} a_{k} < +\infty \quad \nearrow\]
+    Allora \(\exists l' = \lim_{ n \to \infty } b_{n} = \sup_{n} b_{n} \in \mathbb{R}\) e posso chiamarlo \textbf{Minimo Limite di \(a_{n}\)} oppure: \(\liminf_{n\to +\infty} a_{n}\).
+    
+    Analogamente, se considero la successione:
+    \[c_{n}= \sup_{k\geq n} a_{k} < +\infty \quad \searrow\]
+    Allora \(\exists l'' = \lim_{ n \to \infty } c_{n} = \inf_{n} c_{n} \in \mathbb{R}\) e posso chiamarlo \textbf{Massimo Limite di \(a_{n}\)} oppure: \(\limsup_{n\to +\infty} a_{n}\).
+
+    Dimostriamo che si può costruire \(\{ a_{n_{k}} \}_{k}\) tale che \(a_{n_{k}}\to l'\) con \(k\to +\infty\) (la stessa cosa si può fare per \(l''\)). Per definizione di \(l'\) questo significa che scelto:
+    \[\epsilon>0 \quad \exists \nu: |a_{n_{k}}- l'|<\epsilon \quad \forall k>\nu\]
+    oppure
+    \[z_{k}\leq a_{n_{k}} \leq d_{k} \quad (\text{Con } z_{k},d_{k} \to l' )\]
+    Allora \(l'\) e \(l''\) sono in \(\mathbb{R}\).
+
+    Dimostriamo che si possono costruire \(z_{k}, d_{k}\to l'\). Essendo \(l'=\sup b_{n} = \lim_{ n } b_{n}\), allora:
+    \[
+    \begin{align*}
+    & \forall \epsilon > 0 \exists \nu_{1} > 0 :  \forall n> \nu_{1} \; |b_{n} - l'| < \epsilon \implies\\
+    & \implies |\inf_{k\geq n} a_{k} - l'| <\epsilon \implies \\
+    & \implies l' - \epsilon < \inf_{k\geq n} a_{k} < l' + \epsilon \quad \forall n> \nu
+    \end{align*}
+    \]
+    Sia \(\epsilon=1\). Allora:
+    \[
+    \exists \nu_{1} : l' - 1 < \inf_{k\geq n} a_{k}<l' +1 \quad \forall n>\nu_{1} \implies \exists \underset{\text{(Più piccolo)}}{n_{1}}> \nu_{1} : \boxed{l' -1 < a_{n_{1}} < l' +1}
+    \]
+    Sia \(\epsilon=\frac{1}{2}\). Allora:
+    \[
+    \exists \nu_{2} : l' - \frac{1}{2} < \inf_{k\geq n} a_{k}<l' +\frac{1}{2} \quad \forall n>\nu_{2}
+    \]
+    Sia \(n_{2}>n_{1}\) tale che \(l' -\frac{1}{2} < a_{n_{2}} < l' + \frac{1}{2}\).
+    Iterando, costruisco \(a_{n_{k}}\):
+    \[
+    \boxed{l' - \frac{1}{k}<a_{n_{k}}<l' +\frac{1}{k} \quad \forall k}
+    \]
+}
+
+\cor{
+    Se \(a_{n}\) è limitata \(\exists\) due estratte che convergono a \(l'\) e \(l''\).
+    
+    \(a_{n} \to l\in \mathbb{R} \iff \exists\) 2 estratte che si complementano (Spesso, pari e dispari).
+}
+
+\ex{
+    \[
+    \begin{align*}
+    &a_{n} = \arctan((-1)^n n)\\
+    & \liminf_{n} a_{n} = -\frac{\pi}{2}\\
+    & \limsup_{n} a_{n} = \frac{\pi}{2}
+    \end{align*}
+    \]
+}
+
+\prop{
+    Ipotesi: Sia \(a_{n}\) limitata.
+    Tesi: \[a_{n} \to l \iff \liminf_{n \to +\infty} a_{n} = \limsup_{n \to +\infty} a_{n} = l\]
+}
+
+\rmkb{La seguente dimostrazione è una classica domanda all'orale.}
+
+\pf{
+    \textbf{\((\implies)\)}
+    \[
+    a_{n}\to l \implies \forall a_{n_{k}} \implies a_{n_{k}}\to l
+    \]
+    Poiché \(\exists a_{n_{k}}\to l'\) e \(a_{n_{k}}\to l'' \implies l' = l'' = l\).
+
+    \textbf{\((\impliedby)\)}
+    Per Hp:
+    \[
+    \begin{align*}
+    & l'=\liminf_{n \to +\infty} a_{n} = \sup (\overbrace {\inf_{k\geq n} a_{k}}^{b_{n}})=l \\
+    & l''=\limsup_{n \to +\infty} a_{n} = \inf (\underbrace {\sup_{k\geq n} a_{k}}_{c_{n}})=l
+    \end{align*}
+    \]
+    Per la caratterizzazione dell'inf e del sup:
+    \[
+    \begin{align*}
+    &\forall \epsilon > 0 \quad \exists \nu_{1}, \nu_{2}>0 :\\
+    &\exists c_{\nu_{2}}, b_{\nu_{1}}:\\
+    &l'' + \epsilon > c_{\nu_{2}} = \sup_{k\geq \nu_{2}} a_{k}\geq a_{k} \quad \forall k> \nu_{2} \\
+    &l + \epsilon > b_{\nu_{1}} = \inf_{k\geq \nu_{1}} a_{k}\leq a_{k} \quad \forall k> \nu_{1} \\
+    &\nu > \max\{ \nu_{1}, \nu_{2} \}
+    \end{align*}
+    \]
+    Quindi:
+    \[\liminf_{n} a_{n} \leq \lim_{ n } a_{n} \leq \limsup_{n} a_{n}\]
+    (Nota: \(\nu\) come indice è un abuso di notazione, si dovrebbe usare \([\nu]\)).
+}
+
+\noindent\rule{0.5\linewidth}{0.5pt}
+
+\prop{
+    Seno e Coseno non hanno limite:
+    \[\lim_{ n \to \infty } \sin n = \lim_{ n \to \infty } \cos n = \not \exists\]
+}
+
+\pf{
+    (Usa Prostaferesi: \(\sin x - \sin y = 2 \cos\left(\frac{x+y}{2} \right)\sin\left(\frac{x-y}{2} \right)\)).
+    
+    Pongo \(x=n+1\) e \(y=n-1\). Supponiamo per assurdo che il limite \(\exists s \in \mathbb{R}\). Quindi per Hp:
+    \[\lim_{ n \to \infty } \sin n = s\]
+    \[\sin (n+1) - \sin (n-1)=2\cos n \sin 1\]
+    Queste quantità tendono a:
+    \[
+    \begin{align*}
+    &s-s = 0 \\
+    & \text{Se }\lim_{ n \to \infty } \sin n = s \implies \lim_{ n \to \infty } \cos n=0 \text{ e } \cos(n+1)\to 0 \text{ essendo estratta da } \cos n \\
+    &(\cos n \cos_{1} - \sin n\sin 1) \to 0 -s\sin 1 \to 0 \implies s=0\\
+    & \forall n, \sin^2 n+ \cos^2 n = 1 \to 0+0=1 \quad \text{ASSURDO.}
+    \end{align*}
+    \]
+}
+
+\subsection{Teorema Criterio di Cauchy}
+\label{teorema-criterio-di-cauchy}
+
+\thm{Criterio di Cauchy}{
+    Sia \(a_{n}\) una successione.
+    \(a_{n}\) convergente a \(l \in \mathbb{R} \iff a_{n}\) verifica la seguente condizione (detta di Cauchy):
+    \[
+    \begin{align*}
+    &\forall \epsilon > 0 \exists \nu> 0 : |a_{n} - a_{m}| < \epsilon \quad \forall n, m > \nu \\
+    & |a_{n} - a_{m}| = \boxed{a_{m} -\epsilon <a_{n} < \epsilon +a_{m}}
+    \end{align*}
+    \]
+}
+
+\pf{
+    \(a_{n}\) convergente \(\iff\) \(a_{n}\) è di Cauchy.
+    
+    \((\implies)\)
+    \[a_{n} \to l \in \mathbb{R} \implies \forall \epsilon > 0 \exists \nu >0 : |a_{n} - l| < \epsilon \quad \forall n > \nu\]
+    Preso \(\epsilon>0\) vado a stimare:
+    \[a_{n}-a_{m} = |a_{n} - l + l-a_{m} | \leq |a_{n} -l| + |a_{m} -l | < 2\epsilon \quad \text{ Se } n,m > \nu\]
+    
+    \((\impliedby)\)
+    \(\boxed{a_{m} -\epsilon <a_{n} < \epsilon +a_{m}}\implies\) Se prendo \(\epsilon= 1 \implies \exists \nu_{1}:\)
+    \[a_{m}-1< a_{n} <1 + a_{m}\quad \forall n, m > \nu_{1}\]
+    Fissando \(\overline{m}>\nu_{1}\) allora:
+    \[a_{\overline{m}}-1 < a_{n} < 1 + a_{\overline{m}} \quad \forall n> \nu_{1}\]
+    Allora \(a< a_{n} < b\;\forall n> \nu_{1} \implies a_{n}\text{ LIMITATA} \implies \exists a_{n_{k}}\text{ convergente}\).
+    
+    Sfruttando la convergenza della sottosuccessione e la proprietà di Cauchy si conclude la dimostrazione (nota: l'ultima riga del tuo testo originale sembrava tronca, ho chiuso logicamente il pensiero).
+}
