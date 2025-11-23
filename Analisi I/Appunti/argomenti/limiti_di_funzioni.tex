@@ -1,0 +1,365 @@
+\chapter{Limiti di funzioni}
+\label{limiti-di-funzioni}
+
+\section{Intorni}
+
+\defn{Intorni}{
+    Sia \(x_{0}\in \mathbb{R}\), un Intorno \(I(x_{0})\) di \(x_{0}\) è un intervallo aperto contenente \(x_{0}\).
+    \begin{itemize}
+        \item Un intorno \textbf{Simmetrico} di \(x_{0}\) di ampiezza \(\delta>0\) è un intervallo del tipo:
+        \[]x_{0}-\delta, x_{0} +\delta[ = \boxed{I_{\delta}(x_{0})}\]
+        \item Un intorno \textbf{Sinistro} di \(x_{0}\) è un intervallo del tipo:
+        \[]x_{1}, x_{0}[ \text{ con }x_{1} <x_{0} = \boxed{I^{-}(x_{0})}\]
+        \item Un intorno \textbf{Destro} di \(x_{0}\) è un intervallo del tipo:
+        \[]x_{0}, x_{2}[ \text{ con }x_{2} > x_{0} = \boxed{I^{+}(x_{0})}\]
+    \end{itemize}
+}
+
+\section{Punti d'accumulazione}
+
+\defn{Punti d'Accumulazione}{
+    Se \(A \subseteq \mathbb{R}\) e sia \(\underline{x_{0}\in \mathbb{R}}\).
+    Diremo che \(x_{0}\) è un \textbf{punto di accumulazione} per \(A\) se \(\forall I(x_{0}) \exists\) almeno un punto di \(A\) diverso da \(x_{0}\) ovvero:
+    \[\forall I (x_{0}) \implies I(x_{0})\cap A \setminus \{ x_{0} \}\ne \varnothing \]
+    Un modo equivalente è:
+    \[\forall \epsilon>0 \exists \overline{x} \in A : 0 <|\overline{x} - x_{0}| < \epsilon \implies x_{0} - \epsilon < \overline{x} <x_{0} +\epsilon\]
+}
+
+\rmkb{
+    \begin{itemize}
+        \item \(+\infty\) è un pto di accumulazione per \(A \iff A\) non è superiormente limitato
+        \item \(-\infty\) è un pto di accumulazione per \(A \iff A\) non è inferiormente limitato
+    \end{itemize}
+}
+
+\ex{
+    \begin{itemize}
+        \item \(A = \left\{ \frac{1}{n}, n\in \mathbb{N} \right\} \quad x_{0}=0 \not\in A\)
+        \item \(A=\mathbb{N} \quad +\infty\)
+        \item \(A = ]0,1[ \qquad [0,1]\)
+        \item \(A = \mathbb{Q} \qquad \overline{\mathbb{R}}\) (Per il lemma di densità di \(\mathbb{Q}\) in \(\mathbb{R}\))
+    \end{itemize}
+}
+
+\noindent\rule{0.5\linewidth}{0.5pt}
+
+\prop{
+    Sia \(A \subseteq \mathbb{R}\) e \(x_{0}\in \mathbb{R}\).
+    \[
+    \underset{(1)}{\boxed{x_{0} \text{ è di acc. per A}}}\iff 
+    \underset{(2)}{\boxed{\begin{array}{l}
+    \exists x_{n} \text{ una successione}:\\
+    x_{n} \in A \\
+    x_{n} \neq x_{0} \quad \forall n \in \mathbb{N} \\
+    x_{n} \to x_{0}
+    \end{array}}}
+    \]
+}
+
+\pf{
+    \((\impliedby)(2)\)
+    Per Hp:
+    \[\forall \epsilon >0 \exists \nu: |x_{n}-x_{0}| < \epsilon \quad \forall n > \nu \implies x_{0} \text{ di acc}\]
+    oppure
+    \[\forall I(x_{0}) \exists \nu: x_{n} \in I(x_0) \quad \forall n > \nu\]
+    
+    \((\implies)(1)\)
+    Per Hp:
+    \[\forall \epsilon>0 \exists \overline{x} \in A : 0 < | \overline{x} - x_{0}| <\epsilon\]
+    Preso \(\epsilon = \frac{1}{n}, n \in \mathbb{N}\):
+    \[\boxed{\exists x_{n} \in A \forall n} \text{ e } \boxed{x_{n}\ne x_{0} \forall n:} 0< |x_{n} -x_{0} | < \frac{1}{n} \implies x_{n} \to x_{0}\]
+}
+
+\section{Teorema di Bolzano}
+\label{teo-di-bolzano}
+
+\thm{Teorema di Bolzano}{
+    Ogni insieme \textbf{Limitato} e \textbf{infinito} di \(\mathbb{R}\) ammette almeno un punto di accumulazione.
+}
+
+\pf{
+    Poiché l'insieme \(A\) è infinito, contiene una successione \(x_{n}\) di punti tutti diversi tra loro.
+    Per il \textbf{Teorema di Bolzano-Weierstrass} (vedi capitolo Successioni) \(\exists x_{n_{k}}\in A: x_{n_{k}}\to l \in \mathbb{R}\) e \(l\) è di accumulazione.
+}
+
+\section{Insiemi Aperti e Chiusi e Compatto}
+
+\defn{Aperto}{
+    Un insieme \(A \subseteq \mathbb{R}\) si dice aperto se:
+    \[\forall x_{0} \in A \exists I(x_{0})\subseteq A\]
+}
+
+\ex{
+    \(]0,1[\) SÌ \\
+    \([0,1[\) NO
+}
+
+\defn{Chiuso}{
+    \(C \subseteq \mathbb{R}\) si dice chiuso se il suo complementare \(\mathbb{R}\setminus C\) è aperto.
+}
+
+\ex{
+    \(C: [0,1]\) \\
+    \(R\setminus C = ]-\infty,0[ \cup ]1, +\infty[\)
+}
+
+\prop{
+    \[C \subseteq \mathbb{R} \text{ è chiuso} \iff \text{contiene tutti i suoi punti di accumulazione}\]
+}
+
+\pf{
+    \textbf{\((\implies)\)}
+    Se \(C\) è chiuso \(\implies R\setminus C=A\) è aperto.
+    Sia \(x_{0}\in \mathbb{R}, x_{0}\) di accumulazione per \(C\).
+    Se per assurdo \(x_{0}\not \in C\) allora \(x_{0} \in A\); essendo \(A\) aperto:
+    \[\exists I(x_{0})\subseteq A \implies I(x_{0})\cap C = \varnothing \text{ ASSURDO}\]
+    
+    \textbf{\((\impliedby)\)}
+    Sia \(A=\mathbb{R}\setminus C\). Se per assurdo \(A\) non è aperto, \(\exists x_{0}\in A:\forall n\in \mathbb{N}\), preso \(\epsilon=\frac{1}{n}\):
+    \[\exists x_{n}:|x_{n}-x_{0}| <\frac{1}{n} \text{ ma }x_{n}\in C \; (x_{n}\ne x_{0}) \quad x_{n}\to x_{0}\in C\]
+    ASSURDO. Allora \(A\) è aperto.
+}
+
+\prop{
+    \[C \subseteq \mathbb{R} \text{ è chiuso} \iff \text{contiene i limiti di tutte le sue successioni}\]
+}
+
+\pf{
+    Per esercizio.
+}
+
+\defn{Compatto}{
+    \(K \subseteq \mathbb{R}\) si dice compatto se da ogni sua successione se ne può estrarre una convergente ad un elemento di \(K\).
+}
+
+\section{Teorema di Heine-Borel}
+
+\thm{Teorema di Heine-Borel}{
+    \(K \subseteq \mathbb{R}\) è compatto \(\iff K\) è chiuso e limitato.
+}
+
+\pf{
+    \textbf{\((\impliedby)\)}
+    Sia \(x_{n} \in K\).
+    La limitatezza ci dice che \(x_{n_{k}} \to x_{0} \in \mathbb{R}\).
+    La chiusura ci dice che \(\exists x_{n_{k}}\to x_{0} \in K\).
+
+    \textbf{\((\implies)\)}
+    Sia \(x_{n} \in K\) convergente a \(x_{0} \in K\). \(K\) è chiuso.
+    Se per assurdo \(K\) non è limitato, allora \(\exists x_{n} \to +\infty\). Ma \(x_{n}\in K\) deve ammettere una sottosuccessione convergente ad un elemento di \(K\) (per l'ipotesi di compattezza), il che è assurdo.
+}
+
+\ex{
+    \([1,2] \cup [3,5]\cup[6,7]\)
+}
+
+\section{Dai Limiti di Successioni a quelli di Funzioni}
+
+\defn{Limite di Funzione}{
+    Sia \(f:A \subseteq \mathbb{R} \to \mathbb{R}\) e sia \textbf{\(x_{0}\in \mathbb{R}\)} un punto di accumulazione per \(A\).
+    Diremo che \(f\) converge o tende ad \textbf{\(l\in \mathbb{R}\)} per \(x \to x_{0}\) e scriveremo:
+    \[\lim_{ x \to x_{0} } f(x)=l\]
+    Se \(\forall x_{n} \in A\; \forall n, x_{n}\neq x_{0} \forall n, x_{n}\to x_{0}\) risulta:
+    \[\lim_{ n \to +\infty } f(x_{n})=l\]
+}
+
+\ex{
+    \(A= ]0, +\infty[\), \(x_{0}=0\) p.a.
+    \[\forall x_{n}\in]0, +\infty[\quad x_{n}\to 0 \implies \lim_{ n \to +\infty } \log(x_{n})=-\infty\]
+    % [Immagine: def_log_a-mag-1.jpg]
+    % \begin{figure}[h] \centering \includegraphics[width=0.5\textwidth]{img/def_log_a-mag-1.jpg} \caption{Logaritmo} \end{figure}
+}
+
+\ex{
+    \(f(x)=\frac{\sin x}{x} \quad A=\{ x\neq 0 \}= \mathbb{R} \setminus \{ 0 \} \quad x_{0}=0 \text{ è p.a.}\)
+    \[
+    \lim_{ x \to 0 } \frac{\sin x}{x}
+    \]
+    Sia \(x_{n} \in A, x_{n} \to 0\). Allora:
+    \[
+    \lim_{ x \to 0 } \frac{\sin x}{x}=\boxed{\lim_{ n \to +\infty } \frac{\sin x_{n}}{x_{n}} = 1}
+    \]
+}
+
+\ex{
+    Sia \(f: \mathbb{R} \to \mathbb{R}\) data da
+    \[f(x)=\begin{cases}
+    1 & \text{se } x\neq 0 \\
+    0 & \text{se } x = 0
+    \end{cases}\]
+    Sia \(x_{n}\) una successione: \(x_{n} \in \mathbb{R}, x_{n}\neq 0 \forall n, x_{n}\to 0\).
+    \[\lim_{ x \to 0 } f(x)=\lim_{ n \to +\infty } f(x_{n}) = 1 \neq f(0)\]
+    % [Immagine: 1 tranne in 0.jpg]
+}
+
+\ex{
+    \[f(x)=\begin{cases}
+    0 & \text{se } x<0 \\
+    1 & \text{se } x\geq 0
+    \end{cases}\]
+    \[\lim_{ x \to 0 } f(x) = \not \exists\]
+    Se esistesse, \(\forall x_{n} \to 0, x_{n} \in \mathbb{R}, x_{n} \neq 0 \quad \forall n \implies \lim_{ n \to +\infty } f(x_{n})=l\).
+    Ma se prendiamo:
+    \[x_{n}=\frac{1}{n} \quad x'_{n}=-\frac{1}{n}\]
+    \[\lim_{ n \to +\infty } f(x_{n}) =1 \neq \lim_{ n \to +\infty } f(x'_{n}) = 0\]
+    Quindi \(\lim_{ x \to 0 } f(x) = \not \exists\).
+    % [Immagine: funz gradino.jpg]
+}
+
+\rmkb{
+    La stessa definizione vale nel caso in cui \(l \in \overline{\mathbb{R}}\) e \(x_{0}\in \overline{\mathbb{R}}\).
+    \ex{
+        \[f(x)=\frac{1}{x^2} \quad A= \mathbb{R} \setminus \{0\}\]
+        Se \(x_{n}\in A\) e \(x_{n} \to \infty\):
+        \[\lim_{ x \to +\infty } f(x) = \lim_{ n \to +\infty } \frac{1}{x_{n}^2}=0\]
+        Se \(x_{n}\to -\infty\):
+        \[\lim_{ x \to -\infty } f(x) = \lim_{ n \to +\infty } \frac{1}{x_{n}^2}=0\]
+        Se \(x_{n}\in A, x_{n} \to 0, x_{n} \neq 0\):
+        \[\lim_{ x \to 0 } f(x) = \lim_{ n \to +\infty } \frac{1}{x_{n}^2}=+\infty\]
+        Se \(f(x)=\frac{1}{x} \implies \lim_{ x \to 0 } f(x)= \not \exists\)
+    }
+}
+
+\defn{Limiti Infiniti}{
+    Se \(f: A \subseteq \mathbb{R} \to \mathbb{R}, x_{0}\in \mathbb{R}\) di accumulazione.
+    \begin{align*}
+    & \lim_{ x \to x_{0} } f(x) = +\infty \iff \forall x_{n} \in A, x_{n}\to x_{0}, x_{n}\neq x_{0} \implies \lim_{ n \to +\infty } f(x_{n}) = +\infty\\
+    & \lim_{ x \to x_{0} } f(x) = -\infty \iff \forall x_{n} \in A, x_{n}\to x_{0}, x_{n}\neq x_{0} \implies \lim_{ n \to +\infty } f(x_{n}) = -\infty\\
+    \end{align*}
+    \begin{itemize}
+        \item Sia \(x_{0}=+\infty\) di acc per \(A\) (Non superiormente limitato) allora:
+        \[\lim_{ x \to +\infty } f(x) = l \in \overline{\mathbb{R}} \iff \forall x_{n}\in A , x_{n} \to +\infty \implies \lim_{ n \to +\infty } f(x_{n})=l\]
+        \item Sia \(x_{0}=-\infty\) di acc per \(A\) (Non inferiormente limitato) allora:
+        \[\lim_{ x \to -\infty } f(x) = l \in \overline{\mathbb{R}} \iff \forall x_{n}\in A , x_{n} \to -\infty \implies \lim_{ n \to +\infty } f(x_{n})=l\]
+    \end{itemize}
+}
+
+\noindent\rule{0.5\linewidth}{0.5pt}
+
+\defn{Limite (Definizione Topologica)}{
+    Sia \(f:A\subseteq \mathbb{R}\to \mathbb{R}\) e \(x_{0} \in \mathbb{R}\) di acc. per \(A\). Diremo che
+    \[\lim_{ x \to x_{0} } f(x) =l \in \mathbb{R} \iff \forall \epsilon > 0 \exists \delta>0 : |f(x)-l|<\epsilon \; \forall x\in A , 0<|x-x_{0}|<\delta\]
+    Oppure
+    \[\iff \forall I(l)\exists I (x_{0}):f(x)\in I(l)\; \forall x \in A \cap I (x_{0})\setminus \{ x_{0} \}\]
+}
+
+\subsection{Teorema Ponte}
+
+\thm{Teorema Ponte}{
+    Sia \(f: A \subseteq \mathbb{R} \to \mathbb{R}\) e \(x_{0}\in \mathbb{R}\) di acc. per \(A\).
+    Allora sono equivalenti le seguenti:
+    \begin{align*}
+    &(1) \quad \forall x_{n}\in A, x_{n}\neq x_{0} \forall n, x_{n}\to x_{0} \implies \lim_{ n \to +\infty } f(x_{n}) =l =\lim_{ x \to x_{0} } f(x)\\
+    & \Updownarrow \\
+    &(2) \quad \forall \epsilon > 0 \;\exists\delta>0 : |f(x)-l| < \epsilon \; \forall x \in A : 0< |x-x_{0}| < \delta \quad (\text{dove } l=\lim_{ x \to x_{0} } f(x))
+    \end{align*}
+    Dove (1)=Ipotesi e (2)=Tesi (e viceversa).
+}
+
+\pf{
+    \textbf{(1)\(\implies\)(2)}
+    Se per assurdo (2) non valesse:
+    \[\exists \epsilon_{0}>0 : \forall \epsilon>0 \exists x_{\delta}: |f(x_{\delta})-l| \geq \epsilon_{0}\]
+    dove \(0<|x_{\delta}-x_{0}|<\delta\).
+    Se allora scelgo \(\delta=\frac{1}{n}\),
+    \[\forall n \exists x_{n}: | f(x_{n})-l|\geq\epsilon_{0} \implies \boxed{0<|x_{n}-x_{0}|<\frac{1}{n}}\]
+    Ma questo implica \(x_n \to x_0\) e \(f(x_n)\) non tende a \(l\), contraddicendo (1).
+
+    \textbf{(2)\(\implies\)(1)}
+    Sia \(x_{n}\to x_{0},x_{n}\neq x_{0}, x_{n}\in A\).
+    Dobbiamo dimostrare che \(\lim_{n \to +\infty} f(x_n) = l\), cioè:
+    \[\forall \epsilon > 0 \exists \overline{\nu} : |f(x_{n})-l| < \epsilon \; \forall n > \overline{\nu}\]
+    Per ipotesi (2): \(\forall \epsilon > 0 \exists \delta > 0 : |f(x)-l| < \epsilon\) quando \(0 < |x - x_0| < \delta\).
+    Poiché \(x_n \to x_0\), \(\exists \nu\) tale che per \(n > \nu\) si ha \(0 < |x_n - x_0| < \delta\) (essendo \(x_n \ne x_0\)).
+    Quindi per tali \(n\) vale \(|f(x_n) - l| < \epsilon\).
+}
+
+\subsection{Le Nove Definizioni Di Limite}
+
+\begin{enumerate}
+    \item \(\lim_{ x \to x_{0} } f(x)=l \iff \forall \epsilon > 0 \exists \delta > 0 : |f(x)-l|<\epsilon \; \forall x \in A : 0 < |x -x_{0}| < \delta\)
+    \item \(\lim_{ x \to x_{0} } f(x)=+\infty \iff \forall M > 0 \exists \delta > 0 : f(x)>M\; \forall x \in A : 0 < |x -x_{0}| < \delta\)
+    \item \(\lim_{ x \to x_{0} } f(x)=-\infty \iff \forall M > 0 \exists \delta > 0 : f(x)<-M\; \forall x \in A : 0 < |x -x_{0}| < \delta\)
+    \item \(\lim_{ x \to +\infty } f(x)=l \iff \forall \epsilon>0 \exists M>0 : |f(x)-l|<\epsilon\; \forall x \in A , x>M\)
+    \item \(\lim_{ x \to +\infty } f(x)=+\infty \iff \forall K>0 \exists M>0 : f(x)>K \; \forall x \in A , x>M\)
+    \item \(\lim_{ x \to +\infty } f(x)=-\infty \iff \forall K>0 \exists M>0 : f(x)<-K \; \forall x \in A , x>M\)
+    \item \(\lim_{ x \to -\infty } f(x)=l \iff \forall \epsilon>0 \exists M>0 : |f(x)-l|<\epsilon\; \forall x \in A , x<-M\)
+    \item \(\lim_{ x \to -\infty } f(x)=+\infty \iff \forall K>0 \exists M>0 : f(x)>K \; \forall x \in A , x<-M\)
+    \item \(\lim_{ x \to -\infty } f(x)=-\infty \iff \forall K>0 \exists M>0 : f(x)<-K \; \forall x \in A , x<-M\)
+\end{enumerate}
+
+\subsection{Teorema Di Unicità Del Limite}
+
+\prop{
+    Se \(\lim_{ x \to x_{0} }f(x) = l \in \overline{\mathbb{R}}\)
+    dove \(f:A \subseteq \mathbb{R} \to \mathbb{R}\) e \(x_{0}\in \overline{\mathbb{R}}\) è di acc. per A, Allora \(l\) è unico.
+}
+
+\pf{
+    Segue dal \textbf{Teorema Ponte} e dal Teorema di Unicità del limite per le successioni:
+    \[\forall x_{n} \in A: x_{n}\to x_{0}, x_{n}\neq x_{0} \implies f(x_{n})\to l\]
+    Poiché il limite di successione è unico, anche il limite di funzione è unico.
+}
+
+\subsection{Operazioni Con I Limiti}
+
+\prop{
+    Siano \(f,g: A \subseteq \mathbb{R} \to \mathbb{R}\) e \(x_{0} \in \overline{\mathbb{R}}\) di acc per \(A\).
+    Sia \(\lim_{ x \to x_{0} } f(x)=l_{1}\) e \(\lim_{ x \to x_{0} } g(x)=l_{2}\) con \(l_{1},l_{2} \in \overline{\mathbb{R}}\).
+    Allora (salvo forme indeterminate):
+    \begin{enumerate}
+        \item \(\lim_{ x \to x_{0} } (f(x)\pm g(x))=l_{1}\pm l_{2}\)
+        \item \(\lim_{ x \to x_{0} } (f(x)g(x))=l_{1}l_{2}\)
+        \item \(\lim_{ x \to x_{0} } \frac{f(x)}{g(x)}=\frac{l_{1}}{l_{2}} \quad (g(x)\neq 0 \; \forall x \in A, l_2 \neq 0)\)
+        \item \(\lim_{ x \to x_{0} } [f(x)]^{g(x)} \quad (f(x)>0)\)
+    \end{enumerate}
+}
+
+\pf{
+    Segue dal \textbf{Teorema Ponte} applicando le proprietà corrispondenti per le successioni.
+}
+
+\subsection{Teorema Del Confronto}
+
+\defn{Teorema del Confronto}{
+    Siano \(f(x),g(x),h(x)\) tre funzioni definite in \(A\) e sia \(x_{0} \in \overline{\mathbb{R}}\) di acc. per \(A\).
+    \begin{enumerate}
+        \item Se \(f(x)\leq g(x)\leq h(x)\) \(\forall x\) in un intorno di \(x_{0}\) e se:
+        \[\lim_{ x \to x_{0} }f(x) =l \in \mathbb{R} \quad \text{e} \quad \lim_{ x \to x_{0} }h(x) =l \in \mathbb{R}\]
+        Allora:
+        \[\lim_{ x \to x_{0} } g(x)=l\]
+        \item Se \(f(x)\leq g(x)\) in un intorno di \(x_{0}\):
+        \[\lim_{ x \to x_{0} } f(x)=+\infty \implies \lim_{ x \to x_{0} } g(x)=+\infty\]
+        \item Se \(g(x)\leq f(x)\) in un intorno di \(x_{0}\):
+        \[\lim_{ x \to x_{0} } f(x)=-\infty \implies \lim_{ x \to x_{0} } g(x)=-\infty\]
+    \end{enumerate}
+}
+
+\subsection{Teorema Del Limite Delle Funzioni Composte}
+
+\prop{
+    Siano \(f,g\) tali che sia definita \(f \circ g\).
+    Siano \(x_{0},y_{0}\) punti di accumulazione dei domini di \(f,g\) rispettivamente.
+    Supponiamo inoltre:
+    \begin{enumerate}
+        \item \(\lim_{ y \to y_{0} } g(y)=x_{0}\)
+        \item \(\lim_{ x \to x_{0} } f(x)=l\in \mathbb{R}\)
+        \item (Ipotesi aggiuntiva necessaria per il teorema standard) \(g(y) \neq x_0\) in un intorno di \(y_0\) (eccetto al più \(y_0\)) OPPURE \(f\) continua in \(x_0\).
+    \end{enumerate}
+    Allora:
+    \[\lim_{ y \to y_{0} } f(g(y))=l\]
+}
+
+\pf{
+    Per il \textbf{Teorema Ponte}.
+    Sia \(y_{n}\to y_{0}\) con \(y_{n}\neq y_{0} \; \forall n\).
+    Poniamo \(x_n = g(y_n)\). Poiché \(g(y) \to x_0\), allora \(x_n \to x_0\).
+    Se vale l'ipotesi che \(g(y) \neq x_0\), allora \(x_n \neq x_0\), quindi possiamo applicare il limite di \(f\):
+    \[f(x_{n})\to l \implies f(g(y_{n}))\to l\]
+}
+
+\ex{
+    \[\lim_{ x \to 1 } \frac{\sin(x^3-1)}{x^3-1}\]
+    Posto \(y=x^3 -1\), se \(x\to 1\) allora \(y\to 0\).
+    \[\lim_{ y \to 0 } \frac{\sin y}{y} = 1\]
+}
