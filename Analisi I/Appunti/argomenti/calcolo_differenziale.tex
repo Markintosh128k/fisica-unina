@@ -65,3 +65,210 @@ Se consideriamo una funzione definita su un intervallo chiuso o se vogliamo stud
     \(f\) è derivabile in \(x_{0} \iff f'_{+}(x_{0})\) e \(f'_{-}(x_{0})\) esistono finiti e coincidono:
     \[f'(x_{0})=f'_{+}(x_{0})=f'_{-}(x_{0})\]
 }
+
+
+
+\section{Derivate delle Funzioni Elementari}
+
+Di seguito analizziamo le derivate delle funzioni fondamentali, dimostrandone i risultati tramite la definizione di rapporto incrementale.
+
+\begin{enumerate}
+    \item \textbf{Derivata di una costante} \(c\):
+    \[ Dc(x)=0 \; \forall x\in \mathbb{R} \]
+    Infatti: \(\lim_{ x \to x_{0} } \frac{c-c}{x-x_{0}}=0\).
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{img/der-di-costante.png}
+    \end{center}
+
+    \item \textbf{Derivata della retta} \(ax+b\):
+    \[ D(ax+b)=\lim_{ h \to 0 } \frac{a(x+h)+b-ax-b}{h}=\lim_{ h \to 0 } \frac{ah}{h}=a \]
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{img/der-di-retta.png}
+    \end{center}
+    \ex{
+        \(D(x)=1\) \\
+        \(D(-x)=-1\)
+    }
+
+    \item \textbf{Derivata del valore assoluto} \(|x|\):
+    \[
+    |x|=\begin{cases}
+    x & x\geq 0 \\
+    -x & x<0
+    \end{cases} \implies
+    D(|x|)=\begin{cases}
+    1 & x>0 \\
+    -1 & x<0 \\
+    \not \exists & x=0
+    \end{cases}
+    \]
+    Perché in \(x=0\):
+    \[\lim_{ h \to 0 } \frac{|0+h|-|0|}{h}=\frac{|h|}{h}=\begin{cases} 1 & h \to 0^+ \\ -1 & h \to 0^- \end{cases} \implies \not \exists\]
+
+    \item \textbf{Derivata della potenza} \(x^\alpha\):
+    \[ D(x^\alpha)=\alpha x^{\alpha-1} \]
+    \pf{
+        \begin{align*}
+        & \lim_{ h \to 0 } \frac{f(x+h)-f(x)}{h}=\lim_{ h \to 0 } \frac{(x+h)^\alpha-x^\alpha}{h}= \left[\frac{0}{0}\right] \\
+        & = \lim_{ h \to 0 } \frac{x^\alpha \left( \left( 1+\frac{h}{x} \right)^\alpha-1 \right)}{h}=\lim_{ h \to 0 } \frac{x^{\alpha-1}\left( \left( 1+\frac{h}{x} \right)^\alpha-1 \right)}{\frac{h}{x}}=\alpha x^{\alpha-1}
+        \end{align*}
+    }
+    \ex{
+        \begin{itemize}
+            \item \(D(\sqrt{ x }) = D(x^{1/2}) = \frac{1}{2}x^{\frac{1}{2} -1}=\frac{1}{2\sqrt{ x }}\)
+            \item \(D(x^3)=3x^2\)
+        \end{itemize}
+    }
+
+    \item \textbf{Derivata dell'esponenziale} \(a^x\):
+    \[ D(a^x) = a^x \log a \]
+    \pf{
+        \[\lim_{ h \to 0 } \frac{a^{x+h}-a^x}{h}=\lim_{ h \to 0 } \frac{a^x(a^h-1)}{h} = a^x\log a\]
+    }
+
+    \item \textbf{Derivata di} \(e^x\):
+    \[ D(e^x)=e^x \]
+    (Segue dalla (5) ponendo \(a=e\), dato che \(\log e = 1\)).
+
+    \item \textbf{Derivata del Seno}:
+    \[ D(\sin x)=\cos x \]
+    \pf{
+        \begin{align*}
+        &\lim_{ h \to 0 } \frac{\sin(x+h)-\sin x}{h}= \lim_{ h \to 0 } \frac{\sin x\cos h + \cos x \sin h - \sin x}{h}=\\
+        & = \lim_{ h \to 0 } \left[ \sin x \left( \frac{\cos h-1}{h} \right) + \cos x\left( \frac{\sin h}{h} \right) \right] = \sin x \cdot 0 + \cos x \cdot 1 = \cos x
+        \end{align*}
+    }
+
+    \item \textbf{Derivata del Coseno}:
+    \[ D(\cos x)=-\sin x \]
+    \pf{
+        \begin{align*}
+        &\lim_{ h \to 0 } \frac{\cos(x+h)-\cos x}{h}=\lim_{ h \to 0 } \frac{\cos x \cos h - \sin x \sin h - \cos x}{h}=\\
+        & = \lim_{ h \to 0 } \left[ \cos x\frac{(\cos h-1)}{h} - \sin x \cdot \frac{\sin h}{h} \right] = -\sin x
+        \end{align*}
+    }
+
+    \item \textbf{Derivata del Logaritmo} \(\log_a x\):
+    \[ D(\log_{a}x) = \frac{1}{x \log a} \]
+    \pf{
+        \[\lim_{ h \to 0 } \frac{\log_{a}(x+h)-\log_{a}(x)}{h}=\lim_{ h \to 0 } \frac{1}{h} \log_{a}\left( 1+ \frac{h}{x} \right) = \lim_{ h \to 0 } \frac{1}{x} \frac{\log_{a}(1+t)}{t} = \frac{1}{x\log a}\]
+        (dove \(t = h/x \to 0\)).
+    }
+
+    \item \textbf{Derivata di} \(\log x\) (base \(e\)):
+    \[ D(\log x)=\frac{1}{x} \]
+
+\end{enumerate}
+
+\section{Algebra delle Derivate}
+
+\thm{Operazioni con le Derivate}{
+    Siano \(f, g\) definite in \(]a,b[\) e derivabili in \(x_{0}\). Allora anche \(c \cdot f\), \(f\pm g\), \(f \cdot g\) e \(\frac{f}{g}\) (se \(g(x_0)\neq 0\)) sono derivabili in \(x_{0}\) e risulta:
+    \begin{enumerate}
+        \item \(D(cf(x_{0}))=cDf(x_{0})\)
+        \item \(D(f\pm g)(x_0)=Df(x_{0})\pm Dg(x_{0})\)
+        \item \(D(fg)(x_{0})=Df(x_{0})g(x_{0})+f(x_{0})Dg(x_{0})\)
+        \item \(D\left( \frac{f}{g} \right)(x_{0})=\frac{Df(x_{0})g(x_{0})-f(x_{0})Dg(x_{0})}{g^2(x_{0})}\)
+    \end{enumerate}
+    Le proprietà (1) e (2) indicano che la derivata è un \textbf{operatore lineare}.
+}
+
+\pf{
+    \textbf{Dimostrazione (2) - Somma:}
+    \[\lim_{ h \to 0 } \frac{f(x_{0}+h)+g(x_{0}+h)-(f(x_{0})+g(x_{0}))}{h}= \]
+    \[=\lim_{ h \to 0 } \left[ \frac{f(x_0+h)-f(x_0)}{h} + \frac{g(x_0+h)-g(x_0)}{h} \right]=\]
+    \[= f'(x_{0})+g'(x_{0})\]
+}
+
+Per dimostrare rigorosamente la regola del prodotto, necessitiamo prima di un legame tra derivabilità e continuità.
+
+\thm{Relazione Derivabilità-Continuità}{
+    Se \(g\) è definita in \(]a,b[\) ed è derivabile in \(x_{0} \implies g\) è continua in \(x_{0}\).
+    
+    Il viceversa non vale: \(\not\impliedby\). Esempio: \(|x|\) è continua in \(x=0\) ma non derivabile.
+}
+
+\pf{
+    Per dimostrare che \(g\) è continua in \(x_{0}\) devo dimostrare che \(\lim_{ x \to x_{0} } g(x)=g(x_{0})\), ovvero che \(\lim_{ x \to x_{0} } (g(x)-g(x_{0}))=0\).
+    Possiamo scrivere:
+    \[\lim_{ x \to x_{0} } (g(x)-g(x_{0})) = \lim_{ x \to x_{0} } \frac{g(x)-g(x_{0})}{x-x_{0}}(x-x_{0}) = g'(x_0) \cdot 0 = 0\]
+}
+
+\pf{
+    \textbf{Dimostrazione (3) - Prodotto:}
+    \begin{align*}
+    &\lim_{ x \to x_{0} } \frac{f(x)g(x)-f(x_{0})g(x_{0})}{x-x_{0}} \\ 
+    &= \lim_{ x \to x_{0} } \frac{f(x)g(x) - f(x_0)g(x) + f(x_0)g(x) - f(x_0)g(x_0)}{x-x_{0}} \\ 
+    &= \lim_{ x \to x_{0} } \left( g(x) \frac{f(x)-f(x_0)}{x-x_0} + f(x_0) \frac{g(x)-g(x_0)}{x-x_0} \right) \\ 
+    &= g(x_0)f'(x_0) + f(x_0)g'(x_0) 
+    \end{align*}
+    (Qui abbiamo usato il fatto che \(\lim_{x \to x_0} g(x) = g(x_0)\) perché \(g\) è derivabile e quindi continua).
+}
+
+\ex{
+    \textbf{Derivata della Tangente}:
+    \begin{align*}
+    & D(\tan x) = D\left(\frac{\sin x}{\cos x} \right)=\frac{\cos x \cdot \cos x - \sin x (-\sin x)}{\cos^2 x} = \\
+    &\frac{\cos^2 x + \sin^2 x}{\cos^2 x} = \\
+    & \frac{1}{\cos^{2}x} = 1+\tan^2 x
+    \end{align*}
+}
+
+\section{Teoremi Fondamentali del Calcolo}
+
+\thm{Derivazione delle Funzioni Composte (Chain Rule)}{
+    Siano \(g,f\) tali che sia definita la funzione composta \(f(g(x))\).
+    Sia \(x_{0}\) tale che \(g\) è derivabile in \(x_{0}\) e \(f\) è derivabile in \(g(x_{0})\).
+    Allora \(f \circ g\) è derivabile in \(x_{0}\) e si ha:
+    \[D(f \circ g)(x)=(f \circ g)'(x_{0})=f'(g(x_{0}))\cdot g'(x_{0})\]
+}
+
+\pf{
+    Definiamo la funzione ausiliaria \(H(y)\):
+    \[H(y)=\begin{cases}
+    \frac{f(y)-f(y_{0})}{y-y_{0}} & y\ne y_0\\
+    f'(y_{0}) & y=y_{0}
+    \end{cases}\]
+    dove \(y_0 = g(x_0)\). \(H\) è continua in \(y_{0}\).
+    Possiamo scrivere il rapporto incrementale come:
+    \[\frac{f(g(x))-f(g(x_{0}))}{x-x_{0}} = H(g(x))\frac{g(x)-g(x_{0})}{x-x_{0}}\]
+    Passando al limite per \(x \to x_0\):
+    \[\lim_{ x \to x_{0} } H(g(x))\frac{g(x)-g(x_{0})}{x-x_{0}} = H(g(x_0)) \cdot g'(x_0) = f'(g(x_{0}))\cdot g'(x_{0})\]
+}
+
+\thm{Derivata della Funzione Inversa}{
+    Sia \(f\) strettamente monotona e continua in \(]a,b[\).
+    Sia \(f\) derivabile in \(x_{0}\in]a,b[\) e \(f'(x_{0})\neq 0\).
+    Allora la funzione inversa \(f^{-1}\) è derivabile in \(y_{0}=f(x_{0})\) e risulta:
+    \[(f^{-1})'(y_{0})=\frac{1}{f'(f^{-1}(y_{0}))}=\frac{1}{f'(x_{0})}\]
+}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{img/derivata_funzione_inversa.png}
+\end{center}
+
+\rmkb{
+    Interpretazione geometrica: Se la retta tangente in \(P(x_0, y_0)\) forma un angolo \(\alpha\) con l'asse \(x\), allora \(f'(x_0) = \tan \alpha\). Rispetto all'asse \(y\) (scambiando gli assi per l'inversa), l'angolo è \(\beta = \frac{\pi}{2} - \alpha\).
+    \[(f^{-1})'(y_{0})=\tan \beta = \tan\left( \frac{\pi}{2} -\alpha \right)=\cot \alpha = \frac{1}{\tan \alpha}=\frac{1}{f'(x_{0})}\]
+}
+
+\subsection{Derivate delle Funzioni Inverse Trigonometriche}
+
+\ex{
+    \textbf{Arcoseno}:
+    \[D(\arcsin x)=\frac{1}{D(\sin y)}\bigg|_{y=\arcsin x}=\frac{1}{\cos y}\]
+    Poiché \(y \in [-\frac{\pi}{2}, \frac{\pi}{2}]\), \(\cos y \ge 0\), quindi \(\cos y = \sqrt{1-\sin^2 y}\).
+    \[= \frac{1}{\sqrt{ 1-\sin^2 (\arcsin x) }} = \frac{1}{\sqrt{ 1-x^2 }}\]
+}
+
+\ex{
+    \textbf{Arcocoseno}:
+    \[D(\arccos x) = \frac{1}{D(\cos y)}\bigg|_{y=\arccos x} = \frac{1}{-\sin y}\]
+    Poiché \(y \in [0, \pi]\), \(\sin y \ge 0\), quindi \(\sin y = \sqrt{1-\cos^2 y}\).
+    \[= -\frac{1}{\sqrt{1-x^2}}\]
+}
+
+\ex{
+    \textbf{Arcotangente}:
+    \[D(\arctan x) = \frac{1}{D(\tan y)}\bigg|_{y=\arctan x} = \cos^2 y = \frac{1}{1+\tan^2 y} = \frac{1}{1+x^2}\]
+}
