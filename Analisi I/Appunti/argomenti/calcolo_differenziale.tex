@@ -1,0 +1,67 @@
+\chapter{Calcolo Differenziale}
+\label{calcolo-differenziale}
+
+\section{Rapporto Incrementale e Derivata}
+
+\defn{Rapporto Incrementale}{
+    Sia \(f:]a,b[\to \mathbb{R}\) e sia \(x_{0}\in]a,b[\).
+    Si chiama \textbf{rapporto incrementale} la seguente quantità:
+    \[\frac{\Delta f}{\Delta x}=\frac{f(x_{0}+h)-f(x_{0})}{h} \quad (h\in \mathbb{R}, h \neq 0)\]
+}
+
+\ex{
+    \begin{center}
+    \includegraphics[width=0.7\textwidth]{img/rapporto_incrementale.png}
+    \end{center}
+    Prendiamo la secante passante per i punti \(P\) e \(Q\) e avviciniamoli (facendo tendere \(h \to 0\)).
+    L'equazione della secante è:
+    \[s: y=f(x_{0})+m(x-x_{0}) \quad \text{con } m=\frac{\Delta f}{\Delta x}\]
+    
+    Passaggio al limite:
+    \begin{align*}
+    &s: y=f(x_{0})+\frac{f(x_{0}+h)-f(x_{0})}{h}(x-x_{0})\\
+    &h\to 0 \implies \\
+    &\frac{f(x_{0}+h)-f(x_{0})}{h} \to l \\
+    & s\to t:y=f(x_{0})+l(x-x_{0})
+    \end{align*}
+}
+
+\subsection{Definizione di Derivata}
+
+\defn{Derivata}{
+    Si chiama \textbf{derivata} di \(f\) in \(x_{0}\) il seguente limite, se esiste finito:
+    \[\lim_{ h \to 0 } \frac{f(x_{0}+h)-f(x_{0})}{h}=l\in \mathbb{R}\]
+    Tale limite si denota con uno dei seguenti simboli:
+    \begin{itemize}
+        \item \(f'(x_{0})\)
+        \item \(\frac{d}{dx}f(x_{0})\)
+        \item \(Df(x_{0})\)
+    \end{itemize}
+    Se \(f\) ha derivata in \(x_{0}\), si dice \textbf{derivabile} in \(x_{0}\).
+    Se \(f\) è derivabile \(\forall x_{0} \in ]a,b[\) diremo che \(f\) è derivabile.
+}
+
+\defn{Retta Tangente}{
+    Se \(f\) è derivabile in \(x_{0}\), la retta
+    \[y=f(x_{0})+f'(x_{0})(x-x_{0})\]
+    prende il nome di \textbf{retta tangente} al grafico di \(f\) nel punto \((x_{0},f(x_{0}))\) e \(f'(x_{0})\) è il suo coefficiente angolare.
+    
+    Posso anche scrivere la derivata nella forma alternativa:
+    \[f'(x_{0})=\lim_{ h \to 0 } \frac{f(\overbrace{x_{0}+h}^{x})-f(x_{0})}{h}=\lim_{ x \to x_{0} } \frac{f(x)-f(x_{0})}{x-x_{0}}\]
+}
+
+\subsection{Derivata Destra e Sinistra}
+
+Se consideriamo una funzione definita su un intervallo chiuso o se vogliamo studiare la derivabilità agli estremi \(x_{0}=a\) o \(x_{0}=b\), definiamo:
+
+\defn{Derivata Destra e Sinistra}{
+    \begin{itemize}
+        \item Se \(\lim_{ x \to x_{0}^+ } \frac{f(x)-f(x_{0})}{x-x_{0}} = l_+ \in \mathbb{R}\), allora lo indichiamo con \(f'_{+}(x_{0})\) e si chiama \textbf{derivata destra} in \(x_{0}\).
+        \item Se \(\lim_{ x \to x_{0}^- } \frac{f(x)-f(x_{0})}{x-x_{0}} = l_- \in \mathbb{R}\), allora lo indichiamo con \(f'_{-}(x_{0})\) e si chiama \textbf{derivata sinistra} in \(x_{0}\).
+    \end{itemize}
+}
+
+\rmkb{
+    \(f\) è derivabile in \(x_{0} \iff f'_{+}(x_{0})\) e \(f'_{-}(x_{0})\) esistono finiti e coincidono:
+    \[f'(x_{0})=f'_{+}(x_{0})=f'_{-}(x_{0})\]
+}

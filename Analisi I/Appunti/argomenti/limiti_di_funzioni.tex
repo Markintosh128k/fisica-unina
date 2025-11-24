@@ -174,6 +174,9 @@
 
 \ex{
     \(A= ]0, +\infty[\), \(x_{0}=0\) p.a.
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{img/logaritmo_naturale.png}
+    \end{center}
     \[\forall x_{n}\in]0, +\infty[\quad x_{n}\to 0 \implies \lim_{ n \to +\infty } \log(x_{n})=-\infty\]
 }
 
@@ -497,7 +500,9 @@
     \implies l_{1} \ne l_{2}
     \]
     allora \(x_{0}\) è un punto di discontinuità di tipo salto. La quantità \(l_{2}-l_{1}\) si chiama \textbf{salto di discontinuità}.
-    % [Immagine: funz gradino.jpg]
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{img/funzione_segno.png}
+    \end{center}
 
     \item \textbf{Discontinuità di 2° specie:}
     Si chiama discontinuità di 2° specie in tutti gli altri casi (quando almeno uno dei due limiti è \(=\pm \infty\) o non esiste).
@@ -506,7 +511,9 @@
     \item \textbf{Discontinuità di 3° specie (Eliminabile):}
     Si dice discontinuità eliminabile se:
     \[\lim_{ x \to x_{0} } f(x)=l\in \mathbb{R}\ne f(x_{0})\]
-    % [Immagine: 1 tranne in 0.jpg]
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{img/punto_isolato.png}
+    \end{center}
     È possibile estendere la funzione definendo \(g(x)\):
     \[g(x)=\begin{cases}
     f(x) & x\neq x_{0} \\
@@ -628,13 +635,17 @@ Di seguito sono elencati i principali limiti notevoli utili per la risoluzione d
         \item Se \(f\) non è continua, vale? \textbf{NO}
     \end{enumerate}
     
+    \rmkb{
     \textbf{Controesempi:}
     \begin{itemize}
-        \item (1) \(K=[0,1]\), \(f(x)\) discontinua (es. vale 0 in 1, x in ]0,1[, 1 in 0). Non è continua ma ha max e min.
+        \item (1) \(K=[0,1]\), \(f(x)\) discontinua.
+        \begin{center}\includegraphics[width=0.4\textwidth]{img/weierstrass_1.png}\end{center}
         \item (2) \(K=[0,1[\). \(1\) è un \(\sup\) ma non un \(\max\).
+        \begin{center}\includegraphics[width=0.4\textwidth]{img/weierstrass_2.png}\end{center}
         \item (3) \(K=[0,1]\), funzione discontinua che non raggiunge gli estremi.
+        \begin{center}\includegraphics[width=0.4\textwidth]{img/weierstrass_3.png}\end{center}
     \end{itemize}
-    % [Immagini: percentuale-1.jpg, percentuale-2.jpg, percentuale-3.jpg]
+}
 }
 
 \pf{
@@ -663,7 +674,9 @@ Di seguito sono elencati i principali limiti notevoli utili per la risoluzione d
 }
 
 \pf{
-    (Metodo di bisezione).
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{img/bisezione.png}
+    \end{center}
     Sia \(c_{0}\) il punto medio di \([a,b]\): \(c_{0}=\frac{a+b}{2}\).
     Se \(f(c_{0})=0 \implies c=c_{0}\) (Fine).
     Se \(f(c_{0})\ne 0\), allora sarà discorde o con \(f(a)\) o con \(f(b)\).
@@ -849,7 +862,9 @@ Per studiare cosa succede nei punti d'accumulazione del dominio (specialmente ag
 
 \ex{
     Consideriamo \(f(x)=e^{\frac{x}{x-1}}\).
-    % [Immagine: graf-asintoti-vert.jpg]
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{img/asintoti_esponenziale.png}
+    \end{center}
     
     \textbf{Dominio:} \(\mathbb{R}\setminus \{ 1 \}\). \textbf{Codominio:} \(f(x)>0\).
     
@@ -872,7 +887,9 @@ Per studiare cosa succede nei punti d'accumulazione del dominio (specialmente ag
 \ex{
     \[\lim_{ x \to \pm\infty } e^{\frac{x}{x-1}} = e\]
     Quindi \(y=e\) è asintoto orizzontale a \(\pm \infty\).
-    % [Immagine: graf-as-vert-oriz.jpg]
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{img/asintoti_esponenziale.png}
+    \end{center}
 }
 
 \subsection{Asintoti Obliqui}
@@ -916,5 +933,7 @@ Per trovare i parametri dell'asintoto obliquo si usano le seguenti formule (deri
     \end{cases}
     \]
     (Successivamente si calcolerebbe \(q\) per entrambi i casi).
-    % [Immagine: as-obliqui.png]
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{img/asintoti_obliqui.png}
+    \end{center}
 }
