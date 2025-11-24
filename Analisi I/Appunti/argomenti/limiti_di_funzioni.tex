@@ -1,7 +1,11 @@
-\chapter{Limiti di funzioni}
-\label{limiti-di-funzioni}
+\chapter{Limiti di funzioni}\label{limiti-di-funzioni}
 
-\section{Intorni}
+% ==========================================
+% SEZIONE 1: TOPOLOGIA
+% ==========================================
+\section{Definizioni}
+
+\subsection{Intorni}
 
 \defn{Intorni}{
     Sia \(x_{0}\in \mathbb{R}\), un Intorno \(I(x_{0})\) di \(x_{0}\) è un intervallo aperto contenente \(x_{0}\).
@@ -15,7 +19,7 @@
     \end{itemize}
 }
 
-\section{Punti d'accumulazione}
+\subsection{Punti d'accumulazione}
 
 \defn{Punti d'Accumulazione}{
     Se \(A \subseteq \mathbb{R}\) e sia \(\underline{x_{0}\in \mathbb{R}}\).
@@ -70,7 +74,7 @@
     \[\boxed{\exists x_{n} \in A \forall n} \text{ e } \boxed{x_{n}\ne x_{0} \forall n:} 0< |x_{n} -x_{0} | < \frac{1}{n} \implies x_{n} \to x_{0}\]
 }
 
-\section{Teorema di Bolzano}
+\subsection{Teorema di Bolzano}
 \label{teo-di-bolzano}
 
 \thm{Teorema di Bolzano}{
@@ -82,7 +86,7 @@
     Per il \textbf{Teorema di Bolzano-Weierstrass} (vedi capitolo Successioni) \(\exists x_{n_{k}}\in A: x_{n_{k}}\to l \in \mathbb{R}\) e \(l\) è di accumulazione.
 }
 
-\section{Insiemi Aperti e Chiusi e Compatto}
+\subsection[Insiemi Aperti, Chiusi e Compatti]{Insiemi Aperti e Chiusi e Compatto}
 
 \defn{Aperto}{
     Un insieme \(A \subseteq \mathbb{R}\) si dice aperto se:
@@ -132,7 +136,7 @@
     \(K \subseteq \mathbb{R}\) si dice compatto se da ogni sua successione se ne può estrarre una convergente ad un elemento di \(K\).
 }
 
-\section{Teorema di Heine-Borel}
+\subsection{Teorema di Heine-Borel}
 
 \thm{Teorema di Heine-Borel}{
     \(K \subseteq \mathbb{R}\) è compatto \(\iff K\) è chiuso e limitato.
@@ -153,7 +157,12 @@
     \([1,2] \cup [3,5]\cup[6,7]\)
 }
 
-\section{Dai Limiti di Successioni a quelli di Funzioni}
+% ==========================================
+% SEZIONE 2: LIMITI
+% ==========================================
+\section{Teoria dei Limiti}
+
+\subsection[Definizione di Limite]{Dai Limiti di Successioni a quelli di Funzioni}
 
 \defn{Limite di Funzione}{
     Sia \(f:A \subseteq \mathbb{R} \to \mathbb{R}\) e sia \textbf{\(x_{0}\in \mathbb{R}\)} un punto di accumulazione per \(A\).
@@ -166,8 +175,6 @@
 \ex{
     \(A= ]0, +\infty[\), \(x_{0}=0\) p.a.
     \[\forall x_{n}\in]0, +\infty[\quad x_{n}\to 0 \implies \lim_{ n \to +\infty } \log(x_{n})=-\infty\]
-    % [Immagine: def_log_a-mag-1.jpg]
-    % \begin{figure}[h] \centering \includegraphics[width=0.5\textwidth]{img/def_log_a-mag-1.jpg} \caption{Logaritmo} \end{figure}
 }
 
 \ex{
@@ -189,7 +196,6 @@
     \end{cases}\]
     Sia \(x_{n}\) una successione: \(x_{n} \in \mathbb{R}, x_{n}\neq 0 \forall n, x_{n}\to 0\).
     \[\lim_{ x \to 0 } f(x)=\lim_{ n \to +\infty } f(x_{n}) = 1 \neq f(0)\]
-    % [Immagine: 1 tranne in 0.jpg]
 }
 
 \ex{
@@ -203,7 +209,6 @@
     \[x_{n}=\frac{1}{n} \quad x'_{n}=-\frac{1}{n}\]
     \[\lim_{ n \to +\infty } f(x_{n}) =1 \neq \lim_{ n \to +\infty } f(x'_{n}) = 0\]
     Quindi \(\lim_{ x \to 0 } f(x) = \not \exists\).
-    % [Immagine: funz gradino.jpg]
 }
 
 \rmkb{
@@ -243,7 +248,7 @@
     \[\iff \forall I(l)\exists I (x_{0}):f(x)\in I(l)\; \forall x \in A \cap I (x_{0})\setminus \{ x_{0} \}\]
 }
 
-\subsection{Teorema Ponte}
+\subsubsection{Teorema Ponte}
 
 \thm{Teorema Ponte}{
     Sia \(f: A \subseteq \mathbb{R} \to \mathbb{R}\) e \(x_{0}\in \mathbb{R}\) di acc. per \(A\).
@@ -274,7 +279,7 @@
     Quindi per tali \(n\) vale \(|f(x_n) - l| < \epsilon\).
 }
 
-\subsection{Le Nove Definizioni Di Limite}
+\subsubsection{Le Nove Definizioni Di Limite}
 
 \begin{enumerate}
     \item \(\lim_{ x \to x_{0} } f(x)=l \iff \forall \epsilon > 0 \exists \delta > 0 : |f(x)-l|<\epsilon \; \forall x \in A : 0 < |x -x_{0}| < \delta\)
@@ -288,9 +293,9 @@
     \item \(\lim_{ x \to -\infty } f(x)=-\infty \iff \forall K>0 \exists M>0 : f(x)<-K \; \forall x \in A , x<-M\)
 \end{enumerate}
 
-\subsection{Teorema Di Unicità Del Limite}
+\subsubsection{Teoremi di Unicità e Algebra dei Limiti}
 
-\prop{
+\thm{Unicità del Limite}{
     Se \(\lim_{ x \to x_{0} }f(x) = l \in \overline{\mathbb{R}}\)
     dove \(f:A \subseteq \mathbb{R} \to \mathbb{R}\) e \(x_{0}\in \overline{\mathbb{R}}\) è di acc. per A, Allora \(l\) è unico.
 }
@@ -301,9 +306,7 @@
     Poiché il limite di successione è unico, anche il limite di funzione è unico.
 }
 
-\subsection{Operazioni Con I Limiti}
-
-\prop{
+\thm{Algebra dei Limiti}{
     Siano \(f,g: A \subseteq \mathbb{R} \to \mathbb{R}\) e \(x_{0} \in \overline{\mathbb{R}}\) di acc per \(A\).
     Sia \(\lim_{ x \to x_{0} } f(x)=l_{1}\) e \(\lim_{ x \to x_{0} } g(x)=l_{2}\) con \(l_{1},l_{2} \in \overline{\mathbb{R}}\).
     Allora (salvo forme indeterminate):
@@ -319,9 +322,9 @@
     Segue dal \textbf{Teorema Ponte} applicando le proprietà corrispondenti per le successioni.
 }
 
-\subsection{Teorema Del Confronto}
+\subsubsection{Teoremi di Confronto e Composizione}
 
-\defn{Teorema del Confronto}{
+\thm{Teorema del Confronto}{
     Siano \(f(x),g(x),h(x)\) tre funzioni definite in \(A\) e sia \(x_{0} \in \overline{\mathbb{R}}\) di acc. per \(A\).
     \begin{enumerate}
         \item Se \(f(x)\leq g(x)\leq h(x)\) \(\forall x\) in un intorno di \(x_{0}\) e se:
@@ -335,9 +338,7 @@
     \end{enumerate}
 }
 
-\subsection{Teorema Del Limite Delle Funzioni Composte}
-
-\prop{
+\thm{Limite delle Funzioni Composte}{
     Siano \(f,g\) tali che sia definita \(f \circ g\).
     Siano \(x_{0},y_{0}\) punti di accumulazione dei domini di \(f,g\) rispettivamente.
     Supponiamo inoltre:
@@ -362,4 +363,558 @@
     \[\lim_{ x \to 1 } \frac{\sin(x^3-1)}{x^3-1}\]
     Posto \(y=x^3 -1\), se \(x\to 1\) allora \(y\to 0\).
     \[\lim_{ y \to 0 } \frac{\sin y}{y} = 1\]
+}
+
+
+\subsection{Limite Destro e Sinistro}
+
+\defn{Limite Destro e Sinistro}{
+    Sia \(f:A \subseteq \mathbb{R} \to \mathbb{R}\) e \(x_{0} \in \mathbb{R}\) di accumulazione per \(A\).
+    Allora diremo che:
+    \[\lim_{ x \to x_{0} } f(x)=l\]
+    se:
+    \[\forall I(l)\exists I^+(x_{0}):\forall x \in A \cap I^+(x_{0})\setminus \{ x_{0} \}\implies f(x)\in I(l)\]
+    e si chiama \textbf{Limite Dx} in \(x_{0}\) per \(f\).
+    
+    Diremo che 
+    \[\lim_{ x \to x_{0}^- } f(x)=l\in \mathbb{R}\]
+    se:
+    \[\forall I(l)\;\exists I^-(x_{0}):\forall x \in A \cap I^-(x_{0})\setminus \{ x_{0} \}\implies f(x)\in I(l)\]
+    e si chiama \textbf{Limite Sx} in \(x_{0}\) di \(f\).
+}
+
+% ==========================================
+% SEZIONE 3: CONTINUITA'
+% ==========================================
+\section{Continuità}
+
+\subsection{Funzioni Continue}
+
+\defn{Funzioni Continue}{
+    Sia \(f: A \subseteq \mathbb{R} \to \mathbb{R}\) e \(\boxed{x_{0} \in A}\) un pto di accumulazione.
+    Diremo che \(f\) è \textbf{continua} in \(x_{0}\) se:
+    \[\lim_{ x \to x_{0} } f(x)=f(x_{0})\]
+    ovvero:
+    \[\forall \epsilon > 0 \exists \delta > 0 : | f(x)-f(x_{0})|< \epsilon \; \forall x \in A : | x - x_{0}| <\delta\]
+    Se è continua posso scrivere anche:
+    \[\lim_{ x \to x_{0} } f(x)=f(\lim_{ x \to x_{0} } x)=f(x_{0})\]
+}
+
+\prop{
+    Tutte le \textbf{Funzioni Elementari} sono continue.
+}
+
+\pf{
+    Segue dal \textbf{Teorema Ponte} e dalla stessa dimostrazione per le successioni.
+}
+
+\prop{
+    Somma, prodotto, differenza, quoziente, e \(f^g\) di funzioni continue sono continue.
+}
+
+\pf{
+    Segue da \textbf{Algebra dei Limiti} nel caso convergente + \textbf{Teorema Ponte}.
+}
+
+\ex{
+    \[\lim_{ x \to \frac{\pi}{2} } \sin x + \tan x -x^2 = \pm \infty = \not \exists\]
+}
+
+\ex{
+    \[\lim_{ x \to \frac{\pi}{4} } \frac{1- \tan x}{x}=0\]
+}
+
+\ex{
+    \[\lim_{ x \to 1 } \frac{\sqrt{ 1-\log x }}{2^x} = \frac{1}{2}\]
+}
+
+\subsubsection{Teoremi Locali sulla Continuità}
+
+\thm{Permanenza del Segno}{
+    Sia \(f:A \subseteq \mathbb{R} \to \mathbb{R}\) e \(x_{0} \in A\) di accumulazione e sia \(f\) continua in \(x_{0}\).
+    Se \(f(x_{0})>0\), allora \(\exists I (x_{0}):\)
+    \[f(x)>0 \quad \forall x \in A \cap I(x_{0})\]
+}
+
+\pf{
+    Segue dal \textbf{Teorema Ponte}.
+}
+
+\thm{Continuità delle Funzioni Composte}{
+    Siano \(f,g\) tali che sia definita la funzione composta e siano tali che \(g\) è continua in \(y_{0}\) e \(f\) in \(x_{0}=g(y_{0})\).
+    Allora la funzione \(f \circ g\) è continua in \(y_{0}\) e si ha:
+    \[\lim_{ y \to y_{0} } f(g(y))= f(g(y_{0}))=f \circ g(y_{0})\]
+}
+
+\pf{
+    È un'immediata conseguenza del \textbf{Teorema del Limite delle Funzioni Composte}.
+}
+
+\ex{
+    \[\lim_{ x \to 0 } 2^{\frac{1}{x^2}} = +\infty\]
+}
+
+\ex{
+    \[\lim_{ x \to 1^- } e^{\frac{1}{x-1}} = \lim_{ y \to 0^- } e^{\frac{1}{y}} = 0\]
+}
+
+\ex{
+    \[\lim_{ x \to 1 } \frac{\arcsin x}{x}=\frac{\pi}{2}\]
+}
+
+\ex{
+    \[\lim_{ x \to 0 } \frac{\sqrt{ \sin x^2 }}{x} = \lim_{ x \to 0 } \frac{\sqrt{ \frac{\sin x^2}{x^2}} \sqrt{ x^2}}{x}=\lim_{ x \to 0 } \frac{|x|}{x}=\pm 1 = \not \exists\]
+}
+
+\subsection{Funzioni Discontinue}
+
+\rmkb{
+    (Richiamo) Una funzione \(f: A \subseteq \mathbb{R} \to \mathbb{R}\) si dice continua in \(A\) se è continua in tutto \(A\).
+}
+
+\defn{Funzione Discontinua}{
+    Sia \(f: A \subseteq \mathbb{R} \to \mathbb{R}\) e \(x_{0}\in A\) di acc. per \(A\).
+    Se \(f\) non è continua in \(x_{0}\) diremo che \(f\) è discontinua in \(x_{0}\).
+    Quindi \(f\) è discontinua in \(x_{0}\) se:
+    \[\lim_{ x \to x_{0} } f(x)\neq f(x_{0})\]
+}
+
+\ex{
+    \[f(x)=\begin{cases}
+    \frac{\sin x}{x} & x\ne 0 \\
+    0 & x=0
+    \end{cases} \quad \text{È continua in } \mathbb{R} \text{ ?}\]
+}
+
+\subsubsection{Tipi Di Discontinuità}
+
+\begin{enumerate}
+    \item \textbf{Discontinuità di 1° specie (Salto):}
+    Se accade che
+    \begin{align*}\lim_{ x \to x_{0}^- } f(x)=l_{1}\in \mathbb{R} \\
+    \lim_{ x \to x_{0}^+ }f(x)=l_{2}\in \mathbb{R} \end{align*}
+    \[
+    \implies l_{1} \ne l_{2}
+    \]
+    allora \(x_{0}\) è un punto di discontinuità di tipo salto. La quantità \(l_{2}-l_{1}\) si chiama \textbf{salto di discontinuità}.
+    % [Immagine: funz gradino.jpg]
+
+    \item \textbf{Discontinuità di 2° specie:}
+    Si chiama discontinuità di 2° specie in tutti gli altri casi (quando almeno uno dei due limiti è \(=\pm \infty\) o non esiste).
+    % [Immagine: disc 2 tipo.jpg]
+
+    \item \textbf{Discontinuità di 3° specie (Eliminabile):}
+    Si dice discontinuità eliminabile se:
+    \[\lim_{ x \to x_{0} } f(x)=l\in \mathbb{R}\ne f(x_{0})\]
+    % [Immagine: 1 tranne in 0.jpg]
+    È possibile estendere la funzione definendo \(g(x)\):
+    \[g(x)=\begin{cases}
+    f(x) & x\neq x_{0} \\
+    l & x= x_{0} 
+    \end{cases}\]
+    \(f\) e \(g\) differiscono per un punto ma \(g(x)\) è continua.
+\end{enumerate}
+
+\paragraph{Esempi}
+
+\ex{
+    \[f(x)=\begin{cases}
+    \frac{|x|}{x} & x\neq 0 \\
+    1 & x=0 \end{cases}\]
+    \[\lim_{ x \to 0 } \frac{|x|}{x}= \begin{cases}
+    -1 & \text{da sx} \\
+    1 & \text{da dx}\end{cases}\implies \not \exists\]
+    Allora è discontinuità di tipo "salto" e il salto di discontinuità è \(|l_{2}-l_{1}|=2\).
+}
+
+\ex{
+    \[f(x)=\begin{cases}
+    \frac{1}{x} & x\neq 0 \\
+    0 & x=0 
+    \end{cases}\implies \text{2° specie}\]
+}
+
+\ex{
+    \[f(x)=\begin{cases}
+    \frac{e^{2x}-1}{\sin x^2} & x<0 \\
+    2 & x=0 \\
+    \frac{x^2}{1-\cos x} & x>0
+    \end{cases}\]
+    Calcoliamo i limiti:
+    \begin{align*}
+    &\lim_{ x \to 0^- } f(x)= \lim_{ x \to 0^- } 2 \frac{e^{2x}-1}{2x} \cdot \frac{x^2}{\sin x^2} \cdot \frac{1}{x} \quad (\text{Controllo limiti notevoli...}) \\
+    &\text{Nota: L'esempio originale conteneva un calcolo approssimato, verificare i passaggi.}
+    \end{align*}
+}
+
+% ==========================================
+% SEZIONE 4: TEOREMI GLOBALI E UNIFORMITA'
+% ==========================================
+
+\section{Limiti Notevoli}\label{limiti-notevoli}
+
+Di seguito sono elencati i principali limiti notevoli utili per la risoluzione delle forme indeterminate.
+
+\begin{enumerate}
+    \item \[\lim_{ x \to 0 } \frac{\sin x}{x}=1\]
+    
+    \item \[\lim_{ x \to 0 } \frac{1- \cos x}{x} = 0\]
+    
+    \item \[\lim_{ x \to 0 } \frac{1-\cos x}{x^2} = \frac{1}{2}\]
+    
+    \item \[\lim_{ x \to 0 } \frac{\tan x}{x} = 1\]
+    
+    \item 
+    \begin{align*}
+    & \lim_{ x \to 0 } \frac{\arcsin x}{x} \\
+    & \text{pongo } y=\arcsin x \implies (y\to 0 \text{ se } x \to 0) \\
+    & \lim_{ y \to 0 } \frac{y}{\sin y}= 1 
+    \end{align*}
+    
+    \item \[\lim_{ x \to 0 } \frac{\arctan x}{x}=1\]
+    
+    \item \[\lim_{ x \to \pm\infty } \left( 1 +\frac{1}{x} \right)^x=e\]
+    
+    \item \[\lim_{ x \to 0 } (1+x)^{\frac{1}{x}} = e\]
+    
+    \item \[\lim_{ x \to 0 } (1+ax)^{\frac{1}{x}}=e^a\]
+    
+    \item \[\lim_{ x \to 0 } \frac{\log(1+x)}{x} = 1\]
+    
+    \item \[\lim_{ x \to 0 } \frac{\log_{a}{(1+x)}}{x} = \log_{a} e =\frac{1}{\log a}\]
+    
+    \item \[\lim_{ x \to 0 } \frac{e^x -1}{x} = 1\]
+    
+    \item 
+    \begin{align*}
+    &\lim_{ x \to 0 } \frac{a^x-1}{x}\\
+    & \text{Pongo } y=a^x-1 \implies (x\to 0 \implies y\to 0) \\
+    & x=\log_{a}(1+y) \\
+    & = \lim_{ y \to 0 } \frac{y}{\log_{a}(1+y)} = \log a 
+    \end{align*}
+    
+    \item \[\lim_{ x \to 0 } \frac{(1 + x)^\alpha -1}{x}=\alpha\]
+    
+    \item \[\lim_{ x \to +\infty } \frac{\log_{a}x}{x^\alpha}=0 \quad (\forall \alpha>0, a>1)\]
+    
+    \item \[\lim_{ x \to +\infty } \frac{x^\alpha}{a^x}=0 \quad (\alpha>0, a>1)\]
+    
+    \item 
+    \begin{align*}
+    & \lim_{ x \to 0^+ } x^\alpha \log_{a}x = 0 \quad (\alpha>0, a>1) \\
+    & \text{pongo } y=\frac{1}{x} \implies (x\to 0^+ \implies y\to +\infty) \\
+    & \lim_{ y \to +\infty } \frac{-\log_{a}y}{y^\alpha}=0 
+    \end{align*}
+    
+    \item \[\lim_{ x \to -\infty } x^k \cdot a^x = 0 \quad (k\in \mathbb{N}, a>1) \quad \text{\itshape(Non capiterà mai)}\]
+\end{enumerate}
+
+\section{Teoremi Globali e Continuità Uniforme}
+
+\subsection{Teorema di Weierstrass}
+
+\thm{Teorema di Weierstrass}{
+    Sia \(f: K \subseteq \mathbb{R} \to \mathbb{R}\), con \(K\) compatto e \(f\) continua.
+    Allora \(f\) ammette minimo e massimo globali, ovvero:
+    \[\exists x_{m},x_{M} \in K:\]
+    \[\min_{K}f=m=f(x_{m})\leq f(x)\leq f(x_{M})=M=\max_{K}f\]
+}
+
+\rmkb{
+    \textbf{Domande classiche:}
+    \begin{enumerate}
+        \item Vale il viceversa? \textbf{NO}
+        \item Se \(K\) non è compatto vale? \textbf{NO}
+        \item Se \(f\) non è continua, vale? \textbf{NO}
+    \end{enumerate}
+    
+    \textbf{Controesempi:}
+    \begin{itemize}
+        \item (1) \(K=[0,1]\), \(f(x)\) discontinua (es. vale 0 in 1, x in ]0,1[, 1 in 0). Non è continua ma ha max e min.
+        \item (2) \(K=[0,1[\). \(1\) è un \(\sup\) ma non un \(\max\).
+        \item (3) \(K=[0,1]\), funzione discontinua che non raggiunge gli estremi.
+    \end{itemize}
+    % [Immagini: percentuale-1.jpg, percentuale-2.jpg, percentuale-3.jpg]
+}
+
+\pf{
+    (Dimostriamo l'esistenza del max). Sia \(M=\sup_{K} f = \sup \{ f(x),x\in K \} \in \overline{\mathbb{R}}\).
+    
+    \textbf{Passo 1:} Dimostriamo che \(\boxed{\exists x_{n}\in K: \lim_{ n \to +\infty } f(x_{n})=M}\).
+    Infatti se \(M=+\infty\), per le proprietà del sup:
+    \[\forall n \in \mathbb{N} \exists x_{n}\in K: f(x_{n})>n \underset{\text{ (T. del Confronto)}}{\implies} \lim_{ n \to +\infty } f(x_{n})=+\infty=M \]
+    Se \(M<+\infty\):
+    \[\forall n \in \mathbb{N} \quad \exists x_{n}\in K: M - \frac{1}{n}< f(x_{n})\leq M \implies \lim_{ n \to +\infty }f(x_{n})=M\]
+    
+    \textbf{Passo 2:} Essendo \(K\) compatto, dalla successione \(x_n\) si può estrarre una sottosuccessione convergente:
+    \[\exists x_{n_{k}} \to x_{M}\in K\]
+    
+    \textbf{Passo 3:} Considero \(f(x_{n_{k}})\). Essendo un'estratta di \(f(x_{n})\) tende a \(M\). Per la continuità di \(f\):
+    \[\boxed{M}=\lim_{ k \to +\infty } f(x_{n_{k}})=f(\lim_{ k \to +\infty } x_{n_{k}})=\boxed{f(x_{M})}\]
+    Quindi \(M\) è un valore finito ed è assunto dalla funzione in \(x_M\).
+}
+
+\subsection{Teorema di Esistenza degli Zeri}
+
+\thm{Esistenza degli Zeri}{
+    Sia \(f: [a,b] \to \mathbb{R}\) continua.
+    Sia \(f(a)f(b)<0\) (discordi).
+    Allora \[\exists c \in ]a,b[: f(c)=0\]
+}
+
+\pf{
+    (Metodo di bisezione).
+    Sia \(c_{0}\) il punto medio di \([a,b]\): \(c_{0}=\frac{a+b}{2}\).
+    Se \(f(c_{0})=0 \implies c=c_{0}\) (Fine).
+    Se \(f(c_{0})\ne 0\), allora sarà discorde o con \(f(a)\) o con \(f(b)\).
+    Chiamo \([a_{1},b_{1}]\) l'intervallo ai cui estremi la funzione assume valori discordi:
+    \[[a_{1},b_{1}]=\begin{cases} [a, c_{0}] & f(c_{0})f(a)<0 \\ [c_{0},b] & f(c_{0})f(b)<0 \end{cases}\]
+    Quindi ho costruito \([a_{1},b_{1}]\) tale che:
+    \begin{enumerate}
+        \item \(a\leq a_{1}<b_{1}\leq b\)
+        \item \(b_{1}-a_{1}=\frac{b-a}{2}\)
+        \item \(f(a_{1})f(b_{1})<0\)
+    \end{enumerate}
+    
+    Iterando il procedimento, al passo \(n\) se non ho mai trovato lo zero, avrò costruito \([a_{n},b_{n}]\) tale che:
+    \begin{enumerate}
+        \item \(\underbrace{a\leq a_{1}\leq a_{2}\leq \dots\leq a_{n} }_{\nearrow}<\underbrace{b_{n}\leq b_{n-1}\leq\dots\leq b_{1}\leq b}_{\searrow}\)
+        \item \(b_{n}-a_{n}=\frac{b-a}{2^n}\)
+        \item \(f(a_{n})f(b_{n})<0\)
+    \end{enumerate}
+    
+    Le successioni \(a_n\) e \(b_n\) sono monotone e limitate, quindi convergono. Poiché la distanza tra loro tende a 0 (punto 2), convergono allo stesso limite \(c \in [a,b]\).
+    
+    Per la continuità di \(f\):
+    \[\lim_{n \to \infty} f(a_n) \cdot f(b_n) = f(c) \cdot f(c) = [f(c)]^2\]
+    Poiché \(f(a_n)f(b_n) < 0\) per ogni \(n\), il limite deve essere \(\le 0\).
+    Quindi \([f(c)]^2 \le 0 \implies f(c)=0\).
+}
+
+\thm{Esistenza degli Zeri (Versione Generale)}{
+    Sia \(f:[a,+\infty[\to \mathbb{R}\) (o \(f:]-\infty,b[\to \mathbb{R}\)) continua e tale che esistano:
+    \[\lim_{ x \to +\infty }f(x)=l\in\overline{\mathbb{R}}\]
+    \[\lim_{ x \to -\infty } f(x)=l'\in\overline{\mathbb{R}}\]
+    Se \(f(a)\cdot l<0\) (o \(f(b)\cdot l'<0\)), allora:
+    \[\exists c \in ]a,+\infty[ (\text{o } ]-\infty, b[) : f(c)=0\]
+}
+
+\subsection{Teorema dei Valori Intermedi}
+
+\thm{Teorema dei Valori Intermedi}{
+    Sia \(f:[a,b]\to \mathbb{R}\) continua. Allora \(f\) assume tutti i valori compresi tra il minimo e il massimo.
+}
+
+\pf{
+    Per il \textbf{Teorema di Heine-Borel} e \textbf{Weierstrass}, esistono minimo \(m\) e massimo \(M\).
+    Sia \(y_{0}\in]m,M[\). Dobbiamo dimostrare che \(\exists x_{0}\in [a,b]:f(x_{0})=y_{0}\).
+    
+    Considero la funzione ausiliaria \(g(x)=f(x)-y_{0}\) nell'intervallo \([x_{m},x_{M}]\) (supponendo \(x_m < x_M\)):
+    \begin{enumerate}
+        \item \(g(x)\) è continua.
+        \item \(g(x_{m})=m-y_{0}<0\)
+        \item \(g(x_{M})=M-y_{0}>0\)
+    \end{enumerate}
+    Per il Teorema di esistenza degli zeri applicato a \(g(x)\):
+    \[\exists c \in ]x_{m},x_{M}[:g(c)=0\implies f(c)=y_{0}\implies c=x_{0}\]
+}
+
+\subsection{Monotonia e Invertibilità}
+
+\thm{Limite di Funzioni Monotone}{
+    Sia \(f(x):[a,b]\to \mathbb{R}\) \textbf{monotona}.
+    Allora \(\exists\) finiti i seguenti limiti \(\forall x_{0}\in[a,b]\):
+    \[\lim_{ x \to a^+ } f(x); \quad \lim_{ x \to x_{0}^- } f(x); \quad \lim_{ x \to x_{0}^+ } f(x); \quad \lim_{ x \to b^- } f(x)\]
+    Inoltre se \(f \nearrow\), si possono ordinare come segue:
+    \[f(a)\leq\lim_{ x \to a^+ } f(x) \leq \lim_{ x \to x_{0}^- } f(x)\leq f(x_{0})\leq \lim_{ x \to x_{0}^+ } f(x)\leq\lim_{ x \to b^- } f(x)\leq f(b)\]
+}
+
+\pf{
+    Dimostriamo che esiste il limite sinistro per \(x_0 \in ]a,b[\). Supponiamo \(f \nearrow\).
+    L'insieme \(\{ f(x):x\in[a,x_{0}[ \}\) è limitato superiormente da \(f(x_0)\).
+    Dunque è ben definito \(l=\sup\{ f(x):x\in[a,x_{0}[ \}\).
+    Per le proprietà del \(\sup\), \(\forall \epsilon>0 \exists x_{1}\in [a,x_{0}[: l-\epsilon<f(x_{1})\leq l\).
+    Per la monotonia, per ogni \(x\) tale che \(x_1 < x < x_0\), si ha \(l-\epsilon < f(x_1) \le f(x) \le l < l+\epsilon\).
+    Quindi il limite sinistro esiste ed è uguale a \(l\).
+}
+
+\cor{
+    Una funzione monotona può avere solo discontinuità di tipo salto.
+}
+
+\thm{Continuità delle Funzioni Monotone}{
+    Sia \(f:[a,b]\to \mathbb{R}\) monotona.
+    \(f\) è continua \(\iff\) \(f\) assume tutti i valori compresi tra \(f(a)\) ed \(f(b)\) (ovvero tra min e max).
+}
+
+\pf{
+    \((\implies)\) Ovvia per il \textbf{Teorema dei Valori Intermedi}.
+    
+    \((\impliedby)\) Se per assurdo \(\exists x_{0}\in]a,b[:f\) non è continua in \(x_{0}\), ma allora esistono i limiti destro e sinistro \(l_1, l_2\) con \(l_1 < l_2\) (per la monotonia).
+    Allora nessun punto dell'intervallo \(]l_1, l_2[\) viene assunto dalla funzione, contraddicendo l'ipotesi che assuma tutti i valori intermedi.
+}
+
+\thm{Continuità della Funzione Inversa}{
+    Sia \(f:[a,b]\to \mathbb{R}\) continua e strettamente monotona. Allora \(f^{-1}\) è continua nell'intervallo di estremi \(f(a),f(b)\).
+}
+
+\pf{
+    \(f^{-1}\) esiste per la stretta monotonia (iniettività) e la suriettività sull'immagine.
+    Supponiamo \(f\) strettamente crescente. Allora \(f:[a,b]\to [f(a),f(b)]\) e \(f^{-1}:[f(a),f(b)]\to[a,b]\) è anch'essa strettamente crescente.
+    Poiché l'immagine di \(f^{-1}\) è l'intervallo \([a,b]\) (tutti i valori sono assunti), per il teorema precedente \(f^{-1}\) è continua.
+}
+
+\subsection{Continuità Uniforme}
+
+\defn{Continuità (Puntuale)}{
+    Sia \(f: A \subseteq \mathbb{R} \to \mathbb{R}\).
+    \(f\) è continua in \(A \iff\) è continua in ogni \(x_0 \in A\).
+    \[\forall x_0 \in A, \forall \epsilon > 0 \exists \delta > 0 : \forall x \in A, |x-x_0| < \delta \implies |f(x) - f(x_0)| < \epsilon\]
+}
+
+\rmkb{
+    Il \(\delta\) trovato nella continuità puntuale può dipendere sia da \(\epsilon\) che dal punto \(x_0\) scelto.
+}
+
+\ex{
+    \textbf{Esempio 1: \(f(x) = x^2\) (Continua ma non Uniformemente su \(\mathbb{R}\))}
+    Vogliamo mostrare che il \(\delta\) dipende necessariamente da \(x_0\).
+    Fissiamo \(x_0\) e \(\epsilon\). Dobbiamo soddisfare \(|x^2 - x_0^2| < \epsilon\).
+    \[|x^2 - x_0^2| = |x-x_0| \cdot |x+x_0| < \delta |x+x_0|\]
+    Se poniamo un vincolo preliminare \(\delta \le 1\), allora \(|x+x_0| < 1 + 2|x_0|\).
+    Affinché il prodotto sia \(< \epsilon\), dobbiamo scegliere:
+    \[\delta = \min\left(1, \frac{\epsilon}{1 + 2|x_0|}\right)\]
+    \textbf{Conclusione:} All'aumentare di \(|x_0|\), \(\delta\) deve diventare sempre più piccolo. Non esiste un \(\delta\) unico per tutto \(\mathbb{R}\).
+}
+
+\ex{
+    \textbf{Esempio 2: \(f(x) = \sin(x)\) (Uniformemente Continua)}
+    Vogliamo trovare un \(\delta\) che dipenda solo da \(\epsilon\).
+    \[|\sin(x_1) - \sin(x_2)| = \left| 2 \cos\left(\frac{x_1+x_2}{2}\right) \sin\left(\frac{x_1-x_2}{2}\right) \right|\]
+    Usando \(|\cos| \le 1\) e \(|\sin t| \le |t|\):
+    \[\le 2 \cdot 1 \cdot \left| \frac{x_1-x_2}{2} \right| = |x_1-x_2|\]
+    Quindi basta scegliere \(\delta = \epsilon\) per soddisfare la condizione. Il \(\delta\) non dipende da \(x\).
+}
+
+\defn{Uniforme Continuità}{
+    Sia \(f: A \subseteq \mathbb{R} \to \mathbb{R}\).
+    \(f\) si dice \textbf{uniformemente continua} in \(A\) se:
+    \[\forall \epsilon > 0 \exists \delta > 0 : \forall x, x' \in A, |x - x'| < \delta \implies |f(x) - f(x')| < \epsilon\]
+    (Qui il \(\delta\) dipende solo da \(\epsilon\)).
+}
+
+\thm{Teorema di Heine-Cantor}{
+    Sia \(f:[a,b]\to \mathbb{R}\) continua \(\implies f\) è uniformemente continua.
+}
+
+\pf{
+    Supponiamo per assurdo che \(f\) non sia uniformemente continua.
+    \[\exists \epsilon_{0}>0 : \forall \delta>0 \exists x_{\delta},x'_{\delta}:|x_{\delta}-x'_{\delta}|<\delta \; \text{ ma } |f(x_{\delta})-f(x'_{\delta})|\geq\epsilon_{0}\]
+    Scelto \(\delta=\frac{1}{n}\) trovo successioni \(x_{n}, x'_{n}\) tali che \(|x_{n}-x'_{n}|< \frac{1}{n}\) ma la distanza delle immagini è \(\ge \epsilon_0\).
+    Essendo in un compatto \([a,b]\), per \textbf{Bolzano-Weierstrass} esiste una sottosuccessione \(x_{n_k} \to x_0 \in [a,b]\).
+    Anche \(x'_{n_k} \to x_0\) (poiché la loro distanza tende a 0).
+    Ma \(f\) è continua in \(x_0\), quindi \(f(x_{n_k}) \to f(x_0)\) e \(f(x'_{n_k}) \to f(x_0)\), il che implica \(|f(x_{n_k}) - f(x'_{n_k})| \to 0\), contraddicendo la condizione \(\ge \epsilon_0\).
+}
+
+\subsection{Lipschitziana}
+
+\defn{Lipschitziana}{
+    Sia \(f: A \subseteq \mathbb{R}\to \mathbb{R}\).
+    \(f\) si dice \textbf{Lipschitziana} se \(\exists L >0\) (costante di Lipschitz) tale che \(\forall x, x_{0} \in A\) si ha:
+    \[|f(x)-f(x_{0})| \leq L |x-x_{0}|\]
+}
+
+\rmkb{
+    Una funzione Lipschitziana è sempre uniformemente continua (basta scegliere \(\delta = \epsilon / L\)).
+}
+
+
+%-----ASINTOTI-----%
+\section{Asintoti}
+\label{asintoti}
+
+Per studiare cosa succede nei punti d'accumulazione del dominio (specialmente agli estremi o nei punti di discontinuità), introduciamo il concetto di asintoto.
+
+\subsection{Asintoti Verticali}
+
+\defn{Asintoto Verticale}{
+    Sia \(f:A\subseteq \mathbb{R}\to \mathbb{R}\) e \(x_{0}\in \mathbb{R}\) un punto di accumulazione per \(A\).
+    \begin{itemize}
+        \item La retta \(x=x_{0}\) si dice \textbf{asintoto verticale destro} al grafico di \(f\) se:
+        \[\lim_{ x \to x_{0}^+ } f(x)=\pm \infty\]
+        \item Si dice \textbf{asintoto verticale sinistro} se:
+        \[\lim_{ x \to x_{0}^- } f(x)=\pm \infty\]
+    \end{itemize}
+}
+
+\ex{
+    Consideriamo \(f(x)=e^{\frac{x}{x-1}}\).
+    % [Immagine: graf-asintoti-vert.jpg]
+    
+    \textbf{Dominio:} \(\mathbb{R}\setminus \{ 1 \}\). \textbf{Codominio:} \(f(x)>0\).
+    
+    Verifichiamo gli asintoti verticali in \(x=1\):
+    \[\lim_{ x \to 1^+ } f(x)=+\infty\]
+    \[\lim_{ x \to 1^- } f(x)=0\]
+    La retta \(x=1\) è Asintoto Verticale Destro a \(+\infty\).
+}
+
+\subsection{Asintoti Orizzontali}
+
+\defn{Asintoto Orizzontale}{
+    Sia \(f:A\subseteq \mathbb{R}\to \mathbb{R}\) con \(A\) non superiormente limitato.
+    Allora la retta \(y=l\) si dice \textbf{asintoto orizzontale} a \(+\infty\) al grafico di \(f\) se:
+    \[\lim_{ x \to +\infty } f(x)=l\in \mathbb{R} \quad \text{oppure} \quad \lim_{ x \to +\infty } (f(x)-l)=0\]
+    Analogamente, se \(A\) non è inferiormente limitato, \(y=l'\) si dice asintoto orizzontale a \(-\infty\) se:
+    \[\lim_{ x \to -\infty } f(x)=l'\in \mathbb{R} \quad \text{oppure} \quad \lim_{ x \to -\infty } (f(x)-l')=0\]
+}
+
+\ex{
+    \[\lim_{ x \to \pm\infty } e^{\frac{x}{x-1}} = e\]
+    Quindi \(y=e\) è asintoto orizzontale a \(\pm \infty\).
+    % [Immagine: graf-as-vert-oriz.jpg]
+}
+
+\subsection{Asintoti Obliqui}
+
+\defn{Asintoto Obliquo}{
+    Sia \(f:A \subseteq \mathbb{R}\to \mathbb{R}\) con \(A\) non superiormente limitato. La retta 
+    \[y=mx+q \quad (m \neq 0)\]
+    è un \textbf{asintoto obliquo} a \(+\infty\) se:
+    \[\lim_{ x \to +\infty } (f(x)-(mx+q))=0\]
+    Analogamente, se \(A\) non è inferiormente limitato, la retta \(y=m'x+q'\) è un asintoto obliquo a \(-\infty\) se:
+    \[\lim_{ x \to -\infty } (f(x)-(m'x+q'))=0\]
+}
+
+\subsubsection{Formule per trovare m e q}
+
+Per trovare i parametri dell'asintoto obliquo si usano le seguenti formule (derivanti dalla definizione):
+\[m=\lim_{ x \to +\infty } \frac{f(x)}{x}\]
+\[q=\lim_{ x \to +\infty } (f(x)-mx)\]
+(Le formule valgono analogamente per \(x \to -\infty\)).
+
+\ex{
+    Sia \(f(x)=1+\sqrt{ 4x^2-2x+1 }\).
+    \begin{enumerate}
+        \item Dominio: \(\mathbb{R}\)
+        \item Segno: \(f(x)>0\)
+        \item Asintoti Verticali: NO (non ci sono punti di esclusione o estremi finiti aperti del dominio).
+        \item Asintoti Orizzontali: NO (i limiti a \(\pm \infty\) divergono).
+        \item Asintoti Obliqui: ?
+    \end{enumerate}
+
+    \textbf{Svolgimento Asintoti Obliqui:}
+    Cerchiamo \(m\):
+    \[
+    m= \lim_{ x \to \pm \infty } \frac{f(x)}{x} = \lim_{ x \to \pm \infty } \frac{1+ 2|x|\sqrt{ 1- \frac{1}{2x}+ \frac{1}{4x^2} }}{x}
+    \]
+    Distinguendo i casi per il valore assoluto:
+    \[
+    \begin{cases} 
+    m=2 & \text{per } x \to +\infty \\
+    m=-2 & \text{per } x \to -\infty
+    \end{cases}
+    \]
+    (Successivamente si calcolerebbe \(q\) per entrambi i casi).
+    % [Immagine: as-obliqui.png]
 }
