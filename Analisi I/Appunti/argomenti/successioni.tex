@@ -927,16 +927,15 @@ perchè \(n! > n\)
     \item \(c_{n}\to l\in \mathbb{R}\)
     \item \(a_{n}\leq b_{n}\leq c_{n}\) % NOTA: Definizione usa >=
 \end{itemize}
-Per hp: \[
-\begin{aligned}
+Per hp:
+\begin{align*}
 & a_{n}\to l \in \mathbb{R} \implies \forall \epsilon > 0 \exists \nu_{1}>0: l- \epsilon <a_{n}<l+\epsilon \forall n> \nu_{1} \\
 & c_{n}\to l \in \mathbb{R} \implies \forall \epsilon > 0 \exists \nu_{2}>0: l- \epsilon <c_{n}<l+\epsilon \forall n> \nu_{2} \\
 & \forall n> \nu_{1} \;
 l - \epsilon <a_{n}\leq b_{n} \leq c_{n} <l+\epsilon \; \forall n> \nu_{2} \implies \\
 & l-\epsilon < b_{n} <l +\epsilon \;
 \forall n > \nu = \max\{\nu_{1}, \nu_{2}\} \\
-\end{aligned}
-\]
+\end{align*}
 }
 
 \pf{
@@ -1363,13 +1362,14 @@ Sia \(a_n \to l \in \mathbb{R}\).
 \forall\epsilon > 0 \exists \nu > 0 : |A_n - l| < \epsilon \quad \forall n > \nu
 \] Sia \(\epsilon > 0\) e sia \([\nu_1]\) che trovo per ipotesi.
 Vado a
-stimare \(|A_n - l|\): \[
+stimare \(|A_n - l|\):
+
 \begin{align*}
 |A_n - l| &= \left| \frac{a_1 + a_2 + \dots + a_n}{n} - l \right|
 = \left|\frac{a_{1}+a_{2}+\dots+a_{n}-nl}{n}\right| \\
 &= \left|\frac{(a_{1}-l)+(a_{2}-l)+\dots+(a_{n}-l)}{n}\right|
 \end{align*}
-\] Spezziamo la somma (per \(n > [\nu_1]\)) e usiamo la disuguaglianza
+Spezziamo la somma (per \(n > [\nu_1]\)) e usiamo la disuguaglianza
 triangolare: \[
 |A_n - l| \le \left| \frac{(a_1 - l) + \dots + (a_{[\nu_1]} - l)}{n} \right| + \left| \frac{(a_{[\nu_1]+1} - l) + \dots + (a_n - l)}{n} \right|
 \] Ora analizziamo i due addendi:
@@ -1421,17 +1421,19 @@ regolare, anche \(G_{n}\) è regolare e risulta:
 
 \ex{
 \[
-a_{n}= \begin{cases}
+a_{n}= 
+\begin{cases}
 1 \quad \text{se } n \text{ è dispari} \\
 2 \quad \text{se } n \text{ è pari}
-\end{cases}\quad (\text{non ha limite})\quad
+\end{cases} \quad (\text{non ha limite})
+\]
 \begin{align*}
-& G_{n} = \sqrt[n]{a_{1}\dots  a_{n}} = 
+G_{n} &= \sqrt[n]{a_{1}\dots a_{n}} = 
 \begin{cases}
-& \sqrt[n]{2^{\frac{n-1}{2}}}\to \sqrt{2} \\
-& \sqrt[n]{2^{\frac{n}{2}}}\to \sqrt{2}
+\sqrt[n]{2^{\frac{n-1}{2}}}\to \sqrt{2} \\
+\sqrt[n]{2^{\frac{n}{2}}}\to \sqrt{2}
 \end{cases}
-\end{align*}\]
+\end{align*}
 }
 
 \ex{
@@ -1439,7 +1441,8 @@ a_{n}= \begin{cases}
 A_{n}=\begin{cases}
 \frac{3n-1}{2n} \text{ se } n \text{ è dispari} \\
 \frac{3}{2} \text{ se } n \text{ è pari}
-\end{cases}\to \frac{3}{2}\]
+\end{cases}\to \frac{3}{2}
+\]
 }
 
 \subsubsection{Teorema criterio Rapporto
@@ -1465,7 +1468,7 @@ Per Cesaro:
 }
 
 \ex{
-\begin{align*} \\
+\begin{align*}
 &\lim_{ n \to +\infty } \frac{\sqrt[n]{n!}}{n}=\sqrt[n]{\frac{n!}{n^n}}=\lim_{ n \to +\infty } \frac{(n+1)!}{(n+1)^{(n+1)}}\cdot \frac{n^n}{n!}= \\
 &=\frac{n!(n+1)}{(n+1)^n (n+1)} \cdot \frac{n^n}{n!}=\left(\frac{n}{(n+1)}\right)^n=\frac{1}{\left(\frac{n+1}{n}\right)^n}=\frac{1}{e}
 \end{align*}
@@ -1476,7 +1479,8 @@ Radice}\label{teorema-criterio-della-radice}
 
 \prop{
 Criterio della radice (per le successioni) Sia \(a_n \ge 0\)
-una successione. \\
+una successione.
+
 Se \(\exists \lim_{n \to +\infty} \sqrt[n]{a_n} = l \implies\) si ha: 
 \begin{enumerate}
     \item \(l>1 \implies a_n \text{ diverge pos} \implies \lim_{n \to +\infty} a_n = +\infty\)
@@ -1583,7 +1587,9 @@ nell'ordine: \((4)\to(1)\)
 
   Ora manipoliamo la frazione di cui vogliamo il limite:
 
-  \begin{align*} 0 \leq \frac{\log_2 n}{n^b} &= \frac{\log_2 \left( (n^{b/2})^{2/b} \right) }{ (n^{b/2})^2 } = \frac{ \frac{2}{b} \log_2(n^{b/2}) }{ (n^{b/2})^2 } \\ &= \frac{2}{b} \cdot \frac{\log_2(n^{b/2})}{n^{b/2} \cdot n^{b/2}} \\ &= \frac{2}{b} \cdot \frac{1}{n^{b/2}} \cdot \left( \frac{\log_2(n^{b/2})}{n^{b/2}} \right) \end{align*}
+  \begin{align*}
+    0 \leq \frac{\log_2 n}{n^b} &= \frac{\log_2 \left( (n^{b/2})^{2/b} \right) }{ (n^{b/2})^2 } = \frac{ \frac{2}{b} \log_2(n^{b/2}) }{ (n^{b/2})^2 } \\ &= \frac{2}{b} \cdot \frac{\log_2(n^{b/2})}{n^{b/2} \cdot n^{b/2}} \\ &= \frac{2}{b} \cdot \frac{1}{n^{b/2}} \cdot \left( \frac{\log_2(n^{b/2})}{n^{b/2}} \right)
+  \end{align*}
 
   Usando la disuguaglianza \(n^{b/2} \geq \log_2(n^{b/2})\), sappiamo
   che \(\left( \frac{\log_2(n^{b/2})}{n^{b/2}} \right) \leq 1\).
@@ -1654,12 +1660,11 @@ nell'ordine: \((4)\to(1)\)
 }
 
 \pf{
-    \[
     \begin{align*}
     a_{2n} &\to l \in \mathbb{R} \implies \exists \nu_{1} : |a_{2n} -l | < \epsilon \quad \forall n> \nu_{1} \\
     a_{2n+1} &\to l \in \mathbb{R} \implies \exists \nu_{2} : |a_{2n+1} -l | < \epsilon \quad \forall n> \nu_{2} \\
     \end{align*}
-    \]
+
     Quindi:
     \[
     \forall \epsilon > 0 \quad \exists \nu>0 : |a_{n}-l| < \epsilon \quad \forall n > \nu \quad \text{con } \nu = \max\{ \nu_{1}, \nu_{2} \}
@@ -1693,13 +1698,13 @@ nell'ordine: \((4)\to(1)\)
     Allora \(l'\) e \(l''\) sono in \(\mathbb{R}\).
 
     Dimostriamo che si possono costruire \(z_{k}, d_{k}\to l'\). Essendo \(l'=\sup b_{n} = \lim_{ n } b_{n}\), allora:
-    \[
+    
     \begin{align*}
     & \forall \epsilon > 0 \exists \nu_{1} > 0 :  \forall n> \nu_{1} \; |b_{n} - l'| < \epsilon \implies\\
     & \implies |\inf_{k\geq n} a_{k} - l'| <\epsilon \implies \\
     & \implies l' - \epsilon < \inf_{k\geq n} a_{k} < l' + \epsilon \quad \forall n> \nu
     \end{align*}
-    \]
+
     Sia \(\epsilon=1\). Allora:
     \[
     \exists \nu_{1} : l' - 1 < \inf_{k\geq n} a_{k}<l' +1 \quad \forall n>\nu_{1} \implies \exists \underset{\text{(Più piccolo)}}{n_{1}}> \nu_{1} : \boxed{l' -1 < a_{n_{1}} < l' +1}
@@ -1722,13 +1727,11 @@ nell'ordine: \((4)\to(1)\)
 }
 
 \ex{
-    \[
     \begin{align*}
     &a_{n} = \arctan((-1)^n n)\\
     & \liminf_{n} a_{n} = -\frac{\pi}{2}\\
     & \limsup_{n} a_{n} = \frac{\pi}{2}
     \end{align*}
-    \]
 }
 
 \prop{
@@ -1747,14 +1750,14 @@ nell'ordine: \((4)\to(1)\)
 
     \textbf{\((\impliedby)\)}
     Per Hp:
-    \[
+
     \begin{align*}
     & l'=\liminf_{n \to +\infty} a_{n} = \sup (\overbrace {\inf_{k\geq n} a_{k}}^{b_{n}})=l \\
     & l''=\limsup_{n \to +\infty} a_{n} = \inf (\underbrace {\sup_{k\geq n} a_{k}}_{c_{n}})=l
     \end{align*}
-    \]
+    
     Per la caratterizzazione dell'inf e del sup:
-    \[
+
     \begin{align*}
     &\forall \epsilon > 0 \quad \exists \nu_{1}, \nu_{2}>0 :\\
     &\exists c_{\nu_{2}}, b_{\nu_{1}}:\\
@@ -1762,9 +1765,10 @@ nell'ordine: \((4)\to(1)\)
     &l' - \epsilon < b_{\nu_{1}} = \inf_{k\geq \nu_{1}} a_{k}\leq a_{k} \quad \forall k> \nu_{1} \\
     &\nu > \max\{ \nu_{1}, \nu_{2} \}
     \end{align*}
-    \]
     Quindi:
-    \[\liminf_{n} a_{n} \leq \lim_{ n } a_{n} \leq \limsup_{n} a_{n}\]
+    \[
+    \liminf_{n} a_{n} \leq \lim_{ n } a_{n} \leq \limsup_{n} a_{n}
+    \]
     (Nota: \(\nu\) come indice è un abuso di notazione, si dovrebbe usare \([\nu]\)).
 }
 
@@ -1781,15 +1785,15 @@ nell'ordine: \((4)\to(1)\)
     Pongo \(x=n+1\) e \(y=n-1\). Supponiamo per assurdo che il limite \(\exists s \in \mathbb{R}\). Quindi per Hp:
     \[\lim_{ n \to \infty } \sin n = s\]
     \[\sin (n+1) - \sin (n-1)=2\cos n \sin 1\]
+
     Queste quantità tendono a:
-    \[
+
     \begin{align*}
     &s-s = 0 \\
     & \text{Se }\lim_{ n \to \infty } \sin n = s \implies \lim_{ n \to \infty } \cos n=0 \text{ e } \cos(n+1)\to 0 \text{ essendo estratta da } \cos n \\
     &(\cos n \cos_{1} - \sin n\sin 1) \to 0 -s\sin 1 \to 0 \implies s=0\\
     & \forall n, \sin^2 n+ \cos^2 n = 1 \to 0+0=1 \quad \text{ASSURDO.}
     \end{align*}
-    \]
 }
 
 \subsection{Teorema Criterio di Cauchy}
@@ -1798,12 +1802,10 @@ nell'ordine: \((4)\to(1)\)
 \thm{Criterio di Cauchy}{
     Sia \(a_{n}\) una successione.
     \(a_{n}\) convergente a \(l \in \mathbb{R} \iff a_{n}\) verifica la seguente condizione (detta di Cauchy):
-    \[
     \begin{align*}
     &\forall \epsilon > 0 \exists \nu> 0 : |a_{n} - a_{m}| < \epsilon \quad \forall n, m > \nu \\
     & |a_{n} - a_{m}| = \boxed{a_{m} -\epsilon <a_{n} < \epsilon +a_{m}}
     \end{align*}
-    \]
 }
 
 \pf{
