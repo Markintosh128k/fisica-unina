@@ -272,3 +272,61 @@ Per dimostrare rigorosamente la regola del prodotto, necessitiamo prima di un le
     \textbf{Arcotangente}:
     \[D(\arctan x) = \frac{1}{D(\tan y)}\bigg|_{y=\arctan x} = \cos^2 y = \frac{1}{1+\tan^2 y} = \frac{1}{1+x^2}\]
 }
+
+
+\section{Punti di non derivabilità}\label{punti-di-non-derivabilituxe0}
+
+% Utilizzo dell'ambiente \defn definito in theorems.tex
+% Argomento 1: Titolo (opzionale o desunto dal testo)
+% Argomento 2: Contenuto
+\defn{\(f\) non derivabile}{
+    Se \(f\) non è derivabile in \(x_{0}\):
+    \[
+    \lim_{ x \to x_{0} } \frac{f(x)-f(x_{0})}{x-x_{0}}=\begin{cases}
+    \not \exists \\ 
+    \infty
+    \end{cases}
+    \]
+}
+
+\begin{enumerate}
+    \item \(f'_{+}(x_{0})\) e \(f'_{-}(x_{0}) \exists\) finite ma:
+    \[f'_{+}(x_{0})\neq f'_{-}(x_{0})\] 
+    In questo caso si chiama \textbf{punto angoloso}. Assumiamo che \(x_{0}\) è un punto angoloso anche quando una delle due derivate \(f'_{+}(x_{0})\) e \(f'_{-}(x_{0})\) è finita, mentre l'altra è \(\pm \infty\).
+\end{enumerate}
+
+
+\ex{
+    \[
+    f(x)=\begin{cases}
+    \sqrt{ x } & x\geq{0} \\
+    1- e^{-x/2} & x<0 
+    \end{cases}
+    \implies f\text{ è continua in } \mathbb{R}
+    \]
+    \[f'_{+}(0)= +\infty \qquad f'_{-}(0)=-\frac{1}{2}\]
+}
+
+\begin{enumerate}
+    \setcounter{enumi}{1}
+    \item Se \(f'_{+}(x_{0})=+\infty\) e \(f'_{-}(x_{0})=-\infty\) o viceversa, \(x_{0}\) si dice \textbf{cuspide}.
+\end{enumerate}
+
+\ex{
+    \[ f(x)=\sqrt{ |x| } \]
+}
+
+\begin{enumerate}
+    \setcounter{enumi}{2}
+    \item Se \(f'_{+}(x_{0})=f'_{-}(x_{0})=\pm \infty\) (\(\infty\) ma con lo stesso segno), \(x_{0}\) è \textbf{a tangente verticale.}
+\end{enumerate}
+
+\ex{
+    \[ y=\sqrt[3]{x} \]
+}
+
+Tutti gli altri sono punti di non derivabilità.
+
+\rmkb{
+    Le funzioni con derivata limitata sono sempre Lipschitziane.
+}
