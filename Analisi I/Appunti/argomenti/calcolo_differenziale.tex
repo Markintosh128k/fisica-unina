@@ -274,7 +274,7 @@ Per dimostrare rigorosamente la regola del prodotto, necessitiamo prima di un le
 }
 
 
-\section{Punti di non derivabilità}\label{punti-di-non-derivabilituxe0}
+\section{Punti di non derivabilità}\label{punti-di-non-derivabilita}
 
 % Utilizzo dell'ambiente \defn definito in theorems.tex
 % Argomento 1: Titolo (opzionale o desunto dal testo)
@@ -707,3 +707,314 @@ Tutti gli altri sono punti di non derivabilità.
     \end{itemize}
     $\implies$ Vale la stessa Tesi.
 }
+
+
+
+\section{Infinitesimi e Formula di Taylor}
+
+Alcuni limiti possono risultare complessi anche utilizzando il Teorema di de l'Hôpital (o i limiti notevoli).
+
+\ex{
+    \begin{enumerate}
+        \item \begin{align*}
+        & \lim_{ x \to 0 } \frac{2 \sin x -x}{e^x -1} = \frac{0}{0}\\
+        & \text{Utilizzo i limiti not: } \lim_{ x \to 0} \frac{x \left(2\frac{\sin x}{x} -1 \right)}{e^x -1} = 1
+        \end{align*}
+        
+        \item \begin{equation*}
+        \lim_{ x \to 0} \frac{\sin x - x}{e^x -1} = \frac{0}{0}=\lim_{ x \to 0 } \frac{x\left( \frac{\sin x}{x}-1 \right)}{e^x -1}=0
+        \end{equation*}
+        
+        \item \begin{equation*}
+        \lim_{ x \to 0 } \frac{\sin x -x}{e^{x^2} -1} = \frac{x^2}{e^{x^2}-1} \left( \frac{\frac{\sin x}{x}-1}{x} \right)= \;?
+        \end{equation*}
+        
+        \item \begin{equation*}
+        \lim_{ x \to 0 } \frac{x^4 +\tan^2(x^3)-\log(1+x^2)}{2(e^{x^2}-1)+x^3-\sin^4x}=\frac{0}{0}= \; ?
+        \end{equation*}
+    \end{enumerate}
+}
+
+\defn{Definizione}{
+    Siano $f,g$ due funzioni infinitesime in $x_{0}\in \overline{\mathbb{R}}$ e supponiamo che esista un $I(x_{0})$ in cui:
+    \[ f(x)\neq g(x)\; \forall x \in I(x_{0})\setminus \{ x_{0} \} \]
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{img/esempio_taylor_1.png} 
+    \end{center}
+    Possono accadere le seguenti cose:
+    \begin{enumerate}
+        \item $\displaystyle \lim_{ x \to x_{0} } \frac{f(x)}{g(x)}=0$
+        \item $\displaystyle \lim_{ x \to x_{0} } \left|\frac{f(x)}{g(x)}\right|=+\infty$
+        \item $\displaystyle \lim_{ x \to x_{0} } \left|\frac{f(x)}{g(x)}\right|=l \in \;]0, +\infty[$
+        \item $\displaystyle \lim_{ x \to x_{0} } \frac{f(x)}{g(x)}=\not \exists$
+    \end{enumerate}
+    
+    Allora:
+    \begin{enumerate}
+        \item diremo che $f$ \textbf{è in $x_{0}$ infinitesima} di \textbf{ordine superiore} rispetto a $g$.
+        \item diremo che $g$ in $x_{0}$ è infinitesima di ordine superiore a $f$ o che $f$ ha ordine inferiore.
+        \item diremo che $f,g$ sono infinitesime in $x_{0}$ dello stesso ordine.
+        \item diremo che $f,g$ sono infinitesime in $x_{0}$ di ordini non confrontabili.
+    \end{enumerate}
+    (IDEM PER GLI ORDINI DI INFINITO)
+}
+
+
+\ex{
+    $e^x-1, \sin x, \tan x, \log(1+x)$ \\
+    Sono tutte infinitesime dello stesso ordine in $x=0$.
+    \[ \lim_{ x \to 0 } \frac{e^x -1}{\sin x}=\lim_{ x \to 0 } \frac{\sin x}{\tan x}=\lim_{ x \to 0 } \frac{\tan x}{\log(1+x)} = 1 \]
+}
+
+\ex{
+    $x^2$ è infinitesima di ordine inferiore rispetto a $\sin(x^3)$ ed è invece dello stesso ordine di $1-\cos x$ in $x=0$.
+}
+
+\ex{
+    $\left( 2+ \cos \frac{1}{x} \right)x$ e $\tan x$ \\
+    Sono infinitesime in $x=0$ con ordini non confrontabili.
+}
+
+\subsection{Cancellazione di infinitesime o infiniti}
+
+\prop{
+    \textbf{Principio di Cancellazione degli infinitesimi}
+
+    Se ho $f_{1},f_{2},\dots,f_{k}$ e $g_{1},g_{2},\dots,g_{h}$ funzioni tutte infinitesime in $x_{0}\in\overline{\mathbb{R}}$ e se $f_{1}$ è quella di ordine infinitesimo \textbf{inferiore} tra le $f_{i} \text{ con } i=1,2,\dots,k$ e $g_{1}$ è quella di ordine infinitesimo \textbf{inferiore} tra le $g_{j} \text{ con } j=1,2,\dots,h$.
+    Allora si ha:
+    \[ \lim_{ x \to x_{0} } \frac{f_{1}+f_{2}+\dots+f_{k}}{g_{1}+g_{2}+\dots+g_{h}}=\lim_{ x \to x_{0} } \frac{f_{1}}{g_{1}} \]
+}
+
+\rmkb{Funziona al contrario rispetto agli $\infty$. (che svolgevamo con la Gerarchia)}
+
+\ex{
+    \[ \lim_{ x \to +\infty } \frac{e^x +x^2 +\log x}{3^x -x + x\sin x} = 0 \]
+}
+
+\pf{
+    \[ \lim_{ x \to 0 } \frac{f_{1}(x)\left[ 1 +\frac{f_{2}(x)}{f_{1}(x)} + \dots+\frac{f_{k}(x)}{f_{1}(x)}\right]}{g_{1}(x)\left[ 1 +\frac{g_{2}(x)}{g_{1}(x)} + \dots+\frac{g_{h}(x)}{g_{1}(x)}\right]} \]
+}
+
+\ex{
+    \[ \lim_{ x \to 0 } \frac{x^4 +\tan^2(x^3)\boxed{-\log(1+x^2)}}{\boxed{2(e^{x^2}-1)}+x^3-\sin^4x}\underset{\text{P.C.Infinitesimi}}{=} \lim_{ x \to 0 }-\frac{1}{2}\frac{\log(1+x^2)}{e^{x^2}-1}=-\frac{1}{2} \]
+}
+
+\prop{
+    \textbf{Principio di cancellazione degli infiniti}
+
+    Se ho $f_{1},f_{2},\dots,f_{k}$ e $g_{1},g_{2},\dots,g_{h}$ funzioni tutte infinite in $x_{0}\in\overline{\mathbb{R}}$ e se $f_{1}$ è quella di ordine infinito \textbf{superiore} tra le $f_{i} \text{ con } i=1,2,\dots,k$ e $g_{1}$ è quella di ordine infinito \textbf{superiore} tra le $g_{j} \text{ con } j=1,2,\dots,h$.
+    Allora si ha:
+    \[ \lim_{ x \to x_{0} } \frac{f_{1}+f_{2}+\dots+f_{k}}{g_{1}+g_{2}+\dots+g_{h}}=\lim_{ x \to x_{0} } \frac{f_{1}}{g_{1}} \]
+}
+
+\ex{
+    \[ \lim_{ x \to +\infty } \frac{x^4 +e^x+x\sin x}{\log x+x^x}=\lim_{ x \to +\infty } \frac{e^x}{x^x}=0 \]
+}
+
+\subsection{Ordini di infinitesima e "o piccolo"}
+
+\defn{Ordine di inginitesima}{
+    Diremo che $f$ è infinitesima in $x_{0}\in \overline{\mathbb{R}}$ \textbf{di ordine $\alpha$} se:
+    \begin{enumerate}
+        \item $\displaystyle \lim_{ x \to x_{0} }f(x)=0$
+        \item $\displaystyle \lim_{ x \to x_{0} } \frac{|f(x)|}{|x-x_{0}|^\alpha}=l \in ]0, +\infty[$
+    \end{enumerate}
+}
+
+\ex{
+    \[ \lim_{ x \to 0 } \frac{ \overbrace{x^4}^{\alpha=4} + \overbrace{\tan^2(x^3)}^{\alpha=6} - \overbrace{\log(1+x^2)}^{\alpha=2} }{ \underbrace{2(e^{x^2}-1)}_{\alpha=2} +\underbrace{\sin^4x}_{\alpha=4} + \underbrace{x^3}_{\alpha=3}}\underset{\text{P.C.}}{=}\lim_{ x \to 0 } -\frac{1}{2}\left( \frac{\log(1+x^2)}{e^{x^2}-1} \right) \]
+}
+
+\defn{Definizione "o piccolo"}{
+    Diremo che $f$ è un $o$ piccolo di $g$ in $x_{0}$ se:
+    \begin{enumerate}
+        \item $\displaystyle \lim_{ x \to x_{0} } f(x)=\lim_{ x \to x_{0} } g(x)=0$
+        \item $\displaystyle \lim_{ x \to x_{0} } \frac{f(x)}{g(x)}=0$
+    \end{enumerate}
+    e scriveremo che $f(x)=o(g(x))$ per $x\to x_{0}$.
+}
+
+\ex{
+    \[ \lim_{ x \to 0 } \frac{-\log(1+x^2)+o(x^2)}{2(e^{x^2}-1)+o(x^2)}\underset{\text{P.C.}}{=} \lim_{ x \to 0 }\frac{-\log(1+x^2)}{2(e^{x^2}-1)}=-\frac{1}{2} \]
+}
+
+\ex{
+    \[ \lim_{ x \to 0 } \frac{\sin x-x}{x^3}=-\frac{1}{6} \]
+    Ma allora:
+    \[ \lim_{ x \to 0 } \frac{ \overbrace{x^3}^{(\alpha=3 \quad l=1)} + \overbrace{\sin x - x}^{(\alpha=3 \quad l=-\frac{1}{6})} - \overbrace{\tan^3 x}^{(\alpha=3 \quad l=1)} }{ \underbrace{x^3}_{(\alpha=3 \quad l=1)} + \underbrace{\log(1+x^4)}_{(\alpha=4 \quad l=1)}} \]
+}
+
+\rmkb{
+    Posso scrivere:
+    \begin{itemize}
+        \item $\sin x=x+o(x)$
+        \item $e^x-1=x+o(x)$
+    \end{itemize}
+    ovvero:
+    \[ \lim_{ x \to 0 } \frac{\sin x-x}{x} = 0 \]
+    \[ \lim_{ x \to 0 } \frac{e^x-1-x}{x} = 0 \implies e^x=1+x+o(x) \]
+    \begin{itemize}
+        \item $\cos x=1 -\frac{x^2}{2}+o(x^2)$
+    \end{itemize}
+}
+
+\ex{
+    \begin{align*}
+    &\lim_{ x \to 0 } \frac{e^{x^2}-1+2\sin x-x}{\cos \sqrt{ x }-1+x^2}=\lim_{ x \to 0 } \frac{1+x^2+o(x^2)-1+2x+2o(x)-x}{1-\frac{x}{2}+o(x)-1+x^2}=\\
+    &= \lim_{ x \to 0 } \frac{x^2-x+o(x^2)+2o(x)}{x^2-\frac{x}{2}+o(x)}\underset{\text{P.C.}}{=}\lim_{ x \to 0 } \frac{x}{-\frac{x}{2}} = -2
+    \end{align*}
+}
+
+\begin{tcolorbox}[colback=red!5!white,colframe=red!55!black,title=Attenzione]
+    \textbf{NON} SCRIVERE $e^x-1\sim x$
+\end{tcolorbox}
+
+\subsection{Nuova notazione per i Limiti Notevoli}
+
+Per $x \to 0$:
+\begin{itemize}
+    \item $\displaystyle \lim_{ x \to 0 } \frac{\sin x -x}{x} = 0$
+    \item $\displaystyle \lim_{ x \to 0 } \frac{\tan x -x}{x} = 0$
+    \item $\displaystyle \lim_{ x \to 0 } \frac{\log(1+x)-x}{x} = 0$
+    \item $\displaystyle \lim_{ x \to 0 } \frac{e^x -1 -x}{x} = 0$
+    \item $\displaystyle \lim_{ x \to 0 } \frac{1- \cos x -\frac{x^2}{2}}{x^2} = 0$
+    \item $\displaystyle \lim_{ x \to 0 } \frac{(1+x)^\alpha -1 -\alpha x}{x} = 0$
+\end{itemize}
+
+Oppure con $o(x^n)$:
+\begin{itemize}
+    \item $\sin x -x = o(x) \implies \sin x=\boxed{x} + o(x^{\textcolor{orange}{2}})$
+    \item $e^x=\boxed{1 +x} + o(x)$
+    \item $\tan x= \boxed{x} +o(x)$
+    \item $\cos x=\boxed{1 - \frac{x^2}{2}}+ o(x^{\textcolor{orange}{3}})$
+    \item $\log(1+x)=\boxed{x}+o(x)$
+    \item $(1+x)^\alpha=\boxed{1+\alpha x} + o(x)$
+\end{itemize}
+\textcolor{orange}{Perchè il 1° termine non nullo è pari o dispari in base all'andamento della funzione.}
+Le parti $\boxed{\text{"cerchiate"}}$ sono rette tangenti in $x_{0}=0$ tranne quella relativa al $\cos x$ dove ottengo una parabola.
+\[ y=f(x_{0})+f'(x_{0})(x-x_{0}) \]
+In $x_{0}=0$:
+\[ y=f(0)+f'(0)x \]
+
+\subsection{Polinomio di Taylor}
+
+\defn{Polinomio di Taylor}{
+    Sia $f:]a,b[ \to \mathbb{R}$.
+    Sia $f$ derivabile n-volte nel punto $x_{0}\in]a,b[$.
+    Si chiama polinomio di Taylor di ordine $n$ nel punto $x_{0}$ relativo ad $f$ il seguente:
+    \begin{align*}
+    & P_{n,f}(x)=f(x_{0})+f'(x_{0})(x-x_{0})+\frac{f''(x_{0})}{2!}(x-x_{0})^2+ \\
+    & +\frac{f'''(x)}{3!}(x-x_{0})^3+\frac{f^{(4)}(x_{0})}{4!} + \dots + \frac{f^{(n)}(x_{0})}{n!}(x-x_{0})^n
+    \end{align*}
+    dove $f^{(i)}(x_{0})$ è la derivata i-esima di $f$ nel punto $x_{0}$.
+}
+
+\thm{Teorema Formula di Taylor con il Resto di Peano}{
+    Sia $f:]a,b[\to \mathbb{R}$ e sia $f$ derivabile $(n-1)$ volte in $]a,b[$ e $n$ volte in $x_{0}\in]a,b[$.
+    Allora vale la seguente formula di Taylor con il \textbf{resto di Peano}:
+    \[ f(x)=P_{n,f}(x)+o(x-x_{0})^n \qquad \text{Per }x\to x_{0} \]
+}
+
+\ex{
+    \begin{align*}
+    &\lim_{ x \to 0 } \frac{\sin x- x +\tan\left( \frac{x^3}{3!} \right)}{\log(1+5x^5)}=\frac{0}{0} \implies \text{Guardo ordini di infinitesimo} \\
+    & = \frac{1}{5} \lim_{ x \to 0 } \frac{\textcolor{orange}{\boxed{\sin x -x}}+\textcolor{teal}{\boxed{\tan\left( \frac{x^3}{3!} \right)}}}{x^5}\\ \\
+    & \textcolor{orange}{\boxed{\sin x -x}}:\\
+    & \text{Mi da problemi perchè } \alpha=3, \; l=-\frac{1}{6}\\
+    & \text{Allora uso Taylor fino al grado 5}\\
+    & f'=\cos x \quad f''=-\sin x \quad f'''=-\cos x\\
+    & \sin x = x -\frac{1}{6}x^3 +\frac{1}{5!}x^5 +o(x^5)\\
+    & \textcolor{teal}{\boxed{\tan\left( \frac{x^3}{3!} \right)}}:\\
+    & y=\frac{x^3}{3!} \implies \tan y=y+\frac{f^{(3)}(0)}{3!}y^3 + o(y^3)\\
+    & \text{Allora: }\\
+    & \frac{1}{5}\lim_{ x \to 0 } \frac{x-\frac{x^3}{6}+\frac{1}{5!}x^5 + o(x^5)-x+\frac{x^3}{6}+o(x^5)}{x^5} = \\
+    & = \frac{1}{5}\lim_{ x \to 0 } \frac{1}{5!} \frac{x^5}{x^5}=\frac{1}{5\cdot 5!}
+    \end{align*}
+}
+
+\pf{
+    Devo dimostrare:
+    \[ \lim_{ x \to x_{0} } \frac{f(x)-P_{n,f}(x)}{(x-x_{0})^n}=0 \]
+    \begin{align*}
+    & \lim_{ x \to x_{0} } \frac{f(x)-f(x_{0})-f'(x_{0})(x-x_{0})-\frac{f^{(n)}(x_{0})}{n!}(x-x_{0})^n}{(x-x_{0})^n}=\\
+    & = \lim_{ x \to x_{0} } \frac{f(x)-f(x_{0})-f'(x_{0})(x-x_{0})}{(x-x_{0})}=\;?=\frac{0}{0}\implies H\\
+    & \implies \lim_{ x \to x_{0} } \frac{f'(x)-f'(x_{0})}{1}=0\\
+    &\text{Ma non posso farla perchè nelle hp è derivabile una volta}\\
+    & \text{Allora spezzo la frazione}\\
+    & \lim_{ x \to x_{0} } \underbrace{\frac{f(x)-f(x_{0})}{(x-x_{0})}}_{\to f'(x_{0})}-f'(x_{0})=0
+    \end{align*}
+    Se $f$ è derivabile in $x\in]a,b[$ e $f$ ha 2 derivate in $x_{0}$:
+    \begin{align*}
+    & \lim_{ x \to x_{0} } \frac{f(x)-f(x_{0})-f'(x_{0})(x-x_{0})-f''(x_{0})(x-x_{0})}{(x-x_{0})^2}=0\\
+    & H \text{ 1 volta}\implies \lim_{ x \to x_{0} } \lim_{ x \to x_{0} } \frac{f'(x)-f'(x_{0})-f''(x_{0})(x-x_{0})}{2(x-x_{0})}=\\
+    &\lim_{ x \to x_{0} } \frac{f'(x)-f'(x_{0})}{2(x-x_{0})}-\frac{f''(x_{0})}{2}=0
+    \end{align*}
+    Dopo $(n-1)$ volte:
+    \begin{align*}
+    & H = \lim_{ x \to x_{0} } \frac{f^{(n-1)}(x)-f^{(n-1)}-f^{(n)}(x-x_{0})}{n!(x-x_{0})}=\\
+    & = \lim_{ x \to x_{0} } \frac{f^{(n-1)}(x)-f^{(n-1)}(x_{0})}{n!(x-x_{0})}-\frac{f^{(n)}(x_{0})}{n!}=0
+    \end{align*}
+}
+
+\thm{Formula di Taylor con il Resto di Lagrange}{
+    Sia $f:]a,b[\to \mathbb{R}$ derivabile $(n-1)$ volte in $]a,b[$.
+    Allora $\forall x,x_{0} \in]a,b[ \; \exists c \in]a,b[$
+    Tale che:
+    \[ f(x)=P_{n,f}(x)+\underbrace{\frac{f^{(n+1)}(c)(x-x_{0})^{n+1}}{(n+1)!}}_{\text{Resto di Lagrange}} \]
+}
+
+\ex{
+    Per avere resto $<\frac{1}{1000}$
+    \[ \frac{1}{(n+1)!}< \frac{1}{1000}\implies n=6 \implies \sin 1 \sim 1 -\frac{1}{6} + \frac{1}{5!}-\frac{1}{7!} \]
+    (Per il seno uso $n=2k-1$ perchè è dispari).
+    Prendo il primo $n$ che "sfora".
+}
+
+\rmkb{I polinomi con $x_{0}=0$ sono detti di Maclaurin.}
+
+\subsection{Teorema condizione sufficiente del 2° ordine}
+
+\ex{
+    \[
+    f(x)=\begin{dcases}
+    x^2 \sin \frac{1}{x} \quad x\neq 0 \\
+    0 \qquad \quad x=0
+    \end{dcases}
+    \]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{img/x2_sin_1_over_x.png}
+    \end{center}
+}
+
+\thm{Condizione sufficiente del 2° ordine}{
+    Sia $f$ derivabile in $]a,b[$ e 2 volte in $x_{0}\in]a,b[$.
+    Allora (Hp):
+    \[
+    \begin{dcases}
+    f'(x_{0})=0 \\
+    f''(x_{0})>0
+    \end{dcases} \implies (Th) [x_{0} \text{ punto di minimo relativo}]
+    \]
+    \[ 
+    \begin{dcases}
+    f'(x_{0})=0 \\
+    f''(x_{0})<0
+    \end{dcases} \implies (Th) [x_{0} \text{ punto di massimo relativo}]
+    \]
+    Inoltre se $f''(x_{0})=0 \implies \text{bisogna valutare }f'''(x_{0})$.
+}
+
+\pf{
+    Utilizziamo Taylor con il resto di Peano.
+    Allora al 2° ordine abbiamo:
+    \[ \Delta f(x)=f(x)-f(x_{0}) \]
+    \[ f(x)-f(x_{0}) = \underbrace{f'(x_{0})}_{0}(x-x_{0})+\frac{f''(x_{0})}{2}(x-x_{0})^2 + o((x-x_{0})^2) \]
+    Divido per $(x-x_{0})^2$:
+    \[ \frac{f(x)-f(x_{0})}{(x-x_{0})^2} = \frac{\frac{f''(x_{0})}{2}(x-x_{0})^2 + o((x-x_{0})^2)}{(x-x_{0})^2} = \frac{f''(x_{0})}{2}+ \frac{o((x-x_{0})^2)}{(x-x_{0})^2} \]
+    Calcolo il limite
+    \[ \boxed{\lim_{ x \to x_{0} } \frac{f(x)-f(x_{0})}{(x-x_{0})^2}} = \lim_{ x \to x_{0} } \frac{f''(x_{0})}{2} + \frac{o(x-x_{0})^2}{(x-x_{0})^2} = \boxed{\frac{f''(x_{0})}{2}} \]
+    \[ \text{Se } \frac{f''(x_{0})}{2}>0 \underset{\text{T.P.S}}{\implies} \exists I_{\delta}: \frac{f(x)-f(x_{0})}{(x-x_{0})^2}>0 \]
+    Idem per "$<0$".
+}
+
+\rmkb{Se la prima non nulla è pari, il segno dipende dal numeratore, se è dispari, il punto non è né max né min.}
