@@ -185,7 +185,7 @@ Per dimostrare rigorosamente la regola del prodotto, necessitiamo prima di un le
 \thm{Relazione Derivabilità-Continuità}{
     Se \(g\) è definita in \(]a,b[\) ed è derivabile in \(x_{0} \implies g\) è continua in \(x_{0}\).
     
-    Il viceversa non vale: \(\not\impliedby\). Esempio: \(|x|\) è continua in \(x=0\) ma non derivabile.
+    Il viceversa non vale: \(\centernot \impliedby\). Esempio: \(|x|\) è continua in \(x=0\) ma non derivabile.
 }
 
 \pf{
@@ -338,4 +338,374 @@ Tutti gli altri sono punti di non derivabilità.
 
 \rmkb{
     Le funzioni con derivata limitata sono sempre Lipschitziane.
+}
+
+
+
+% --- Incolla questo contenuto alla fine di calcolo_differenziale.tex ---
+
+\section{Estremi relativi}
+
+\defn{Min relativo e punto di Min relativo}{
+    Sia $f:A \subseteq \mathbb{R}\to \mathbb{R}, \quad A\neq \emptyset$.
+    Un punto $x_{0}\in A$ si dice punto di minimo relativo per $f$ se $\exists I_{\delta}(x_{0})=]x_{0}-\delta,x_{0}+\delta[$ tale che:
+    \[
+    f(x)\geq f(x_{0}) \; \forall x \in A \cap I_{\delta}(x_{0})
+    \]
+    e $f(x_{0})$ si dice minimo relativo.
+}
+
+\defn{Max relativo e punto di Max relativo}{
+    Se $\exists I_{\delta}(x_{0})=]x_{0}-\delta,x_{0}+\delta[$ tale che:
+    \[
+    f(x_{0})\geq f(x) \; \forall x \in A \cap I_{\delta}(x_{0})
+    \]
+    allora $x_{0}$ si dirà punto di massimo relativo e $f(x_{0})$ massimo relativo.
+}
+
+\ex{
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{img/estremi-relativi.jpg}
+    \end{center}
+}
+
+\rmkb{NON SONO UNICI}
+
+\subsection{Teorema di Fermat}
+
+\thm{Teorema di Fermat (condizione necessaria del $1^{\circ}$ ordine)}{
+    Sia $f:[a,b]\to \mathbb{R}$ e sia $x_{0}\in]a,b[$ un punto in cui $f$ è derivabile ed in un punto di estremo relativo.
+    Allora ($\implies$):
+    \[
+    f'(x_{0})=0
+    \]
+}
+
+\ex{
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{img/teorema_fermat_es.png}
+    \end{center}
+}
+
+\ex{
+    Vale $\impliedby$? NO
+    \begin{itemize}
+        \item $\centernot \impliedby$
+    \end{itemize}
+    $f(x)=x^3 \quad f'(x)=3x^2$
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{img/teorema_fermat_controes.png}
+    \end{center}
+}
+
+\pf{
+    Supponiamo per semplicità che $x_{0}$ sia punto di minimo relativo, $\exists I_{\delta}(x_{0}):$
+    \[
+    f(x_{0})\leq f(x) \; \forall x \in [a,b] \cap I_{\delta}(x_{0})
+    \]
+    Essendo $f$ derivabile in $x_{0}$ allora:
+    \begin{align*}
+    \exists \text{ finito } &\lim_{ x \to x_{0} } \frac{f(x)-f(x_{0})}{x-x_{0}}=f'(x_{0}) \textcolor{orange}{=0}\\
+    & =\lim_{ x \to x_{0}^- } \frac{f(x)-f(x_{0})}{x-x_{0}}=f'_{-}(x_{0}) \textcolor{orange}{\leq0}\\
+    & =\lim_{ x \to x_{0}^+ } \frac{f(x)-f(x_{0})}{x-x_{0}}=f'_{+}(x_{0}) \textcolor{orange}{\geq0} 
+    \end{align*}
+    Il Numeratore è sempre positivo perchè nel limite, $x$ entra in $I_{\delta}(x_{0})$.
+    Il segno del Denominatore dipende dal lato da cui avvicino, allora per avere l'uguaglianza, devono essere tutte (le derivate) = 0.
+}
+
+\defn{Definizione}{
+    Sia $f$ derivabile in $]a,b[$, i punti $x: f'(x) = 0$.
+    Si dicono \textbf{punti critici o stazionari}.
+}
+
+\subsubsection*{Esempio di esercizio}
+
+\ex{
+    \[ f(x)=2-\log(1+|x|) \qquad x\in[-1,3] \]
+    Uso Weierstrass: $\exists$ estremi assoluti.
+    Lista:
+    \begin{enumerate}
+        \item "Punti di Fermat"
+        \item Punti di non Derivabilità
+        \item Estremi
+    \end{enumerate}
+    
+    \[
+    f(x)= \begin{dcases}
+    2-\log(1+x) \quad x\in[0,3] \\
+    2-\log(1-x) \quad x \in[-1,0]
+    \end{dcases}
+    \]
+    \[
+    f'(x)= \begin{dcases}
+    -\frac{1}{(1+x)} \quad x\in]0,3] \\
+    \not \exists  \quad \qquad \qquad x=0\\
+    \frac{1}{(1+x)} \quad x \in[-1,0[
+    \end{dcases}\implies\text{Punto angoloso}
+    \]
+    \[ f(0)=2=M \qquad f(3)=2-\log_{4}=m \qquad f(-1)=2-\log_{2} \]
+    
+    Svolgimento lista:
+    \begin{enumerate}
+        \item $\to\varnothing$
+        \item $\to x=0$
+        \item $\to x=-1 \quad x=3$
+    \end{enumerate}
+}
+
+\subsection{Teorema di Rolle}
+
+\thm{Teorema di Rolle}{
+    \begin{itemize}
+        \item Sia $f:[a,b]\to \mathbb{R}$ continua
+        \item Sia $f$ derivabile in $]a,b[$
+        \item Se $f(a)=f(b)$ allora $\exists c \in ]a,b[:f'(c)=0$
+    \end{itemize}
+}
+
+\ex{
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{img/teorema_rolle.png}
+    \end{center}
+}
+
+\ex{
+    Non posso rimuovere la prima ipotesi
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{img/percentuale-2.png}
+    \end{center}
+}
+
+\pf{
+    $\exists m = f(x_{m})$ e $M=f(x_{M})$ per Weierstrass con $x_{m}\in[a,b], x_{M}\in[a,b]$.
+    Ovviamente $x_{m}\neq x_{M}$ altrimenti $f$ è costante:
+    $m=M$ e in tal caso $\forall c \in [a,b] \implies f'(c)=0$.
+    Ma se $x_{m}\neq x_{M}$ allora essendo per hp $f(a)=f(b)$ almeno uno dei 2 punti tra $x_{m}$ e $x_{M}$ deve essere interno ad $]a,b[$.
+    Supponiamo che sia $x_{m}\in]a,b[\implies$ per Fermat $f'(x_{m})=0$.
+}
+
+\subsection{Teorema di Lagrange}
+
+\thm{Teorema di Lagrange}{
+    \begin{itemize}
+        \item Sia $f:[a,b]\to \mathbb{R}$ continua 
+        \item Sia $f$ derivabile in $]a,b[$
+        \item Allora $\exists c \in]a,b[:$
+        \[ m=f'(c)=\frac{f(b)-f(a)}{b-a} \]
+    \end{itemize}
+}
+
+\ex{
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{img/teorema_lagrange.png}
+    \end{center}
+}
+
+\pf{
+    Consideriamo
+    \[ g(x)=f(x)-\frac{f(b)-f(a)}{b-a}(x-a) \]
+    \begin{itemize}
+        \item $g$ è continua in $[a,b]$ (perchè è somma di funzioni continue)
+        \item $g$ è derivabile in $]a,b[$
+        \item $\begin{dcases}g(a)=f(a) \\ g(b)=f(a)\end{dcases}\implies \exists c \in]a,b[: g'(c)=0\implies$
+    \end{itemize}
+    \[ \implies f'(c)-\frac{f(b)-f(a)}{b-a}=0 \]
+}
+
+\subsubsection{Conseguenze del Teorema di Lagrange}
+
+\thm{Teorema di Caratterizzazione delle funzioni costanti}{
+    \begin{itemize}
+        \item Sia $f$ continua in $[a,b]$
+        \item Sia $f$ derivabile in $]a,b[$
+    \end{itemize}
+    \[ f \text{ è costante }\iff f'(x)=0 \implies \forall x \in ]a,b[ \]
+}
+
+\pf{
+    \begin{itemize}
+        \item ($\implies$) Ovvia
+        \item ($\impliedby$) ($f'=0 \; \forall x \in]a,b[\implies f(x)\text{ costante}$)
+    \end{itemize}
+    Prendiamo $x_{0}\in]a,b[$ e $x\neq x_{0}$.
+    Dimostriamo che $f(x)=f(x_{0})$.
+    Applico Lagrange in $]x,x_{0}[$ o $]x_{0},x[$ a seconda di come si confrontano.
+    Assumiamo che sia $]x,x_{0}[$ allora $\exists c \in ]x,x_{0}[:$
+    \[ \frac{f(x)-f(x_{0})}{x-x_{0}}=\frac{f(x_{0})-f(x)}{x_{0}-x}=f'(c)=0 \text{ per hp}\implies f(x)=f(x_{0}) \]
+}
+
+\ex{
+    Funzione costante ma non vale il Teorema. $\mathbb{R}\setminus \{ 0 \}$
+    \[ f(x)=\arctan x +\arctan \frac{1}{x} \]
+    \[ f'(x)=\frac{1}{1+x^2}+\frac{1}{1+\left( \frac{1}{x} \right)^2}\cdot-\frac{1}{x^2} = \frac{1}{1+x^2}-\frac{1}{1+x^2} = 0 \]
+}
+
+\subsection{Teorema Prolungabilità della Derivata}
+
+\thm{Teorema Prolungabilità della Derivata}{
+    Sia $f: [a,b]\to \mathbb{R}$ continua e derivabile in $]a,x_{0}[$.
+    \[ \text{Se } \exists \lim_{ x \to x_{0}^- } f'(x)\implies f'_{-}(x_{0})=\lim_{ x \to x_{0}^- }f'(x) \]
+    Sia $f:[x_{0},b]\to \mathbb{R}$ è continua e derivabile in $]x_{0},b[$. 
+    \[ \text{Se } \exists \lim_{ x \to x_{0}^+ } f'(x)\implies f'_{+}(x_{0})=\lim_{ x \to x_{0}^+ } f'(x) \]
+}
+
+\pf{
+    Per $f'_{-}(x_{0})$. Sia $h<0$ e consideriamo $]x_{0}+h,x_{0}[$.
+    \begin{align*}
+    & \frac{f(x_{0})-f(x_{0}+h)}{-h}=\frac{f(x_{0}+h)-f(x_{0})}{h}\implies \\ 
+    &\implies\text{Lagrange: }\exists x_{h} \in ]x_{0}+h,x_{0}]\implies f'(x_{h}) \\ 
+    &\lim_{ h \to 0^- } \frac{f(x_{0}+h)-f(x_{0})}{h}=\lim_{ h \to 0^- } f'(x_{h})=\lim_{ x \to x_{0}^- } f'(x)\implies \\
+    &\implies \lim_{ h \to 0^- } \frac{f(x_{0}+h)-f(x_{0})}{h}=f'_{-}(x_{0})
+    \end{align*}
+}
+
+\ex{
+    \begin{enumerate}
+        \item $f(x)=(x-1)\cdot|\log x|$
+        \item $f(x)=\begin{dcases} e^{-\frac{1}{x^2}}\quad x\neq 0 \\ 0 \qquad x= 0 \end{dcases}$
+        \item $f(x)=\begin{dcases} x^2 \sin \frac{1}{x} \quad x\neq 0 \\ 0 \qquad \qquad x=0 \end{dcases}$
+    \end{enumerate}
+    \textbf{Svolgo}:
+    \begin{enumerate}
+        \setcounter{enumi}{3}
+        \item 
+        \begin{align*}
+        &f(x)=\begin{dcases}
+        (x-1)\cdot \log x \quad x\geq 1\\
+        -(x-1)\log x\quad 0<x<1
+        \end{dcases} \\ 
+        &\lim_{ x \to 1^+ } f(x)=0=\lim_{ x \to 1^- } f(x)\\
+        & f'(x)=\begin{dcases}
+        \log x + \frac{x-1}{x}\quad x>1 \\
+        -\log x - \frac{x-1}{x} \quad 0<x<1
+        \end{dcases}\\
+        & \lim_{ x \to 1^+ } \log x + \frac{x-1}{x}=0\\
+        & \lim_{ x \to 1^- } -\log x - \frac{x-1}{x}=0
+        \end{align*}
+        Allora $f(x)$ è derivabile in $x=1$ e $f'(1)=0$.
+        
+        \item Derivabile in $x=0$ con derivata nulla:
+        \[ \lim_{ x \to 0 }e^{-\frac{1}{x^2}} +\frac{2}{x^3}=0 \]
+        
+        \item Se $x\neq 0\implies f'(x)=2x \sin \frac{1}{x} + x^2 \left( \cos \frac{1}{x} \right)\left( - \frac{1}{x^2} \right)= 2x \sin \frac{1}{x}- \cos \frac{1}{x}= \not \exists$.
+        Allora il Teorema non si applica ma la Derivata Esiste:
+        \[ \lim_{ h \to 0 } \frac{f(h)-f(0)}{h}=\lim_{ h \to 0 } \frac{h^2 \sin \frac{1}{h}}{h} = 0 \]
+    \end{enumerate}
+}
+
+\subsection{Teorema Criterio Di Monotonia}
+
+\thm{Criterio di Monotonia}{
+    Sia $f:[a,b]\to \mathbb{R}$ continua.
+    Sia $f$ derivabile in $]a,b[$.
+    Allora:
+    \begin{enumerate}
+        \item $f$ è monotona crescente $\iff f'(x)\geq 0$ in $]a,b[$
+        \item $f$ è monotona decrescente $\iff f'(x)\leq 0$ in $]a,b[$
+    \end{enumerate}
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{img/monotonia_estremi.png}
+    \end{center}
+}
+
+\pf{
+    \begin{itemize}
+        \item ($\implies$)
+        \[ f'(x_{0})=\lim_{ h \to 0 } \frac{f(x_{0}+h)-f(x_{0})}{h}=\begin{dcases}
+        h\to 0^+ \implies \frac{(+)}{(+)}\geq 0 \\
+        h\to 0^- \implies \frac{(-)}{(-)}\geq 0 \\
+        \end{dcases} \]
+        \item ($\impliedby$) Hp $f'(x)\geq 0 \implies f \nearrow$.
+        Siano $x_{1}<x_{2}$ e devo dimostrare che $f(x_{1})<f(x_{2})$.
+        Applichiamo Lagrange in $[x_{1},x_{2}]\subseteq[a,b]$
+        \[ \exists c \in ]x_{1},x_{2}[:\frac{f(x_{2})-f(x_{1})}{x_{2}-x_{1}}=f'(c)\geq 0 \]
+    \end{itemize}
+}
+
+\subsection{Teorema di Caratterizzazione delle Funzioni Strettamente Monotone}
+
+\thm{Caratterizzazione delle Funzioni Strettamente Monotone}{
+    Sia $f:[a,b]\to \mathbb{R}$ continua.
+    Sia $f$ derivabile in $]a,b[$.
+    Allora: 
+    \begin{enumerate}
+        \item \[ f \nearrow_{S}\iff \begin{dcases}
+        f'(x)\geq 0 \; \forall x \in ]a,b[ \\
+        f' \text{ non si annulla in nessun sottointervallo in maniera costante}\\ \not \exists [c,d]\subseteq[a,b] : f' (x)=0 \; \forall x \in[c,d]
+        \end{dcases} \] 
+        \item \[ f \searrow_{S}\iff \begin{dcases}
+        f'(x)\leq 0 \; \forall x \in ]a,b[ \\
+        f' \text{ non si annulla in nessun sottointervallo in maniera costante}\\ \not \exists [c,d]\subseteq[a,b] : f' (x)=0 \; \forall x \in[c,d]
+        \end{dcases} \]
+    \end{enumerate}
+}
+
+\subsection{Condizione Sufficiente al Primo Ordine per gli Estremi Relativi}
+
+\thm{Condizione Sufficiente al $1^{\circ}$ Ordine per gli Estremi Relativi}{
+    Sia $f:[a,b]\to \mathbb{R}$ continua.
+    Sia $f$ derivabile in $]a,b[$ escluso al più $x_{0}\in]a,b[$.
+    Allora se:
+    \begin{enumerate}
+        \item \[ \begin{dcases}
+        f'(x)\leq 0 \quad x <x_{0} \\
+        f'(x)\geq 0 \quad x>x_{0}
+        \end{dcases}\implies x_{0} \text{ è punto di \textit{Minimo relativo}} \]
+        \item \[ \begin{dcases}
+        f'(x)\geq 0 \quad x <x_{0} \\
+        f'(x)\leq 0 \quad x>x_{0}
+        \end{dcases}\implies x_{0} \text{ è punto di \textit{Massimo relativo}} \]
+    \end{enumerate}
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{img/monotonia_estremi.png}
+    \end{center}
+}
+
+\subsection{Teoremi di de l'Hôpital}
+
+\thm{1° Teorema di de l'Hôpital}{
+    Siano $f,g$ derivabili in $]a,x_{0}[$ (con $x_{0}=+\infty$ eventualmente). Supponiamo che:
+    \begin{enumerate}
+        \item $\displaystyle \lim_{ x \to x_{0} } f(x)=\lim_{ x \to x_{0} } g(x)=0$
+        \item $g'(x)\neq 0 \; \forall x \in ]a,x_{0}[$
+        \item $\exists \lim_{ x \to x_{0} } \frac{f'(x)}{g'(x)}$
+    \end{enumerate}
+    Allora:
+    \[ \lim_{ x \to x_{0} } \frac{f(x)}{g(x)}=\lim_{ x \to x_{0} } \frac{f'(x)}{g'(x)} \]
+}
+
+\ex{
+    Esempio Utilizzo SBAGLIATO del Teo
+    \begin{align*}
+    & x_{0}=0\\
+    &f(x)=x^2 \cos \frac{1}{x}\\
+    & g(x)=e^x-1\to 0\\
+    & \lim_{ x \to 0 } \frac{f'(x)}{g'(x)}=\lim_{ x \to 0 } \frac{2x \cos \frac{1}{x}+ \sin \frac{1}{x}}{e^x}= \not \exists \\
+    & \lim_{ x \to 0 } \frac{f(x)}{g(x)}=0 
+    \end{align*}
+}
+
+\pf{
+    \begin{enumerate}
+        \item Suppongo $x_{0} \in \mathbb{R}$ e usando la 1) prolungo $f,g$ in $x_{0}$.
+        \item Osserviamo che $g(x)\neq 0\; \forall x \in ]a,x_{0}[$ perchè altrimenti Rolle andrebbe in contrasto con la 2) (delle hp).
+        \item Sia $x_{n}\in]a, x_{0}[ \;\forall n$ e $x_{n}\to x_{0}$ e poniamo:
+        \[ h(t)=f(t)g(x_{n})-g(t)f(x_{n}) \quad t \in]a,x_{0}[ \]
+        Applico Rolle ad $h(t)$ in $[x_{n},x_{0}]$:
+        \begin{itemize}
+            \item $h(x_{n})=0$
+            \item $h(x_{0})=0\implies \exists c_{n} \in ]x_{n}, x_{0}[:$
+            \[ h'(c_{n})=0\implies 0=f'(c_{n})g(x_{n})-g'(c_{n})f(x_{n})\implies \frac{f'(c_{n})}{g'(c_{n})}=\frac{f(x_{n})}{g(x_{n})} \]
+        \end{itemize}
+    \end{enumerate}
+}
+
+\thm{2° Teorema di de l'Hôpital}{
+    Se nella 1) del Teo di prima sostituiamo la seguente:
+    \begin{itemize}
+        \item[1b)] $\lim_{ x \to x_{0} } |f(x)|=\lim_{ x \to x_{0} } |g(x)|=+\infty$
+        \item[2b)] ...
+        \item[3b)] ...
+    \end{itemize}
+    $\implies$ Vale la stessa Tesi.
 }
