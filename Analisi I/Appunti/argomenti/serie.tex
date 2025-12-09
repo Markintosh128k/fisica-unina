@@ -1,0 +1,380 @@
+\chapter{Serie}
+
+\section{Serie Numeriche}
+
+\defn{Serie Numerica}{
+    Sia $a_{n}$ una successione di numeri reali, si chiama \textbf{serie numerica di termine generale $a_{n}$} la seguente successione detta delle \textbf{somme parziali}.
+    \begin{align*}
+        & S_{1}=a_{1}\\
+        & S_{2} = S_{1}+a_{2}=a_{1}+a_{2} \\
+        & S_{3} = S_{2}+a_{3}=a_{1}+a_{2} +a_{3} \\
+        & \vdots\\
+        & S_{n} = S_{n-1}+a_{n} = a_{1}+a_{2}+a_{3}+\dots+a_{n}
+    \end{align*}
+    \[ S_{n}=\sum_{k=1}^{n} a_{k} \]
+}
+
+\subsection{Convergenza o divergenza}
+
+\defn{Serie convergente}{
+    Diremo che la serie \textbf{converge alla somma $S\in \mathbb{R}$} se $S_{n}$ è convergente a
+    \[ \lim_{ n \to \infty }S_{n}=S \]
+    e $S$ si indica con 
+    \[ S=\sum_{n=1}^{+\infty} a_n \]
+}
+
+\defn{Serie divergente}{
+    Diremo che la serie \textbf{diverge a $\pm \infty$} se
+    \[ \lim_{ n \to \infty } S_{n}=\pm \infty \]
+    rispettivamente:
+    \[ \sum_{n=1}^{+\infty} a_{n}=\pm \infty \]
+}
+
+\defn{Serie Regolare}{
+    Se la serie diverge o converge, diremo che è una serie regolare.
+}
+
+\defn{Serie Non Regolare}{
+    Se: 
+    \[ \lim_{ n \to \infty } S_{n} = \not \exists \]
+    diremo che non è regolare.
+}
+
+D'ora in poi una serie di termine generale $a_{n}$ si indicherà con:
+\[ \sum_{n=1}^{+\infty} a_{n} \]
+studiare il \textbf{carattere} delle serie significa studiare se la serie:
+\begin{itemize}
+    \item converge
+    \item diverge
+    \item oscilla
+\end{itemize}
+
+\subsection{Esempi di tipi di Serie}
+
+\subsubsection{Serie Geometrica}
+
+\defn{Serie Geometrica}{
+    Sia $q \in \mathbb{R}$.
+    La serie geometrica di ragione $q$:
+    \[ \sum_{n=0}^{+\infty} q^n = 1 + q+ q^2 + \dots \]
+    Si chiama così perché ricorda la progressione geometrica.
+}
+
+\ex{
+    Progressione geometrica:
+    \[
+    S_{n}=\begin{dcases}
+    \frac{1-q^{n+1}}{1-q} \qquad q\neq 1 \\
+    \text{Sommo sempre 1 } \quad q=1
+    \end{dcases}
+    \]
+    \[
+    \lim_{ n \to \infty } S_{n}= \begin{dcases}
+    \frac{1}{1-q} =S \quad &|q|<1 \\
+    \not \exists & q \le -1 \\
+    +\infty & q\ge 1
+    \end{dcases}
+    \]
+}
+
+\ex{
+    \[
+    \begin{drcases}
+    & 0,\overline{9}=0,9+0,09+0,009+0,0009+\dots = \\
+    & =\frac{9}{10} + \frac{9}{100}+\frac{9}{1000} + \dots + \frac{9}{10^n}= \\
+    & = \frac{9}{10}\left( 1 +\frac{1}{10} +\frac{1}{100} + \dots \right) = \frac{9}{10}\left( \frac{1}{1-\frac{1}{10}} \right)=\frac{9}{10} \left(\frac{10}{9}\right) = 1
+    \end{drcases}0,\overline{9}=1
+    \]
+}
+
+\subsubsection{Serie Armonica}
+\[ \sum_{n=1}^{+\infty} \frac{1}{n} = +\infty \]
+
+\pf{
+    \begin{align*}
+    & \left( 1+\frac{1}{n} \right)^n<e\\
+    & \log\left( 1+\frac{1}{n} \right)^n < \log e \implies \log\left( 1+\frac{1}{n} \right) < \frac{1}{n} \\
+    & \underbrace{\log(n+1) - \log n }_{a_{n}}< \frac{1}{n} \\
+    & \sum_{k=1}^{n} \log(k+1)-\log k < \sum_{k=1}^{n} \frac{1}{k}\\
+    & b_{n} <c_{n}\\
+    & \text{Se dimostro che } b_{n} \to +\infty \text{ per il teorema del confronto:} \\
+    & \underbrace{\cancel{ \log 2 } - \log 1}_{b_{1}} + \underbrace{{\cancel{ \log 3 } - \cancel{ \log 2 }}}_{b_{2}} + \underbrace{{\cancel{ \log 4 } - \cancel{ \log 3}}}_{b_{3}} + \dots + \log(n+1) - \cancel{ \log n } = b_{n}\\ 
+    & b_{n} = \sum_{k=1}^{n} \log(k+1) - \log k = \log(n+1)\\
+    & \text{La serie armonica diverge a } +\infty
+    \end{align*}
+}
+
+\subsubsection{Serie di Mengoli}
+\[ \sum_{n=1}^{+\infty} \frac{1}{n(n+1)}=1 \]
+\[ \sum_{n=1}^{+\infty} \frac{1}{n}-\frac{1}{n+1} \]
+\begin{align*}
+    & S_{n}=\sum_{k=1}^{n} \frac{1}{k}-\frac{1}{k+1}=\\
+    & = \left( 1 -\cancel{ \frac{1}{2} }\right) + \left( \cancel{ \frac{1}{2} } -\cancel{ \frac{1}{3} } \right) + \left( \cancel{ \frac{1}{3} } -\cancel{ \frac{1}{4} } \right) + \dots \left( \cancel{ \frac{1}{n} } -\frac{1}{n+1} \right)= 1- \frac{1}{n+1}\\
+    & \lim_{n \to +\infty} S_n = \lim_{n \to +\infty} \left( 1 - \frac{1}{n+1} \right) = 1
+\end{align*}
+
+\subsubsection{Serie Telescopiche}
+\[ \sum_{n=1}^{+\infty} (a_{n}-a_{n+1})=a_{1}-\textcolor{orange}{\boxed{\lim_{ n \to +\infty } a_{n+1}}} \]
+\[ \textcolor{orange}{\text{La serie e la sua ragione hanno lo stesso carattere: NON limite, ma carattere}} \]
+\[ S_{n}=a_{1}-a_{n} \]
+
+\thm{Condizione necessaria per la convergenza}{
+    Sia $\sum_{n=1}^{+\infty} a_{n}$ con $a_{n}$ una successione.
+    \[ \text{Se } \sum_{n=1}^{+\infty} a_{n} \text{ converge } \implies a_{n}\to 0 \quad (\centernot\impliedby \text{ vedi serie armonica}) \]
+}
+
+\pf{
+    $a_{n}=S_{n}-S_{n-1}\to S-S = 0$. Non è forma indeterminata perché converge.
+}
+
+\thm{Criterio di Convergenza di Cauchy}{
+    La serie:
+    \[ \sum_{n=1}^{+\infty} a_{n} \text{ conv. } \iff \forall \epsilon> 0 \exists \nu > 0 : |a_{n+1}+a_{n+2}+\dots+a_{n+p}|<\epsilon \quad \forall n > \nu \; \forall p \in \mathbb{N} \]
+}
+
+\pf{
+    (Per casa)
+    $|S_m- S_n| < \epsilon \; \forall n, m > \nu$
+    
+    \textbf{CONTINUA PER ESERCIZIO}
+}
+
+\section{Serie a Termini Non Negativi}
+
+\prop{
+    Consideriamo $\left( \sum_{n=1}^{+\infty} a_{n} \; , \; a_{n}\geq 0 \right)$.
+    \[ \text{Se }a_{n}\geq 0 \implies \sum_{n=1}^{+\infty} a_{n} \text{ è regolare} \]
+}
+
+\pf{
+    \[ S_{n}=S_{n-1}+\underbrace{a_{n}}_{\geq 0}\geq S_{n-1} \]
+    Allora $S_{n}$ è regolare ($\nearrow$).
+}
+
+\ex{
+    \begin{itemize}
+        \item $\displaystyle \sum_{n=1}^{+\infty} \frac{\sqrt[n]{n!}}{\sqrt{ n }}= +\infty \quad \text{perchè } a_{n} \text{ non tende a 0}$
+        \item $\displaystyle \sum_{n=1}^{+\infty} \frac{1}{n}= +\infty \quad \text{anche se } a_{n} \to 0 \text{ (è una condizione necessaria ma non sufficiente)}$
+    \end{itemize}
+}
+
+\thm{Criterio del confronto (per le serie)}{
+    Siano $a_{n},b_{n}\geq 0 \; \forall n$ e sia verificata:
+    \[ a_{n}\leq b_{n} \text{ definitivamente} \]
+    Allora valgono le seguenti:
+    \begin{enumerate}
+        \item $\displaystyle \text{Se } \sum_{n=1}^{+\infty} b_{n} \text{ conv.} \implies \sum_{n=1}^{+\infty} a_{n} \text{ conv.}$
+        \item $\displaystyle \text{Se } \sum_{n=1}^{+\infty} a_{n} \text{ diverge a } +\infty \implies \sum_{n=1}^{+\infty} b_{n} \text{ diverge a } +\infty$
+    \end{enumerate}
+}
+
+\pf{
+    $S_{n}\leq T_{n} \implies \sum a_{n} \leq \sum b_{n}$
+}
+
+\ex{
+    \[ \sum_{n=1}^{+\infty} \frac{1}{n^3} \implies \sum_{n=1}^{+\infty} \frac{1}{n^3}<\sum_{n=1}^{+\infty} \frac{1}{n(n+1)} \]
+    Dato che $\sum \frac{1}{n(n+1)}$ converge, convergono entrambe.
+}
+
+\rmkb{
+    \[ \boxed{0<\alpha<1} \]
+    \[ \sum_{n=1}^{+\infty} \frac{1}{n^\alpha} > \sum_{n=1}^{+\infty} \frac{1}{n} \]
+    Divergono entrambe.
+}
+
+\section{Criteri del Confronto Asintotico}
+
+\thm{Criterio del Confronto Asintotico I}{
+    Siano $a_{n},b_{n}\geq 0 \; \forall n$.
+    \[ \text{Se } \lim_{ n \to \infty } \frac{a_{n}}{b_{n}}=l \in ]0. +\infty[ \]
+    Allora le serie $\sum_{n=1}^{+\infty}a_{n}$ e $\sum_{n=1}^{+\infty} b_{n}$ hanno lo stesso carattere.
+    Posso scrivere:
+    \[ \sum a_{n} \sim \sum b_{n} \]
+}
+
+\ex{
+    \begin{itemize}
+        \item $\displaystyle \sum_{n=1}^{+\infty} \sin \frac{1}{n} = +\infty$
+        perchè se $\displaystyle \sum_{n=1}^{+\infty} \frac{1}{n}\implies \lim_{ n \to +\infty } \frac{\sin \frac{1}{n}}{\frac{1}{n}}=1$
+        \item $\displaystyle \sum \log\left( 1+ \frac{1}{n} \right) = \sum \sin \frac{1}{n} = +\infty$
+        \item $\displaystyle \sum \frac{1}{\sqrt[n]{n!}} = (\text{Come l'armonica?})$
+        \item $\displaystyle \sum_{n=1}^{+\infty} \left( 1-\cos \frac{1}{n} \right) \sim \sum_{n=1}^{+\infty} \frac{1}{n} \implies \text{Convergono}$
+        \item 
+        \begin{align*}
+        &\sum_{n=1}^{+\infty} \left( \underbrace{\left( e^{\frac{1}{n}-1} \right)}_{\alpha=1 \; l=1}-\underbrace{\frac{1}{n}}_{{\alpha=1 \; l=1}} \right) \implies \text{Uso Taylor} \implies\sim \sum \frac{1}{n^2} \implies \text{Converge} \implies \\
+        & \implies \lim_{ n \to +\infty } \frac{e^{\frac{1}{n}}-1- \frac{1}{n}}{\frac{1}{n^2}} = \lim_{ n \to +\infty } \frac{1+ \frac{1}{n}+ \frac{1}{2n^2} + o\left( \frac{1}{n^2} \right)- 1 - \frac{1}{n}}{\frac{1}{n^2}} =\\
+        & =\lim_{ n \to +\infty } \frac{\frac{1}{2n^2}}{\frac{1}{n^2}}=\frac{1}{2} 
+        \end{align*}
+    \end{itemize}
+}
+
+\pf{
+    Per Hp:
+    \[ \lim_{ n \to +\infty } \frac{a_{n}}{b_{n}} = l > 0 \text{ e } l<+\infty \]
+    \[ \forall \epsilon>0 \exists \nu \in \mathbb{N}: l- \epsilon < \frac{a_{n}}{b_{n}} < l + \epsilon \]
+    \[ (l-\epsilon)b_{n}<a_{n}<(l+\epsilon)b_{n} \; \forall n > \nu \]
+}
+
+\rmkb{
+    \[
+    \sum_{n=1}^{+\infty} \frac{1}{n^\alpha}=\begin{dcases}
+    \alpha\geq 2 \implies \text{Converge} \\
+    \text{?} \\
+    \alpha=1 \implies \text{Diverge a }+\infty
+    \end{dcases}
+    \]
+}
+
+\prop{
+    \textbf{Serie Armonica Generalizzata} \\
+    Si consideri la serie:
+    \[ \sum_{n=1}^{+\infty} \frac{1}{n^\alpha} \; , \; \alpha \in \mathbb{R} \]
+    Allora essa converge $\forall \alpha>1$
+    e diverge positivamente $\forall \alpha \leq 1$.
+}
+
+\pf{
+    (Presente sul Pagani-Salsa) 
+    $a_{n}=\frac{1}{n^\alpha}$
+    $\alpha>1$
+    \begin{align*}
+    & S_{2^n -1}=a_{1}+a_{2}+\dots+a_{2^n -1}=\\
+    &=1 + \underset{ <2 \cdot \frac{1}{2^\alpha} }{ \textcolor{red}{\boxed{\frac{1}{2^\alpha} +\frac{1}{3^\alpha}}} } +\underset{ < 4 \cdot \frac{1}{4^\alpha} }{ \textcolor{orange}{\boxed{\frac{1}{4^\alpha} +\frac{1}{5^\alpha} +\frac{1}{6^\alpha} +\frac{1}{7^\alpha}}} }+\dots+\\
+    & + \frac{1}{(2^{n-1})^\alpha} +\frac{1}{(2^{n-1}+1)^\alpha}+\dots+\frac{1}{(2^{n}-1)^\alpha}
+    \end{align*}
+    La maggioro $\implies$
+    \[ < 1 + \textcolor{red}{\frac{1}{2^{(\alpha-1)}}}+\textcolor{orange}{\frac{1}{2^{2(\alpha-1)}}} +\frac{1}{2^{3(\alpha-1)}}+\dots +\frac{1}{2^{(n-1)(\alpha-1)}}= \sum_{n=0}^{+\infty} \left( \frac{1}{2^{(\alpha-1)}} \right)^n \implies \text{Converge} \]
+}
+
+\thm{Criterio Del Confronto Asintotico II}{
+    Siano $a_{n}\geq 0, b_{n}>0$. Allora si hanno le seguenti:
+    \begin{enumerate}
+        \item $\displaystyle \lim_{ n \to +\infty } \frac{a_{n}}{b_{n}}=0$
+        (Utile se $a_{n}\to_{0}$ e $b_{n}\to 0$)
+        \begin{itemize}
+            \item Se $\sum b_{n}$ converge $\implies \sum a_{n}$ converge
+            \item Se $\sum a_{n}$ diverge $\implies \sum b_{n}$ diverge
+            \item Esempio b: $\sum \frac{1}{n} =+\infty \implies \sum \frac{1}{\sqrt{ n }}=+\infty$
+        \end{itemize}
+        \item $\displaystyle \text{Se } \lim_{ n \to +\infty } \frac{a_{n}}{b_{n}} = +\infty$
+        Allora: 
+        \begin{itemize}
+            \item Se $\sum b_{n}$ Div. $\implies \sum a_{n}$ Div.
+            \item Se $\sum a_{n}$ Conv. $\implies \sum b_{n}$ Conv.
+        \end{itemize}
+    \end{enumerate}
+}
+
+\pf{
+    (Dimostrazione 1)
+    \[ \forall \epsilon>0 \exists \nu>0 : 0 \leq \frac{a_{n}}{b_{n}}<\epsilon \quad \forall n > \nu \]
+    Scelto $\epsilon=1$ allora $\exists \nu>0:$
+    \[ 0\leq a_{n}< b_{n} \quad \forall n>\nu \]
+}
+
+\ex{
+    \[ \sum_{n=2}^{+\infty} \frac{1}{n^2 \log n} \]
+    \[ \sum b_{n}= \sum \frac{1}{n^2} \]
+    \[ \lim_{ n \to +\infty } \frac{\cancel{ n^2 }}{\cancel{ n^2 } \log n}=0 \]
+}
+
+\subsection{Teorema Criterio degli Infinitesimi}
+
+\thm{Teorema Criterio degli Infinitesimi}{
+    Sia $a_{n}\geq 0$ e tale che: 
+    \[ \lim_{ n \to +\infty } n^\alpha a_{n} = l\in[0,+\infty] \]
+    Allora:
+    \begin{enumerate}
+        \item Se $0<l<+\infty \implies$
+        \begin{itemize}
+            \item $\alpha>1\implies \sum a_{n}$ converge.
+            \item $\alpha\leq1\implies \sum a_{n}$ diverge.
+        \end{itemize}
+        \item Se $l=0$ e $\alpha>1 \implies \sum a_{n}$ converge.
+        \item Se $l=+\infty$ e $\alpha \leq 1 \implies \sum a_{n}$ diverge.
+    \end{enumerate}
+}
+
+\ex{
+    \begin{itemize}
+        \item $\displaystyle \sum_{n=1}^{+\infty} \frac{1}{\sqrt{ n }+2}=+\infty \sim \sum_{n=1}^{+\infty} \frac{1}{\sqrt{ n }} = +\infty \; \text{Perchè } \alpha=\frac{1}{2}$
+        \item $\displaystyle \sum_{n=1}^{+\infty} \underbrace{ \sqrt{ n^3 +3n }- \sqrt{ n^3 +2 } }_{a_{n}}$
+        \[ \lim_{ n \to +\infty } \frac{n^3 +3n - ( n^3 +2 )}{\sqrt{ n^3 +3n }+ \sqrt{ n^3 +2 }}=\frac{3n-2}{\sqrt{ n^3 +3n } + \sqrt{ n^3 +2 }}= \frac{n(\dots)}{n^{\frac{3}{2}}(\dots)}= \frac{1}{\sqrt{ n }}=0 \]
+        \[ \text{Allora } \sum_{n=1}^{+\infty} a_{n} \sim \sum_{n=1}^{+\infty} \frac{1}{\sqrt{ n }}=+\infty \]
+    \end{itemize}
+}
+
+\subsection{Esempi che non rispettano le Hp precedenti}
+\begin{itemize}
+    \item $\displaystyle \sum_{n=1}^{+\infty} \frac{n!}{n^n}$
+    \item $\displaystyle \sum_{n=1}^{+\infty} \frac{n^n}{3^{n^2}}$
+    \item $\displaystyle \sum_{n=1}^{+\infty} \frac{2^n}{n!}$
+    \item $\displaystyle \sum_{n=1}^{+\infty} \frac{(2n)!}{(2n)^n}$
+\end{itemize}
+
+\subsection{Criterio della Radice per le Serie}
+
+\thm{Criterio della Radice per le Serie}{
+    Sia $a_{n}\geq 0$.
+    Allora se
+    \[ \lim_{ n \to +\infty } \sqrt[n]{a_{n}}=l \]
+    Si ha:
+    \begin{enumerate}
+        \item se $l>1 \implies \sum a_{n}$ diverge a $+\infty$
+        \item se $l<1 \implies \sum a_{n}$ converge
+    \end{enumerate}
+}
+
+\pf{
+    \begin{enumerate}
+        
+
+    \item Se $l>1$ prendo $\epsilon>0: \quad l-\epsilon>1$.
+    Per la definizione di limite:
+    \[ \exists \nu>0 : (l- \epsilon) < \sqrt[n]{a_{n}} < (l+\epsilon) \]
+    Elevo ad n:
+    \[ \exists \nu>0 : (l- \epsilon)^{\textcolor{orange}{n}} < a_{n} < (l+\epsilon)^{\textcolor{orange}{n}} \]
+    
+    
+    \item Sia $0\overset{\text{T.p.s}}{ \leq } l < 1$.
+    Sia $\epsilon: l +\epsilon < 1$.
+    Poiché:
+    \[ \lim_{ n \to +\infty } \sqrt[n]{a_{n}}=l \]
+    allora risulta $\exists \nu>0:$
+    \[ 0\leq \sqrt[n]{a_{n}}< l +\epsilon\implies 0\leq a_{n} < (l+\epsilon)^n \; \forall n > \nu \]
+    Poiché $l+\epsilon<1\implies \sum(l+\epsilon)^n$ converge.
+    La dimostrazione segue dal teorema del confronto per le serie.
+ 
+    \end{enumerate}
+}
+
+\ex{
+    \[ \sum_{n=1}^{+\infty} \frac{n!}{n^n} \quad a_{n}\geq 0 \]
+    Criterio della Radice:
+    \[ \lim_{ n \to +\infty } \sqrt[n]{\frac{n!}{n^n}}=\lim_{ n \to +\infty } \frac{\sqrt[n]{n!}}{n}=\frac{1}{e} < 1 \]
+}
+
+\thm{Criterio del Rapporto per le Serie}{
+    Sia $a_{n}> 0$ e tale che esista:
+    \[ \lim_{ n \to +\infty } \frac{a_{n+1}}{a_{n}}=l \]
+    Allora:
+    \begin{enumerate}
+        \item $\text{Se } l>1\implies \sum_{n=1}^{+\infty} a_{n}=+\infty$
+        \item $\text{Se }l<1 \implies \sum_{n=1}^{+\infty} a_{n} \text{ converge}$
+    \end{enumerate}
+}
+
+\pf{
+    Segue dal Criterio Rapporto radice per le Successioni.
+}
+
+\subsubsection{Costante di Eulero Mascheroni}
+
+\thm{Costante di Eulero Mascheroni}{
+    La successione:
+    \[ \left( \sum_{k=1}^{n} \frac{1}{k} \right)-\log n \]
+    converge ad un numero finito non nullo che chiameremo:
+    \[ \gamma = \text{ costante di Eulero Mascheroni} \approx 0,577 \]
+    \[ \lim_{ n \to +\infty } \frac{S_{n}}{\log n}=\lim_{ n \to +\infty } \frac{S_{n}-\log n +\log n}{\log n}=\lim_{ n \to +\infty } \frac{S_{n}-\log n}{\log n}+1=1 \]
+}
