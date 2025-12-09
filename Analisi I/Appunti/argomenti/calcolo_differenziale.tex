@@ -1018,3 +1018,44 @@ In $x_{0}=0$:
 }
 
 \rmkb{Se la prima non nulla è pari, il segno dipende dal numeratore, se è dispari, il punto non è né max né min.}
+
+
+\section{Funzioni Concave e Convesse}
+
+\defn{Funziona Concava}{
+    Sia $f:I\subseteq \mathbb{R}\to \mathbb{R}$. Siano $x_{1}<x_{2}$ in $I$.
+    $f$ si dice \textbf{convessa} se $\forall x_{1}<x_{2}$ si ha:
+    \[
+        \forall t\in[0,1] \quad f\left(\textcolor{green!60!black}{\boxed{t x_{1}+(1-t)x_{2}}}\right) \leq \textcolor{red}{\boxed{t f(x_{1})+(1-t)f(x_{2})}}
+    \]
+    Si dice \textbf{concava} se vale con $\geq$.
+}
+
+\ex{
+    Rappresentazione grafica della convessità: la corda che congiunge due punti qualsiasi del grafico si trova al di sopra del grafico stesso.
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{img/funz_conv_corda.png}
+    \end{center}
+}
+
+\rmkb{
+    I riquadri sono detti \textbf{combinazioni convesse}.
+    \[ (t)+(1-t)=1 \]
+}
+
+\thm{Caratterizzazione della convessità}{
+    Se $f$ è derivabile in $]a,b[$, allora sono equivalenti le seguenti affermazioni:
+    \begin{enumerate}
+        \item $f$ è convessa;
+        \item $f(x)\geq f(x_{0})+f'(x_{0})(x-x_{0}) \quad \forall x,x_{0}\in]a,b[$;
+        \item $f'$ è crescente ($\nearrow$).
+    \end{enumerate}
+}
+
+\rmkb{\textbf{Minimo Assoluto} \\
+    Se $f'(x_{0})(x-x_{0})$ è orizzontale (ovvero se la funzione ha un punto critico $f'(x_0)=0$), il punto critico è un \textbf{minimo ASSOLUTO} (poiché il grafico giace interamente sopra la retta tangente).
+}
+
+\rmkb{\textbf{Flesso} \\
+    Se $f''$ cambia segno, si trova un punto di \textbf{flesso}.
+}
