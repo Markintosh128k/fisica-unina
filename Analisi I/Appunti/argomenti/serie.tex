@@ -378,3 +378,91 @@ studiare il \textbf{carattere} delle serie significa studiare se la serie:
     \[ \gamma = \text{ costante di Eulero Mascheroni} \approx 0,577 \]
     \[ \lim_{ n \to +\infty } \frac{S_{n}}{\log n}=\lim_{ n \to +\infty } \frac{S_{n}-\log n +\log n}{\log n}=\lim_{ n \to +\infty } \frac{S_{n}-\log n}{\log n}+1=1 \]
 }
+
+\section{Serie a Segni Alterni}
+
+\defn{Serie a Segni Alterni}{
+    Sia $a_{n}\geq 0\; \forall n$, la serie:
+    \[ \sum_{n=1}^{+\infty} (-1)^{n-1} a_{n}=a_{1}-a_{2}+a_{3}-a_{4}+\dots \]
+    Si chiama \textbf{serie a segni alterni} di termine generale $a_{n}$.
+}
+
+\ex{
+    \begin{itemize}
+        \item $\displaystyle \sum_{n=1}^{+\infty} \frac{(-1)^{n-1}}{n}=1 -\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\dots \qquad \text{Serie armonica a segni alterni}$
+        \item $\displaystyle \sum_{n=1}^{+\infty} (-1)^n \arcsin\left( \frac{1}{n} \right)= -\arcsin 1 +\arcsin \frac{1}{2} - \dots$
+    \end{itemize}
+}
+
+\subsection{Criterio di Leibniz}
+
+\thm{Criterio di Leibniz}{
+    \begin{enumerate}
+        \item Sia $a_{n}\geq 0$
+        \item Sia $a_{n} \searrow$ (decrescente)
+        \item Sia $a_{n}$ infinitesima ($\lim_{ n \to +\infty }a_{n}=0$)
+    \end{enumerate}
+    \[ \text{Allora } \sum_{n=1}^{+\infty} (-1)^{n-1}a_{n} \text{ converge} \]
+    Inoltre, detta $S$ la sua somma, si ha la seguente:
+    \[ |S-S_{n}|\leq a_{n+1} \quad (\text{Stima del resto}) \]
+}
+
+\pf{
+    Considero $S_{2n}$ e $S_{2n+1}$.
+    Dimostro che sono convergenti allo stesso limite.
+    1) Dimostriamo che $S_{2n}$ e $S_{2n+1}$ sono monotone e limitate.
+    \[ S_{\underbracket{2n+2}}=S_{2n} \underbrace{+ a_{2n+1}-a_{2n+2} }_{{\geq 0 \; (a_{n} \searrow)}}\geq S_{\underbracket{2n}} \quad \nearrow \]
+    \[ S_{\underbracket{2n+1}}=S_{2n-1}\underbrace{ - a_{2n}+a_{2n+1} }_{{\leq 0}}\leq S_{\underbracket{2n-1}} \quad \searrow \]
+    $S_{2n} \nearrow \quad S_{2n+1}\searrow$
+    Allora:
+    \[ S_{3}\geq S_{2n+1}\geq S_{2n}\geq S_{2}\implies\text{ quindi } S_{2n} \text{ e } S_{2n+1} \text{ sono anche limitate.} \]
+    $\implies$ sono convergenti per il Teorema delle Successioni monotone.
+    Ma poiché:
+    \[ S_{2n+1}-S_{2n}=a_{2n+1} \]
+    Al limite per $n\to + \infty$:
+    \[ S_{d}-S_{p}= 0 \implies S_{d}=S_{p}=\boxed{S} \]
+    \[ \inf \{S_{2n+1}\} = S = \sup \{S_{2n}\} \]
+    \[
+    |S-S_{n}|=\begin{dcases}
+    n \text{ pari} \\
+    n \text{ dispari}
+    \end{dcases}
+    \]
+    \begin{align*}
+    &|S-S_{2n}| \underset{\substack{\text{(perché } S \\ \text{è il sup)}}}{=} S- S_{2n} \\
+    & S - S_{2n} \underset{S \text{ è inf}}{\leq} S_{2n+1}-S_{2n}=a_{2n+1}\\
+    & |S-S_{2n+1}| \underset{S \text{ è inf}}{=} S_{2n+1}-S \leq S_{2n+1}-S_{2n+2}=+a_{2n+2}
+    \end{align*}
+}
+
+\ex{
+    \[ \sum_{n=1}^{+\infty} \frac{(-1)^{n-1}}{n} \; \text{ Converge} \]
+}
+
+\subsection{Assoluta Convergenza}
+
+\defn{Successione Assolutamente Convergente}{
+    Sia $a_{n}$ una successione.
+    La serie $\displaystyle \sum_{n=1}^{+\infty} a_{n}$ si dice \textbf{assolutamente convergente} se converge:
+    \[ \sum_{n=1}^{+\infty} |a_{n}| \]
+}
+
+\rmkb{
+    La convergenza finora citata è detta \textbf{convergenza semplice}.
+}
+
+\prop{
+    Se $\displaystyle \sum_{n=1}^{+\infty} a_{n}$ converge assolutamente (ovvero se $\sum |a_{n}|$ converge)
+    \[ \implies \sum_{n=1}^{+\infty} a_{n} \text{ converge} \]
+    ($\centernot\impliedby$ Esempio: Armonica a segni alterni)
+}
+
+\ex{
+    \[ \sum_{n=1}^{+\infty} \left|\frac{(-1)^n - n +1}{n^3+2n}\right|\leq \sum \frac{n+2}{n^3 +2n} \sim \sum \frac{1}{n^2} \]
+}
+
+\pf{
+    \[ \Big||a_{n+1}|+|a_{n+2}|+\dots+|a_{n+p}|\Big|<\epsilon \quad \forall n>\nu \quad \forall p \in \mathbb{N} \]
+    \[ \Big||a_{n+1}+a_{n+2}+\dots+a_{n+p}|\Big|<\Big||a_{n+1}|+|a_{n+2}|+\dots+|a_{n+p}|\Big| \]
+    \[ \implies\left|a_{n+1}+a_{n+2}+\dots+a_{n+p}\right|<\Big||a_{n+1}|+|a_{n+2}|+\dots+|a_{n+p}|\Big| \]
+}
