@@ -240,7 +240,7 @@ Siano $f,g: [a,b]\to \mathbb{R}$ integrabili. Allora:
 }
 
 \section{Integrazione Indefinita}
-\defn{Definizione}{
+\defn{Primitiva}{
     Sia $f: [a,b] \to \mathbb{R}$. Si chiama \textbf{primitiva} di $f$ una funzione $F$ derivabile in $[a,b]$ tale che:
     \[ F'(x) = f(x) \quad \forall x \in [a,b] \]
 }
@@ -253,4 +253,109 @@ Siano $f,g: [a,b]\to \mathbb{R}$ integrabili. Allora:
 \defn{Integrale Indefinito}{
     Sia $f$ continua in $[a,b]$. L'insieme di tutte le primitive si indica con $\int f(x) \, dx$ e si chiama \textbf{integrale indefinito}.
     \[ \int f(x) \, dx = F(x) + c \]
+}
+
+
+
+\section{Funzioni Sommabili}
+
+\ex{
+    \textbf{Funzioni "problematiche"}
+    \[ \frac{1}{x^\alpha} \quad \text{in } ]0,1] \implies \int_{0}^1 \frac{1}{x^\alpha} \, dx = \,? \]
+    \[ \frac{1}{x^\alpha} \quad \text{in } [1,+\infty[ \implies \int_{1}^{+\infty} \frac{1}{x^\alpha} \, dx = \,? \]
+}
+
+\defn{Funzione Sommabile}{
+    Sia $f\geq 0$ in $[a,b[\:(b\in \mathbb{R}, b =+\infty)$ oppure in $]a,b] \; (a\in \mathbb{R}, a= -\infty)$.
+    Supponiamo che $f$ sia integrabile in ogni sottointervallo di $]a,b]$ oppure di $[a,b[$.
+    \[ \textcolor{orange}{\forall x \in [a,b[ \quad F(x)= \int_{a}^x \underbrace{{ f(t) }}_{\geq 0} \, dt \quad \nearrow } \]
+    \[ \exists \lim_{ x \to b^- } \int_{a}^x f(t)\, dt = \begin{cases}
+    +\infty \\
+    l \in \mathbb{R}^+
+    \end{cases} \]
+    Se il \textbf{limite} $\exists$ \textbf{finito}, diremo che $f$ è \textbf{sommabile} in $[a,b[$ e
+    \[ \int_{a}^b f(x) \, dx = \lim_{ x \to b^- } \int_{a}^x f(t) \, dt \]
+    Discorso analogo per $a$:
+    \[ \int_{a}^b f(x)\, dx = \lim_{ x \to a^+ }\int_{x}^b f(t) \, dt \quad \text{ se } \exists \text{ finito} \]
+    Se il \textbf{limite non è finito}, $f$ \textbf{non è sommabile}.
+}
+
+\ex{
+    $\displaystyle \frac{1}{x^\alpha} \; \text{in } ]0,1] \text{ è sommabile?}$
+    
+    Pongo $\alpha>0$ così che stia al denominatore.
+    \[ \int_{x}^1 \frac{1}{t^\alpha} \, dt = \begin{dcases}
+    \alpha=1 \implies \log t\Big|^1_{x} = - \log x \\
+    \alpha \neq 1, \,\alpha>0 \implies \frac{t^{-\alpha+1}}{-\alpha+1}\Bigg|^1_{x}=\frac{1}{1-\alpha}- \frac{x^{1-\alpha}}{1-\alpha}
+    \end{dcases} \]
+    \[ \lim_{ x \to 0^+ } \int_{x}^1 \frac{1}{t^\alpha} \, dt = \begin{dcases}
+    \alpha=1 \implies l=+\infty \implies f \text{ non è sommabile} \\
+    1-\alpha<0 \implies l=+\infty \implies f \text{ non è sommabile} \\
+    1-\alpha>0 \implies l=\frac{1}{1-\alpha} \implies f \text{ è sommabile}
+    \end{dcases} \]
+    \[ \frac{1}{x^\alpha} \text{ in } ]0,1] \text{ è \textbf{sommabile}} \iff 0\leq\alpha<1 \]
+}
+
+\ex{
+    $\displaystyle \frac{1}{x^\alpha} \; \text{in } [1,+\infty[ \text{ è sommabile?}$
+    
+    \[ \lim_{ x \to +\infty } \int_{1}^x \frac{1}{t^\alpha}\, dt = \begin{dcases}
+    \alpha=1 \implies \log x \overset{x \to +\infty}{\to}l=+\infty \implies \text{non è sommabile} \\
+    \alpha\neq 1 \implies \frac{x^{1-\alpha}}{1-\alpha} - \frac{1}{1-\alpha}\implies \text{è sommabile } \iff 1 -\alpha <0 \implies \alpha>1
+    \end{dcases} \]
+}
+
+\subsection{Criteri per le Funzioni Sommabili}
+
+\prop{Criterio del Confronto}{
+    Se $0\leq f(x)\leq g(x)$ definite nello stesso insieme e $g$ sommabile $\implies f$ è sommabile.
+}
+
+\pf{
+    La dimostrazione è ovvia (segue dal Teorema del Confronto Integrale).
+}
+
+\prop{Criterio degli Infinitesimi}{
+    Sia $f\geq 0$ continua in $[a,+\infty[$.
+    Se $\displaystyle \lim_{ x \to +\infty } x^\alpha f(x)= l> 0 \, ,l\in \mathbb{R} \implies \begin{cases}
+    \alpha>1 \implies f \text{ è sommabile} \\
+    \alpha \leq 1 \implies f \text{ non è sommabile}
+    \end{cases}$
+}
+
+\pf{
+    Applichiamo la definizione di limite. Sia $\epsilon=\frac{l}{2}$.
+    \[ \exists M>0: \forall x > M \quad \frac{l}{2} = l-\epsilon < x^\alpha f(x) < l + \epsilon = \frac{3}{2} l \]
+    Implica che $\forall x > M$:
+    \[ f(x)< \frac{3}{2}l \cdot\frac{1}{x^\alpha} \quad \text{SOMMABILE (per confronto con } \frac{1}{x^\alpha}, \alpha > 1 \text{)} \]
+    \[ f(x)> \frac{l}{2} \cdot\frac{1}{x^\alpha} \quad \text{NON SOMMABILE (per confronto con } \frac{1}{x^\alpha}, \alpha \le 1 \text{)} \]
+}
+
+\rmkb{
+    \textbf{Criterio degli Infiniti}: Lo stesso Criterio vale all'infinito all'inversione delle condizioni.
+}
+
+\subsection{Relazione tra Serie e Integrali}
+
+\ex{
+    Consideriamo $\frac{1}{n}$.
+    \begin{align*}
+    & \int_{n}^{n+1} \frac{1}{x} \, dx \leq \frac{1}{n}\\
+    & \frac{1}{n} = \int_{n}^{n+1} \frac{1}{n} \, dx = \frac{1}{n}(n+1-n)\\
+    & a_{n} \geq 0\\
+    & a_{n} = \int_{n}^{n+1} a_{n} \, dx \\
+    & \sum_{n=1}^{+\infty} \int_{n}^{n+1} \frac{1}{x} \, dx \leq \sum_{n=1}^{+\infty} \frac{1}{n}\\
+    & \int_{1}^{+\infty} \frac{1}{x} \, dx \leq \sum_{n=1}^{+\infty} \frac{1}{n}\\
+    & \text{Dato che } \frac{1}{x} \text{ non è sommabile, } \sum_{n=1}^{+\infty} \frac{1}{n} \text{ diverge.}
+    \end{align*}
+}
+
+\rmkb{
+    Vale questo confronto anche per:
+    \[ \sum_{n=1}^{+\infty} \int_{n}^{n+1} \frac{1}{x^\alpha} \, dx \leq \sum_{n=1}^{+\infty} \frac{1}{n^\alpha} \]
+}
+
+\thm{Criterio Integrale per le Serie}{
+    Sia $f\geq 0$ e decrescente ($\searrow$) e sia $|a_{n}| \leq f(n)$.
+    Se $f$ è sommabile in $[1,+\infty[ \implies \sum a_{n}$ converge.
 }
