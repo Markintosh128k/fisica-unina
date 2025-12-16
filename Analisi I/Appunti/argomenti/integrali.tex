@@ -31,8 +31,11 @@ Archimede ha calcolato l'area del settore parabolico "imprigionandola" tra due a
     Si definisce \textbf{somma integrale superiore} di $f$, relativa a $P$, la seguente:
     \[ S(P,f) = \sum_{k=0}^{n-1} M_k \cdot (x_{k+1} - x_k )= \sum_{k=1}^{n} M_k (x_k - x_{k-1}) \]
     Ovviamente $s(P,f)\leq S(P,f)$. Devo dimostrare $s \nearrow$ e $S \searrow$.
-
 }
+
+    \begin{center}
+    \includegraphics[width=0.8\textwidth]{img/stima_rettangoloide.png}
+    \end{center}
 
 \lem{}{
     Se $P \subseteq \overline{P}$ sono due partizioni di $[a,b]$ allora se $f: [a,b] \to \mathbb{R}$ è limitata, risulta che:
@@ -48,7 +51,7 @@ Archimede ha calcolato l'area del settore parabolico "imprigionandola" tra due a
     Sia $\overline{P}= P \cup \{ z \}$.
     
     \begin{center}
-    \includegraphics[width=0.7\textwidth]{img/rettangoloide_z.png}
+    \includegraphics[width=0.8\textwidth]{img/rettangoloide_z.png}
     \end{center}
 
 
@@ -69,6 +72,9 @@ Archimede ha calcolato l'area del settore parabolico "imprigionandola" tra due a
 \lem{Key-Lemma}{
     $\forall P, Q$ partizioni di $[a,b]$. Se $f:[a,b]\to \mathbb{R}$ è limitata, allora:
     \[ s(P,f)\leq S(Q,f) \]
+        \begin{center}
+    \includegraphics[width=0.8\textwidth]{img/key_lemma.jpg}
+    \end{center}
 }
 
 \pf{
@@ -105,6 +111,9 @@ Se voglio usare il limite:
     & \inf_{n}S(P_{n},f) = \sup_{n}s(P_{n},f)
     \end{align*}
 }
+    \begin{center}
+    \includegraphics[width=0.8\textwidth]{img/stima_rettangoloide_n3.png}
+    \end{center}
 
 \ex{
     \textbf{Funzione di Dirichlet}: $f(x):[0,1]\to \{ 0,1 \}$
