@@ -255,7 +255,150 @@ Siano $f,g: [a,b]\to \mathbb{R}$ integrabili. Allora:
     \[ \int f(x) \, dx = F(x) + c \]
 }
 
+\subsection*{Proprietà dell'Integrale}
 
+\begin{enumerate}
+    \item $\displaystyle \int (f + g) \, dx = \int f \, dx + \int g \, dx$
+    \item $\displaystyle \int \alpha f \, dx = \alpha \int f \, dx$
+\end{enumerate}
+
+La 1 e la 2 ci dicono che l'integrale è un operatore lineare.
+
+\thm{Formula Fondamentale del Calcolo Integrale}{thm:fondamentale}{
+    Sia $f:[a,b]\to \mathbb{R}$ continua e sia $G$ una primitiva di $f$.
+    Allora:
+    $$ \int_{a}^b f(x) \, dx = G(b) - G(a) $$
+}
+
+\pf{
+    Per il Teorema di caratterizzazione delle primitive sappiamo che:
+    $$ G(x) = \int_{a}^x f(t) \, dt + c $$
+    Valutando la differenza $G(b) - G(a)$:
+    $$
+    G(b) - \underbrace{G(a)}_{=c} = 
+    \left( \int_{a}^b f(t) \, dt + c \right) - \left( \underbrace{\int_{a}^a f(t) \, dt}_{=0} + c \right)
+    $$
+    $$
+    = \int_{a}^b f(t) \, dt + \cancel{c} - 0 - \cancel{c} = \int_{a}^b f(t) \, dt
+    $$
+}
+
+\section{Integrali Immediati}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5} % Aumenta la spaziatura verticale nella tabella
+\begin{tabular}{ll}
+    \hline
+    \textbf{Integrale Indefinito} & \textbf{Derivata Corrispondente} \\
+    \hline
+    $\displaystyle \int x^\alpha \, dx = \frac{x^{\alpha +1}}{\alpha+1} + c \quad (\alpha \neq -1)$ & $\displaystyle D(x^\beta) = \beta x^{\beta -1}$ \\
+    $\displaystyle \int \frac{1}{x} \, dx = \log\lvert x\rvert + c$ & $\displaystyle D(\log x) = \frac{1}{x}$ \\
+    $\displaystyle \int e^x \, dx = e^x + c$ & $\displaystyle D(e^x) = e^x$ \\
+    $\displaystyle \int \sin x \, dx = -\cos x + c$ & $\displaystyle D(\cos x) = -\sin x$ \\
+    $\displaystyle \int \cos x \, dx = \sin x + c$ & $\displaystyle D(\sin x) = \cos x$ \\
+    $\displaystyle \int \frac{1}{\cos^2 x} \, dx = \tan x + c$ & $\displaystyle D(\tan x) = \frac{1}{\cos^2 x}$ \\
+    $\displaystyle \int \frac{1}{1+x^2} \, dx = \arctan x + c$ & $\displaystyle D(\arctan x) = \frac{1}{1+x^2}$ \\
+    $\displaystyle \int \frac{1}{\sqrt{1-x^2}} \, dx = \arcsin x + c$ & $\displaystyle D(\arcsin x) = \frac{1}{\sqrt{1-x^2}}$ \\
+    $\displaystyle \int \frac{-1}{\sqrt{1-x^2}} \, dx = \arccos x + c$ & $\displaystyle D(\arccos x) = \frac{-1}{\sqrt{1-x^2}}$ \\
+    \hline
+\end{tabular}
+\end{center}
+
+\ex{
+    \begin{itemize}
+        \item $\displaystyle \int x^2 + 3 e^x -\frac{2}{x} +\cos x \, dx = \frac{x^3}{3}+ 3e^x - 2 \log|x| + \sin x +c $
+        \item $\displaystyle \int_{0}^1 x^2 \, dx = \frac{x^3}{3}\Bigg|_{0}^1 = \frac{1}{3} - \frac{0}{3} = \frac{1}{3}$
+    \end{itemize}
+}
+
+
+\thm{Prima regola di Sostituzione}{
+    Sia $F$ una primitiva di $f$ su $[a,b]$, con $f$ continua in $[a,b]$.
+    Sia $\phi:[c,d]\to[a,b]$ continua e derivabile allora:
+    $$F \circ \phi \text{ è una primitiva di } (f \circ \phi)\phi'$$
+    $$\int f(\phi(x))\phi'(x) \, dx = F(\phi(x))+c$$
+    \begin{align*}
+        & \text{Ottenuta da:}\\
+        & y = \phi(x)\\
+        & dy = \phi'(x)dx\\
+        & \int f(y)dy = F(y) + c \implies F(\phi(x))+c
+    \end{align*}
+}
+
+\subsection{Integrali Quasi Immediati}
+
+\begin{itemize}
+    \item $\displaystyle \int [f(x)]^\alpha  \cdot f'(x)\, dx = \frac{(f(x))^{\alpha +1}}{\alpha+1} + c \quad (\alpha \neq -1)$
+    \item $\displaystyle \int \frac{f'(x)}{f(x)} \, dx = \log\lvert f(x) \rvert + c$
+    \item $\displaystyle \int e^{f(x)} \cdot f'(x) \, dx = e^{f(x)} + c$
+    \item $\displaystyle \int \sin(f(x)) \cdot f'(x) \, dx = -\cos(f(x)) + c$
+    \item $\displaystyle \int \cos(f(x)) \cdot f'(x) \, dx = \sin(f(x)) + c$
+    \item $\displaystyle \int \frac{f'(x)}{\cos^2(f(x))} \, dx = \tan(f(x)) + c$
+    \item $\displaystyle \int \frac{f'(x)}{1+[f(x)]^2} \, dx = \arctan(f(x)) + c$
+    \item $\displaystyle \int \frac{f'(x)}{\sqrt{1-[f(x)]^2}} \, dx = \arcsin(f(x)) + c$
+    \item $\displaystyle \int -\frac{f'(x)}{\sqrt{1-[f(x)]^2}} \, dx = \arccos(f(x)) + c$
+\end{itemize}
+
+\ex{
+    \begin{itemize}
+        \item $\displaystyle \int \cos x \sin^2 x \, dx=\frac{\sin^3x}{3}+c$
+        \item $\displaystyle \int \frac{x}{1+x^4} \, dx = \frac{1}{2} \int \frac{2x}{1+x^4} \, dx = \frac{\arctan x^2 }{2}+c$
+        \item $\displaystyle \int \tan x \, dx = -\log | \cos x| +c $
+        \item $\displaystyle \int \frac{e^x}{1+e^x} \, dx = \log(1+e^x)+c$ \\
+              {\small (ometto il valore assoluto perché l'argomento è sempre positivo)}
+        \item $\displaystyle \int \frac{2x+1}{x+3} \, dx = \int \frac{2x}{x+3} \, dx + \int \frac{1}{x+3} \, dx = 2\int \frac{x+3}{x+3} \, dx - 5 \int \frac{1}{x+3} \, dx = 2x - 5 \log|x+3|+c$
+        \item $\displaystyle \int \frac{3x}{1+x^2} \, dx = \frac{3}{2}\log(1+x^2) +c$
+        \item $\displaystyle \int \frac{1}{x^2 +9} \, dx = \frac{1}{9} \int \frac{1}{\left( \frac{x}{3} \right)^2 +1} \, dx = \frac{1}{3} \arctan \left( \frac{x}{3} \right)+c$
+        \item $\displaystyle \int \frac{1}{x^2+x+1} \, dx \implies \text{Compl. del quadrato} \implies \int \frac{1}{\left( x+\frac{1}{2} \right)^2 + \underbrace{\boxed{1 -\frac{1}{4}}}_{\geq 0}} \, dx $
+        \item $\displaystyle \int \frac{1}{x^2 +2x +1} \, dx = \int \frac{1}{(x+1)^2} \, dx = \int {(x+1)}^{-2} \, dx = - \frac{1}{x+1} +c$
+    \end{itemize}
+}
+
+\subsection{Integrale Di Funzioni Razionali Fratte}
+$$ \int \frac{P(x)}{Q(x)} \, dx \quad gP < gQ $$
+
+\ex{
+    \begin{align*}
+    & \int  \frac{x^2}{(x^2-4)(x^2-9)(x+1)}\, dx = \int \frac{x^2}{(x-2)(x+2)(x-3)(x+3)(x+1)} \, dx \\
+    & \frac{x^2}{(x-2)(x+2)(x-3)(x+3)(x+1)} = \frac{A}{x-2} + \frac{B}{x+2} + \frac{C}{x-3}+\frac{D}{x+3}+ \frac{E}{x+1}\\
+    & \int \frac{x^2 \textcolor{orange}{\cancel{ (x-2) }}}{\cancel{ (x-2) }(x+2)(x-3)(x+3)(x+1)} \, dx \dots
+    \end{align*}
+
+}
+
+\subsection{Integrazione per Parti}
+Le tecniche di integrazione elencate non sono sufficienti a risolvere tutti gli integrali, alcuni esempi sono:
+\ex{
+    \begin{itemize}
+        \item $\int \sqrt{ 1-x^2 }\, dx$
+        \item $\int \log x \, dx$
+        \item $\int \arcsin x \, dx$
+    \end{itemize}
+}
+
+Potrei risolvere il primo ($\int \sqrt{ 1-x^2 }$) sostituendo $x= \cos t$ etc...
+
+\defn{Integrazione per Parti}{
+    \[(fg)'=f'g+fg'\]
+    \[\cancel{ \int } (fg)\cancel{ ' }= \int f'g + \int fg'\]
+    \textbf{Formula di Integrazione per parti:}
+    \[\int f'g = fg - \int fg'\]
+}
+
+\ex{
+    \begin{itemize}
+        \item $\displaystyle \int \log x \, dx = x\log x - \int \frac{x}{x} \, dx = x\log x - x +c$
+        \item $\displaystyle \int x^2 e^x \, dx = x^2 e^x -2 \int x e^x = x^2 e^x -2x e^x +2e^x +c$
+    \end{itemize}
+}
+
+\subsection*{Derivata di un Integrale Definito}
+\rmkb{
+    Dal teorema fondamentale del calcolo integrale:
+    $$G(x)=\int_{f(x)}^{g(x)} h(t) \, dt = \int_{f(x)}^{0}h(t)\, dt + \int_{0}^{g(x)}h(t)\, dt = -H(f(x))+H(g(x))$$
+    Se voglio trovare $G'(x):$
+    $$G'(x)= h(g(x))g'(x)-h(f(x))f'(x)$$
+}
 
 \section{Funzioni Sommabili}
 
