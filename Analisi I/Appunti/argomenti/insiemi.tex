@@ -277,7 +277,7 @@ Procediamo per assurdo, supponendo che il minimo $\underline{m}$ (che esiste per
     \item Per definizione di minimo: $\underline{a} \leq a$, $\forall a \in A$
     \item In particolare: $\underline{a} \leq \underline{m}$
     \item Ma essendo $\underline{m}$ minimo: $\underline{m} \leq \underline{a}$
-    \item Essendo la relazione $\leq$ \textbf{antisimmetrica}, segue che $\underline{a} = \underline{m}$ → Dimostrata l’unicità del minimo
+    \item Essendo la relazione $\leq$ \textbf{antisimmetrica}, segue che $\underline{a} = \underline{m}$ → Dimostrata l'unicità del minimo
 \end{enumerate}
 
 \textbf{Dimostrazione dell'unicità del massimo}
@@ -288,7 +288,7 @@ Procediamo per assurdo, supponendo che il massimo $\overline{m}$ (che esiste per
     \item Per definizione di massimo: $a \leq \overline{a}$, $\forall a \in A$
     \item In particolare: $\overline{m} \leq \overline{a}$
     \item Ma essendo $\overline{m}$ massimo: $\overline{a} \leq \overline{m}$
-    \item Essendo la relazione $\leq$ \textbf{antisimmetrica}, segue che $\overline{a} = \overline{m}$ → Dimostrata l’unicità del massimo
+    \item Essendo la relazione $\leq$ \textbf{antisimmetrica}, segue che $\overline{a} = \overline{m}$ → Dimostrata l'unicità del massimo
 \end{enumerate}
 }
 
@@ -363,14 +363,14 @@ Le operazioni di base che assumiamo in $\mathbb{N}$ sono
 (\mathbb{N}, +, \cdot).
 \]
 
-La sottrazione e la divisione non sono sempre definite in $\mathbb{N}$; per introdurle occorre ampliare l’insieme.
+La sottrazione e la divisione non sono sempre definite in $\mathbb{N}$; per introdurle occorre ampliare l'insieme.
 
-- Estendendo $\mathbb{N}$ si ottiene l’insieme degli interi:
+- Estendendo $\mathbb{N}$ si ottiene l'insieme degli interi:
   \[
   \mathbb{Z} = \mathbb{N}_{0} \cup (-\mathbb{N}),
   \]
   in cui sono ben definite le operazioni $+$ e $-$.
-- Per permettere la divisione si introduce l’insieme dei razionali:
+- Per permettere la divisione si introduce l'insieme dei razionali:
   \[
   \mathbb{Q} = \left\{ \tfrac{m}{n} \;\middle|\; m \in \mathbb{Z}, \; n \in \mathbb{Z}\setminus\{0\} \right\}.
   \]
@@ -391,7 +391,7 @@ p^2 = 4k^2 = 2q^2 \implies q^2 = 2k^2,
 quindi anche $q$ è pari. Ma se $p$ e $q$ sono entrambi pari, non possono essere primi tra loro. Contraddizione.
 }
 
-Segue che $\sqrt{2} \notin \mathbb{Q}$, e quindi è necessario introdurre l’insieme dei numeri reali $\mathbb{R}$.
+Segue che $\sqrt{2} \notin \mathbb{Q}$, e quindi è necessario introdurre l'insieme dei numeri reali $\mathbb{R}$.
 
 
 \subsubsection{Costruzione dei numeri reali}
@@ -447,7 +447,7 @@ Queste operazioni verificano le seguenti proprietà:
 
   \item Esistenza degli opposti e degli inversi
   \[
-    \forall a \in \mathbb{R}, \; \exists (-a) \in \mathbb{R} \;\; \text{tale che} a+(-a) = 0
+    \forall a \in \mathbb{R}, \; \exists (-a) \in \mathbb{R} \;\; \text{tale che}\;\; a+(-a) = 0
   \]
   \[
     \forall a \in \mathbb{R}\setminus \{0\}, \; \exists a^{-1} \in \mathbb{R} \;\; \text{tale che} \;\; a \cdot a^{-1} = 1
@@ -474,7 +474,7 @@ a \cdot 0 = 0.
 
 \pf{
 Sia $x \in \mathbb{R}$.
-Per la proprietà dell’elemento neutro additivo (a4) abbiamo
+Per la proprietà dell'elemento neutro additivo (a4) abbiamo
 \[
 x \cdot 0 = x \cdot (0 + 0).
 \]
@@ -482,7 +482,7 @@ Per la distributività (a3):
 \[
 x \cdot (0 + 0) = x \cdot 0 + x \cdot 0.
 \]
-Sottraiamo $x \cdot 0$ da entrambi i membri (per l’esistenza dell’opposto, a5):
+Sottraiamo $x \cdot 0$ da entrambi i membri (per l'esistenza dell'opposto, a5):
 \[
 x \cdot 0 = x \cdot 0 + x \cdot 0 \;\;\implies\;\; 0 = x \cdot 0.
 \]
@@ -490,7 +490,7 @@ Quindi $a \cdot 0 = 0$ per ogni $a \in \mathbb{R}$.
 }
 
 \subsubsection{Assiomi relativi all'ordinamento}
-Si assume che in $\mathbb{R}$ esista una relazione d’ordine $\leq$, cioè una relazione d’ordine riflessiva, antisimmetrica, transitiva e totale.
+Si assume che in $\mathbb{R}$ esista una relazione d'ordine $\leq$, cioè una relazione d'ordine riflessiva, antisimmetrica, transitiva e totale.
 In altre parole, per ogni $a,b \in \mathbb{R}$ vale $a \leq b$ oppure $b \leq a$.
 
 Questa relazione è definita su $\mathbb{R}$ e verifica i seguenti assiomi:
@@ -539,7 +539,7 @@ Dobbiamo dimostrare la doppia implicazione. Per definizione di $\sup$ la 1 è ov
 Dimostrazione $\implies$:
 
 Per dimostrare la 2, prendiamo $\epsilon > 0$ arbitrario e consideriamo $C - \epsilon \in \R$.
-È chiaro che $C - \epsilon < C$, dato che la relazione d’ordine è totale.
+È chiaro che $C - \epsilon < C$, dato che la relazione d'ordine è totale.
 
 Poiché $C$ è il minimo dei maggioranti, $C - \epsilon$ non può essere un maggiorante di $A$.
 Dunque $\exists a_{\epsilon} \in A$ tale che $C - \epsilon < a_{\epsilon} \leq C$.
@@ -565,7 +565,7 @@ Quindi $C$ è il minimo dei maggioranti, cioè $C = \sup A$.
 }
 
 \pf{
-Dobbiamo dimostrare l’analogo per l’$\inf$. Per definizione di $\inf$ la 1 è ovvia
+Dobbiamo dimostrare l'analogo per l'$\inf$. Per definizione di $\inf$ la 1 è ovvia
 (dato che $\inf$ è il massimo dei minoranti).
 
 Dimostrazione $\implies$:
@@ -575,11 +575,11 @@ Sia $C = \inf A$. Per mostrare la 2 prendiamo $\epsilon > 0$ arbitrario e consid
 
 Poiché $C$ è il massimo dei minoranti, $C + \epsilon$ non può essere un minorante di $A$.
 Dunque $\exists a_{\epsilon} \in A$ tale che $C \leq a_{\epsilon} < C + \epsilon$.
-Attenzione: questo non significa che $a_{\epsilon}$ sia un minorante, ma solo che “si avvicina” a $C$ dall’alto.
+Attenzione: questo non significa che $a_{\epsilon}$ sia un minorante, ma solo che “si avvicina” a $C$ dall'alto.
 
 Dimostrazione $\impliedby$:
 
-Dimostriamo che se $C \in \R$ verifica la 1 e la 2, allora $C$ è l’$\inf$ di $A$, cioè:
+Dimostriamo che se $C \in \R$ verifica la 1 e la 2, allora $C$ è l'$\inf$ di $A$, cioè:
 
 \begin{enumerate}
 \item $C$ è un minorante di $A$,
@@ -605,7 +605,7 @@ Denotiamo con $(\mathbb{R}, +, \cdot, \leq, \text{Assioma di completezza})$ il c
 
 Costruiamo i sottoinsiemi numerici:
 \begin{itemize}
-  \item $\mathbb{N}$: insieme dei numeri naturali, il più piccolo sottoinsieme di $\mathbb{R}$ che contiene l’unità e il successivo di ogni suo elemento:
+  \item $\mathbb{N}$: insieme dei numeri naturali, il più piccolo sottoinsieme di $\mathbb{R}$ che contiene l'unità e il successivo di ogni suo elemento:
     \[
     \forall n \in \mathbb{N},\quad n+1 \in \mathbb{N}.
     \]
@@ -620,25 +620,25 @@ Si ha la catena di inclusioni:
 \]
 
 \prop{
-L’insieme $\mathbb{Q}$ non è completo; ne consegue che $\mathbb{Q} \subset \mathbb{R}$ (inclusione propria), ovvero $\mathbb{R}\setminus\mathbb{Q} \neq \emptyset$.
+L'insieme $\mathbb{Q}$ non è completo; ne consegue che $\mathbb{Q} \subset \mathbb{R}$ (inclusione propria), ovvero $\mathbb{R}\setminus\mathbb{Q} \neq \emptyset$.
 }
 
 \pf{
   \rmk{
     Questa è una dimostrazione costruttiva, ovvero ci darà altre informazioni oltre a verificare la tesi.
   }
-  Per dimostrare che $\mathbb{Q}$ non soddisfa l’assioma di completezza, basta costruire un controesempio:
+  Per dimostrare che $\mathbb{Q}$ non soddisfa l'assioma di completezza, basta costruire un controesempio:
 
   Voglio costruire un insieme superiormente limitato dove il sup è uguale a $\sqrt{2}$
 
-Consideriamo l’insieme
+Consideriamo l'insieme
 \[
 A = \{ r \in \mathbb{Q} \mid r > 0,\ r^2 \leq 2 \}.
 \]
 
 $A$ è limitato superiormente, sia visto come sottoinsieme di $\mathbb{Q}$ che di $\mathbb{R}$.
 
-In $\mathbb{R}$, per l’assioma di completezza, esiste $c = \sup A$. È facile vedere che $c = \sqrt{2}$.
+In $\mathbb{R}$, per l'assioma di completezza, esiste $c = \sup A$. È facile vedere che $c = \sqrt{2}$.
 Poiché $\sqrt{2} \notin \mathbb{Q}$, concludiamo già che $\sup A \notin \mathbb{Q}$.
 
 Ora analizziamo i maggioranti di $A$ in $\mathbb{Q}$:
@@ -646,7 +646,7 @@ Ora analizziamo i maggioranti di $A$ in $\mathbb{Q}$:
 B = \{ p \in \mathbb{Q} \mid p > 0,\ p^2 > 2 \}.
 \]
 
-$B$ è l’insieme dei maggioranti razionali di $A$. Dimostriamo che $B$ non ha minimo.
+$B$ è l'insieme dei maggioranti razionali di $A$. Dimostriamo che $B$ non ha minimo.
 
 Dato un qualsiasi $p \in B$, costruiamo
 \[
@@ -663,7 +663,7 @@ Allora:
 
 Quindi $q \in B$ ed è più piccolo di $p$. Dunque $B$ non ammette minimo.
 
-Conclusione: l’insieme $A \subseteq \mathbb{Q}$ è superiormente limitato ma non ha $\sup$ in $\mathbb{Q}$.
+Conclusione: l'insieme $A \subseteq \mathbb{Q}$ è superiormente limitato ma non ha $\sup$ in $\mathbb{Q}$.
 Quindi $\mathbb{Q}$ non è completo, mentre in $\mathbb{R}$ lo stesso insieme ha estremo superiore $\sqrt{2} \in \mathbb{R} \setminus \mathbb{Q}$.
 }
 
@@ -675,7 +675,7 @@ $\N$ non è superiormente limitato.
 
 \pf{
 Supponiamo per assurdo che $\N$ sia superiormente limitato.
-Allora, essendo $\N \subseteq \R$, per l’assioma di completezza esiste $c = \sup \N$.
+Allora, essendo $\N \subseteq \R$, per l'assioma di completezza esiste $c = \sup \N$.
 
 Per le proprietà del $\sup$, preso $\varepsilon = 1$, esiste $S \in \N$ tale che
 \[
@@ -694,7 +694,7 @@ Poiché $\N \subseteq \Z \subseteq \Q \subseteq \R$, anche $\Z$, $\Q$ e $\R$ non
 Se $A \subseteq \R$ non è superiormente limitato, poniamo $\sup A = +\infty$.
 Analogamente, se $A$ non è inferiormente limitato, poniamo $\inf A = -\infty$.
 
-L’insieme $\R \cup \{+\infty,-\infty\}$ si chiama \textbf{reale esteso}.
+L'insieme $\R \cup \{+\infty,-\infty\}$ si chiama \textbf{reale esteso}.
 }
 
 \prop{
@@ -773,7 +773,7 @@ Gli intervalli $]1, 2[$ e $]3, 4[$ sono separati, mentre $]2,3[$ è contiguo sia
 \end{tikzpicture}
 \end{center}
 
-Possiamo quindi dire che due insiemi sono contigui quando il $\sup$ del primo coincide con l’$\inf$ del secondo.
+Possiamo quindi dire che due insiemi sono contigui quando il $\sup$ del primo coincide con l'$\inf$ del secondo.
 
 \thm{Elemento di separazione}{
 Siano $A,B \subseteq \mathbb{R}$, $A,B \neq \emptyset$.
@@ -814,19 +814,19 @@ Due insiemi $A$ e $B$ si dicono \textbf{equipotenti} se esiste una biiezione $f 
 }
 
 \defn{Insieme finito}{
-Un insieme $A \subseteq \mathbb{R}$ si dice \textbf{finito} se esiste $n \in \mathbb{N}$ tale che $A$ è equipotente all’insieme $\{1,2,\dots,n\}$.
+Un insieme $A \subseteq \mathbb{R}$ si dice \textbf{finito} se esiste $n \in \mathbb{N}$ tale che $A$ è equipotente all'insieme $\{1,2,\dots,n\}$.
   In tal caso $n$ si dice \textbf{cardinalità} di $A$.
 }
 
 \defn{Insieme infinito e numerabile}{
 Un insieme $A$ si dice \textbf{infinito} se è equipotente ad una sua parte propria.
-  Ad esempio, $\mathbb{N}$ è infinito: infatti è equipotente all’insieme $2\mathbb{N} = \{2n : n \in \mathbb{N}\}$ tramite la funzione $f(n) = 2n$.
+  Ad esempio, $\mathbb{N}$ è infinito: infatti è equipotente all'insieme $2\mathbb{N} = \{2n : n \in \mathbb{N}\}$ tramite la funzione $f(n) = 2n$.
 
   La cardinalità di $\mathbb{N}$ si chiama \textbf{numerabile}.
 }
 
 \rmk{
- L’insieme $\mathbb{R}$ non è numerabile. Più precisamente, l’intervallo $[0,1] \subseteq \mathbb{R}$ non è numerabile (dimostrazione di Cantor).
+ L'insieme $\mathbb{R}$ non è numerabile. Più precisamente, l'intervallo $[0,1] \subseteq \mathbb{R}$ non è numerabile (dimostrazione di Cantor).
   La cardinalità di $\mathbb{R}$ si dice \textbf{potenza del continuo}.
 }
 
@@ -840,7 +840,7 @@ Dati $a,b \in \mathbb{R}$ con $a < b$, esiste $r \in \mathbb{Q}$ tale che $a < r
 }
 
 \rmk{
- L’insieme $\mathbb{N}$ non ha la proprietà di densità: ad esempio tra $1$ e $2$ non ci sono infiniti naturali, mentre tra due reali ci sono sempre infiniti razionali.
+ L'insieme $\mathbb{N}$ non ha la proprietà di densità: ad esempio tra $1$ e $2$ non ci sono infiniti naturali, mentre tra due reali ci sono sempre infiniti razionali.
 }
 
 \pf{
