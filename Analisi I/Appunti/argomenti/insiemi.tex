@@ -831,8 +831,12 @@ Un insieme $A$ si dice \textbf{infinito} se è equipotente ad una sua parte prop
 }
 
 \prop{
-Per ogni $x > 0$ e $y \in \mathbb{R}$ esiste $n \in \mathbb{N}$ tale che $nx > y$.
-  Equivalentemente, per ogni $y > 0$ esiste $n \in \mathbb{N}$ con $1/n < y$.
+\textbf{Proprietà di Archimede}
+\begin{align*}\\
+&\text{Dato } x \in \mathbb {R}, x>0 \quad \forall y \in \mathbb R \\
+&\exists n,m \in \mathbb Z : \\
+&\boxed{nx\leq y \leq mx}
+\end{align*}
 }
 
 \defn{Densità di $\mathbb{Q}$ in $\mathbb{R}$}{
@@ -844,6 +848,15 @@ Dati $a,b \in \mathbb{R}$ con $a < b$, esiste $r \in \mathbb{Q}$ tale che $a < r
 }
 
 \pf{
+Poichè $a<b$
+\begin{align*}\\
+& \text{Prendo } x=1 \text{ e } y=\frac{1}{b-a} = (b-a)^{-1}\\
+& \exists n > 0 : \boxed{(b-a)>\frac{1}{n}}\\
+& \text{Uso Archimede con } y=a \text{ e } x=\frac{1}{n} \\
+& \exists m \in \mathbb Z : \frac{m}{n} \leq a<\frac{(m+1)}{n}\\
+& a < \frac{m}{n}+\frac{1}{n}<a+b-a \to a <\boxed{\frac{m+1}{n}}<b\\
+& \frac{m+1}{n}=r
+\end{align*}
 }
 
 \subsection{Rappresentazione geometrica di \texorpdfstring{$\mathbb{R}$}{R}}
