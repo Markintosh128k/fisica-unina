@@ -1007,155 +1007,121 @@ x = \sqrt[n]{a}.
 
 \subsection{Media aritmetica e media geometrica}
 
-Siano $x_1, x_2, \dots, x_n \in \mathbb{R}$ con $x_i \geq 0$ per $i = 1, \dots, n$.
-
-\begin{itemize}
-\item Si definisce \emph{media aritmetica}:
-\[
-A = \frac{x_1 + x_2 + \dots + x_n}{n}
-= \frac{1}{n} \sum_{i=1}^{n} x_i.
-\]
-
-\item Si definisce \emph{media geometrica}:
-\[
-G = \sqrt[n]{x_1 \cdot x_2 \cdot \dots \cdot x_n}
-= \left( \prod_{i=1}^{n} x_i \right)^{\tfrac{1}{n}}.
-\]
-\end{itemize}
-\prop{
-Siano $x_1, x_2, \dots, x_n \ge 0$.
-Si ha
-\[
-G \le A,
-\]
-dove
-\[
-G = \sqrt[n]{\prod_{i=1}^{n} x_i}, \qquad
-A = \frac{1}{n} \sum_{i=1}^{n} x_i.
-\]
-Inoltre, l'uguaglianza $G = A$ vale se e solo se $x_1 = x_2 = \dots = x_n$.
+\thm{Disuguaglianza AM-GM}{
+    Siano $x_1, x_2, \dots, x_n \ge 0$. Vogliamo dimostrare che
+    \[
+    G = \sqrt[n]{x_1 \cdot \dots \cdot x_n} \le A = \frac{x_1 + \dots + x_n}{n},
+    \]
+    con uguaglianza se e solo se $x_1 = \dots = x_n$.
 }
 
 \pf{
-\textbf{Dimostrazione della disuguaglianza tra media geometrica e media aritmetica.}
+    \textbf{Passo 0: caso $x_i = 0$}
+    
+    Se esiste qualche $x_i = 0$, allora $G = 0 \le A$, e la disuguaglianza è immediata.
+    Quindi possiamo supporre $x_i > 0$ per ogni $i = 1, \dots, n$.
 
-Siano $x_1, x_2, \dots, x_n \geq 0$. Vogliamo dimostrare che
-$$
-G = \sqrt[n]{x_1 \cdot \dots \cdot x_n} \leq A = \frac{x_1 + \dots + x_n}{n},
-$$
-con uguaglianza se e solo se $x_1 = \dots = x_n$.
+    \vspace{1em}
+    \textbf{Passo 1: normalizzazione}
+    
+    Normalizziamo la media:
+    \[
+    \frac{x_1 + \dots + x_n}{n} = 1.
+    \]
+    Se la media originale $A \neq 1$, dividiamo tutti i $x_i$ per $A$. La disuguaglianza generale si riduce quindi al caso normalizzato.
 
-\textbf{Passo 0: caso $x_i = 0$.}
+    \vspace{1em}
+    \textbf{Passo 2: base $n=2$}
+    
+    Vogliamo dimostrare
+    \[
+    \sqrt{x_1 x_2} \le \frac{x_1 + x_2}{2} = 1.
+    \]
+    Poiché $\frac{x_1 + x_2}{2} = 1$, possiamo esprimere $x_2$ in funzione di $x_1$:
+    \[
+    x_2 = 2 - x_1.
+    \]
+    Allora la disuguaglianza diventa:
+    \[
+    x_1 x_2 = x_1 (2 - x_1) \le 1.
+    \]
+    Lasciando 1 a destra e sviluppando la parentesi:
+    \[
+    x_1 (2 - x_1) \le 1 \quad \Longleftrightarrow \quad 2 x_1 - x_1^2 \le 1.
+    \]
+    Spostiamo tutto a sinistra:
+    \[
+    - x_1^2 + 2 x_1 - 1 \le 0 \quad \Longleftrightarrow \quad x_1^2 - 2 x_1 + 1 \ge 0.
+    \]
+    Infine:
+    \[
+    (x_1 - 1)^2 \ge 0.
+    \]
+    Chiaramente vero per ogni $x_1$, con uguaglianza solo se $x_1 = x_2 = 1$.
 
-Se esiste qualche $x_i = 0$, allora $G = 0 \leq A$, e la disuguaglianza è immediata. Quindi possiamo supporre $x_i > 0$ per ogni $i = 1, \dots, n$.
+    \vspace{1em}
+    \textbf{Passo 3: passo induttivo}
 
-\textbf{Passo 1: normalizzazione.}
+    \textbf{Ipotesi induttiva:} la disuguaglianza vale per ogni insieme di $n$ numeri positivi $x_1,\dots,x_n$ con media
+    \[
+    \frac{x_1 + \dots + x_n}{n} = 1.
+    \]
 
-Normalizziamo la media:
-$$
-\frac{x_1 + \dots + x_n}{n} = 1.
-$$
-Se la media originale $A \neq 1$, dividiamo tutti i $x_i$ per $A$. La disuguaglianza generale si riduce quindi al caso normalizzato.
+    \textbf{Tesi:} la disuguaglianza vale per $n+1$ numeri positivi $x_1,\dots,x_{n+1}$ con media
+    \[
+    \frac{x_1 + \dots + x_{n+1}}{n+1} = 1.
+    \]
 
-\textbf{Passo 2: base $n=2$.}
+    \begin{itemize}
+        \item Se tutti i numeri sono uguali, la disuguaglianza è ovvia.
+        \item Altrimenti, introduciamo:
+        \[
+        x_1 = 1 - a, \quad 0 \le a < 1, \qquad x_2 = 1 + b, \quad b > 0.
+        \]
+    \end{itemize}
 
-Vogliamo dimostrare
-$$
-\sqrt{x_1 x_2} \leq \frac{x_1 + x_2}{2} = 1.
-$$
-Poiché $\frac{x_1 + x_2}{2} = 1$, possiamo esprimere $x_2$ in funzione di $x_1$:
-$$
-x_2 = 2 - x_1.
-$$
-Allora la disuguaglianza diventa:
-$$
-x_1 x_2 = x_1 (2 - x_1) \leq 1.
-$$
-Lasciando 1 a destra e sviluppando la parentesi:
-$$
-x_1 (2 - x_1) \leq 1 \quad \Longleftrightarrow \quad 2 x_1 - x_1^2 \leq 1.
-$$
-Spostiamo tutto a sinistra:
-$$
-- x_1^2 + 2 x_1 - 1 \leq 0 \quad \Longleftrightarrow \quad x_1^2 - 2 x_1 + 1 \geq 0.
-$$
-Infine:
-$$
-(x_1 - 1)^2 \geq 0.
-$$
-Chiaramente vero per ogni $x_1$, con uguaglianza solo se $x_1 = x_2 = 1$.
+    Gli altri termini $x_3, \dots, x_{n+1}$ sono scelti in modo da soddisfare la media, così che la somma totale sia
+    \[
+    x_1 + x_2 + x_3 + \dots + x_{n+1} = n+1.
+    \]
 
-\textbf{Passo 3: passo induttivo.}
+    \paragraph{Sviluppo della disuguaglianza per i primi due termini}
+    Consideriamo la media geometrica dei primi due termini:
+    \[
+    \sqrt{x_1 x_2} = \sqrt{(1-a)(1+b)}.
+    \]
+    La media aritmetica normalizzata dei due termini è:
+    \[
+    \frac{x_1 + x_2}{2} = \frac{(1-a) + (1+b)}{2} = 1 + \frac{b-a}{2}.
+    \]
+    Quindi la disuguaglianza diventa:
+    \[
+    (1-a)(1+b) \le 1-a+b.
+    \]
+    Sviluppando il prodotto a sinistra:
+    \[
+    1 - a + b - ab \le 1 - a + b.
+    \]
+    Sottraendo $1 - a + b$ da entrambi i membri:
+    \[
+    -ab \le 0 \quad \Longleftrightarrow \quad ab \ge 0.
+    \]
 
-\textit{Ipotesi induttiva:} la disuguaglianza vale per ogni insieme di $n$ numeri positivi $x_1,\dots,x_n$ con media
-$$
-\frac{x_1 + \dots + x_n}{n} = 1.
-$$
+    \paragraph{Condizione di uguaglianza}
+    Inoltre, vale
+    \[
+    G = A \iff x_1 = x_2 = \dots = x_n.
+    \]
+    Infatti:
+    \begin{itemize}
+        \item Se $ab > 0$, allora $(1-a)(1+b) < 1-a+b$, quindi la media geometrica è strettamente minore della media aritmetica.
+        \item L’unico caso in cui $ab = 0$ corrisponde a $a = 0$ e $b = 0$, cioè
+        \[
+        x_1 = x_2 = 1.
+        \]
+    \end{itemize}
 
-\textit{Tesi:} la disuguaglianza vale per $n+1$ numeri positivi $x_1,\dots,x_{n+1}$ con media
-$$
-\frac{x_1 + \dots + x_{n+1}}{n+1} = 1.
-$$
-
-Se tutti i numeri sono uguali, la disuguaglianza è ovvia. Altrimenti, introduciamo:
-$$
-x_1 = 1 - a, \quad 0 \leq a < 1, \qquad x_2 = 1 + b, \quad b > 0.
-$$
-Gli altri termini $x_3, \dots, x_{n+1}$ sono scelti in modo da soddisfare la media, così che la somma totale sia
-$$
-x_1 + x_2 + x_3 + \dots + x_{n+1} = n+1.
-$$
-
-\textit{Sviluppo della disuguaglianza per i primi due termini.}
-
-Consideriamo la media geometrica dei primi due termini:
-$$
-\sqrt{x_1 x_2} = \sqrt{(1-a)(1+b)}.
-$$
-La media aritmetica normalizzata dei due termini è:
-$$
-\frac{x_1 + x_2}{2} = \frac{(1-a) + (1+b)}{2} = 1 + \frac{b-a}{2}.
-$$
-Quindi la disuguaglianza diventa:
-$$
-(1-a)(1+b) \leq 1-a+b.
-$$
-Sviluppando il prodotto a sinistra:
-$$
-1 - a + b - ab \leq 1 - a + b.
-$$
-Sottraendo $1 - a + b$ da entrambi i membri:
-$$
--ab \leq 0 \quad \Longleftrightarrow \quad ab \geq 0.
-$$
-
-\textit{Condizione di uguaglianza.}
-
-Inoltre, vale
-$$
-G = A \iff x_1 = x_2 = \dots = x_n.
-$$
-Infatti:
-\begin{itemize}
-\item Se $ab > 0$, allora $(1-a)(1+b) < 1-a+b$, quindi la media geometrica è strettamente minore della media aritmetica.
-\item L'unico caso in cui $ab = 0$ corrisponde a $a = 0$ e $b = 0$, cioè
-$$
-x_1 = x_2 = 1.
-$$
-\end{itemize}
-
-Applicando lo stesso ragionamento a tutti i termini nel passo induttivo, otteniamo che \textbf{tutti i $x_i$ devono essere uguali} per avere uguaglianza tra media geometrica e media aritmetica.
-
-\textbf{Conclusione finale.}
-
-Abbiamo quindi dimostrato che per ogni insieme di numeri positivi $x_1, \dots, x_n$:
-$$
-\sqrt[n]{x_1 \cdot \dots \cdot x_n} \leq \frac{x_1 + \dots + x_n}{n},
-$$
-con uguaglianza se e solo se
-$$
-x_1 = x_2 = \dots = x_n.
-$$
+    Applicando lo stesso ragionamento a tutti i termini nel passo induttivo, otteniamo che \textbf{tutti i $x_i$ devono essere uguali} per avere uguaglianza tra media geometrica e media aritmetica.
 }
 
 \subsection{Coefficiente binomiale}
