@@ -820,13 +820,15 @@ Di seguito sono elencati i principali limiti notevoli utili per la risoluzione d
 }
 
 \pf{
-    Supponiamo per assurdo che \(f\) non sia uniformemente continua.
-    \[\exists \epsilon_{0}>0 : \forall \delta>0 \exists x_{\delta},x'_{\delta}:|x_{\delta}-x'_{\delta}|<\delta \; \text{ ma } |f(x_{\delta})-f(x'_{\delta})|\geq\epsilon_{0}\]
-    Scelto \(\delta=\frac{1}{n}\) trovo successioni \(x_{n}, x'_{n}\) tali che \(|x_{n}-x'_{n}|< \frac{1}{n}\) ma la distanza delle immagini è \(\ge \epsilon_0\).
-    Essendo in un compatto \([a,b]\), per \textbf{Bolzano-Weierstrass} esiste una sottosuccessione \(x_{n_k} \to x_0 \in [a,b]\).
-    Anche \(x'_{n_k} \to x_0\) (poiché la loro distanza tende a 0).
-    Ma \(f\) è continua in \(x_0\), quindi \(f(x_{n_k}) \to f(x_0)\) e \(f(x'_{n_k}) \to f(x_0)\), il che implica \(|f(x_{n_k}) - f(x'_{n_k})| \to 0\), contraddicendo la condizione \(\ge \epsilon_0\).
-}
+    Supponiamo per assurdo che $f$ non è uniformemente continua.
+\[\exists \epsilon_{0}>0 : \forall \delta>0 \exists x_{\delta},x'_{\delta}:|x_{\delta}-x'_{\delta}|<\delta \; \text{ ma } |f(x_{\delta})-f(x'_{\delta})|\geq\epsilon_{0}\]
+Scelto $\delta=\frac{1}{n}$ trovo
+\[x_{n} \text{ e } x'_{n}:|x_{n}-x'_{n}|< \frac{1}{n} \qquad |f(x_{n})-f(x'_{n})|\geq\epsilon_{0}\]
+con $x_{n},x'_{n} \in[a,b]$ per il Teorema di Heine-Borel:
+\begin{align*}
+& \exists x_{n_{k}},x'_{n_{k}} \text{ convergenti } x_{n_{k}}\to x_{0}\in[a,b]\implies \\
+&\implies x_{n_{k}},x'_{n_{k}}\to x_{0}\in[a,b] \text{ ma } f \text{ è continua in } x_{0} \implies |f(x_{n_{k}})-f(x'_{n_{k}})|<\epsilon_{0}
+\end{align*}}
 
 \subsection{Lipschitziana}
 
