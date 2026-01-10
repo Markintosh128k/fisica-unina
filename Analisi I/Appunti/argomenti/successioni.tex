@@ -1277,21 +1277,6 @@ Con \(a_{n}\to 0\)
 }
 
 \begin{proof}
-    \begin{align*}
-& \lim_{ n \to \infty } \frac{(1+a_{n})^\alpha -1}{a_{n}} = \lim_{ n \to \infty } \frac{e^{\log((1+a_n)^\alpha)} - 1}{a_{n}} = \lim_{ n \to \infty } \frac{e^{\alpha \log(1+a_n)} - 1}{a_{n}} \\
-& \text{Moltiplichiamo e dividiamo per } \alpha \log(1+a_n): \\ 
-& = \lim_{ n \to \infty } \left[ \frac{e^{\alpha \log(1+a_n)} - 1}{\alpha \log(1+a_n)} \right] \cdot \left[ \frac{\alpha \log(1+a_n)}{a_{n}} \right] \\ 
-& \text{Poiché } a_n \to 0, \text{ anche } \alpha \log(1+a_n) \to 0. \text{ Per i limiti notevoli:} \\ 
-& = \left( \lim_{ n \to \infty } \frac{e^{\alpha \log(1+a_n)} - 1}{\alpha \log(1+a_n)} \right) \cdot \left( \lim_{ n \to \infty } \alpha \frac{\log(1+a_n)}{a_n} \right) \\
-& = 1 \cdot (\alpha \cdot 1) = \alpha 
-    \end{align*}
-\end{proof}
-
-
-
-
-
-\begin{proof}
 \begin{align*}
 & \lim_{ n \to \infty } \frac{(1+a_{n})^\alpha -1}{a_{n}} = \lim_{ n \to \infty } \frac{e^{\log((1+a_n)^\alpha)} - 1}{a_{n}} = \lim_{ n \to \infty } \frac{e^{\alpha \log(1+a_n)} - 1}{a_{n}} \\
 & \text{Moltiplichiamo e dividiamo per } \alpha \log(1+a_n): \\ 
@@ -1301,6 +1286,7 @@ Con \(a_{n}\to 0\)
 & = 1 \cdot (\alpha \cdot 1) = \alpha 
 \end{align*}
 \end{proof}
+
 
 
 
