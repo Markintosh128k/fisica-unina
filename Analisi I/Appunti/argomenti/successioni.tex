@@ -1667,7 +1667,7 @@ nell'ordine: \((4)\to(1)\)
 
 \pf{
     Per Hp \(a_{n}\) è limitata. Quindi \(\exists A, B \in \mathbb{R}:\)
-    \[A < a_{n} < B \; \forall n \in \mathbb{N}\]
+    \[A \leq a_{n} \leq B \; \forall n \in \mathbb{N}\]
     
     Se considero la successione:
     \[b_{n}= \inf_{k\geq n} a_{k} < +\infty \quad \nearrow\]
@@ -1800,7 +1800,7 @@ nell'ordine: \((4)\to(1)\)
     \((\implies)\)
     \[a_{n} \to l \in \mathbb{R} \implies \forall \epsilon > 0 \exists \nu >0 : |a_{n} - l| < \epsilon \quad \forall n > \nu\]
     Preso \(\epsilon>0\) vado a stimare:
-    \[a_{n}-a_{m} = |a_{n} - l + l-a_{m} | \leq |a_{n} -l| + |a_{m} -l | < 2\epsilon \quad \text{ Se } n,m > \nu\]
+    \[|a_{n}-a_{m}| = |a_{n} - l + l-a_{m} | \leq |a_{n} -l| + |a_{m} -l | < 2\epsilon \quad \text{ Se } n,m > \nu\]
     
     \((\impliedby)\)
     \(\boxed{a_{m} -\epsilon <a_{n} < \epsilon +a_{m}}\implies\) Se prendo \(\epsilon= 1 \implies \exists \nu_{1}:\)
@@ -1809,5 +1809,5 @@ nell'ordine: \((4)\to(1)\)
     \[a_{\overline{m}}-1 < a_{n} < 1 + a_{\overline{m}} \quad \forall n> \nu_{1}\]
     Allora \(a< a_{n} < b\;\forall n> \nu_{1} \implies a_{n}\text{ LIMITATA} \implies \exists a_{n_{k}}\text{ convergente}\).
     
-    Sfruttando la convergenza della sottosuccessione e la proprietà di Cauchy si conclude la dimostrazione (nota: l'ultima riga del tuo testo originale sembrava tronca, ho chiuso logicamente il pensiero).
-}
+    Sfruttando la convergenza della sottosuccessione e la proprietà di Cauchy si conclude la dimostrazione.
+    }
