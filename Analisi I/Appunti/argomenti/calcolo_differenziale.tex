@@ -517,7 +517,7 @@ Tutti gli altri sono punti di non derivabilità.
         \item Sia $f$ continua in $[a,b]$
         \item Sia $f$ derivabile in $]a,b[$
     \end{itemize}
-    \[ f \text{ è costante }\iff f'(x)=0 \implies \forall x \in ]a,b[ \]
+    \[ f \text{ è costante }\iff f'(x)=0 \; \forall x \in ]a,b[ \]
 }
 
 \pf{
@@ -735,7 +735,7 @@ Alcuni limiti possono risultare complessi anche utilizzando il Teorema di de l'H
     \end{enumerate}
 }
 
-\defn{Definizione}{
+\defn{Ordini di infinitesima}{
     Siano $f,g$ due funzioni infinitesime in $x_{0}\in \overline{\mathbb{R}}$ e supponiamo che esista un $I(x_{0})$ in cui:
     \[ f(x)\neq g(x)\; \forall x \in I(x_{0})\setminus \{ x_{0} \} \]
     \begin{center}
@@ -813,7 +813,7 @@ Alcuni limiti possono risultare complessi anche utilizzando il Teorema di de l'H
 
 \subsection{Ordini di infinitesima e "o piccolo"}
 
-\defn{Ordine di inginitesima}{
+\defn{Ordine di infinitesima}{
     Diremo che $f$ è infinitesima in $x_{0}\in \overline{\mathbb{R}}$ \textbf{di ordine $\alpha$} se:
     \begin{enumerate}
         \item $\displaystyle \lim_{ x \to x_{0} }f(x)=0$
@@ -825,7 +825,7 @@ Alcuni limiti possono risultare complessi anche utilizzando il Teorema di de l'H
     \[ \lim_{ x \to 0 } \frac{ \overbrace{x^4}^{\alpha=4} + \overbrace{\tan^2(x^3)}^{\alpha=6} - \overbrace{\log(1+x^2)}^{\alpha=2} }{ \underbrace{2(e^{x^2}-1)}_{\alpha=2} +\underbrace{\sin^4x}_{\alpha=4} + \underbrace{x^3}_{\alpha=3}}\underset{\text{P.C.}}{=}\lim_{ x \to 0 } -\frac{1}{2}\left( \frac{\log(1+x^2)}{e^{x^2}-1} \right) \]
 }
 
-\defn{Definizione "o piccolo"}{
+\defn{"o piccolo"}{
     Diremo che $f$ è un $o$ piccolo di $g$ in $x_{0}$ se:
     \begin{enumerate}
         \item $\displaystyle \lim_{ x \to x_{0} } f(x)=\lim_{ x \to x_{0} } g(x)=0$
@@ -909,7 +909,7 @@ In $x_{0}=0$:
     dove $f^{(i)}(x_{0})$ è la derivata i-esima di $f$ nel punto $x_{0}$.
 }
 
-\thm{Teorema Formula di Taylor con il Resto di Peano}{
+\thm{Formula di Taylor con il Resto di Peano}{
     Sia $f:]a,b[\to \mathbb{R}$ e sia $f$ derivabile $(n-1)$ volte in $]a,b[$ e $n$ volte in $x_{0}\in]a,b[$.
     Allora vale la seguente formula di Taylor con il \textbf{resto di Peano}:
     \[ f(x)=P_{n,f}(x)+o(x-x_{0})^n \qquad \text{Per }x\to x_{0} \]
