@@ -666,7 +666,7 @@ Tutti gli altri sono punti di non derivabilità.
     \begin{enumerate}
         \item $\displaystyle \lim_{ x \to x_{0} } f(x)=\lim_{ x \to x_{0} } g(x)=0$
         \item $g'(x)\neq 0 \; \forall x \in ]a,x_{0}[$
-        \item $\exists \lim_{ x \to x_{0} } \frac{f'(x)}{g'(x)}$
+        \item $\displaystyle \exists \lim_{ x \to x_{0} } \frac{f'(x)}{g'(x)}$
     \end{enumerate}
     Allora:
     \[ \lim_{ x \to x_{0} } \frac{f(x)}{g(x)}=\lim_{ x \to x_{0} } \frac{f'(x)}{g'(x)} \]
@@ -936,7 +936,7 @@ In $x_{0}=0$:
     Devo dimostrare:
     \[ \lim_{ x \to x_{0} } \frac{f(x)-P_{n,f}(x)}{(x-x_{0})^n}=0 \]
     \begin{align*}
-    & \lim_{ x \to x_{0} } \frac{f(x)-f(x_{0})-f'(x_{0})(x-x_{0})-\frac{f^{(n)}(x_{0})}{n!}(x-x_{0})^n}{(x-x_{0})^n}=\\
+    & \lim_{ x \to x_{0} } \frac{f(x)-f(x_{0})-f'(x_{0})(x-x_{0})-\dots-\frac{f^{(n)}(x_{0})}{n!}(x-x_{0})^n}{(x-x_{0})^n}=\\
     & = \lim_{ x \to x_{0} } \frac{f(x)-f(x_{0})-f'(x_{0})(x-x_{0})}{(x-x_{0})}=\;?=\frac{0}{0}\implies H\\
     & \implies \lim_{ x \to x_{0} } \frac{f'(x)-f'(x_{0})}{1}=0\\
     &\text{Ma non posso farla perchè nelle hp è derivabile una volta}\\
