@@ -936,8 +936,9 @@ In $x_{0}=0$:
     Devo dimostrare:
     \[ \lim_{ x \to x_{0} } \frac{f(x)-P_{n,f}(x)}{(x-x_{0})^n}=0 \]
     \begin{align*}
-    & \lim_{ x \to x_{0} } \frac{f(x)-f(x_{0})-f'(x_{0})(x-x_{0})-\dots-\frac{f^{(n)}(x_{0})}{n!}(x-x_{0})^n}{(x-x_{0})^n}=\\
-    & = \lim_{ x \to x_{0} } \frac{f(x)-f(x_{0})-f'(x_{0})(x-x_{0})}{(x-x_{0})}=\;?=\frac{0}{0}\implies H\\
+    & \lim_{ x \to x_{0} } \frac{f(x)-f(x_{0})-f'(x_{0})(x-x_{0})-\dots-\frac{f^{(n)}(x_{0})}{n!}(x-x_{0})^n}{(x-x_{0})^n}\\
+    & \text{Caso } n=1:\\
+    & \lim_{ x \to x_{0} } \frac{f(x)-f(x_{0})-f'(x_{0})(x-x_{0})}{(x-x_{0})}=\;?=\frac{0}{0}\implies H\\
     & \implies \lim_{ x \to x_{0} } \frac{f'(x)-f'(x_{0})}{1}=0\\
     &\text{Ma non posso farla perchè nelle hp è derivabile una volta}\\
     & \text{Allora spezzo la frazione}\\
@@ -954,10 +955,11 @@ In $x_{0}=0$:
     & H = \lim_{ x \to x_{0} } \frac{f^{(n-1)}(x)-f^{(n-1)}-f^{(n)}(x-x_{0})}{n!(x-x_{0})}=\\
     & = \lim_{ x \to x_{0} } \frac{f^{(n-1)}(x)-f^{(n-1)}(x_{0})}{n!(x-x_{0})}-\frac{f^{(n)}(x_{0})}{n!}=0
     \end{align*}
-}
+
+    }
 
 \thm{Formula di Taylor con il Resto di Lagrange}{
-    Sia $f:]a,b[\to \mathbb{R}$ derivabile $(n-1)$ volte in $]a,b[$.
+    Sia $f:]a,b[\to \mathbb{R}$ derivabile $(n+1)$ volte in $]a,b[$.
     Allora $\forall x,x_{0} \in]a,b[ \; \exists c \in]a,b[$
     Tale che:
     \[ f(x)=P_{n,f}(x)+\underbrace{\frac{f^{(n+1)}(c)(x-x_{0})^{n+1}}{(n+1)!}}_{\text{Resto di Lagrange}} \]
