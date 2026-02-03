@@ -1214,5 +1214,29 @@ $$
 Conclusione: per il principio di induzione matematica, la formula del binomio di Newton vale per ogni $n \in \mathbb{N}$.
 }
 
+\subsection{Disuguaglianza di Bernoulli}
+\prop{
+  Per \(x > -1\) vale la seguente (\(\forall n \in \mathbb{N}\)):
+  \[(1+x)^{x}\geq 1+nx\]
+}
+\pf{
+\textbf{Base dell'induzione:} per $n=1$:
+\[(1+x)\geq 1 + x\]
+Per \(n=2\):
+\[
+(1+x)^2\geq 1 + 2x \implies x^2 +2x +1 \geq 1 +2x \implies x^2 +\cancel{2x} +1 \geq 1 +\cancel{2x} \implies x^2 +1 \geq 1
+\]
+\textbf{Passo induttivo:} supponiamo che la formula sia vera fino ad un certo \(n \implies (1+x)^n \geq 1 +nx\)
+Vogliamo dimostrare che vale per $n+1$ (tesi):
+\[
+(1+x)^{n+1}\geq 1 + (n+1)x \implies (1+x)^n(1+x) \geq 1 +nx +x \implies \textcolor{red}{(1+x)^n} +x(1+x)^n \geq \textcolor{red}{1+nx} +x
+\]
+\(\textcolor{red}{\text{È vero per ipotesi induttiva}}\)
+
+
+Ora \(x(1+x)^n \geq x\) è vero perchè \(1+x\) è sempre positivo.
+}
+
+
 
 % =================================================================
