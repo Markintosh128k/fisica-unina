@@ -4,7 +4,7 @@
 \section{Funzioni astratte}
 
 \defn{Funzione}{
-Siano $A, B \ne \emptyset$. Si chiama \textbf{funzione} $f: A \rarr B$ una legge che associa \textbf{ad ogni elemento di $A$ uno ed un solo elemento di $B$}.
+Siano $A, B \ne \varnothing$. Si chiama \textbf{funzione} $f: A \rarr B$ una legge che associa \textbf{ad ogni elemento di $A$ uno ed un solo elemento di $B$}.
 Si può anche scrivere:
 \[
 f: x \in A \mapsto y = f(x) \in B
@@ -24,7 +24,7 @@ dove $y$ è l'\textbf{immagine} di $x$ mediante $f$.
     \[
     f^{-1}(y) = \{\, x \in A \mid f(x) = y \,\}
     \]
-    Questo insieme può avere, a seconda dei casi, nessuno ($\emptyset$), uno o più elementi.
+    Questo insieme può avere, a seconda dei casi, nessuno ($\varnothing$), uno o più elementi.
     \item L'insieme
     \[
     G(f) = \{\, (x, f(x)) \mid x \in A \,\}
@@ -35,8 +35,8 @@ dove $y$ è l'\textbf{immagine} di $x$ mediante $f$.
 \subsection{Restrizione}
 
 \defn{Restrizione}{
-Sia $f: A \rarr B$ con $A, B \ne \emptyset$.
-Sia $E \subseteq A$, $E \ne \emptyset$.
+Sia $f: A \rarr B$ con $A, B \ne \varnothing$.
+Sia $E \subseteq A$, $E \ne \varnothing$.
 La funzione
 \[
 g: E \rarr B, \quad g(x) = f(x) \text{ per ogni } x \in E
@@ -45,7 +45,7 @@ si chiama \textbf{restrizione di $f$ su $E$} e si indica con $f|_E$.
 }
 
 \subsection{Funzioni composte}
-Siano $A, B, C \ne \emptyset$ e siano $f: A \to B$ e $g: B \to C$.
+Siano $A, B, C \ne \varnothing$ e siano $f: A \to B$ e $g: B \to C$.
 Allora si definisce la \textbf{funzione composta} $g \circ f: A \to C$ mediante
 \[
 (g \circ f)(x) = g(f(x)), \quad \forall x \in A
@@ -96,7 +96,7 @@ Una funzione $f: A \to B$ si dice \textbf{biettiva} se è sia iniettiva che suri
 
 \subsection{Identità}
 \defn{Funzione Identità}{
-Sia $A \ne \emptyset$.
+Sia $A \ne \varnothing$.
 La \textbf{funzione identità} su $A$, indicata con $i_A$, è definita da:
 \[
 i_A: x \in A \mapsto x \in A
@@ -140,7 +140,7 @@ L'esistenza della funzione inversa è ciò che ci permette di risolvere le diseq
 \subsubsection{Grafico della Funzione}
 
 \defn{Grafico}{
-Sia $f : A \subseteq \mathbb{R} \to \mathbb{R}$, con $A \neq \emptyset$.
+Sia $f : A \subseteq \mathbb{R} \to \mathbb{R}$, con $A \neq \varnothing$.
 Si chiama \emph{grafico} di $f$ l'insieme
 \[
 G(f) = \{(x, f(x)) \mid x \in A\} \subseteq \mathbb{R}^2.
@@ -225,7 +225,7 @@ G(f^{-1}) = \{(y, f^{-1}(y)) \mid y \in f(A)\}.
 \subsection{Funzioni Limitate}
 
 \defn{Funzione superiormente limitata}{
-  Sia $f: A \subseteq \mathbb{R} \to \mathbb{R}$ con $A \neq \emptyset$.  
+  Sia $f: A \subseteq \mathbb{R} \to \mathbb{R}$ con $A \neq \varnothing$.  
   La funzione $f$ si dice \emph{superiormente limitata} se $f(A)$ è superiormente limitata, cioè se
   \[
     \exists K \in \mathbb{R} \text{ tale che } f(x) \leq K, \quad \forall x \in A.
@@ -257,7 +257,7 @@ G(f^{-1}) = \{(y, f^{-1}(y)) \mid y \in f(A)\}.
 \subsection{Massimo e Minimo}
 
 \defn{Massimo}{
-  Sia $f: A \subseteq \mathbb{R} \to \mathbb{R}$ con $A \neq \emptyset$.  
+  Sia $f: A \subseteq \mathbb{R} \to \mathbb{R}$ con $A \neq \varnothing$.  
   Se $f(A)$ ha un massimo $M$, diremo che $f$ ha un massimo e scriveremo
   \[
     M = \max f(A).
@@ -279,7 +279,7 @@ G(f^{-1}) = \{(y, f^{-1}(y)) \mid y \in f(A)\}.
 \subsection{Funzioni Monotone}
 
 \defn{Monotona crescente}{
-  Sia $f: A \subseteq \mathbb{R} \to \mathbb{R}$ con $A \neq \emptyset$.  
+  Sia $f: A \subseteq \mathbb{R} \to \mathbb{R}$ con $A \neq \varnothing$.  
   La funzione $f$ si dice \emph{monotona crescente} se
   \[
     x_1 < x_2, \ x_1, x_2 \in A \implies f(x_1) \leq f(x_2),
