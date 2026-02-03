@@ -45,7 +45,7 @@ Esistono due tipi di sottoinsiemi:
 \end{itemize}
 
 \subsection{Insieme vuoto}
-L'\textbf{insieme vuoto} si indica con il simbolo $\emptyset$ ed è, per definizione, contenuto in tutti gli insiemi.
+L'\textbf{insieme vuoto} si indica con il simbolo $\varnothing$ ed è, per definizione, contenuto in tutti gli insiemi.
 
 \subsection{Rappresentazione per proprietà caratteristica}
 
@@ -136,7 +136,7 @@ Sia $M$ un insieme universo e definiamo gli insiemi $A, B \subseteq M$. Possiamo
 Si indica con $A \cup B = \{x \in M \mid x \in A \lor x \in B\}$.
 
 \subsubsection{Intersezione}
-Si indica con $A \cap B = \{x \in M \mid x \in A \land x \in B\}$. Se $A \cap B = \emptyset$ allora $A$ e $B$ sono \textbf{disgiunti} (non hanno elementi in comune).
+Si indica con $A \cap B = \{x \in M \mid x \in A \land x \in B\}$. Se $A \cap B = \varnothing$ allora $A$ e $B$ sono \textbf{disgiunti} (non hanno elementi in comune).
 
 \subsubsection{Complemento (Differenza)}
 Si indica con $A \setminus B = \{x \in A \mid x \notin B\}$.
@@ -174,7 +174,7 @@ Si indica con $\overline{A} = M \setminus A = \{x \in M \mid x \notin A\}$.
 Un insieme è un aggregato caotico di elementi. Non c'è rilevanza sull'ordine degli elementi. Per introdurre l'ordine dobbiamo ricorrere al prodotto cartesiano.
 
 \defn{Coppia Ordinata}{
-Siano $A, B \neq \emptyset$, si chiama \textbf{coppia ordinata} di prima componente $a \in A$ e seconda componente $b \in B$ il seguente oggetto: $(a, b) \neq (b, a)$.
+Siano $A, B \neq \varnothing$, si chiama \textbf{coppia ordinata} di prima componente $a \in A$ e seconda componente $b \in B$ il seguente oggetto: $(a, b) \neq (b, a)$.
 }
 
 \defn{Prodotto Cartesiano}{
@@ -197,7 +197,7 @@ Il prodotto cartesiano $A \times A$ si indica con $A^2$.
 \subsection{Relazione}
 
 \defn{Relazione}{
-Siano $A, B \ne \emptyset$. Si chiama \textbf{relazione} e si indica con $\mathcal{R}$ una proprietà definita sul prodotto cartesiano $A \times B$.
+Siano $A, B \ne \varnothing$. Si chiama \textbf{relazione} e si indica con $\mathcal{R}$ una proprietà definita sul prodotto cartesiano $A \times B$.
 Per una coppia di elementi $(a, b)$ posso stabilire se $\mathcal{R}$ assume valore vero o falso.
 Ci sarà quindi un sottoinsieme di $A \times B$ contenente le coppie che soddisfano la relazione.
 }
@@ -209,7 +209,7 @@ Sulle relazioni binarie è possibile definire alcune proprietà.
 
 
 \subsubsection{Proprietà delle Relazioni Binarie}
-Sia $A \ne \emptyset$ e $\mathcal{R}$ una relazione binaria su $A^2$ (cioè $A \times A$). Allora valgono le seguenti definizioni:
+Sia $A \ne \varnothing$ e $\mathcal{R}$ una relazione binaria su $A^2$ (cioè $A \times A$). Allora valgono le seguenti definizioni:
 
 \begin{itemize}
     \item $\mathcal{R}$ si dice \textbf{riflessiva} se e solo se $\forall x \in A$, $x \mathcal{R} x$.
@@ -260,7 +260,7 @@ Si indica con il simbolo $\sim$.
 \subsection{Massimo e minimo}
 
 \rmk{
-Sia $M$ un insieme non vuoto ($M \ne \emptyset$) su cui sia definita la relazione $\leq$. Sia $A \subseteq M$, $A \ne \emptyset$. $\underline{m} \in A$ si dice \textbf{MINIMO} di $A$ se $\underline{m} \leq a \forall a \in A$. Analogamente, $\overline{m} \in A$ si dice \textbf{MASSIMO} di $A$ se $a \leq \overline{m}, \forall a \in A$.
+Sia $M$ un insieme non vuoto ($M \ne \varnothing$) su cui sia definita la relazione $\leq$. Sia $A \subseteq M$, $A \ne \varnothing$. $\underline{m} \in A$ si dice \textbf{MINIMO} di $A$ se $\underline{m} \leq a \forall a \in A$. Analogamente, $\overline{m} \in A$ si dice \textbf{MASSIMO} di $A$ se $a \leq \overline{m}, \forall a \in A$.
 }
 
 \rmk{
@@ -293,7 +293,7 @@ Procediamo per assurdo, supponendo che il massimo $\overline{m}$ (che esiste per
 }
 
 \subsection{Maggiorante e Minorante}
-Sia $M$ un insieme ordinato dove è definita la relazione d'ordine $\leq$, sia $A \subseteq M$, $A \ne \emptyset$:
+Sia $M$ un insieme ordinato dove è definita la relazione d'ordine $\leq$, sia $A \subseteq M$, $A \ne \varnothing$:
 $\underline{x} \in M$ si dice \textbf{minorante} di $a$ se $\underline{x} \leq a \forall a \in A$, esempio:
 \begin{itemize}
     \item Nell'intervallo $]-1, 2]$ il minorante è $-1$, mentre $2$ è il massimo
@@ -316,7 +316,7 @@ $A \subseteq M$ si dice:
 \subsection{Estremo Superiore ed Estremo Inferiore}
 
 \defn{Estremo Inferiore e Superiore}{
-Sia $A \subseteq M$, $A \ne \emptyset$, con $A$ \textbf{inferiormente limitato} (cioè esiste almeno un minorante).
+Sia $A \subseteq M$, $A \ne \varnothing$, con $A$ \textbf{inferiormente limitato} (cioè esiste almeno un minorante).
 Se l'insieme dei minoranti ammette massimo, esso si chiama $\inf A$ (\textbf{estremo inferiore} di $A$).
 Analogamente, se $A$ è \textbf{superiormente limitato} e l'insieme dei maggioranti ammette minimo, esso si chiama $\sup A$ (\textbf{estremo superiore} di $A$).
 }
@@ -516,14 +516,14 @@ Le altre due conseguenze fondamentali legate al fatto che abbiamo una relazione 
 \prop{Caratterizzazione di $\sup$ e $\inf$}{
 \begin{enumerate}
   \item
-      Sia $A \subseteq \mathbb{R}$ con $A \neq \emptyset$.
+      Sia $A \subseteq \mathbb{R}$ con $A \neq \varnothing$.
       Allora $C \in \mathbb{R}$ è il supremo di $A$ ($C = \sup A$) se e solo se valgono le seguenti proprietà:
       \begin{enumerate}
         \item $\forall a \in A, \; a \leq C$
         \item $\forall \epsilon > 0, \; \exists a_\epsilon \in A \;|\; C - \epsilon < a_\epsilon$
       \end{enumerate}
   \item
-      Sia $A \subseteq \mathbb{R}$ con $A \neq \emptyset$.
+      Sia $A \subseteq \mathbb{R}$ con $A \neq \varnothing$.
       Allora $c \in \mathbb{R}$ è l'infimo di $A$ ($c = \inf A$) se e solo se valgono le seguenti proprietà:
       \begin{enumerate}
         \item $\forall a \in A, \; c \leq a$
@@ -620,7 +620,7 @@ Si ha la catena di inclusioni:
 \]
 
 \prop{
-L'insieme $\mathbb{Q}$ non è completo; ne consegue che $\mathbb{Q} \subset \mathbb{R}$ (inclusione propria), ovvero $\mathbb{R}\setminus\mathbb{Q} \neq \emptyset$.
+L'insieme $\mathbb{Q}$ non è completo; ne consegue che $\mathbb{Q} \subset \mathbb{R}$ (inclusione propria), ovvero $\mathbb{R}\setminus\mathbb{Q} \neq \varnothing$.
 }
 
 \pf{
@@ -698,7 +698,7 @@ L'insieme $\R \cup \{+\infty,-\infty\}$ si chiama \textbf{reale esteso}.
 }
 
 \prop{
-Sia $A \subseteq \R$, $A \neq \emptyset$.
+Sia $A \subseteq \R$, $A \neq \varnothing$.
 Allora
 \[
 \sup A = +\infty \iff \forall k > 0, \; \exists a_k \in A \; \text{tale che } a_k > k.
@@ -706,7 +706,7 @@ Allora
 }
 
 \prop{
-Sia $A \subseteq \R$, $A \neq \emptyset$.
+Sia $A \subseteq \R$, $A \neq \varnothing$.
 Allora
 \[
 \inf A = -\infty \iff \forall k > 0, \; \exists a_k \in A \; \text{tale che } a_k < -k.
@@ -716,7 +716,7 @@ Allora
 \subsection{Insiemi separati e contigui}
 Per completare il discorso su $\inf$ e $\sup$, introduciamo due definizioni fondamentali.
 \defn{Insiemi separati}{
- Siano $A,B \subseteq \mathbb{R}$, $A,B \neq \emptyset$.
+ Siano $A,B \subseteq \mathbb{R}$, $A,B \neq \varnothing$.
   Diremo che $A$ e $B$ sono \textbf{separati} se
   \[
   \forall a \in A, \, \forall b \in B \implies a \leq b.
@@ -776,7 +776,7 @@ Gli intervalli $]1, 2[$ e $]3, 4[$ sono separati, mentre $]2,3[$ è contiguo sia
 Possiamo quindi dire che due insiemi sono contigui quando il $\sup$ del primo coincide con l'$\inf$ del secondo.
 
 \thm{Elemento di separazione}{
-Siano $A,B \subseteq \mathbb{R}$, $A,B \neq \emptyset$.
+Siano $A,B \subseteq \mathbb{R}$, $A,B \neq \varnothing$.
   Allora $A$ e $B$ sono contigui $\iff \sup A = \inf B = c$.
   Tale $c$ si dice \textbf{elemento di separazione}.
 }
