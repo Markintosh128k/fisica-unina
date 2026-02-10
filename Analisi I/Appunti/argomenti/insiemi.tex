@@ -257,9 +257,9 @@ Una relazione $\mathcal{R}$ su $A^2$ si dice \textbf{relazione di equivalenza} s
 Si indica con il simbolo $\sim$.
 }
 
-\subsection{Massimo e minimo}
+\subsection{Massimo e Minimo}
 
-\rmk{
+\defn{Massimo e Minimo}{
 Sia $M$ un insieme non vuoto ($M \ne \varnothing$) su cui sia definita la relazione $\leq$. Sia $A \subseteq M$, $A \ne \varnothing$. $\underline{m} \in A$ si dice \textbf{MINIMO} di $A$ se $\underline{m} \leq a \forall a \in A$. Analogamente, $\overline{m} \in A$ si dice \textbf{MASSIMO} di $A$ se $a \leq \overline{m}, \forall a \in A$.
 }
 
@@ -656,9 +656,23 @@ Ovvero un elemento più piccolo di $p$.
 
 Allora:
 \begin{itemize}
-  \item $q < p$;
-  \item $q \in \mathbb{Q}$ (perché è ottenuto da operazioni razionali su $p$);
-  \item $q^2 - 2 = \frac{2(p^2-2)}{(p+2)^2} > 0 \quad\implies\quad q^2 > 2$.
+    \item $q < p$ (poiché sottraiamo una quantità positiva, dato che $p^2 > 2$ e $p > 0$);
+    \item $q \in \mathbb{Q}$ (perché è ottenuto da operazioni razionali su $p$);
+    \item Verifichiamo che $q^2 > 2$. Innanzitutto semplifichiamo l'espressione di $q$:
+    \[
+    q = \frac{p(p+2) - (p^2-2)}{p+2} = \frac{p^2+2p-p^2+2}{p+2} = \frac{2p+2}{p+2}.
+    \]
+    Ora calcoliamo la differenza $q^2 - 2$:
+    \begin{align*}
+    q^2 - 2 &= \left( \frac{2p+2}{p+2} \right)^2 - 2 \\
+    &= \frac{4(p+1)^2}{(p+2)^2} - 2 \\
+    &= \frac{4(p^2+2p+1) - 2(p+2)^2}{(p+2)^2} \\
+    &= \frac{4p^2+8p+4 - 2(p^2+4p+4)}{(p+2)^2} \\
+    &= \frac{4p^2+8p+4 - 2p^2-8p-8}{(p+2)^2} \\
+    &= \frac{2p^2 - 4}{(p+2)^2} \\
+    &= \frac{2(p^2-2)}{(p+2)^2}.
+    \end{align*}
+    Poiché $p \in B$, sappiamo che $p^2 > 2$, quindi il numeratore è positivo. Di conseguenza $q^2 - 2 > 0 \implies q^2 > 2$.
 \end{itemize}
 
 Quindi $q \in B$ ed è più piccolo di $p$. Dunque $B$ non ammette minimo.
