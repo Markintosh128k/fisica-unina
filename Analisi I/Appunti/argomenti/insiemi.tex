@@ -844,33 +844,68 @@ Un insieme $A$ si dice \textbf{infinito} se è equipotente ad una sua parte prop
   La cardinalità di $\mathbb{R}$ si dice \textbf{potenza del continuo}.
 }
 
+\subsection{Densità}
+
 \prop{
-\textbf{Proprietà di Archimede}
-\begin{align*}\\
-&\text{Dato } x \in \mathbb {R}, x>0 \quad \forall y \in \mathbb R \\
-&\exists n,m \in \mathbb Z : \\
-&\boxed{nx\leq y \leq mx}
-\end{align*}
+\textbf{Proprietà di Archimede} 
+Per ogni coppia di numeri reali $x, y > 0$, esiste un numero naturale $n \in \mathbb{N}$ tale che:
+    \[
+    nx > y
+    \]
+    \textit{Corollario:} Per ogni $x > 0$, esiste $n \in \mathbb{N}$ tale che $0 < \frac{1}{n} < x$.
 }
 
 \defn{Densità di $\mathbb{Q}$ in $\mathbb{R}$}{
-Dati $a,b \in \mathbb{R}$ con $a < b$, esiste $r \in \mathbb{Q}$ tale che $a < r < b$.
+  Dati $a, b \in \mathbb{R}$ con $a < b$, esiste un numero razionale $r \in \mathbb{Q}$ tale che:
+    \[
+    a < r < b
+    \]
 }
 
 \rmk{
- L'insieme $\mathbb{N}$ non ha la proprietà di densità: ad esempio tra $1$ e $2$ non ci sono infiniti naturali, mentre tra due reali ci sono sempre infiniti razionali.
+  L'insieme $\mathbb{N}$ non è denso in $\mathbb{R}$: tra $1$ e $2$ non ci sono naturali. Invece, la proprietà di densità afferma che tra due reali qualsiasi, per quanto vicini, cade sempre un razionale.
 }
 
 \pf{
-Poichè $a<b$
-\begin{align*}\\
-& \text{Prendo } x=1 \text{ e } y=\frac{1}{b-a} = (b-a)^{-1}\\
-& \exists n > 0 : \boxed{(b-a)>\frac{1}{n}}\\
-& \text{Uso Archimede con } y=a \text{ e } x=\frac{1}{n} \\
-& \exists m \in \mathbb Z : \frac{m}{n} \leq a<\frac{(m+1)}{n}\\
-& a < \frac{m}{n}+\frac{1}{n}<a+b-a \to a <\boxed{\frac{m+1}{n}}<b\\
-& \frac{m+1}{n}=r
-\end{align*}
+  Siano $a, b \in \mathbb{R}$ con $a < b$. Allora $b - a > 0$.
+  \\
+    \textbf{Passo 1: Scelta del denominatore} \\
+    Per la proprietà di Archimede, dato che $b-a > 0$, esiste un intero $n \in \mathbb{N}$ sufficientemente grande tale che:
+    \begin{align}
+        \frac{1}{n} < b - a \quad \Longleftrightarrow \quad 1 < n(b-a) \label{eq:step}
+    \end{align}
+    Geometricamente, stiamo scegliendo un passo $\frac{1}{n}$ più piccolo dell'ampiezza dell'intervallo $(a,b)$.
+
+    \textbf{Passo 2: Scelta del numeratore} \\
+    Consideriamo il numero reale $na$. Esiste un intero $m \in \mathbb{Z}$ tale che:
+    \begin{equation}
+        m \le na < m + 1 \label{eq:int}
+    \end{equation}
+    Sostanzialmente, stiamo prendendo $m = \lfloor na \rfloor$.
+    
+    Dividendo la disuguaglianza (\ref{eq:int}) per $n$ (che è positivo), otteniamo:
+    \begin{equation}
+        \frac{m}{n} \le a < \frac{m+1}{n} \label{eq:bounds}
+    \end{equation}
+    Poniamo $r = \frac{m+1}{n}$. Dalla parte destra di (\ref{eq:bounds}) sappiamo già che $\mathbf{a < r}$.
+    
+    \textbf{Passo 3: Verifica della disuguaglianza superiore} \\
+    Dobbiamo dimostrare che $r < b$. Riprendiamo la disuguaglianza $m \le na$:
+    \begin{align*}
+        m \le na \quad &\implies \quad m + 1 \le na + 1 \\
+        &\implies \quad \frac{m+1}{n} \le a + \frac{1}{n}
+    \end{align*}
+    Usando la disuguaglianza (\ref{eq:step}) trovata al Passo 1 (ovvero $\frac{1}{n} < b-a$):
+    \begin{align*}
+        r = \frac{m+1}{n} \le a + \frac{1}{n} < a + (b - a) = b
+    \end{align*}
+    
+    \textbf{Conclusione} \\
+    Abbiamo dimostrato che:
+    \[
+    a < \frac{m+1}{n} < b
+    \]
+    Poiché $m \in \mathbb{Z}$ e $n \in \mathbb{N}$, allora $r = \frac{m+1}{n} \in \mathbb{Q}$.
 }
 
 \subsection{Rappresentazione geometrica di \texorpdfstring{$\mathbb{R}$}{R}}
