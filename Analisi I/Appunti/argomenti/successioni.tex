@@ -898,11 +898,10 @@ Se \(a_{n}\to a\in \mathbb{R}\) e \(a_{n}\geq l \in \mathbb{R}\) definitivamente
 
 \section{Teorema del confronto (Teorema dei carabinieri)}
 \thmr{Teorema del confronto (Teorema dei carabinieri)}{teorema-del-confronto-teorema-dei-carabinieri}{
-Valgono le seguenti affermazioni:
-\begin{enumerate}
-    \item Siano \(a_{n},b_{n},c_{n}\) tali che
+Siano \(a_{n},b_{n},c_{n}\) tali che
     \[a_{n}\geq b_{n}\geq c_{n} \quad \forall n \in \mathbb{N}\] % NOTA: Dimostrazione usa <=
-    se \(a_{n}\to l \in \mathbb{R}\) e
+\begin{enumerate}
+    \item Se \(a_{n}\to l \in \mathbb{R}\) e
     \(c_{n}\to l \in \mathbb{R} \implies b_{n}\to l\)
     \item Se \(a_{n}\leq b_{n} \quad \forall n \in \mathbb{N}\) e
     \(a_{n}\to +\infty\) allora \(b_{n}\to +\infty\)
@@ -918,39 +917,148 @@ perchè \(n! > n\)
 }
 
 \pf{
-\textbf{(1)} Hp:
+\textbf{(1)}
+
+Per ipotesi:
 \begin{itemize}
     \item \(a_{n}\to l\in \mathbb{R}\)
     \item \(c_{n}\to l\in \mathbb{R}\)
-    \item \(a_{n}\leq b_{n}\leq c_{n}\) % NOTA: Definizione usa >=
+    \item \(a_{n}\leq b_{n}\leq c_{n}\)
 \end{itemize}
-Per hp:
-\begin{align*}
-& a_{n}\to l \in \mathbb{R} \implies \forall \epsilon > 0 \exists \nu_{1}>0: l- \epsilon <a_{n}<l+\epsilon \forall n> \nu_{1} \\
-& c_{n}\to l \in \mathbb{R} \implies \forall \epsilon > 0 \exists \nu_{2}>0: l- \epsilon <c_{n}<l+\epsilon \forall n> \nu_{2} \\
-& \forall n> \nu_{1} \;
-l - \epsilon <a_{n}\leq b_{n} \leq c_{n} <l+\epsilon \; \forall n> \nu_{2} \implies \\
-& l-\epsilon < b_{n} <l +\epsilon \;
-\forall n > \nu = \max\{\nu_{1}, \nu_{2}\} \\
-\end{align*}
+
+Per definizione di limite:
+
+\[
+a_{n}\to l
+\iff
+\forall \epsilon > 0 \ \exists \nu_{1}\in \mathbb{N} :
+|a_n - l| < \epsilon
+\quad \forall n > \nu_{1}
+\]
+
+\[
+c_{n}\to l
+\iff
+\forall \epsilon > 0 \ \exists \nu_{2}\in \mathbb{N} :
+|c_n - l| < \epsilon
+\quad \forall n > \nu_{2}
+\]
+
+Sia ora \(\epsilon > 0\).  
+
+Esistono quindi \(\nu_1,\nu_2 \in \mathbb{N}\) tali che:
+
+\[
+l-\epsilon < a_n < l+\epsilon
+\quad \forall n > \nu_1
+\]
+
+\[
+l-\epsilon < c_n < l+\epsilon
+\quad \forall n > \nu_2
+\]
+
+Poniamo
+
+\[
+\nu = \max\{\nu_1,\nu_2\}.
+\]
+
+Allora per ogni \(n > \nu\) valgono entrambe le disuguaglianze precedenti, cioè:
+
+\[
+l-\epsilon < a_n
+\quad \text{e} \quad
+c_n < l+\epsilon.
+\]
+
+Poiché per ipotesi \(a_n \leq b_n \leq c_n\), segue che per ogni \(n > \nu\):
+
+\[
+l-\epsilon < a_n \leq b_n \leq c_n < l+\epsilon.
+\]
+
+Quindi
+
+\[
+l-\epsilon < b_n < l+\epsilon
+\quad \forall n > \nu,
+\]
+
+cioè
+
+\[
+|b_n - l| < \epsilon
+\quad \forall n > \nu.
+\]
+
+Essendo \(\epsilon > 0\) arbitrario, per definizione di limite si conclude che
+
+\[
+b_n \to l.
+\]
 }
+
 
 \pf{
-\textbf{(2)} Per hp: \(a_{n}\to +\infty\)
-\[\forall M > 0 \exists \nu_{1}>0 : a_{n}> M \;
-\forall n>\nu_{1}\] Th:
-\(b_{n}\to +\infty\) ovvero:
-\[\forall M > 0 \exists \nu>0 : b_{n}> M \;
-\forall n> \nu\]
+\textbf{(2)}
 
-Per hp: \(b_{n}\geq a_{n}>M\) 
-\begin{align*} % Cambiato align in align*
-& \forall n \in \mathbb{N}\\
-& \forall n>\nu_{1}\\
-& \forall n > \nu_{2}\\ \\
-& \text{Quindi } \forall n> \nu = \max\{\nu_{1}, \nu_{2}\}
-\end{align*}
+Per ipotesi:
+\[
+a_n \to +\infty
+\]
+
+Per definizione:
+\[
+\forall M > 0 \ \exists \nu_1 \in \mathbb{N} :
+a_n > M
+\quad \forall n > \nu_1.
+\]
+
+Inoltre per ipotesi:
+\[
+b_n \geq a_n
+\quad \forall n \in \mathbb{N}.
+\]
+
+Dimostriamo che \(b_n \to +\infty\), cioè:
+\[
+\forall M > 0 \ \exists \nu \in \mathbb{N} :
+b_n > M
+\quad \forall n > \nu.
+\]
+
+Sia \(M > 0\).  
+
+Poiché \(a_n \to +\infty\), esiste \(\nu_1 \in \mathbb{N}\) tale che
+\[
+a_n > M
+\quad \forall n > \nu_1.
+\]
+
+Ma per ogni \(n > \nu_1\) vale anche
+\[
+b_n \geq a_n,
+\]
+
+quindi
+\[
+b_n \geq a_n > M
+\quad \forall n > \nu_1.
+\]
+
+Ponendo dunque \(\nu = \nu_1\), otteniamo:
+\[
+b_n > M
+\quad \forall n > \nu.
+\]
+
+Essendo \(M > 0\) arbitrario, per definizione segue che
+\[
+b_n \to +\infty.
+\]
 }
+
 
 \section{Continuità di Seno e Coseno}\label{continuita-di-seno-e-coseno}
 
