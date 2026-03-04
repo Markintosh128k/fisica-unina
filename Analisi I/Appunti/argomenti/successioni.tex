@@ -1076,61 +1076,232 @@ In particolare se \(a_{n}\to 0\) si ha:
 }
 
 \pf{
-\textbf{(Continuità del Seno in 0)} \par
-Sia \(a_{n}\to 0\). Th:
-\[
-\lim_{ n \to \infty } \sin a_{n}=0
-\] Ricordiamo le disuguaglianze notevoli: 
-\begin{align*} % Cambiato align in align*
-& \text{Se } 0<x<\frac{\pi}{2}: \quad 0 < \sin x < x \\
-& \text{Se } -\frac{\pi}{2}<x<0: \quad x < \sin x < 0 \\
-& \text{Prendendo il valore assoluto in entrambi i casi:} \\
-& \boxed{|\sin x| \le |x|} \quad \text{ per } x \in ]-\frac{\pi}{2}, \frac{\pi}{2}[
-\end{align*}
- Poiché \(a_n \to 0\), \(a_n\) è definitivamente in
-\(]-\frac{\pi}{2}, \frac{\pi}{2}[\).
-Allora possiamo applicare la
-disuguaglianza e vale definitivamente: \(0 \le |\sin a_n | \le |a_n |\)
+\textbf{(Continuità del seno in 0)}
 
-Dato che (per ipotesi) \(\lim_{n \to \infty} |a_n| = 0\) e
-\(\lim_{n \to \infty} 0 = 0\), per il Teorema del Confronto
-(Carabinieri) anche la successione centrale converge a 0:
-\[\lim_{n \to \infty} |\sin a_n| = 0\]
-Questo implica
-\(\lim_{n \to \infty} \sin a_n = 0\).
+Sia \(a_n \to 0\).  
+
+Vogliamo dimostrare che
+\[
+\lim_{n \to \infty} \sin(a_n) = 0.
+\]
+
+\medskip
+
+\textbf{1. Disuguaglianza fondamentale}
+
+Ricordiamo le disuguaglianze notevoli:
+
+\begin{align*}
+& \text{Se } 0 < x < \frac{\pi}{2}, 
+\quad 0 < \sin x < x, \\
+\\
+& \text{Se } -\frac{\pi}{2} < x < 0, 
+\quad x < \sin x < 0.
+\end{align*}
+
+In entrambi i casi, prendendo il valore assoluto otteniamo:
+
+\[
+|\sin x| \le |x|
+\quad \text{per ogni } 
+x \in \left(-\frac{\pi}{2}, \frac{\pi}{2}\right).
+\]
+
+\medskip
+
+\textbf{2. Applicabilità alla successione}
+
+Poiché \(a_n \to 0\), per definizione di limite:
+
+\[
+\forall \epsilon > 0 \ \exists \nu \in \mathbb{N} :
+|a_n| < \epsilon
+\quad \forall n > \nu.
+\]
+
+Scegliendo ad esempio \(\epsilon = \frac{\pi}{2}\), esiste 
+\(\nu_0 \in \mathbb{N}\) tale che
+
+\[
+|a_n| < \frac{\pi}{2}
+\quad \forall n > \nu_0.
+\]
+
+Quindi definitivamente
+\[
+a_n \in \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)
+\quad \forall n > \nu_0.
+\]
+
+Possiamo quindi applicare la disuguaglianza precedente e ottenere,
+per ogni \(n > \nu_0\):
+
+\[
+0 \le |\sin(a_n)| \le |a_n|.
+\]
+
+\medskip
+
+\textbf{3. Applicazione del Teorema del Confronto}
+
+Poiché \(a_n \to 0\), sappiamo che
+
+\[
+|a_n| \to 0.
+\]
+
+Inoltre la successione costante nulla converge a 0:
+
+\[
+0 \to 0.
+\]
+
+Abbiamo quindi, definitivamente,
+
+\[
+0 \le |\sin(a_n)| \le |a_n|,
+\]
+
+con:
+\[
+\lim_{n \to \infty} 0 = 0,
+\qquad
+\lim_{n \to \infty} |a_n| = 0.
+\]
+
+Per il Teorema del Confronto (o dei Carabinieri) segue che
+
+\[
+\lim_{n \to \infty} |\sin(a_n)| = 0.
+\]
+
+\medskip
+
+\textbf{4. Conclusione}
+
+Poiché una successione converge a 0 se e solo se converge a 0 il suo valore assoluto, concludiamo che
+
+\[
+\lim_{n \to \infty} \sin(a_n) = 0.
+\]
+
+Abbiamo quindi dimostrato la continuità del seno in 0.
 }
 
 \pf{
-\textbf{(Continuità del Seno in \(a \in \mathbb{R}\))} \par
-Vogliamo dimostrare che se \(a_n \to a\), allora:
-\[\lim_{n \to \infty} \sin a_n = \sin a\]
+\textbf{(Continuità del seno in \(a \in \mathbb{R}\))}
 
-Definiamo una nuova successione \(b_n = a_n - a\).
-Poiché \(a_n \to a\),
-allora \(b_n \to 0\).
+Sia \(a_n \to a\).  
 
-Riscriviamo \(a_n = b_n + a\) e usiamo la formula di addizione del seno:
-\[\sin a_n = \sin(b_n + a) = \sin(b_n)\cos(a) + \cos(b_n)\sin(a)\]
+Vogliamo dimostrare che
+\[
+\lim_{n \to \infty} \sin(a_n) = \sin(a).
+\]
 
-Calcoliamo il limite di entrambi i membri (notando che \(\sin a\) e
-\(\cos a\) sono costanti):
-\[\lim_{n \to \infty} \sin a_n = \lim_{n \to \infty} \left( \sin(b_n)\cos(a) + \cos(b_n)\sin(a) \right)\]
+\medskip
 
-Per l'algebra dei limiti:
-\[\lim_{n \to \infty} \sin a_n = \left(\lim_{n \to \infty} \sin(b_n)\right) \cdot \cos(a) + \left(\lim_{n \to \infty} \cos(b_n)\right) \cdot \sin(a)\]
+\textbf{1. Riduzione al caso 0}
 
-Poiché \(b_n \to 0\), usiamo i risultati già dimostrati per la
-continuità in 0:
-\begin{enumerate}
-    \item \(\lim_{n \to \infty} \sin(b_n) = 0\)
-    \item \(\lim_{n \to \infty} \cos(b_n) = 1\)
-\end{enumerate}
+Definiamo la successione
+\[
+b_n = a_n - a.
+\]
 
-Sostituendo questi limiti, otteniamo:
-\[\lim_{n \to \infty} \sin a_n = (0) \cdot \cos(a) + (1) \cdot \sin(a) = \sin a\]
+Poiché \(a_n \to a\), per l'algebra dei limiti segue che
+\[
+b_n \to 0.
+\]
 
-\emph{(Nota: La dimostrazione per \(\cos a_n \to \cos a\) è analoga,
-usando la formula di addizione del coseno).}
+Inoltre possiamo riscrivere
+\[
+a_n = b_n + a.
+\]
+
+\medskip
+
+\textbf{2. Formula di addizione}
+
+Usiamo la formula di addizione del seno:
+\[
+\sin(b_n + a)
+=
+\sin(b_n)\cos(a)
++
+\cos(b_n)\sin(a).
+\]
+
+Quindi
+\[
+\sin(a_n)
+=
+\sin(b_n)\cos(a)
++
+\cos(b_n)\sin(a).
+\]
+
+\medskip
+
+\textbf{3. Passaggio al limite}
+
+Passiamo al limite per \(n \to \infty\):
+
+\[
+\lim_{n \to \infty} \sin(a_n)
+=
+\lim_{n \to \infty}
+\left(
+\sin(b_n)\cos(a)
++
+\cos(b_n)\sin(a)
+\right).
+\]
+
+Poiché \(\sin(a)\) e \(\cos(a)\) sono costanti, possiamo applicare
+l’algebra dei limiti (somma e prodotto), ottenendo:
+
+\[
+\lim_{n \to \infty} \sin(a_n)
+=
+\left(
+\lim_{n \to \infty} \sin(b_n)
+\right)\cos(a)
++
+\left(
+\lim_{n \to \infty} \cos(b_n)
+\right)\sin(a).
+\]
+
+\medskip
+
+\textbf{4. Uso della continuità in 0}
+
+Poiché \(b_n \to 0\), e abbiamo già dimostrato la continuità in 0,
+segue che:
+
+\[
+\lim_{n \to \infty} \sin(b_n) = 0,
+\qquad
+\lim_{n \to \infty} \cos(b_n) = 1.
+\]
+
+\medskip
+
+\textbf{5. Conclusione}
+
+Sostituendo:
+
+\[
+\lim_{n \to \infty} \sin(a_n)
+=
+0 \cdot \cos(a)
++
+1 \cdot \sin(a)
+=
+\sin(a).
+\]
+
+Abbiamo quindi dimostrato che il seno è continuo in ogni
+\(a \in \mathbb{R}\).
 }
 
 \section{Limiti Notevoli Derivati}\label{limiti-notevoli-teo-confronto}
@@ -1253,84 +1424,117 @@ l'esempio 8 delle successioni numeriche
 
 \section{Teorema sul numero di Nepero}\label{teorema-numero-di-nepero}
 
+La successione $a_{n}=\left(1+\frac{1}{n}\right)^n$ è convergente e si pone:
+\[
+\lim_{n \to \infty} \left(1+\frac{1}{n}\right)^n = e
+\]
+e si chiama numero di Nepero, con $e \approx 2{,}718\ldots$
 
-La successione \(a_{n}=( 1+ \frac{1}{n})^n\) è convergente e si pone: \[
-\lim_{ n \to \infty } \left( 1+ \frac{1}{n}\right)^n = e
-\] e si chiama numero di nepero e: \(e\sim 2.718\dots\)
+Per calcolarlo, si pongono 3 successioni $a_{n} < b_{n} < c_{n}$, con $a_n$ e 
+$c_n$ rispettivamente leggermente più piccole o più grandi di $e$. Più si ``stringe'', 
+più si trova $b_n$ precisamente (Metodo di Esaustione).
 
-Per calcolarlo, pongo 3 successioni: \(a_{n}<b_{n}<c_{n}\) con \(a_n\) e
-\(c_{n}\) rispettivamente leggermente più o meno grandi di \(e\). Più
-``stringo'', più trovo \(b_{n}\) precisamente. (Metodo di Esaustione).
+\pf{
+Bisogna dimostrare che $\left(1+\frac{1}{n}\right)^n$ è convergente, ossia:
+\begin{enumerate}
+    \item $a_n \nearrow_S$ (è monotona crescente)
+    \item $a_n$ è limitata superiormente
+\end{enumerate}
 
+\textbf{Passo 1: $a_n$ è strettamente crescente.}
 
-\begin{proof}
-Bisogna dimostrare che
-\(\left( 1 + \frac{1}{n} \right)^n\) è convergente: 1.
-\(a_{n} \nearrow_{S}\) 2. \(a_{n}\) è limitata
-
-Per dimostrare che è \(\nearrow_{S}\): devo dimostrare che
-\(a_{n}<a_{n+1}\) ovvero:
-\[\boxed{\left( 1+ \frac{1}{n} \right)^n < \left( 1 + \frac{1}{n+1} \right)^{n+1}}\]
-Allora: uso \textbf{\(G\leq A\)} oppure il principio di induzione + la
-diseguaglianza di Bernoulli.
-
-
-
+Dobbiamo dimostrare che $a_n < a_{n+1}$, ovvero:
+\[
+\boxed{\left(1+\frac{1}{n}\right)^n < \left(1+\frac{1}{n+1}\right)^{n+1}}
+\]
+Usiamo la disuguaglianza \textbf{GM $\leq$ AM} con $n+1$ termini:
+\[
+x_1 = x_2 = \cdots = x_n = 1+\frac{1}{n}, \qquad x_{n+1} = 1.
+\]
+Poiché i termini non sono tutti uguali, vale la disuguaglianza \emph{stretta}:
 \begin{align*}
-& G \leq A \qquad x_{1}=1+ \frac{1}{n} = x_{2}= \dots = x_{n} \quad x_{n+1}=1\\
-& \text{Posso scrivere < stretto perchè i termini non sono tutti uguali} \\
-& G=\sqrt[n+1]{ \left( 1 + \frac{1}{n} \right)^n } < \frac{n\left( 1+\frac{1}{n}\right)+1}{n+1}=A \\
-& \sqrt[n+1]{ \left( 1 + \frac{1}{n} \right)^n } < \frac{n+1+1}{n+1} \\
-&\sqrt[n+1]{ \left( 1 + \frac{1}{n} \right)^n } < 1 + \frac{1}{n+1} \\
-&\boxed{\left( 1 + \frac{1}{n} \right)^n < \left(1 + \frac{1}{n+1}\right)^{n+1}}\\
+G &= \sqrt[n+1]{\left(1+\frac{1}{n}\right)^n \cdot 1} 
+   < \frac{n\!\left(1+\dfrac{1}{n}\right)+1}{n+1} = A \\[6pt]
+&\implies \sqrt[n+1]{\left(1+\frac{1}{n}\right)^n} 
+   < \frac{n+1+1}{n+1} = 1+\frac{1}{n+1} \\[6pt]
+&\implies \boxed{\left(1+\frac{1}{n}\right)^n < \left(1+\frac{1}{n+1}\right)^{n+1}}
 \end{align*}
+Dunque $a_n$ è definitivamente crescente, per cui $e := \sup_n a_n$ è ben definito 
+e $a_n < e$ per ogni $n \in \mathbb{N}$ (il sup è un maggiorante non raggiunto).
 
+\bigskip
+\textbf{Passo 2: $a_n$ è limitata superiormente (tramite la successione $b_n$).}
 
-È definitivamente crescente. Quindi ``\(e\)'' è il
-\(\sup\) quindi \(\left( 1 +\frac{1}{n} \right)^n < e\) e il sup è un
-maggiorante.
+Definiamo:
+\[
+b_n = \left(1+\frac{1}{n}\right)^{n+1} 
+    = \left(1+\frac{1}{n}\right)^n \left(1+\frac{1}{n}\right) > a_n.
+\]
+Mostriamo che $b_n$ è \emph{strettamente decrescente}. 
+A tal fine, consideriamo la successione ausiliaria:
+\[
+c_n = \frac{1}{b_{n-1}} = \left(1-\frac{1}{n}\right)^n
+\]
+e dimostriamo che $c_n \nearrow_S$. Si verifica che:
+\[
+b_{n-1} = \left(1+\frac{1}{n-1}\right)^n = \left(\frac{n}{n-1}\right)^n
+\implies
+\frac{1}{b_{n-1}} = \left(\frac{n-1}{n}\right)^n = \left(1-\frac{1}{n}\right)^n = c_n. \checkmark
+\]
 
-Si consideri la successione:
-\[b_{n}= \left( 1 +\frac{1}{n} \right)^{n+1}= \left( 1 +\frac{1}{n} \right)^n \left( 1 + \frac{1}{n} \right)>a_{n}\]
-Voglio dimostrare che \(b_{n}\) è decrescente, quindi il suo limite
-sarebbe il suo \(\inf\), \(\sup a_{n}=\inf b_{n}\) quindi l'elemento
-separatore \(=e\). 
+Applichiamo nuovamente GM $<$ AM con $n+1$ termini:
+\[
+x_1 = \cdots = x_n = 1-\frac{1}{n}, \qquad x_{n+1} = 1.
+\]
 \begin{align*}
-& \textcolor{orange}{b_{1}} > \underset{(\searrow_{S})}{b_{n}} > e > \underset{(\nearrow_{S})}{a_{n}} > \textcolor{orange}{a_{1}} \\
-& b_{n}=\left(\frac{n+1}{n} \right)^{n+1} \quad \text{deve essere decrescente.} \\
-& \text{Consideriamo } c_{n}= \frac{1}{b_{(n-1)}} = \left( 1- \frac{1}{n} \right)^n. \quad \text{Dimostreremo che } c_n \nearrow_S. \\
-& \text{Verifica: } b_{(n-1)} = \left(1 + \frac{1}{n-1}\right)^{n} = \left(\frac{n-1+1}{n-1}\right)^{n} = \left(\frac{n}{n-1}\right)^{n} \\
-& \implies \frac{1}{b_{(n-1)}} = \left(\frac{n-1}{n}\right)^{n} = \left(1 - \frac{1}{n}\right)^n = c_n.
-\end{align*} 
-Se \(c_{n}\nearrow_{s}\) allora \(b_{n}\searrow_{S}\)
-Considero: 
-
-
-\begin{align*}
-& x_{1}=\left( 1 -\frac{1}{n} \right)=x_{2}=\dots=x_{n} \; , \; x_{n+1}=1 \\
-& G<A \quad \sqrt[n+1]{\left( 1- \frac{1}{n} \right)^{n}} < \frac{n\left( 1- \frac{1}{n} \right) +1}{n+1} \\
-& \sqrt[n+1]{\left( 1- \frac{1}{n} \right)^{n}} < \frac{n-1+1}{n+1} \\
-& \sqrt[n+1]{\left( 1- \frac{1}{n} \right)^{n}} < \left( 1 - \frac{1}{n+1} \right) \\
-& {\left( 1- \frac{1}{n} \right)^{n}} < \left( 1 - \frac{1}{n+1} \right)^{n+1} \implies \nearrow_{S} \\
-&\textcolor{orange}{b_{1}} > \underset{(\searrow_{S})}{b_{n}} > e > \underset{(\nearrow_{S})}{a_{n}} > \textcolor{orange}{a_{1}}
+&\sqrt[n+1]{\left(1-\frac{1}{n}\right)^n} 
+  < \frac{n\!\left(1-\dfrac{1}{n}\right)+1}{n+1}
+  = \frac{n-1+1}{n+1} = \frac{n}{n+1} = 1-\frac{1}{n+1} \\[6pt]
+&\implies \left(1-\frac{1}{n}\right)^n < \left(1-\frac{1}{n+1}\right)^{n+1}
+\implies c_n \nearrow_S.
 \end{align*}
+Poiché $c_n = 1/b_{n-1} \nearrow_S$, si ha $b_n \searrow_S$, 
+e lo schema delle due successioni è:
+\[
+\textcolor{orange}{b_1} > \underset{(\searrow_S)}{b_n} > e 
+> \underset{(\nearrow_S)}{a_n} > \textcolor{orange}{a_1}.
+\]
 
+\bigskip
+\textbf{Passo 3: $\sup a_n = \inf b_n$.}
 
-Quindi: 
+Sappiamo che $a_n < b_n$ per ogni $n$, quindi $\sup a_n \leq \inf b_n$. 
+Per mostrare che i due valori coincidono, osserviamo che:
+\[
+b_n - a_n = \left(1+\frac{1}{n}\right)^n\left(1+\frac{1}{n}\right) 
+          - \left(1+\frac{1}{n}\right)^n 
+          = \left(1+\frac{1}{n}\right)^n \cdot \frac{1}{n}.
+\]
+Poiché $a_n$ è limitata superiormente (ad esempio $a_n < b_1$ per ogni $n$) 
+e $\frac{1}{n} \to 0$, si ha:
+\[
+b_n - a_n = \left(1+\frac{1}{n}\right)^n \cdot \frac{1}{n} \to 0.
+\]
+Dunque per il \textbf{teorema dei carabinieri}:
+\[
+\lim_{n\to\infty} a_n = \lim_{n\to\infty} b_n = e,
+\qquad \sup a_n = e = \inf b_n.
+\]
 
+\bigskip
+\textbf{Conclusione.}
 
-\begin{align*}
-& \lim_{ n \to \infty } b_{n} = \lim_{ n \to \infty } a_{n}= e \\
-& \inf b_{n} = e = \sup a_{n} \\
-&\left( 1+ \frac{1}{n} \right)^{n+1} = b_{n} > \inf b_{n} = e = \sup a_{n} > a_{n} = \left( 1 +\frac{1}{n} \right)^n \\
-& \left( 1+ \frac{1}{n} \right)^{n+1} > e > \left( 1 +\frac{1}{n} \right)^n \quad \forall n \in \mathbb{N}
-\end{align*}
+In particolare, per ogni $n \in \mathbb{N}$:
+\[
+\left(1+\frac{1}{n}\right)^{n+1} = b_n > e > a_n = \left(1+\frac{1}{n}\right)^n.
+\]
 
-Calcolo una stima (\(n\) a dx e a sx non devono essere
-necessariamente uguali):
-\[\left( 1+ \frac{1}{400} \right)^{401} > e > \left( 1 +\frac{1}{200} \right)^{200} \to 2,722>e>2,711\]
-\end{proof}
-
+\textbf{Stima numerica} (i valori di $n$ a sinistra e a destra possono essere diversi):
+\[
+\left(1+\frac{1}{400}\right)^{401} > e > \left(1+\frac{1}{200}\right)^{200}
+\implies 2{,}722 > e > 2{,}711.
+\]
+}
 
 \subsection{Limite Notevole di e}
 \prop{
@@ -1434,81 +1638,93 @@ G_3 = \sqrt[3]{a_1 \cdot a_2 \cdot a_3} = \sqrt[3]{1 \cdot 2 \cdot 3} = \sqrt[3]
 \]
 }
 
-\subsection{Teorema di Cesaro sulle medie Arimetiche}
+\subsection{Teorema di Cesàro sulle medie aritmetiche}
 
 \prop{
-Se \(a_{n}\)una successione regolare, anche \(A_{n}\) è
+Se \(a_{n}\) è una successione regolare, anche \(A_{n}\) è
 regolare e risulta:
 \[\lim_{ n \to +\infty } A_{n}=\lim_{ n \to +\infty } a_{n}\]
 }
 
 \pf{
-Sia \(a_n \to l \in \mathbb{R}\).
-(Primo Caso)
+Sia \(a_n \to l \in \mathbb{R}\). (Primo Caso)
+Per ipotesi, dalla definizione di limite:
 \[
-\forall\epsilon > 0 \exists \nu_1 > 0: |a_n - l| < \epsilon \quad \forall n > \nu_1
-\] (Th) Tesi: \[
-\forall\epsilon > 0 \exists \nu > 0 : |A_n - l| < \epsilon \quad \forall n > \nu
-\] Sia \(\epsilon > 0\) e sia \([\nu_1]\) che trovo per ipotesi.
-Vado a
-stimare \(|A_n - l|\):
+\forall\epsilon > 0 \; \exists \nu_1 \in \mathbb{N}: |a_n - l| < \epsilon \quad \forall n > \nu_1
+\] 
+(Th) Tesi: 
+\[
+\forall\epsilon > 0 \; \exists \nu \in \mathbb{N} : |A_n - l| < \epsilon \quad \forall n > \nu
+\] 
+
+Fissiamo \(\epsilon > 0\) e sia \(\nu_1\) l'indice trovato per ipotesi.
+Andiamo a stimare \(|A_n - l|\):
 
 \begin{align*}
-|A_n - l| &= \left| \frac{a_1 + a_2 + \dots + a_n}{n} - l \right|
-= \left|\frac{a_{1}+a_{2}+\dots+a_{n}-nl}{n}\right| \\
+|A_n - l| &= \left| \frac{a_1 + a_2 + \dots + a_n}{n} - l \right| \\
+&= \left|\frac{a_{1}+a_{2}+\dots+a_{n}-nl}{n}\right| \\
 &= \left|\frac{(a_{1}-l)+(a_{2}-l)+\dots+(a_{n}-l)}{n}\right|
 \end{align*}
-Spezziamo la somma (per \(n > [\nu_1]\)) e usiamo la disuguaglianza
-triangolare: \[
-|A_n - l| \le \left| \frac{|a_1 - l| + \dots + |a_{[\nu_1]} - l|}{n} \right| + \left| \frac{|a_{[\nu_1]+1} - l| + \dots + |a_n - l|}{n} \right|
-\] Ora analizziamo i due addendi:
+
+Spezziamo la somma all'indice \(\nu_1\) (supponendo \(n > \nu_1\)) e usiamo la disuguaglianza triangolare: 
+\[
+|A_n - l| \le \frac{|a_1 - l| + \dots + |a_{\nu_1} - l|}{n} + \frac{|a_{\nu_1+1} - l| + \dots + |a_n - l|}{n}
+\] 
+
+Ora analizziamo i due addendi:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
   \textbf{Primo Addendo}: Il numeratore
-  \(K=|a_1 - l| + \dots + |a_{[\nu_1]} - l|\) è una quantità fissa (una
+  \(K=|a_1 - l| + \dots + |a_{\nu_1} - l|\) è una quantità fissa (una
   costante), dato che \(\nu_1\) è fisso.
   Il termine
   \(\frac{K}{n} \to 0\) per \(n \to +\infty\).
   Per la definizione di
-  limite, \(\exists \nu_2 > 0\) tale che: \[
-  \frac{|a_1 - l| + \dots + |a_{[\nu_1]} - l|}{n} < \epsilon \quad \forall n > \nu_2
+  limite, \(\exists \nu_2 \in \mathbb{N}\) tale che: 
+  \[
+  \frac{|a_1 - l| + \dots + |a_{\nu_1} - l|}{n} < \epsilon \quad \forall n > \nu_2
   \]
 \item
-  \textbf{Secondo Addendo}: Per ipotesi, \(\forall n > [\nu_1]\) si ha
+  \textbf{Secondo Addendo}: Per ipotesi, \(\forall n > \nu_1\) si ha
   \(|a_n - l| < \epsilon\).
-  I termini da \([\nu_1]+1\) a \(n\) sono
-  \((n-[\nu_1])\). \[
-  \frac{|a_{[\nu_1]+1} - l| + \dots + |a_n - l|}{n} < \frac{(n-[\nu_1])\epsilon}{n} \le \frac{n\epsilon}{n} = \epsilon
-  \] Questo vale \(\forall n > [\nu_1]\).
+  I termini che vanno da \(\nu_1+1\) a \(n\) sono esattamente
+  \((n-\nu_1)\). 
+  \[
+  \frac{|a_{\nu_1+1} - l| + \dots + |a_n - l|}{n} < \frac{(n-\nu_1)\epsilon}{n} \le \frac{n\epsilon}{n} = \epsilon
+  \] 
+  Questa maggiorazione vale \(\forall n > \nu_1\).
 \end{enumerate}
 
-\textbf{Conclusione}: Scelgo \(\nu = \max\{\nu_1, \nu_2\}\). Per ogni
-\(n > \nu\) valgono entrambe le maggiorazioni: \[
+\textbf{Conclusione}: Scegliamo \(\nu = \max\{\nu_1, \nu_2\}\). Per ogni
+\(n > \nu\) valgono contemporaneamente entrambe le maggiorazioni: 
+\[
 |A_n - l| \le (\text{Primo Addendo}) + (\text{Secondo Addendo}) < \epsilon + \epsilon = 2\epsilon
-\] Data l'arbitrarietà di \(\epsilon\), questo dimostra la tesi.
+\] 
+Data l'arbitrarietà di \(\epsilon\), aver mostrato che la distanza è definitivamente minore di una quantità arbitrariamente piccola (\(2\epsilon\)) dimostra la tesi.
 }
 
-\subsection{Teorema di Cesaro sulle medie
-Geometriche}\label{teorema-di-cesaro-sulle-medie-geometriche}
+\subsection{Teorema di Cesaro sulle medie Geometriche}\label{teorema-di-cesaro-sulle-medie-geometriche}
 
 \prop{
-Se \(a_{n}>0 \; \forall n\) e \(a_{n}\) è
-regolare, anche \(G_{n}\) è regolare e risulta:
+Se \(a_{n}>0 \; \forall n\) e \(a_{n}\) è regolare, anche \(G_{n}\) è regolare e risulta:
 \[\lim_{ n \to +\infty } G_{n}=\lim_{ n \to +\infty } a_{n}\]
 }
 
 \pf{
 \begin{align*}
-& G_{n}=\sqrt[n]{a_{1}\dots  a_{n}} \\
-& \log G_{n} = \log\sqrt[n]{a_{1}\dots  a_{n}} = \frac{\log a_{1} + \log a_{2}+\dots+\log a_{n}}{n} \\
-& b_{n} = \log a_{n}\\
-& \lim_{ n \to +\infty } \log G_{n} = \lim_{ n \to +\infty } b_{n} \implies \lim_{ n \to +\infty } G_{n} = \lim_{ n \to +\infty } a_{n}
+& G_{n} = \sqrt[n]{a_{1}\dots a_{n}} \\
+& \log G_{n} = \log\left(\sqrt[n]{a_{1}\dots a_{n}}\right) = \frac{\log a_{1} + \log a_{2}+\dots+\log a_{n}}{n} \\
+& \text{Posto } b_{n} = \log a_{n}, \text{ per il teorema di Cesaro sulle medie aritmetiche applicato a } b_n: \\
+& \lim_{ n \to +\infty } \log G_{n} = \lim_{ n \to +\infty } \frac{b_{1}+\dots+b_{n}}{n} = \lim_{ n \to +\infty } b_{n} = \lim_{n \to +\infty} \log a_n \\
+& \text{Per la continuità della funzione esponenziale, deduciamo infine che:} \\
+& \lim_{ n \to +\infty } G_{n} = \lim_{ n \to +\infty } e^{\log G_{n}} = e^{\lim_{n \to +\infty} \log a_n} = \lim_{ n \to +\infty } a_{n}
 \end{align*}
 }
 
 \ex{
+Questo esempio ci mostra che non vale l'implicazione inversa. La successione delle medie geometriche ammette limite mentre la successione originale no.
 \[
 a_{n}= 
 \begin{cases}
@@ -1519,18 +1735,19 @@ a_{n}=
 \begin{align*}
 G_{n} &= \sqrt[n]{a_{1}\dots a_{n}} = 
 \begin{cases}
-\sqrt[n]{2^{\frac{n-1}{2}}}\to \sqrt{2} \\
-\sqrt[n]{2^{\frac{n}{2}}}\to \sqrt{2}
+\sqrt[n]{2^{\frac{n-1}{2}}} \to \sqrt{2} \\
+\sqrt[n]{2^{\frac{n}{2}}} \to \sqrt{2}
 \end{cases}
 \end{align*}
 }
 
 \ex{
 \[
-A_{n}=\begin{cases}
-\frac{3n-1}{2n} \text{ se } n \text{ è dispari} \\
-\frac{3}{2} \text{ se } n \text{ è pari}
-\end{cases}\to \frac{3}{2}
+A_{n}=
+\begin{cases}
+\frac{3n-1}{2n} \quad \text{se } n \text{ è dispari} \\
+\frac{3}{2} \quad \text{se } n \text{ è pari}
+\end{cases} \to \frac{3}{2}
 \]
 }
 
@@ -1562,38 +1779,60 @@ Per Cesaro:
 \end{align*}
 }
 
-\subsubsection{Teorema criterio della
-Radice}\label{teorema-criterio-della-radice}
+\subsubsection{Teorema (Criterio della Radice)}\label{teorema-criterio-della-radice}
 
 \prop{
 Criterio della radice (per le successioni)
 
-Sia \(a_n \ge 0\) una successione.
+Sia $a_n \ge 0$ una successione reale.
 
-Se \(\exists \lim_{n \to +\infty} \sqrt[n]{a_n} = l \implies\) si ha: 
+Se esiste $\lim_{n \to +\infty} \sqrt[n]{a_n} = l$, si ha:
 \begin{enumerate}
-    \item \(l>1 \implies a_n \text{ diverge pos} \implies \lim_{n \to +\infty} a_n = +\infty\)
-    \item \(l<1 \implies \lim_{n \to +\infty} a_n = 0 \implies a_n \text{ infinitesima}\)
+    \item Se $l>1$, allora $a_n$ diverge positivamente, ovvero $\lim_{n \to +\infty} a_n = +\infty$.
+    \item Se $l<1$, allora $a_n$ è infinitesima, ovvero $\lim_{n \to +\infty} a_n = 0$.
 \end{enumerate}
+\textit{Nota: se $l=1$, il criterio è inefficace e non fornisce alcuna informazione sul carattere della successione.}
 }
 
 \pf{
-Dimostriamo 1 (\(l>1\)) Se \(l>1\) \(a_n \to +\infty\).
-Scelto \(\epsilon \text{ t.c. } l-\epsilon > 1 \implies\)
-\(\exists \nu \text{ t.c. } \forall n > \nu \implies \sqrt[n]{a_n} > l-\epsilon > 1\).
-\(a_n > (l-\epsilon)^n \to +\infty\). per il teo. del conf diverge.
+\textbf{Dimostrazione 1 (Caso $l>1$):}
+Vogliamo dimostrare che se $l>1$, allora $a_n \to +\infty$.
+
+Poiché $l>1$, possiamo scegliere un $\epsilon > 0$ tale che $l-\epsilon > 1$.
+Per la definizione di limite, applicata a $\lim_{n \to +\infty} \sqrt[n]{a_n} = l$, esiste un indice $\nu \in \mathbb{N}$ tale che, per ogni $n > \nu$, si ha:
+\[ \sqrt[n]{a_n} > l-\epsilon > 1 \]
+Elevando alla $n$-esima potenza ambo i membri (operazione lecita poiché i termini sono positivi), otteniamo:
+\[ a_n > (l-\epsilon)^n \]
+Poiché la base $(l-\epsilon)$ è strettamente maggiore di $1$, la successione geometrica $(l-\epsilon)^n$ diverge a $+\infty$ per $n \to +\infty$.
+Pertanto, per il teorema del confronto, anche la successione $a_n$ diverge a $+\infty$.
 }
 
 \pf{
-Dimostriamo 2 (\(l<1\)) Sia \(l<1\).
-Th: \(a_n \to 0\).
-Sappiamo che \(a_n \ge 0\). Scegliamo \(\epsilon\) t.c.
-\(l+\epsilon < 1\).
-\(\exists \nu \text{ t.c. } \forall n > \nu \implies \sqrt[n]{a_n} < l+\epsilon < 1\).
-Dunque \(0 \le a_n < (l+\epsilon)^n\). Per \(n \to +\infty\),
-\(\lim_{n \to +\infty} (l+\epsilon)^n = 0\).
-Dunque per i carabinieri
-\(a_n \to 0\).
+\textbf{Dimostrazione 2 (Caso $l<1$):}
+Vogliamo dimostrare che se $l<1$, allora $a_n \to 0$.
+
+Per ipotesi sappiamo che i termini sono non negativi, cioè $a_n \ge 0$. Poiché $l<1$, possiamo scegliere un $\epsilon > 0$ tale che $l+\epsilon < 1$.
+Per la definizione di limite, esiste un indice $\nu \in \mathbb{N}$ tale che, per ogni $n > \nu$, si ha:
+\[ \sqrt[n]{a_n} < l+\epsilon < 1 \]
+Elevando alla $n$-esima potenza, e tenendo conto che $a_n \ge 0$, otteniamo la seguente disuguaglianza valida per ogni $n > \nu$:
+\[ 0 \le a_n < (l+\epsilon)^n \]
+Poiché la base $(l+\epsilon)$ è compresa tra $0$ e $1$, la successione geometrica $(l+\epsilon)^n$ tende a $0$ per $n \to +\infty$.
+Dunque, applicando il teorema dei carabinieri (o del doppio confronto), deduciamo che:
+\[ \lim_{n \to +\infty} a_n = 0 \]
+}
+
+\ex{
+\textbf{Esempi di applicazione del Criterio della Radice}
+
+\textbf{Esempio 1 (Caso $l < 1$):}
+Sia $a_n = \left(\frac{2n}{3n+1}\right)^n$. I termini sono non negativi. Calcoliamo il limite della radice $n$-esima:
+\[ \lim_{n \to +\infty} \sqrt[n]{a_n} = \lim_{n \to +\infty} \frac{2n}{3n+1} = \frac{2}{3} \]
+Poiché $l = \frac{2}{3} < 1$, per il Criterio della Radice la successione $a_n \to 0$.
+
+\textbf{Esempio 2 (Caso $l > 1$):}
+Sia $a_n = \left(\frac{5n+2}{n+1}\right)^n$. Calcoliamo il limite:
+\[ \lim_{n \to +\infty} \sqrt[n]{a_n} = \lim_{n \to +\infty} \frac{5n+2}{n+1} = 5 \]
+Poiché $l = 5 > 1$, la successione diverge: $a_n \to +\infty$.
 }
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
@@ -1809,56 +2048,51 @@ nell'ordine: \((4)\to(1)\)
     \]
 }
 
-\cor{
-    Se \(a_{n}\) è limitata \(\exists\) due estratte che convergono a \(l'\) e \(l''\).
-    
-    \(a_{n} \to l\in \mathbb{R} \iff \exists\) 2 estratte che si complementano (Spesso, pari e dispari).
+
+\noindent\rule{0.5\linewidth}{0.5pt}
+
+\corp{
+Sia $(a_n)$ una successione limitata, allora esistono almeno due estratte che convergono rispettivamente a $l'$ e $l''$. In particolare:
+\[ a_n \to l \in \mathbb{R} \iff \exists \text{ due estratte complementari (es. pari e dispari) che convergono a } l \]
 }
 
 \ex{
-    \begin{align*}
-    &a_{n} = \arctan((-1)^n n)\\
-    & \liminf_{n} a_{n} = -\frac{\pi}{2}\\
-    & \limsup_{n} a_{n} = \frac{\pi}{2}
-    \end{align*}
+Sia $a_n = \arctan((-1)^n n)$. Si ha che:
+\[ \liminf_{n \to +\infty} a_n = -\frac{\pi}{2} \quad \text{e} \quad \limsup_{n \to +\infty} a_n = \frac{\pi}{2} \]
 }
+
+\noindent\rule{0.5\linewidth}{0.5pt}
 
 \prop{
-    Ipotesi: Sia \(a_{n}\) limitata.
-    Tesi: \[a_{n} \to l \iff \liminf_{n \to +\infty} a_{n} = \limsup_{n \to +\infty} a_{n} = l\]
+Ipotesi: Sia $(a_n)$ una successione limitata. \\
+Tesi: 
+\[ a_n \to l \iff \liminf_{n \to +\infty} a_n = \limsup_{n \to +\infty} a_n = l \]
 }
 
-\rmkb{La seguente dimostrazione è una classica domanda all'orale.}
+\textbf{Osservazione.} La seguente dimostrazione è una classica domanda in sede di esame orale.
 
 \pf{
-    \textbf{\((\implies)\)}
-    \[
-    a_{n}\to l \implies \forall a_{n_{k}} \implies a_{n_{k}}\to l
-    \]
-    Poiché \(\exists a_{n_{k}}\to l'\) e \(a_{n_{k}}\to l'' \implies l' = l'' = l\).
+\textbf{Dimostrazione Proposizione 4.13.6}
 
-    \textbf{\((\impliedby)\)}
-    Per Hp:
+($\implies$) Se $a_n \to l$, allora ogni sua sottosuccessione $a_{n_k}$ deve convergere allo stesso limite $l$. Poiché esistono sempre sottosuccessioni che tendono al limite inferiore ($l'$) e al limite superiore ($l''$), ne segue che $l' = l'' = l$.
 
-    \begin{align*}
-    & l'=\liminf_{n \to +\infty} a_{n} = \sup (\overbrace {\inf_{k\geq n} a_{k}}^{b_{n}})=l \\
-    & l''=\limsup_{n \to +\infty} a_{n} = \inf (\underbrace {\sup_{k\geq n} a_{k}}_{c_{n}})=l
-    \end{align*}
-    
-    Per la caratterizzazione dell'inf e del sup:
+($\impliedby$) Per ipotesi abbiamo:
+\[ l = \liminf_{n \to +\infty} a_n = \sup_{n} \underbrace{\left( \inf_{k \geq n} a_k \right)}_{b_n} = l \]
+\[ l = \limsup_{n \to +\infty} a_n = \inf_{n} \underbrace{\left( \sup_{k \geq n} a_k \right)}_{c_n} = l \]
 
-    \begin{align*}
-    &\forall \epsilon > 0 \quad \exists \nu_{1}, \nu_{2}>0 :\\
-    &\exists c_{\nu_{2}}, b_{\nu_{1}}:\\
-    &l'' + \epsilon > c_{\nu_{2}} = \sup_{k\geq \nu_{2}} a_{k}\geq a_{k} \quad \forall k> \nu_{2} \\
-    &l' - \epsilon < b_{\nu_{1}} = \inf_{k\geq \nu_{1}} a_{k}\leq a_{k} \quad \forall k> \nu_{1} \\
-    &\nu > \max\{ \nu_{1}, \nu_{2} \}
-    \end{align*}
-    Quindi:
-    \[
-    \liminf_{n} a_{n} \leq \lim_{ n } a_{n} \leq \limsup_{n} a_{n}
-    \]
-    (Nota: \(\nu\) come indice è un abuso di notazione, si dovrebbe usare \([\nu]\)).
+Per la caratterizzazione dell'estremo inferiore e superiore, fissato $\epsilon > 0$, esistono $\nu_1, \nu_2 > 0$ tali che:
+\begin{itemize}
+    \item $\exists c_{\nu_2} : l + \epsilon > c_{\nu_2} = \sup_{k \geq \nu_2} a_k \geq a_k \quad \forall k > \nu_2$
+    \item $\exists b_{\nu_1} : l - \epsilon < b_{\nu_1} = \inf_{k \geq \nu_1} a_k \leq a_k \quad \forall k > \nu_1$
+\end{itemize}
+
+Sia $\nu > \max\{\nu_1, \nu_2\}$. Per ogni $k > \nu$ si ottiene:
+\[ l - \epsilon < a_k < l + \epsilon \]
+Il che dimostra che $\lim_{n \to +\infty} a_n = l$.
+
+In definitiva, vale sempre la relazione:
+\[ \liminf_{n \to +\infty} a_n \leq \lim_{n \to +\infty} a_n \leq \limsup_{n \to +\infty} a_n \]
+(Nota: l'uso di $\nu$ come indice è un leggero abuso di notazione; formalmente si dovrebbe usare $[\nu]$ per indicare la parte intera).
 }
 
 \noindent\rule{0.5\linewidth}{0.5pt}
