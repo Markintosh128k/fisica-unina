@@ -731,20 +731,50 @@ Di seguito sono elencati i principali limiti notevoli utili per la risoluzione d
 \subsection{Monotonia e Invertibilità}
 
 \thm{Limite di Funzioni Monotone}{
-    Sia \(f(x):[a,b]\to \mathbb{R}\) \textbf{monotona}.
-    Allora \(\exists\) finiti i seguenti limiti \(\forall x_{0}\in]a,b[\):
-    \[\lim_{ x \to a^+ } f(x); \quad \lim_{ x \to x_{0}^- } f(x); \quad \lim_{ x \to x_{0}^+ } f(x); \quad \lim_{ x \to b^- } f(x)\]
-    Inoltre se \(f \nearrow\), si possono ordinare come segue:
-    \[f(a)\leq\lim_{ x \to a^+ } f(x) \leq \lim_{ x \to x_{0}^- } f(x)\leq f(x_{0})\leq \lim_{ x \to x_{0}^+ } f(x)\leq\lim_{ x \to b^- } f(x)\leq f(b)\]
+    Sia \(f:[a,b]\to \mathbb{R}\) \textbf{monotona}.
+    Allora esistono finiti i seguenti limiti \(\forall x_{0}\in\,]a,b[\):
+    \[
+    \lim_{x \to a^+} f(x), \quad 
+    \lim_{x \to x_{0}^-} f(x), \quad 
+    \lim_{x \to x_{0}^+} f(x), \quad 
+    \lim_{x \to b^-} f(x)
+    \]
+    Inoltre, se \(f\) è crescente, valgono le seguenti disuguaglianze:
+    \[
+    f(a) \leq \lim_{x \to a^+} f(x) \leq \lim_{x \to x_{0}^-} f(x) \leq f(x_{0}) \leq \lim_{x \to x_{0}^+} f(x) \leq \lim_{x \to b^-} f(x) \leq f(b)
+    \]
 }
 
 \pf{
-    Dimostriamo che esiste il limite sinistro per \(x_0 \in ]a,b[\). Supponiamo \(f \nearrow\).\\
-    L'insieme \(\{ f(x):x\in[a,x_{0}[ \}\) è limitato superiormente da \(f(x_0)\).\\
-    Dunque è ben definito \(l=\sup\{ f(x):x\in[a,x_{0}[ \}\).\\
-    Per le proprietà del \(\sup\), \(\forall \epsilon>0 \exists x_{1}\in [a,x_{0}[: l-\epsilon<f(x_{1})\leq l\).\\
-    Per la monotonia, per ogni \(x\) tale che \(x_1 < x < x_0\), si ha \(l-\epsilon < f(x_1) \le f(x) \le l < l+\epsilon\).\\
-    Quindi il limite sinistro esiste ed è uguale a \(l\).
+    Dimostriamo che esiste il limite sinistro per \(x_0 \in\,]a,b[\), supponendo \(f\) crescente.
+    
+    \textbf{Passo 1.} L'insieme \(A = \{f(x) : x \in [a, x_{0}[\}\) è limitato superiormente da \(f(x_0)\), poiché per monotonia \(f(x) \leq f(x_0)\) per ogni \(x < x_0\).
+    
+    \textbf{Passo 2.} Per il teorema dell'estremo superiore, esiste
+    \[
+    l = \sup\{f(x) : x \in [a, x_{0}[\} \in \mathbb{R}
+    \]
+    e per definizione di \(\sup\) si ha \(f(x) \leq l\) per ogni \(x \in [a, x_{0}[\).
+    
+    \textbf{Passo 3.} Verifichiamo che \(\lim_{x \to x_{0}^-} f(x) = l\).
+    
+    Sia \(\epsilon > 0\). Per la caratterizzazione del \(\sup\), esiste \(x_{1} \in [a, x_{0}[\) tale che
+    \[
+    l - \epsilon < f(x_{1}) \leq l
+    \]
+    
+    \textbf{Passo 4.} Poniamo \(\delta = x_0 - x_1 > 0\). Allora, per ogni \(x \in\,]x_0 - \delta, x_0[ = ]x_1, x_0[\), per la monotonia crescente di \(f\) si ha:
+    \[
+    l - \epsilon < f(x_{1}) \leq f(x) \leq l < l + \epsilon
+    \]
+    dove abbiamo usato che \(f(x) \leq l\) (essendo \(l\) il \(\sup\)) e \(l < l + \epsilon\).
+    
+    \textbf{Passo 5.} Quindi \(|f(x) - l| < \epsilon\) per ogni \(x \in\,]x_0 - \delta, x_0[\), da cui
+    \[
+    \lim_{x \to x_{0}^-} f(x) = l = \sup\{f(x) : x \in [a, x_{0}[\}
+    \]
+    
+    Gli altri limiti si dimostrano in modo analogo. Le disuguaglianze nella tesi seguono dalla monotonia e dalle definizioni dei limiti laterali.
 }
 
 \cor{
