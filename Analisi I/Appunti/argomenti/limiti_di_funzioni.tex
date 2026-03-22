@@ -815,8 +815,18 @@ Di seguito sono elencati i principali limiti notevoli utili per la risoluzione d
     Il \(\delta\) trovato nella continuità puntuale può dipendere sia da \(\epsilon\) che dal punto \(x_0\) scelto.
 }
 
+\defn{Continuità Uniforme}{
+    Sia \(f: A \subseteq \mathbb{R} \to \mathbb{R}\).
+    \(f\) si dice \textbf{uniformemente continua} in \(A\) se:
+    \[\forall \epsilon > 0 \exists \delta > 0 : \forall x, x' \in A, |x - x'| < \delta \implies |f(x) - f(x')| < \epsilon\]
+    (Qui il \(\delta\) dipende solo da \(\epsilon\)).
+}
+
+\subsubsection{Esempi}
+
 \ex{
     \textbf{Esempio 1: \(f(x) = x^2\) (Continua ma non Uniformemente su \(\mathbb{R}\))}
+    
     Vogliamo mostrare che il \(\delta\) dipende necessariamente da \(x_0\).
     Fissiamo \(x_0\) e \(\epsilon\). Dobbiamo soddisfare \(|x^2 - x_0^2| < \epsilon\).
     \[|x^2 - x_0^2| = |x-x_0| \cdot |x+x_0| < \delta |x+x_0|\]
@@ -828,6 +838,7 @@ Di seguito sono elencati i principali limiti notevoli utili per la risoluzione d
 
 \ex{
     \textbf{Esempio 2: \(f(x) = \sin(x)\) (Uniformemente Continua)}
+    
     Vogliamo trovare un \(\delta\) che dipenda solo da \(\epsilon\).
     \[|\sin(x_1) - \sin(x_2)| = \left| 2 \cos\left(\frac{x_1+x_2}{2}\right) \sin\left(\frac{x_1-x_2}{2}\right) \right|\]
     Usando \(|\cos| \le 1\) e \(|\sin t| \le |t|\):
@@ -835,29 +846,27 @@ Di seguito sono elencati i principali limiti notevoli utili per la risoluzione d
     Quindi basta scegliere \(\delta = \epsilon\) per soddisfare la condizione. Il \(\delta\) non dipende da \(x\).
 }
 
-\defn{Uniforme Continuità}{
-    Sia \(f: A \subseteq \mathbb{R} \to \mathbb{R}\).
-    \(f\) si dice \textbf{uniformemente continua} in \(A\) se:
-    \[\forall \epsilon > 0 \exists \delta > 0 : \forall x, x' \in A, |x - x'| < \delta \implies |f(x) - f(x')| < \epsilon\]
-    (Qui il \(\delta\) dipende solo da \(\epsilon\)).
-}
-
+\subsubsection{Teorema di Heine-Cantor}
 \thm{Teorema di Heine-Cantor}{
     Sia \(f:[a,b]\to \mathbb{R}\) continua \(\implies f\) è uniformemente continua.
 }
-
 \pf{
     Supponiamo per assurdo che $f$ non è uniformemente continua.
 \[\exists \epsilon_{0}>0 : \forall \delta>0 \exists x_{\delta},x'_{\delta}:|x_{\delta}-x'_{\delta}|<\delta \; \text{ ma } |f(x_{\delta})-f(x'_{\delta})|\geq\epsilon_{0}\]
 Scelto $\delta=\frac{1}{n}$ trovo
 \[x_{n} \text{ e } x'_{n}:|x_{n}-x'_{n}|< \frac{1}{n} \qquad |f(x_{n})-f(x'_{n})|\geq\epsilon_{0}\]
-con $x_{n},x'_{n} \in[a,b]$ per il Teorema di Heine-Borel:
-\begin{align*}
-& \exists x_{n_{k}},x'_{n_{k}} \text{ convergenti } x_{n_{k}}\to x_{0}\in[a,b]\implies \\
-&\implies x_{n_{k}},x'_{n_{k}}\to x_{0}\in[a,b] \text{ ma } f \text{ è continua in } x_{0} \implies |f(x_{n_{k}})-f(x'_{n_{k}})|<\epsilon_{0}
-\end{align*}}
+con $x_{n},x'_{n} \in[a,b]$. Per il Teorema di Heine-Borel, esiste una sottosuccessione $(x_{n_k})$ convergente: $x_{n_{k}}\to x_{0}\in[a,b]$.
 
-\subsection{Lipschitziana}
+Di conseguenza, poiché $|x_{n_k}-x'_{n_k}|<\frac{1}{n_k}\to 0$, anche $x'_{n_k}\to x_0$ per il teorema del confronto.
+
+Ma $f$ è continua in $x_{0}$, quindi
+\[f(x_{n_k})\to f(x_0) \quad \text{e} \quad f(x'_{n_k})\to f(x_0)\]
+da cui $|f(x_{n_k})-f(x'_{n_k})|\to 0$.
+
+Questo contraddice $|f(x_n)-f(x'_n)|\geq\epsilon_{0}$ per ogni $n$ (e quindi anche per $n=n_k$).
+}
+
+\subsection{Funzioni Lipschitziane}
 
 \defn{Lipschitziana}{
     Sia \(f: A \subseteq \mathbb{R}\to \mathbb{R}\).
@@ -868,8 +877,6 @@ con $x_{n},x'_{n} \in[a,b]$ per il Teorema di Heine-Borel:
 \rmkb{
     Una funzione Lipschitziana è sempre uniformemente continua (basta scegliere \(\delta = \epsilon / L\)).
 }
-
-
 %-----ASINTOTI-----%
 \section{Asintoti}
 \label{asintoti}
