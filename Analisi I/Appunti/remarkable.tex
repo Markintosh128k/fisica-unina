@@ -1,0 +1,108 @@
+\documentclass[oneside,11pt]{book} % 11pt è più leggibile su e-ink
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage[pdfencoding=auto]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{framed}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{environ}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems,skins,breakable}
+\usepackage{bookmark}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage[T1]{fontenc}
+\usepackage{mathtools}
+\usepackage{centernot}
+\usepackage{cancel}
+\usepackage[section]{placeins}
+
+% === OTTIMIZZAZIONI PER REMARKABLE 2 ===
+
+% Geometria ottimizzata per reMarkable 2 (rapporto 4:3, ~157×210mm area utile)
+\geometry{
+    paperwidth=157mm,
+    paperheight=210mm,
+    margin=12mm,        % Margini uniformi ridotti
+    top=15mm,           % Margine superiore leggermente maggiore
+    bottom=15mm,
+    headheight=12pt,
+    headsep=8pt,
+    footskip=20pt
+}
+
+% Spaziatura ottimizzata per e-ink (maggiore contrasto visivo)
+\setstretch{1.3} % Aumentata per migliore leggibilità
+
+% Font più pesante per e-ink (opzionale, richiede lmodern)
+\usepackage{lmodern}
+
+% Configurazione elenchi con più spazio
+\setlist[itemize]{topsep=6pt, partopsep=3pt, itemsep=3pt, parsep=3pt}
+\setlist[enumerate]{topsep=6pt, partopsep=3pt, itemsep=3pt, parsep=3pt}
+
+% Riduzione uso colori (e-ink è in scala di grigi)
+% Modifica tcolorbox per usare solo bordi senza riempimenti colorati
+\tcbset{
+    colback=white,
+    colframe=black,
+    boxrule=0.5pt,
+    arc=2mm
+}
+
+% Hyperlink in nero (non blu) per e-ink
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=black,
+    citecolor=black,
+    pdfborder={0 0 0}
+}
+
+% === FINE OTTIMIZZAZIONI ===
+
+% Variabili personalizzate
+\def\notetitle{Analisi I}
+\def\noteauthor{
+    \textbf{Gianmarco Davini e Alessandro Alongi Gattone} \\
+    Appunti di Analisi I}
+\def\notedate{Anno Accademico 2025/2026}
+
+% Comandi matematici
+\newcommand{\sube}{\subseteq}
+\newcommand{\sub}{\subset}
+\newcommand{\notsub}{\not\subset}
+\newcommand{\rarr}{\rightarrow}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\input{theorems}
+\input{commands}
+
+\begin{document}
+\title{\textbf{\LARGE{\notetitle} \vspace*{10\baselineskip}}}
+\author{\noteauthor}
+\date{\notedate}
+\maketitle
+\newpage
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+
+\include{argomenti/insiemi}
+\include{argomenti/funzioni}
+\include{argomenti/numeri_complessi}
+\include{argomenti/successioni}
+\include{argomenti/limiti_di_funzioni}
+\include{argomenti/calcolo_differenziale}
+\include{argomenti/serie}
+\include{argomenti/integrali}
+
+\end{document}
