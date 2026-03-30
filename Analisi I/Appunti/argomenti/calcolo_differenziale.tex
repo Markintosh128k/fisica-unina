@@ -659,53 +659,75 @@ Tutti gli altri sono punti di non derivabilità.
     \end{center}
 }
 
-\subsection{Teoremi di de l'Hôpital}
+\subsection{Teoremi di De L'Hôpital}
 
-\thm{1° Teorema di de l'Hôpital}{
-    Siano $f,g$ derivabili in $]a,x_{0}[$ (con $x_{0}=+\infty$ eventualmente). Supponiamo che:
+\thm{1$^\circ$ Teorema di De L'Hôpital}{
+    Siano $f, g$ derivabili in $]a, x_{0}[$ (vale anche se $x_{0}=+\infty$, oppure $x_{0}=-\infty$ se si considera $]x_{0}, b[$). 
+    Se risulta che:
     \begin{enumerate}
-        \item $\displaystyle \lim_{ x \to x_{0} } f(x)=\lim_{ x \to x_{0} } g(x)=0$
-        \item $g'(x)\neq 0 \; \forall x \in ]a,x_{0}[$
-        \item $\displaystyle \exists \lim_{ x \to x_{0} } \frac{f'(x)}{g'(x)}$
+        \item $\displaystyle \lim_{x \to x_{0}^-} f(x) = \lim_{x \to x_{0}^-} g(x) = 0$
+        \item $g'(x) \neq 0 \quad \forall x \in ]a, x_{0}[$
+        \item $\displaystyle \exists \lim_{x \to x_{0}^-} \frac{f'(x)}{g'(x)}$
     \end{enumerate}
     Allora:
-    \[ \lim_{ x \to x_{0} } \frac{f(x)}{g(x)}=\lim_{ x \to x_{0} } \frac{f'(x)}{g'(x)} \]
-}
-
-\ex{
-    Esempio Utilizzo SBAGLIATO del Teo
-    \begin{align*}
-    & x_{0}=0\\
-    &f(x)=x^2 \cos \frac{1}{x}\\
-    & g(x)=e^x-1\to 0\\
-    & \lim_{ x \to 0 } \frac{f'(x)}{g'(x)}=\lim_{ x \to 0 } \frac{2x \cos \frac{1}{x}+ \sin \frac{1}{x}}{e^x}= \not \exists \\
-    & \lim_{ x \to 0 } \frac{f(x)}{g(x)}=0 
-    \end{align*}
+    \[ \lim_{x \to x_{0}^-} \frac{f(x)}{g(x)} = \lim_{x \to x_{0}^-} \frac{f'(x)}{g'(x)} \]
+    (se il tutto nel caso di $x_{0} \in \mathbb{R}$ è definito in un intorno completo, vale anche da destra e bilatero).
 }
 
 \pf{
     \begin{enumerate}
-        \item Suppongo $x_{0} \in \mathbb{R}$ e usando la 1) prolungo $f,g$ in $x_{0}$.
-        \item Osserviamo che $g(x)\neq 0\; \forall x \in ]a,x_{0}[$ perchè altrimenti Rolle andrebbe in contrasto con la 2) (delle hp).
-        \item Sia $x_{n}\in]a, x_{0}[ \;\forall n$ e $x_{n}\to x_{0}$ e poniamo:
-        \[ h(t)=f(t)g(x_{n})-g(t)f(x_{n}) \quad t \in]a,x_{0}[ \]
-        Applico Rolle ad $h(t)$ in $[x_{n},x_{0}]$:
+        \item Supponiamo che $x_{0} \in \mathbb{R}$. Se $x_{0} = \pm\infty$ definiamo $t = \frac{1}{x}$, pertanto $f,g$ saranno in $]0, \frac{1}{a}[$ dove la dimostrazione è analoga.
+        Usando l'ipotesi 1), prolunghiamo $f$ e $g$ per continuità in $x_{0}$, ponendo $f(x_{0}) = g(x_{0}) = 0$.
+        
+        \item Osserviamo che dev'essere $g(x) \neq 0 \; \forall x \in ]a, x_{0}[$. Infatti, avendo prolungato $g$ in $x_{0}$, se esistesse $x_{2} \in ]a, x_{0}[$ tale che $g(x_{2}) = g(x_{0}) = 0$, per il Teorema di Rolle applicato in $[x_{2}, x_{0}]$ esisterebbe $c \in ]x_{2}, x_{0}[$ tale che $g'(c) = 0$. Ma questo andrebbe in contrasto con l'ipotesi 2) per cui $g'(x) \neq 0 \; \forall x \in ]a, x_{0}[$.
+        
+        \item Sia ora $x_{n} \in ]a, x_{0}[ \; \forall n$ una successione tale che $x_{n} \to x_{0}^-$. Poniamo:
+        \[ h(t) = f(t)g(x_{n}) - g(t)f(x_{n}) \quad \text{dove } t \in [x_{n}, x_{0}] \]
+        
+        \item Valutiamo $h(t)$ agli estremi dell'intervallo $[x_{n}, x_{0}]$:
         \begin{itemize}
-            \item $h(x_{n})=0$
-            \item $h(x_{0})=0\implies \exists c_{n} \in ]x_{n}, x_{0}[:$
-            \[ h'(c_{n})=0\implies 0=f'(c_{n})g(x_{n})-g'(c_{n})f(x_{n})\implies \frac{f'(c_{n})}{g'(c_{n})}=\frac{f(x_{n})}{g(x_{n})} \]
+            \item $h(x_{n}) = f(x_{n})g(x_{n}) - g(x_{n})f(x_{n}) = 0$
+            \item $h(x_{0}) = f(x_{0})g(x_{n}) - g(x_{0})f(x_{n}) = 0 \cdot g(x_{n}) - 0 \cdot f(x_{n}) = 0$
         \end{itemize}
+        Pertanto, per il Teorema di Rolle applicato ad $h(t)$, $\exists c_{n} \in ]x_{n}, x_{0}[$ tale che $h'(c_{n}) = 0$.
+        
+        \item Consideriamo la derivata $h'(t)$:
+        \[ h'(t) = f'(t)g(x_{n}) - g'(t)f(x_{n}) \]
+        Imponendo $h'(c_{n}) = 0$, si ha:
+        \[ f'(c_{n})g(x_{n}) - f(x_{n})g'(c_{n}) = 0 \]
+        Di conseguenza:
+        \[ \frac{f'(c_{n})}{g'(c_{n})} = \frac{f(x_{n})}{g(x_{n})} \]
+        
+        \item Poiché $x_{n} \to x_{0}^-$ e $c_{n}$ è compreso tra $x_{n}$ e $x_{0}$, anche $c_{n} \to x_{0}^-$. Passando al limite per $n \to +\infty$:
+        \[ \lim_{n \to +\infty} \frac{f'(c_{n})}{g'(c_{n})} = \lim_{n \to +\infty} \frac{f(x_{n})}{g(x_{n})} \]
+        Poiché $x_{n} \to x_{0}^-$ è una generica successione con $x_{n} \in ]a, x_{0}[$, per il teorema ponte potremo riscrivere tutto nel seguente modo tramite limiti di funzione:
+        \[ \lim_{x \to x_{0}^-} \frac{f(x)}{g(x)} = \lim_{x \to x_{0}^-} \frac{f'(x)}{g'(x)} \]
     \end{enumerate}
 }
 
-\thm{2° Teorema di de l'Hôpital}{
-    Se nella 1) del Teo di prima sostituiamo la seguente:
-    \begin{itemize}
-        \item[1b)] $\lim_{ x \to x_{0} } |f(x)|=\lim_{ x \to x_{0} } |g(x)|=+\infty$
-        \item[2b)] ...
-        \item[3b)] ...
-    \end{itemize}
-    $\implies$ Vale la stessa Tesi.
+\ex{
+    Esempio di utilizzo SBAGLIATO del Teorema:
+    \begin{align*}
+        & x_{0} = 0 \\
+        & f(x) = x^2 \cos\left(\frac{1}{x}\right) \\
+        & g(x) = e^x - 1 \to 0 \\
+        & \lim_{x \to 0} \frac{f'(x)}{g'(x)} = \lim_{x \to 0} \frac{2x \cos\left(\frac{1}{x}\right) + \sin\left(\frac{1}{x}\right)}{e^x} \text{ non esiste} \\
+        & \lim_{x \to 0} \frac{f(x)}{g(x)} = 0 
+    \end{align*}
+}
+
+\thm{2$^\circ$ Teorema di De L'Hôpital}{
+    Siano $f, g$ derivabili in $]a, x_{0}[$ (con $x_{0}=+\infty$ eventualmente).
+    (Vale anche considerando $]x_{0}, b[$ con $x_{0}=-\infty$ eventualmente).
+    
+    Se risulta che:
+    \begin{enumerate}
+        \item $\displaystyle \lim_{x \to x_{0}} |f(x)| = \lim_{x \to x_{0}} |g(x)| = +\infty$
+        \item $g'(x) \neq 0 \quad \forall x \in ]a, x_{0}[$
+        \item $\displaystyle \exists \lim_{x \to x_{0}} \frac{f'(x)}{g'(x)}$
+    \end{enumerate}
+    Allora:
+    \[ \lim_{x \to x_{0}} \frac{f(x)}{g(x)} = \lim_{x \to x_{0}} \frac{f'(x)}{g'(x)} \]
 }
 
 
